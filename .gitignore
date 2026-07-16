@@ -2,3 +2,4 @@ local-only/
 .DS_Store
 __pycache__/
 .pytest_cache/
+.codex-pet-runs/blue-gown-scholar/

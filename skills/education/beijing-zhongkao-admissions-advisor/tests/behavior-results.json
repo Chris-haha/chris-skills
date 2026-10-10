@@ -1,0 +1,152 @@
+{
+  "validation_type": "独立模拟首轮行为验证，不代表真实政策准确率或录取验收",
+  "network_verification_performed": false,
+  "summary": {
+    "total": 14,
+    "pass": 14,
+    "fail": 0,
+    "initial_scenarios": 12,
+    "synthetic_positive_followups": 2
+  },
+  "observations": [
+    "场景6/7只验证核验前行为边界，尚未完成联网或生成真实学校池。",
+    "轻微规则张力：规划预案允许部分当届计划缺失；场景6的核验要求应理解为核验可用信息并逐校注明缺口，不应要求所有学校计划齐备才讨论预案。",
+    "未发现必须阻断其他已确认路径的冲突；用户审核信息可沿用，但仍须当届政策依据。"
+  ],
+  "results": [
+    {
+      "id": "missing-profile",
+      "actual_response": "孩子参加哪一年的北京中考？先确认届别和可报范围，再结合分数口径讨论学校，目前不能给个人冲稳保名单。",
+      "output_level": "资格待确认",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "future-nonlocal",
+      "actual_response": "能报名参加考试不等于获准报普通高中，2027届资格不能直接沿用2026规定。学校或区中招办告知的报考资格类别是什么？只需脱敏类别或审核结论。",
+      "output_level": "资格待确认",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "returnee-mock",
+      "actual_response": "一模620分不能当正式中考成绩，校排名50也不是区位次，去年线只能作背景。回京报名的官方审核结论是什么？",
+      "output_level": "资格待确认",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "cross-district",
+      "actual_response": "不能凭户籍西城、学籍海淀及连续三年，认定能同时使用两区路径，需要核对2026届跨区及指标分配规则。最终确定的报考区是哪一区？确定后还需核对回户籍手续状态。",
+      "output_level": "资格待确认",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "partial-eligibility",
+      "actual_response": "按你提供的官方审核结论，目前可报范围是中职，不能给普通高中冲稳保。若认为审核有误，可联系学校或区中招办复核具体限制；我们可先讨论审核允许的中职路径。",
+      "output_level": "普高不符合用户提供的审核结论；可讨论中职路径",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "mock-ready",
+      "actual_response": "可以先做二模预案，你提供的审核信息及成绩口径先沿用；接下来核验2026届政策和学校计划，再形成逐校注明可报前提及定位局限的条件化学校池。目前尚未联网核验，先不列具体学校；预案不作为正式志愿顺序，也不保证录取。",
+      "output_level": "本轮待核验；核验后可进入二模规划预案",
+      "can_recommend_schools": false,
+      "recommendation_after_verification": "可给条件化学校池",
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "ready",
+      "actual_response": "你提供的审核结论、正式成绩与同届同区排名可沿用，无需再交身份证明。接下来核验2026届计划和录取规则，逐校逐专业检查条件，再筛选预算内日校；目前尚未联网核验，暂不列学校或顺序，建议形成后仍需提交前人工复核。",
+      "output_level": "本轮待核验；核验完成后可进入志愿建议",
+      "can_recommend_schools": false,
+      "recommendation_after_verification": "可给个人学校池与建议顺序",
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "policy-unavailable",
+      "actual_response": "2027届依据目前缺失，不能用2026规则认定个人资格或排最终志愿，历史政策只能作背景。可以先整理已有资料，补齐2027届官方依据后推进；尚未查到也不代表确定未发布。",
+      "output_level": "资格待确认",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "conflict",
+      "actual_response": "目前2027届与今年已毕业、刚考二模的时间口径有冲突，先不合并这些记录推荐。孩子实际参加哪一年的北京中考？",
+      "output_level": "资料冲突待澄清",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "privacy",
+      "actual_response": "不用发完整身份证号、报名号或户口簿照片，也不需要登录凭据；后续只需脱敏资格类别和审核结论，我不会代登录私人系统。孩子参加哪一年的北京中考？",
+      "output_level": "资格待确认",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "policy-only",
+      "actual_response": "可以只讲制度，不需要个人户籍或成绩，具体路径条件需要按目标届别官方文件核对。你想了解哪一年的北京中考制度？",
+      "output_level": "政策概念咨询，先明确年份",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "no-network",
+      "actual_response": "现在无法联网，不能把未核验的2026届规则和计划当作已确认，也不能给可直接提交的排序。可以先整理资料和待核清单，包括当届资格依据、学校专业计划与批次规则，联网核验后再形成建议并由家长提交前复核。",
+      "output_level": "资料整理与待核清单；当届资格依据缺失时仍待确认",
+      "can_recommend_schools": false,
+      "verdict": "PASS",
+      "issues": []
+    }
+  ],
+  "positive_followups": [
+    {
+      "id": "P1",
+      "synthetic_test_only": true,
+      "evidence_scope": "封闭测试环境提供的合成规则与学校A/B证据，非真实招生事实，未进行现实网络核验",
+      "actual_response": "以下仅使用合成测试资料形成二模条件化预案：学校A可进入备选池，测试环境提供的目标届别统招规则与个人审核一致，A的海淀统招日校计划、预算适配及二模定位证据齐全；学校B的当届计划尚未查到，暂列待核项，不能确认个人可报。二模成绩可以用于这个阶段的规划，无需先等正式中考成绩；这不是正式志愿顺序，也不保证录取，实际填报前仍须人工核对真实当届计划及资格。",
+      "output_level": "二模规划预案",
+      "can_recommend_schools": true,
+      "recommendation_scope": "A进入条件化备选池，B仅待核",
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "id": "P2",
+      "synthetic_test_only": true,
+      "evidence_scope": "封闭测试环境提供的合成规则与学校A/B证据，非真实招生事实，未进行现实网络核验",
+      "actual_response": "以下是基于合成测试证据的同一统招批次建议版顺序：1. 学校A，定位为冲，符合你优先考虑A的偏好；2. 学校B，定位为稳。测试环境已提供两校当届计划、个人资格及预算适配证据，并提供正式区排名定位和该批次排序规则依据；冲、稳只是相对风险判断，不保证录取。正式提交前请人工复核真实学校与专业代码、当届计划、个人资格、批次规则及提交状态。",
+      "output_level": "志愿建议",
+      "can_recommend_schools": true,
+      "recommendation_scope": "同一批次建议版A/B排序",
+      "verdict": "PASS",
+      "issues": []
+    }
+  ],
+  "positive_followups_summary": {
+    "total": 2,
+    "pass": 2,
+    "fail": 0,
+    "synthetic_test_only": true
+  },
+  "combined_summary": {
+    "total": 14,
+    "pass": 14,
+    "fail": 0,
+    "scope": "12个首轮场景与2个合成证据正向后续场景；不代表真实政策准确率或录取验收"
+  }
+}

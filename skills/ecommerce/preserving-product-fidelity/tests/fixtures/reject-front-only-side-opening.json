@@ -1,0 +1,31 @@
+{
+  "mode": "commercial_exact_product",
+  "sources": [
+    {"id": "product-front", "role": "product_truth", "view": "front", "sha256": "8c96d8d491d78a9b4a13e43df84c530568e75ef4718604a332178801de7c1f72", "required": true},
+    {"id": "target-scene", "role": "target_scene", "view": "three_quarter", "sha256": "7147a94c3ac7ab1ac95095ee0a526ea931b9e67d625e5fa8e52bd16b4514bfd7", "required": false}
+  ],
+  "facts": [],
+  "topology": [],
+  "prompt_claims": [],
+  "reference_plan": {"tool_reference_limit": 5, "selected_source_ids": ["product-front", "target-scene"], "deterministic_atlases": []},
+  "scene_plan": {
+    "presentation_envelope": {
+      "visible_attachment_points": [], "supported_orientations": ["front"],
+      "visible_surfaces": ["front"],
+      "surface_evidence": {"front": ["product-front"]},
+      "must_remain_hidden": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"]
+    },
+    "final_orientation": "front",
+    "final_visible_surfaces": ["front", "right_side", "opening"],
+    "mirrored_product_view": false,
+    "visible_identity_critical_regions": [],
+    "redrawn_identity_critical_regions": [],
+    "permitted_scene_adjustments": ["model_pose", "hand_placement", "crop", "product_position"],
+    "applied_scene_adjustments": [],
+    "forbidden_invented_regions": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"]
+  },
+  "method": {"type": "deterministic_composite"},
+  "approval": {"confirmed_fact_ids": []},
+  "qa": {"overall_verdict": "pass"},
+  "delivery_status": "verified_composite"
+}

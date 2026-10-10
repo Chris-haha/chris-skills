@@ -1,0 +1,282 @@
+Task 3 RED/GREEN evidence
+=========================
+
+RED — 2026-09-13
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_unknown_handle_count_cannot_support_exactly_one_claim -v; python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_generic_approval_does_not_confirm_hidden_structure -v
+
+Exit code: 1
+
+Output:
+    test_unknown_handle_count_cannot_support_exactly_one_claim (__main__.ValidateFidelityManifestTests) ... FAIL
+
+    ======================================================================
+    FAIL: test_unknown_handle_count_cannot_support_exactly_one_claim (__main__.ValidateFidelityManifestTests)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 84, in test_unknown_handle_count_cannot_support_exactly_one_claim
+        self.assertRejected(result, "UNSUPPORTED_PROMPT_CLAIM")
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 38, in assertRejected
+        self.assertNotEqual(result.returncode, 0)
+    AssertionError: 0 == 0
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.023s
+
+    FAILED (failures=1)
+    test_generic_approval_does_not_confirm_hidden_structure (__main__.ValidateFidelityManifestTests) ... FAIL
+
+    ======================================================================
+    FAIL: test_generic_approval_does_not_confirm_hidden_structure (__main__.ValidateFidelityManifestTests)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 89, in test_generic_approval_does_not_confirm_hidden_structure
+        self.assertRejected(result, "UNRESOLVED_HIGH_RISK_FACT")
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 38, in assertRejected
+        self.assertNotEqual(result.returncode, 0)
+    AssertionError: 0 == 0
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.025s
+
+    FAILED (failures=1)
+
+GREEN — 2026-09-13
+
+Command:
+    python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Exit code: 0
+
+Output:
+    test_generic_approval_does_not_confirm_hidden_structure (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_invalid_utf8_manifest_is_rejected_as_structured_json (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_non_string_delivery_status_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_unknown_handle_count_cannot_support_exactly_one_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 5 tests in 0.114s
+
+    OK
+
+GREEN compile check — 2026-09-13
+
+Command:
+    python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Exit code: 0
+
+Output:
+    (no output)
+
+Oversized-coordinate boundary follow-up — 2026-09-13
+=======================================================
+
+RED
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_arbitrarily_large_evidence_integer_is_structured_rejection -v
+
+Exit code: 1
+
+Output:
+    test_arbitrarily_large_evidence_integer_is_structured_rejection (__main__.ValidateFidelityManifestTests) ...
+    ======================================================================
+    ERROR: test_arbitrarily_large_evidence_integer_is_structured_rejection (__main__.ValidateFidelityManifestTests) (bit_length=1024)
+    ----------------------------------------------------------------------
+    The validator produced no JSON output for `(1 << 1024) - 1`, because the
+    normalized-region addition coerced that integer to float and overflowed.
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.052s
+
+    FAILED (errors=1)
+
+GREEN
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_arbitrarily_large_evidence_integer_is_structured_rejection -v
+
+Exit code: 0
+
+Output:
+    test_arbitrarily_large_evidence_integer_is_structured_rejection (__main__.ValidateFidelityManifestTests) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.048s
+
+    OK
+
+GREEN full suite
+
+Command:
+    python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Exit code: 0
+
+Output:
+    Ran 26 tests in 1.153s
+
+    OK
+
+GREEN compile check
+
+Command:
+    python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Exit code: 0
+
+Output:
+    (no output)
+
+Second quality-review hardening — 2026-09-13
+===============================================
+
+RED
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_fact_and_topology_statuses_must_be_strings ValidateFidelityManifestTests.test_arbitrarily_large_evidence_integer_is_structured_rejection ValidateFidelityManifestTests.test_scene_plan_must_be_an_object ValidateFidelityManifestTests.test_identity_region_lists_must_contain_nonempty_string_ids ValidateFidelityManifestTests.test_redrawn_unknown_high_risk_fact_is_rejected_without_claim -v
+
+Exit code: 1
+
+Output:
+    test_fact_and_topology_statuses_must_be_strings (__main__.ValidateFidelityManifestTests) ... test_arbitrarily_large_evidence_integer_is_structured_rejection (__main__.ValidateFidelityManifestTests) ... ERROR
+    test_scene_plan_must_be_an_object (__main__.ValidateFidelityManifestTests) ... FAIL
+    test_identity_region_lists_must_contain_nonempty_string_ids (__main__.ValidateFidelityManifestTests) ... FAIL
+    test_redrawn_unknown_high_risk_fact_is_rejected_without_claim (__main__.ValidateFidelityManifestTests) ... ok
+
+    The status-list/status-object subtests crashed the CLI before it emitted
+    JSON; the large integer evidence test likewise crashed before emitting a
+    structured payload.  `scene_plan = null` and malformed identity-region
+    lists were incorrectly accepted.  The complete terminal transcript is
+    retained in this task's tool evidence; the failures above identify the
+    reproducing tests and root causes.
+
+GREEN
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_fact_and_topology_statuses_must_be_strings ValidateFidelityManifestTests.test_arbitrarily_large_evidence_integer_is_structured_rejection ValidateFidelityManifestTests.test_scene_plan_must_be_an_object ValidateFidelityManifestTests.test_identity_region_lists_must_contain_nonempty_string_ids ValidateFidelityManifestTests.test_redrawn_unknown_high_risk_fact_is_rejected_without_claim -v
+
+Exit code: 0
+
+Output:
+    test_fact_and_topology_statuses_must_be_strings (__main__.ValidateFidelityManifestTests) ... ok
+    test_arbitrarily_large_evidence_integer_is_structured_rejection (__main__.ValidateFidelityManifestTests) ... ok
+    test_scene_plan_must_be_an_object (__main__.ValidateFidelityManifestTests) ... ok
+    test_identity_region_lists_must_contain_nonempty_string_ids (__main__.ValidateFidelityManifestTests) ... ok
+    test_redrawn_unknown_high_risk_fact_is_rejected_without_claim (__main__.ValidateFidelityManifestTests) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 5 tests in 0.232s
+
+    OK
+
+GREEN full suite
+
+Command:
+    python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Exit code: 0
+
+Output:
+    Ran 26 tests in 1.107s
+
+    OK
+
+GREEN compile check
+
+Command:
+    python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Exit code: 0
+
+Output:
+    (no output)
+
+Quality-review hardening — 2026-09-13
+========================================
+
+Broad RED command:
+    python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Exit code: 1
+
+The new strict-shape, evidence-boundary, duplicate-ID, and branch tests ran
+against the pre-hardening validator. It reported 19 failures: malformed
+records were skipped, duplicate supporting IDs passed, and invalid evidence
+regions were accepted. The subsequent validator changes implement the tested
+gates before claim lookup.
+
+Focused RED — unconfirmed topology approval — 2026-09-13
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_unapproved_user_confirmed_topology_has_distinct_diagnostic -v
+
+Exit code: 1
+
+Output:
+    test_unapproved_user_confirmed_topology_has_distinct_diagnostic (__main__.ValidateFidelityManifestTests) ... FAIL
+
+    ======================================================================
+    FAIL: test_unapproved_user_confirmed_topology_has_distinct_diagnostic (__main__.ValidateFidelityManifestTests)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 238, in test_unapproved_user_confirmed_topology_has_distinct_diagnostic
+        self.assertRejectedCodes(result, ["UNCONFIRMED_USER_FACT"])
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 67, in assertRejectedCodes
+        payload = self.assertRejected(result, expected_error_codes[0])
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 51, in assertRejected
+        self.assertNotEqual(result.returncode, 0)
+    AssertionError: 0 == 0
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.027s
+
+    FAILED (failures=1)
+
+GREEN — 2026-09-13
+
+Command:
+    python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Exit code: 0
+
+Output:
+    test_duplicate_fact_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_duplicate_topology_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_explicit_user_confirmation_with_evidence_is_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_fact_and_topology_id_collision_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_fact_and_topology_statuses_must_be_known (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_fact_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_generic_approval_does_not_confirm_hidden_structure (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_invalid_utf8_manifest_is_rejected_as_structured_json (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_missing_prompt_claim_support_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_non_string_delivery_status_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_observed_fact_without_evidence_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_records_require_nonempty_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_section_records_must_be_objects (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_sections_must_be_arrays (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_source_backed_topology_can_support_prompt_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_topology_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_unapproved_user_confirmed_fact_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_unapproved_user_confirmed_topology_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_unknown_handle_count_cannot_support_exactly_one_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+    test_visible_conflicting_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 21 tests in 0.893s
+
+    OK
+
+GREEN compile check — 2026-09-13
+
+Command:
+    python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Exit code: 0
+
+Output:
+    (no output)

@@ -1,0 +1,300 @@
+Task 4 — reference budget and atlas provenance
+
+RED command (before the Task 4 validator implementation):
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py -v
+
+Selected verbatim excerpts from the failing Task 4 output:
+test_atlas_provenance_requires_safe_complete_crop_mappings (__main__.ValidateFidelityManifestTests) ... FAIL
+test_atlases_cannot_have_unknown_parents_or_duplicate_ids (__main__.ValidateFidelityManifestTests) ... FAIL
+test_reference_plan_collections_are_not_treated_as_empty_coverage (__main__.ValidateFidelityManifestTests) ... FAIL
+test_required_product_sources_cannot_be_dropped_to_fit_reference_limit (__main__.ValidateFidelityManifestTests) ... FAIL
+test_selected_deterministic_atlases_preserve_required_source_coverage (__main__.ValidateFidelityManifestTests) ... ok
+test_selected_reference_ids_must_be_known_and_fit_the_limit (__main__.ValidateFidelityManifestTests) ... FAIL
+
+======================================================================
+FAIL: test_required_product_sources_cannot_be_dropped_to_fit_reference_limit (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 115, in test_required_product_sources_cannot_be_dropped_to_fit_reference_limit
+    self.assertRejected(result, "UNCOVERED_REQUIRED_SOURCE")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 51, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_atlas_provenance_requires_safe_complete_crop_mappings (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 163, in test_atlas_provenance_requires_safe_complete_crop_mappings
+    self.assertRejected(result, "NONDETERMINISTIC_ATLAS")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 51, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_atlases_cannot_have_unknown_parents_or_duplicate_ids (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 195, in test_atlases_cannot_have_unknown_parents_or_duplicate_ids
+    self.assertRejected(result, "UNKNOWN_ATLAS_PARENT_SOURCE")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 51, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_selected_reference_ids_must_be_known_and_fit_the_limit (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 146, in test_selected_reference_ids_must_be_known_and_fit_the_limit
+    self.assertRejected(result, "UNKNOWN_SELECTED_REFERENCE")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 51, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 32 tests in 1.595s
+
+FAILED (failures=7)
+
+Additional RED command for malformed sources (added after the first green cycle):
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_sources_must_not_silently_become_an_empty_coverage_set -v
+test_sources_must_not_silently_become_an_empty_coverage_set (__main__.ValidateFidelityManifestTests) ... FAIL
+
+======================================================================
+FAIL: test_sources_must_not_silently_become_an_empty_coverage_set (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 146, in test_sources_must_not_silently_become_an_empty_coverage_set
+    self.assertRejected(result, "INVALID_SOURCES_COLLECTION")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertIn(
+AssertionError: 'INVALID_SOURCES_COLLECTION' not found in ['UNKNOWN_SELECTED_REFERENCE', 'UNKNOWN_SELECTED_REFERENCE', 'UNKNOWN_SELECTED_REFERENCE']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.026s
+
+FAILED (failures=1)
+
+GREEN commands:
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+.................................
+----------------------------------------------------------------------
+Ran 33 tests in 1.367s
+
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests
+.................................
+----------------------------------------------------------------------
+Ran 33 tests in 1.365s
+
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Malformed source-role guard RED (real CLI subprocess path):
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene -v
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) ...
+======================================================================
+ERROR: test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) (role='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 319, in test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene
+    self.assertRejected(result, "INVALID_SOURCE_ROLE")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 52, in assertRejected
+    payload = json.loads(result.stdout)
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+ERROR: test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) (role='{}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 319, in test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene
+    self.assertRejected(result, "INVALID_SOURCE_ROLE")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 52, in assertRejected
+    payload = json.loads(result.stdout)
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+----------------------------------------------------------------------
+Ran 1 test in 0.176s
+
+FAILED (errors=2)
+
+Malformed source-role guard GREEN and fresh verification:
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene -v
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.177s
+
+OK
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.905s
+
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.980s
+
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Final selected-reference duplicate RED:
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_duplicate_selected_references_are_rejected -v
+test_duplicate_selected_references_are_rejected (__main__.ValidateFidelityManifestTests) ... FAIL
+
+======================================================================
+FAIL: test_duplicate_selected_references_are_rejected (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 377, in test_duplicate_selected_references_are_rejected
+    self.assertRejected(result, "DUPLICATE_SELECTED_REFERENCE")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertIn(
+AssertionError: 'DUPLICATE_SELECTED_REFERENCE' not found in ['UNKNOWN_SELECTED_REFERENCE', 'UNKNOWN_SELECTED_REFERENCE', 'UNCOVERED_REQUIRED_SOURCE', 'UNCOVERED_REQUIRED_SOURCE']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.050s
+
+FAILED (failures=1)
+
+Final selected-reference duplicate GREEN and fresh full verification:
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_duplicate_selected_references_are_rejected -v
+test_duplicate_selected_references_are_rejected (__main__.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.056s
+
+OK
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.859s
+
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.846s
+
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Final role-gate RED (added after the initial remediation GREEN to cover unknown facts):
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene -v
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) ... FAIL
+
+======================================================================
+FAIL: test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 335, in test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene
+    self.assertRejected(result, "INVALID_PRODUCT_EVIDENCE_SOURCE_ROLE")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertIn(
+AssertionError: 'INVALID_PRODUCT_EVIDENCE_SOURCE_ROLE' not found in ['UNSUPPORTED_PROMPT_CLAIM']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.099s
+
+FAILED (failures=1)
+
+Final role-gate GREEN and fresh full verification:
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene -v
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.122s
+
+OK
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.814s
+
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.840s
+
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Review-remediation RED (before the review fixes):
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py -v
+
+Selected verbatim excerpts from that output:
+test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (__main__.ValidateFidelityManifestTests) ... FAIL
+test_duplicate_selected_references_are_rejected (__main__.ValidateFidelityManifestTests) ... FAIL
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) ... FAIL
+test_sources_and_atlases_require_sha256_hashes (__main__.ValidateFidelityManifestTests) ... FAIL
+
+======================================================================
+FAIL: test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 266, in test_atlas_output_regions_cannot_overlap_or_duplicate_mappings
+    self.assertRejected(result, "OVERLAPPING_ATLAS_OUTPUT_REGION")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 51, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_sources_and_atlases_require_sha256_hashes (__main__.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 229, in test_sources_and_atlases_require_sha256_hashes
+    self.assertRejected(result, "MISSING_SOURCE_HASH")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 51, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 40 tests in 1.645s
+
+FAILED (failures=10, errors=1)
+
+The single RED error was a test-authoring typo (`false` instead of Python `False`) in
+`test_atlas_parents_cannot_be_target_scene_sources`; it was corrected before
+production-code changes. It was not a validator failure and is intentionally not
+presented as one.
+
+Review-remediation GREEN targeted probes:
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_sources_and_atlases_require_sha256_hashes ValidateFidelityManifestTests.test_atlas_output_regions_cannot_overlap_or_duplicate_mappings ValidateFidelityManifestTests.test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene -v
+test_sources_and_atlases_require_sha256_hashes (__main__.ValidateFidelityManifestTests) ... ok
+test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (__main__.ValidateFidelityManifestTests) ... ok
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (__main__.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.242s
+
+OK
+
+Review-remediation GREEN full verification:
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.803s
+
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests
+........................................
+----------------------------------------------------------------------
+Ran 40 tests in 1.809s
+
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py

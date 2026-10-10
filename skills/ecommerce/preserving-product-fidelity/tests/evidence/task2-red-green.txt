@@ -1,0 +1,150 @@
+Task 2 RED/GREEN evidence
+=========================
+
+RED — 2026-09-13
+
+Command:
+    python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Exit code: 1
+
+Output:
+    test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... FAIL
+
+    ======================================================================
+    FAIL: test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 44, in test_valid_deterministic_composite_passes
+        payload = self.assertAccepted(result)
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 24, in assertAccepted
+        self.assertEqual(result.returncode, 0, msg=result.stderr)
+    AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py': [Errno 2] No such file or directory
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.014s
+
+    FAILED (failures=1)
+
+This is the intended assertion-based RED: the test ran and rejected the
+nonzero CLI result caused by the missing validator.
+
+GREEN — 2026-09-13
+
+Command:
+    python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+    python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+    python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/fixtures/valid-deterministic-composite.json
+
+Exit code: 0
+
+Output:
+    test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.025s
+
+    OK
+    {"effective_delivery_status": "verified_composite", "errors": [], "valid": true}
+
+Environment/tooling note (not RED evidence)
+--------------------------------------------
+
+The originally requested dotted-path form below is invalid under the workspace
+Python 3.9 unittest runner before it loads a test, because `.codex` becomes an
+empty leading module component:
+
+    python3 -m unittest .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py -v
+
+It exits 1 with `ValueError: Empty module name`. Discovery is therefore the
+canonical test command for this hidden-directory suite.
+
+Quality-review follow-up: invalid encoding RED/GREEN
+-----------------------------------------------------
+
+RED — 2026-09-13
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_invalid_utf8_manifest_is_rejected_as_structured_json -v
+
+Exit code: 1
+
+Output:
+    test_invalid_utf8_manifest_is_rejected_as_structured_json (__main__.ValidateFidelityManifestTests) ... ERROR
+
+    ======================================================================
+    ERROR: test_invalid_utf8_manifest_is_rejected_as_structured_json (__main__.ValidateFidelityManifestTests)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 61, in test_invalid_utf8_manifest_is_rejected_as_structured_json
+        self.assertRejected(result, "INVALID_ENCODING")
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 39, in assertRejected
+        payload = json.loads(result.stdout)
+    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.029s
+
+    FAILED (errors=1)
+
+The invalid UTF-8 input made the subprocess return nonzero without JSON stdout,
+so the test could not read the required failure envelope. The uncaught
+`UnicodeDecodeError` was on the subprocess stderr.
+
+GREEN — 2026-09-13
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_invalid_utf8_manifest_is_rejected_as_structured_json -v
+
+Exit code: 0
+
+Output:
+    test_invalid_utf8_manifest_is_rejected_as_structured_json (__main__.ValidateFidelityManifestTests) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.028s
+
+    OK
+
+Quality-review follow-up: delivery-status type RED/GREEN
+---------------------------------------------------------
+
+RED — 2026-09-13
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_non_string_delivery_status_is_rejected -v
+
+Exit code: 1
+
+Output:
+    test_non_string_delivery_status_is_rejected (__main__.ValidateFidelityManifestTests) ... FAIL
+
+    ======================================================================
+    FAIL: test_non_string_delivery_status_is_rejected (__main__.ValidateFidelityManifestTests)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 75, in test_non_string_delivery_status_is_rejected
+        self.assertRejected(result, "INVALID_FIELD_TYPE")
+      File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 38, in assertRejected
+        self.assertNotEqual(result.returncode, 0)
+    AssertionError: 0 == 0
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.026s
+
+    FAILED (failures=1)
+
+GREEN — 2026-09-13
+
+Command:
+    python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_non_string_delivery_status_is_rejected -v
+
+Exit code: 0
+
+Output:
+    test_non_string_delivery_status_is_rejected (__main__.ValidateFidelityManifestTests) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.025s
+
+    OK

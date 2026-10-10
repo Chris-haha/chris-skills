@@ -1,0 +1,7 @@
+interface:
+  display_name: "飞书电商工作流"
+  short_description: "自动运行飞书生图任务和 mock ERP 日报"
+  default_prompt: "Use $feishu-ecommerce-workflow to run the Feishu image generation or mock ERP reporting workflow."
+
+policy:
+  allow_implicit_invocation: true

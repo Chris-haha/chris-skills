@@ -1,0 +1,25 @@
+{
+  "mode": "commercial_exact_product",
+  "sources": [
+    {"id": "product-view-1", "role": "product_truth", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "required": true},
+    {"id": "product-view-2", "role": "product_truth", "sha256": "2222222222222222222222222222222222222222222222222222222222222222", "required": true},
+    {"id": "product-view-3", "role": "product_truth", "sha256": "3333333333333333333333333333333333333333333333333333333333333333", "required": true},
+    {"id": "product-view-4", "role": "product_truth", "sha256": "4444444444444444444444444444444444444444444444444444444444444444", "required": true},
+    {"id": "product-view-5", "role": "product_truth", "sha256": "5555555555555555555555555555555555555555555555555555555555555555", "required": true},
+    {"id": "product-view-6", "role": "product_truth", "sha256": "6666666666666666666666666666666666666666666666666666666666666666", "required": true},
+    {"id": "product-view-7", "role": "product_truth", "sha256": "7777777777777777777777777777777777777777777777777777777777777777", "required": true}
+  ],
+  "facts": [],
+  "topology": [],
+  "prompt_claims": [],
+  "reference_plan": {
+    "tool_reference_limit": 4,
+    "selected_source_ids": ["product-view-1", "product-view-2", "product-view-3", "product-view-4"],
+    "deterministic_atlases": []
+  },
+  "scene_plan": {"visible_identity_critical_regions": [], "redrawn_identity_critical_regions": []},
+  "method": {"type": "deterministic_composite"},
+  "approval": {"confirmed_fact_ids": []},
+  "qa": {"overall_verdict": "pass"},
+  "delivery_status": "verified_composite"
+}

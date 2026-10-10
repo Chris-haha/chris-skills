@@ -1,0 +1,1382 @@
+Task 8 documentation contract RED / GREEN evidence
+Date: 2026-09-13
+RED: documentation unchanged; 10 new static tests exercise missing operational rules.
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -k FidelityDocumentationContractTests -v
+Exit code: 1
+Exact output:
+test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... test_entrypoint_requires_fresh_predelivery_validation (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+test_entrypoint_requires_preflight_before_first_commercial_candidate (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... test_generic_preview_and_packaging_approval_cannot_confirm_facts (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+test_historical_facts_have_opening_nontransfer_warning (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... test_reference_limit_requires_provenance_atlas_or_blocking (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+
+======================================================================
+FAIL: test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1263, in test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing
+    self.require_rule(case_routes[0], r"仅.*该历史 SKU.*可选.*复盘", "Scope case reading to its historical SKU.")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Scope case reading to its historical SKU.
+
+======================================================================
+FAIL: test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) (document='SKILL.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1276, in test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope
+    self.require_rule(document, r"presentation_envelope", "Name the persisted envelope.")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Name the persisted envelope.
+
+======================================================================
+FAIL: test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) (document='references/product-truth-protocol.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1276, in test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope
+    self.require_rule(document, r"presentation_envelope", "Name the persisted envelope.")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Name the persisted envelope.
+
+======================================================================
+FAIL: test_entrypoint_requires_fresh_predelivery_validation (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1253, in test_entrypoint_requires_fresh_predelivery_validation
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Revalidate the updated manifest and verified status before delivery.
+
+======================================================================
+FAIL: test_entrypoint_requires_preflight_before_first_commercial_candidate (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1245, in test_entrypoint_requires_preflight_before_first_commercial_candidate
+    self.require_rule(skill, r"结构化 JSON manifest", "Require persisted structured evidence.")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Require persisted structured evidence.
+
+======================================================================
+FAIL: test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) (document='SKILL.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1288, in test_full_redraw_has_draft_ceiling_even_after_visual_approval
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Full redraw can never reach commercial verified status.
+
+======================================================================
+FAIL: test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) (document='references/product-truth-protocol.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1288, in test_full_redraw_has_draft_ceiling_even_after_visual_approval
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Full redraw can never reach commercial verified status.
+
+======================================================================
+FAIL: test_generic_preview_and_packaging_approval_cannot_confirm_facts (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1282, in test_generic_preview_and_packaging_approval_cannot_confirm_facts
+    self.require_rule(protocol, r"泛泛的.*确认.*预览.*包装.*不能.*未知结构", "Generic approval never resolves structure.")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Generic approval never resolves structure.
+
+======================================================================
+FAIL: test_historical_facts_have_opening_nontransfer_warning (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1269, in test_historical_facts_have_opening_nontransfer_warning
+    self.require_rule(opening, r"所有.*事实.*仅.*历史.*SKU", "Warn before any SKU facts are read.")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Warn before any SKU facts are read.
+
+======================================================================
+FAIL: test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1309, in test_manifest_reference_documents_real_cli_and_its_evidence_limit
+    reference = self.document("references/fidelity-manifest.md")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1237, in document
+    self.assertTrue(path.is_file(), f"Required workflow reference missing: {relative_path}")
+AssertionError: False is not true : Required workflow reference missing: references/fidelity-manifest.md
+
+======================================================================
+FAIL: test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) (document='SKILL.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1296, in test_only_validated_verified_composite_may_claim_exact_faithful_commercial
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : All exactness and commercial readiness claims require verified validation.
+
+======================================================================
+FAIL: test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) (document='references/product-truth-protocol.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1296, in test_only_validated_verified_composite_may_claim_exact_faithful_commercial
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : All exactness and commercial readiness claims require verified validation.
+
+======================================================================
+FAIL: test_reference_limit_requires_provenance_atlas_or_blocking (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1302, in test_reference_limit_requires_provenance_atlas_or_blocking
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1241, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : A reference budget cannot silently discard required evidence.
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.005s
+
+FAILED (failures=13)
+
+GREEN: final documentation implemented; original 82 validator tests retained and 10 static contract tests added.
+
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+Exit code: 0
+Exact output:
+test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_fresh_predelivery_validation (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_preflight_before_first_commercial_candidate (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_generic_preview_and_packaging_approval_cannot_confirm_facts (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_historical_facts_have_opening_nontransfer_warning (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_reference_limit_requires_provenance_atlas_or_blocking (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_arbitrarily_large_evidence_integer_is_structured_rejection (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_landmark_readability_must_be_a_boolean_when_present (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_parents_cannot_be_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_provenance_requires_safe_complete_crop_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlases_cannot_have_unknown_parents_or_duplicate_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_capability_complete_masked_contact_edit_can_be_verified (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_must_explicitly_hide_every_other_canonical_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_rejects_unknown_surface_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_exact_product_rejects_any_mirrored_product_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_concept_draft_cannot_be_mislabeled_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_detail_source_with_a_front_view_can_support_the_front_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_deterministic_composite_requires_preserved_product_pixels_and_protected_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_distinct_nonoverlapping_crops_from_one_parent_are_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_fact_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_selected_references_are_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_topology_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_cannot_self_authorize_a_right_side_with_front_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_orientation_must_be_supported_by_a_product_source_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_user_confirmation_with_evidence_is_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_id_collision_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_known (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_strings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_facts_require_closed_commercial_importance_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_failed_landmark_retains_rejection_with_invalid_source_or_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_final_surfaces_cannot_be_marked_hidden_or_forbidden (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_accepts_permitted_pose_and_crop_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_rejects_a_side_and_opening_in_the_final_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_cannot_be_delivered_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_is_allowed_only_as_an_unverified_draft (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_preserves_explicit_restrictive_delivery_statuses (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_generic_approval_does_not_confirm_hidden_structure (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_landmark_failure_rejects_the_delivery (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_region_lists_must_contain_nonempty_string_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_independent_blocker_outranks_full_redraw_delivery_ceiling (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_invalid_utf8_manifest_is_rejected_as_structured_json (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_and_protected_pixel_qa_verdicts_have_closed_string_enums (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_qa_requires_unique_source_backed_pass_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_malformed_landmarks_cannot_hide_protected_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_contact_edit_rejects_invalid_masks_and_scalar_method_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_generative_contact_requires_literal_protective_capabilities (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirrored_right_side_rejects_even_with_independent_right_side_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirroring_cannot_substitute_for_an_unphotographed_opposite_side (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_missing_prompt_claim_support_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mode_must_be_a_recognized_string_before_commercial_gates_branch (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_non_string_delivery_status_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_observed_fact_without_evidence_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_and_mirror_flag_cannot_be_malformed (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_requires_nonempty_typed_final_view_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_deformation_and_view_change_are_not_permitted_scene_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_view_evidence_must_be_a_nonempty_string (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_views_and_presentation_orientations_must_be_recognized (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_protected_pixel_qa_requires_complete_comparison_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_records_require_nonempty_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_redrawn_unknown_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_reference_plan_collections_are_not_treated_as_empty_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_required_product_sources_cannot_be_dropped_to_fit_reference_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_scene_plan_must_be_an_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_section_records_must_be_objects (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sections_must_be_arrays (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_deterministic_atlases_preserve_required_source_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_reference_ids_must_be_known_and_fit_the_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_backed_topology_can_support_prompt_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_and_atlases_require_sha256_hashes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_must_not_silently_become_an_empty_coverage_set (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_must_be_a_complete_typed_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_rejects_unknown_and_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_source_view_must_support_its_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_topology_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_fact_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_topology_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_delivery_status_is_rejected_by_the_real_cli (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_handle_count_cannot_support_exactly_one_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_rejects_protected_product_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_complete_well_formed_qa_proof (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_landmark_qa_for_all_visible_identity_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_visible_conflicting_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 92 tests in 3.880s
+
+OK
+
+Command: python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+Exit code: 0
+Exact output:
+
+Command: python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/fixtures/valid-deterministic-composite.json
+Exit code: 0
+Exact output:
+{"effective_delivery_status": "verified_composite", "errors": [], "valid": true}
+
+Command: rg -n 'TBD|TODO|FIXME|placeholder' .codex/skills/preserving-product-fidelity/SKILL.md .codex/skills/preserving-product-fidelity/references
+Exit code: 1
+Exact output:
+
+Command: cat .codex/skills/preserving-product-fidelity/agents/openai.yaml
+Exit code: 0
+Exact output:
+interface:
+  display_name: "Product Fidelity Compositing"
+  short_description: "Preserve exact product identity in model-photo swaps"
+  default_prompt: "Use $preserving-product-fidelity to replace a product in a model photo without inventing, duplicating, removing, or redesigning product details."
+
+Self-review:
+- No unfinished scaffold markers in Skill/references (rg exit 1 means no matches).
+- agents/openai.yaml remains unchanged; its generic identity-preservation prompt does not contradict fail-closed scope.
+- Validator policy and fixture files remain unchanged.
+- Documentation describes one-argument CLI accurately; prompt contract assembly is manual because CLI does not emit it.
+- SHA-256 syntax and declared provenance/QA are checked, not real file/image content or semantic support.
+- Current orientation mapping cannot expose opening/interior; documented as a conservative commercial limit.
+- Visible unknown topology without a prompt claim is not independently blocked by the current fact loop; escalated to parent for follow-up, with mandatory manual topology gate documented.
+
+Local Markdown link validation:
+Command: node -e 'const fs=require("fs"),path=require("path"); const base=".codex/skills/preserving-product-fidelity"; const files=[base+"/SKILL.md",...fs.readdirSync(base+"/references").filter(x=>x.endsWith(".md")).map(x=>base+"/references/"+x)];let count=0;for(const file of files){for(const match of fs.readFileSync(file,"utf8").matchAll(/\[[^\]]*\]\(([^)]+)\)/g)){const target=match[1];if(/^[a-z]+:\/\//i.test(target))continue;const resolved=path.resolve(path.dirname(file),target.split("#")[0]);if(!fs.existsSync(resolved))throw Error(file+" -> "+target);count++;}} console.log("PASS: "+count+" local Markdown link targets exist across "+files.length+" documents.");'
+Exit code: 0
+Exact output:
+PASS: 15 local Markdown link targets exist across 5 documents.
+
+Task 8 executable-contract follow-up RED (2026-09-13)
+The previous self-review limitations are historical observations, superseded by this follow-up.
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -k 'PromptContractAndTopologyTests' -v
+Exit code: 1
+Exact output:
+test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... FAIL
+test_emit_mode_is_deterministic_and_normal_mode_has_no_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... FAIL
+test_emit_mode_omits_hidden_unknowns_and_unrecognized_freeform_fields (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... FAIL
+test_emit_mode_preserves_ids_evidence_and_validated_edit_scope (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... FAIL
+test_empty_and_explicitly_confirmed_attachment_points_are_accepted (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_forbidden_mutations_require_support_and_export_only_validated_records (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... FAIL
+test_invalid_emit_request_never_returns_a_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... FAIL
+test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... 
+======================================================================
+FAIL: test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (point='invented_ring', status='observed', source='product-front')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1271, in test_attachment_points_must_be_resolved_source_backed_topology_endpoints
+    self.assertRejected(run_validator_data(data), "UNSUPPORTED_VISIBLE_ATTACHMENT_POINT")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (point='left_attachment', status='unknown', source='product-front')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1271, in test_attachment_points_must_be_resolved_source_backed_topology_endpoints
+    self.assertRejected(run_validator_data(data), "UNSUPPORTED_VISIBLE_ATTACHMENT_POINT")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (point='left_attachment', status='user_confirmed', source='product-front')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1271, in test_attachment_points_must_be_resolved_source_backed_topology_endpoints
+    self.assertRejected(run_validator_data(data), "UNSUPPORTED_VISIBLE_ATTACHMENT_POINT")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT' not found in ['UNCONFIRMED_USER_FACT']
+
+======================================================================
+FAIL: test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (point='left_attachment', status='observed', source='target-model-scene')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1271, in test_attachment_points_must_be_resolved_source_backed_topology_endpoints
+    self.assertRejected(run_validator_data(data), "UNSUPPORTED_VISIBLE_ATTACHMENT_POINT")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT' not found in ['INVALID_PRODUCT_EVIDENCE_SOURCE_ROLE']
+
+======================================================================
+FAIL: test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1256, in test_attachment_points_require_unique_nonempty_string_array
+    self.assertRejected(run_validator_data(data), "INVALID_VISIBLE_ATTACHMENT_POINTS")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (value='left_attachment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1256, in test_attachment_points_require_unique_nonempty_string_array
+    self.assertRejected(run_validator_data(data), "INVALID_VISIBLE_ATTACHMENT_POINTS")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (value=[''])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1256, in test_attachment_points_require_unique_nonempty_string_array
+    self.assertRejected(run_validator_data(data), "INVALID_VISIBLE_ATTACHMENT_POINTS")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (value=[1])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1256, in test_attachment_points_require_unique_nonempty_string_array
+    self.assertRejected(run_validator_data(data), "INVALID_VISIBLE_ATTACHMENT_POINTS")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (value=['left_attachment', 'left_attachment'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1256, in test_attachment_points_require_unique_nonempty_string_array
+    self.assertRejected(run_validator_data(data), "INVALID_VISIBLE_ATTACHMENT_POINTS")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1259, in test_attachment_points_require_unique_nonempty_string_array
+    self.assertRejected(run_validator_data(data), "INVALID_VISIBLE_ATTACHMENT_POINTS")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_emit_mode_is_deterministic_and_normal_mode_has_no_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1300, in test_emit_mode_is_deterministic_and_normal_mode_has_no_contract
+    self.assertAccepted(first)
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 46, in assertAccepted
+    self.assertEqual(result.returncode, 0, msg=result.stderr)
+AssertionError: 2 != 0 : 
+
+======================================================================
+FAIL: test_emit_mode_omits_hidden_unknowns_and_unrecognized_freeform_fields (test_validate_fidelity_manifest.PromptContractAndTopologyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1313, in test_emit_mode_omits_hidden_unknowns_and_unrecognized_freeform_fields
+    contract = self.assertAccepted(result)["prompt_contract"]
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 46, in assertAccepted
+    self.assertEqual(result.returncode, 0, msg=result.stderr)
+AssertionError: 2 != 0 : 
+
+======================================================================
+FAIL: test_emit_mode_preserves_ids_evidence_and_validated_edit_scope (test_validate_fidelity_manifest.PromptContractAndTopologyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1285, in test_emit_mode_preserves_ids_evidence_and_validated_edit_scope
+    contract = self.assertAccepted(result)["prompt_contract"]
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 46, in assertAccepted
+    self.assertEqual(result.returncode, 0, msg=result.stderr)
+AssertionError: 2 != 0 : 
+
+======================================================================
+FAIL: test_forbidden_mutations_require_support_and_export_only_validated_records (test_validate_fidelity_manifest.PromptContractAndTopologyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1332, in test_forbidden_mutations_require_support_and_export_only_validated_records
+    contract = self.assertAccepted(run_validator_data(data, emit_contract=True))["prompt_contract"]
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 46, in assertAccepted
+    self.assertEqual(result.returncode, 0, msg=result.stderr)
+AssertionError: 2 != 0 : 
+
+======================================================================
+FAIL: test_invalid_emit_request_never_returns_a_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1321, in test_invalid_emit_request_never_returns_a_contract
+    payload = self.assertRejected(run_validator_data(data, emit_contract=True), "UNSUPPORTED_PROMPT_CLAIM")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'UNSUPPORTED_PROMPT_CLAIM' not found in ['USAGE']
+
+======================================================================
+FAIL: test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (status='unknown', scope='visible_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1249, in test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim
+    self.assertRejected(run_validator_data(data), "UNRESOLVED_HIGH_RISK_TOPOLOGY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (status='unknown', scope='redrawn_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1249, in test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim
+    self.assertRejected(run_validator_data(data), "UNRESOLVED_HIGH_RISK_TOPOLOGY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (status='conflict', scope='visible_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1249, in test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim
+    self.assertRejected(run_validator_data(data), "UNRESOLVED_HIGH_RISK_TOPOLOGY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (status='conflict', scope='redrawn_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1249, in test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim
+    self.assertRejected(run_validator_data(data), "UNRESOLVED_HIGH_RISK_TOPOLOGY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (status='user_confirmed', scope='visible_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1249, in test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim
+    self.assertRejected(run_validator_data(data), "UNRESOLVED_HIGH_RISK_TOPOLOGY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'UNRESOLVED_HIGH_RISK_TOPOLOGY' not found in ['UNCONFIRMED_USER_FACT']
+
+======================================================================
+FAIL: test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) (status='user_confirmed', scope='redrawn_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1249, in test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim
+    self.assertRejected(run_validator_data(data), "UNRESOLVED_HIGH_RISK_TOPOLOGY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'UNRESOLVED_HIGH_RISK_TOPOLOGY' not found in ['UNCONFIRMED_USER_FACT']
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.606s
+
+FAILED (failures=21)
+
+Additional regression RED: export must reject malformed method metadata, not copy nested prose.
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -k 'test_full_redraw_export_rejects_unvalidated_method_prose' -v
+Exit code: 1
+Exact output:
+test_full_redraw_export_rejects_unvalidated_method_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... FAIL
+
+======================================================================
+FAIL: test_full_redraw_export_rejects_unvalidated_method_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1363, in test_full_redraw_export_rejects_unvalidated_method_prose
+    payload = self.assertRejected(run_validator_data(data, emit_contract=True), "INVALID_PROMPT_CONTRACT_CONTENT")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.027s
+
+FAILED (failures=1)
+
+Follow-up GREEN and final verification (2026-09-13):
+
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+Exit code: 0
+Exact output:
+test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_fresh_predelivery_validation (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_preflight_before_first_commercial_candidate (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_generic_preview_and_packaging_approval_cannot_confirm_facts (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_historical_facts_have_opening_nontransfer_warning (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_reference_limit_requires_provenance_atlas_or_blocking (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_concept_export_still_requires_supported_presentation (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_is_deterministic_and_normal_mode_has_no_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_omits_hidden_unknowns_and_unrecognized_freeform_fields (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_preserves_ids_evidence_and_validated_edit_scope (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_rejects_malformed_structural_values_instead_of_exporting_nested_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_empty_and_explicitly_confirmed_attachment_points_are_accepted (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_forbidden_mutations_require_support_and_export_only_validated_records (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_full_redraw_export_rejects_unvalidated_method_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_invalid_emit_request_never_returns_a_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_arbitrarily_large_evidence_integer_is_structured_rejection (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_landmark_readability_must_be_a_boolean_when_present (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_parents_cannot_be_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_provenance_requires_safe_complete_crop_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlases_cannot_have_unknown_parents_or_duplicate_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_capability_complete_masked_contact_edit_can_be_verified (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_must_explicitly_hide_every_other_canonical_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_rejects_unknown_surface_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_exact_product_rejects_any_mirrored_product_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_concept_draft_cannot_be_mislabeled_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_detail_source_with_a_front_view_can_support_the_front_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_deterministic_composite_requires_preserved_product_pixels_and_protected_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_distinct_nonoverlapping_crops_from_one_parent_are_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_fact_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_selected_references_are_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_topology_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_cannot_self_authorize_a_right_side_with_front_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_orientation_must_be_supported_by_a_product_source_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_user_confirmation_with_evidence_is_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_id_collision_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_known (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_strings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_facts_require_closed_commercial_importance_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_failed_landmark_retains_rejection_with_invalid_source_or_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_final_surfaces_cannot_be_marked_hidden_or_forbidden (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_accepts_permitted_pose_and_crop_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_rejects_a_side_and_opening_in_the_final_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_cannot_be_delivered_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_is_allowed_only_as_an_unverified_draft (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_preserves_explicit_restrictive_delivery_statuses (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_generic_approval_does_not_confirm_hidden_structure (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_landmark_failure_rejects_the_delivery (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_region_lists_must_contain_nonempty_string_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_independent_blocker_outranks_full_redraw_delivery_ceiling (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_invalid_utf8_manifest_is_rejected_as_structured_json (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_and_protected_pixel_qa_verdicts_have_closed_string_enums (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_qa_requires_unique_source_backed_pass_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_malformed_landmarks_cannot_hide_protected_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_contact_edit_rejects_invalid_masks_and_scalar_method_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_generative_contact_requires_literal_protective_capabilities (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirrored_right_side_rejects_even_with_independent_right_side_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirroring_cannot_substitute_for_an_unphotographed_opposite_side (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_missing_prompt_claim_support_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mode_must_be_a_recognized_string_before_commercial_gates_branch (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_non_string_delivery_status_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_observed_fact_without_evidence_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_and_mirror_flag_cannot_be_malformed (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_requires_nonempty_typed_final_view_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_deformation_and_view_change_are_not_permitted_scene_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_view_evidence_must_be_a_nonempty_string (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_views_and_presentation_orientations_must_be_recognized (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_protected_pixel_qa_requires_complete_comparison_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_records_require_nonempty_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_redrawn_unknown_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_reference_plan_collections_are_not_treated_as_empty_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_required_product_sources_cannot_be_dropped_to_fit_reference_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_scene_plan_must_be_an_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_section_records_must_be_objects (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sections_must_be_arrays (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_deterministic_atlases_preserve_required_source_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_reference_ids_must_be_known_and_fit_the_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_backed_topology_can_support_prompt_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_and_atlases_require_sha256_hashes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_must_not_silently_become_an_empty_coverage_set (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_must_be_a_complete_typed_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_rejects_unknown_and_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_source_view_must_support_its_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_topology_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_fact_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_topology_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_delivery_status_is_rejected_by_the_real_cli (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_handle_count_cannot_support_exactly_one_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_rejects_protected_product_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_complete_well_formed_qa_proof (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_landmark_qa_for_all_visible_identity_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_visible_conflicting_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 104 tests in 4.699s
+
+OK
+
+Command: python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+Exit code: 0
+Exact output:
+
+Command: python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/fixtures/valid-deterministic-composite.json
+Exit code: 0
+Exact output:
+{"effective_delivery_status": "verified_composite", "errors": [], "valid": true}
+
+Command: python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py --emit-prompt-contract .codex/skills/preserving-product-fidelity/tests/fixtures/valid-deterministic-composite.json
+Exit code: 0
+Exact output:
+{"effective_delivery_status": "verified_composite", "errors": [], "prompt_contract": {"applied_scene_adjustments": [], "delivery_status": "verified_composite", "facts": [{"assertion": "The visible front panel has a rectangular quilted silhouette.", "commercial_importance": "high", "component": "bag_body", "evidence": [{"normalized_region": [0.18, 0.22, 0.64, 0.58], "source_id": "product-front"}], "id": "front-silhouette", "status": "observed"}, {"assertion": "A centered metal clasp is visible on the front flap.", "commercial_importance": "high", "component": "clasp", "evidence": [{"normalized_region": [0.32, 0.28, 0.36, 0.4], "source_id": "product-clasp-detail"}], "id": "front-clasp", "status": "observed"}], "final_orientation": "front", "final_visible_surfaces": ["front"], "forbidden_invented_regions": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"], "forbidden_mutations": [], "method": {"allowed_edit_mask": {"regions": ["hand_occlusion", "contact_shadow"]}, "product_pixels_preserved": true, "protected_regions": [{"id": "front-product-pixels", "normalized_region": [0.18, 0.22, 0.64, 0.58], "source_id": "product-front"}], "type": "deterministic_composite"}, "mirrored_product_view": false, "mode": "commercial_exact_product", "permitted_scene_adjustments": ["model_pose", "hand_placement", "crop", "product_position"], "presentation_envelope": {"must_remain_hidden": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"], "supported_orientations": ["front"], "surface_evidence": {"front": ["product-front", "product-clasp-detail"]}, "visible_attachment_points": ["left_attachment", "right_attachment"], "visible_surfaces": ["front"]}, "prompt_claims": [{"claim": "Preserve the observed rectangular quilted front silhouette.", "id": "claim-front-silhouette", "supporting_ids": ["front-silhouette"]}, {"claim": "Preserve the observed centered front clasp.", "id": "claim-front-clasp", "supporting_ids": ["front-clasp"]}], "source_roles": [{"id": "product-front", "role": "product_truth"}, {"id": "product-clasp-detail", "role": "detail_truth"}, {"id": "target-model-scene", "role": "target_scene"}], "topology": [{"component": "chain_strap", "component_count": 1, "connection_type": "fixed", "endpoints": ["left_attachment", "right_attachment"], "evidence": [{"normalized_region": [0.14, 0.05, 0.72, 0.3], "source_id": "product-front"}], "id": "front-chain-path", "path": "Visible front chain segment runs between the two front attachment points.", "purpose": "carrying", "status": "observed"}]}, "valid": true}
+
+Command: python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py --emit-prompt-contract .codex/skills/preserving-product-fidelity/tests/fixtures/reject-unknown-handle-claim.json
+Exit code: 1
+Exact output:
+{"effective_delivery_status": "blocked", "errors": [{"code": "INVALID_PRESENTATION_ENVELOPE", "message": "commercial_exact_product requires scene_plan.presentation_envelope to be an object."}, {"code": "INVALID_METHOD_TYPE", "message": "method.type must be deterministic_composite, masked_generative_contact, or full_generative_redraw."}, {"code": "MISSING_ORIGINAL_RESOLUTION_COMPARISON", "message": "verified_composite requires literal true qa.original_resolution_comparison."}, {"code": "QA_OVERALL_VERDICT_NOT_PASS", "message": "verified_composite requires qa.overall_verdict to be pass."}, {"code": "INVALID_LANDMARK_QA", "message": "qa.landmark_records must be an array of landmark QA records."}, {"code": "MISSING_LANDMARK_QA", "message": "Missing well-formed landmark QA for: handle-count."}, {"code": "UNRESOLVED_HIGH_RISK_FACT", "message": "Visible or redrawn high-importance fact handle-count has unresolved status unknown."}, {"code": "UNSUPPORTED_PROMPT_CLAIM", "message": "Prompt claim claim-one-top-handle lacks resolved, source-backed fact or topology support."}], "valid": false}
+
+Command: rg -n '不会.*生成提示词合同|没有.*提示词导出|没有进入提示词的未知拓扑|TBD|TODO|FIXME|placeholder' .codex/skills/preserving-product-fidelity/SKILL.md .codex/skills/preserving-product-fidelity/references
+Exit code: 1
+Exact output:
+
+Follow-up self-review:
+- Historical limitations above are retained as original audit evidence, now superseded: prompt export, unresolved visible/redrawn topology, and source-backed attachment-point validation are implemented.
+- Original 82 tests retained; two exact diagnostic expectations expanded for the newly enforced topology/attachment failures. Total: 104 tests.
+- All fixtures with presentation envelopes now explicitly declare visible_attachment_points and use topology endpoint names or an empty array; deliberately malformed early-stage reject fixtures remain incomplete.
+- Normal one-path CLI behavior is preserved; --emit-prompt-contract PATH is additive and invalid manifests contain no prompt_contract.
+- Prompt export is a field projection with typed content checks, not a freeform generative prompt. Hidden unknown/conflicting records and unknown metadata are omitted.
+- Source pixel truth, SHA-256 file content, and semantic entailment still require actual artifact inspection; no image-similarity guarantee is claimed.
+
+Saved intermediate full-suite RED (before docs update and expected diagnostic expansion):
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+Exit code: 1
+Exact output:
+test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_fresh_predelivery_validation (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_preflight_before_first_commercial_candidate (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_generic_preview_and_packaging_approval_cannot_confirm_facts (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_historical_facts_have_opening_nontransfer_warning (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_reference_limit_requires_provenance_atlas_or_blocking (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_is_deterministic_and_normal_mode_has_no_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_omits_hidden_unknowns_and_unrecognized_freeform_fields (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_preserves_ids_evidence_and_validated_edit_scope (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_empty_and_explicitly_confirmed_attachment_points_are_accepted (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_forbidden_mutations_require_support_and_export_only_validated_records (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_invalid_emit_request_never_returns_a_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_arbitrarily_large_evidence_integer_is_structured_rejection (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_landmark_readability_must_be_a_boolean_when_present (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_parents_cannot_be_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_provenance_requires_safe_complete_crop_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlases_cannot_have_unknown_parents_or_duplicate_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_capability_complete_masked_contact_edit_can_be_verified (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_must_explicitly_hide_every_other_canonical_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_rejects_unknown_surface_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_exact_product_rejects_any_mirrored_product_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_concept_draft_cannot_be_mislabeled_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_detail_source_with_a_front_view_can_support_the_front_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_deterministic_composite_requires_preserved_product_pixels_and_protected_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_distinct_nonoverlapping_crops_from_one_parent_are_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_fact_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_selected_references_are_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_topology_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_cannot_self_authorize_a_right_side_with_front_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_orientation_must_be_supported_by_a_product_source_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_user_confirmation_with_evidence_is_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_id_collision_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_known (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_strings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_facts_require_closed_commercial_importance_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_failed_landmark_retains_rejection_with_invalid_source_or_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_final_surfaces_cannot_be_marked_hidden_or_forbidden (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_accepts_permitted_pose_and_crop_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_rejects_a_side_and_opening_in_the_final_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_cannot_be_delivered_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_is_allowed_only_as_an_unverified_draft (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_preserves_explicit_restrictive_delivery_statuses (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_generic_approval_does_not_confirm_hidden_structure (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_landmark_failure_rejects_the_delivery (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_region_lists_must_contain_nonempty_string_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_independent_blocker_outranks_full_redraw_delivery_ceiling (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_invalid_utf8_manifest_is_rejected_as_structured_json (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_and_protected_pixel_qa_verdicts_have_closed_string_enums (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_qa_requires_unique_source_backed_pass_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_malformed_landmarks_cannot_hide_protected_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_contact_edit_rejects_invalid_masks_and_scalar_method_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_generative_contact_requires_literal_protective_capabilities (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirrored_right_side_rejects_even_with_independent_right_side_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirroring_cannot_substitute_for_an_unphotographed_opposite_side (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_missing_prompt_claim_support_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mode_must_be_a_recognized_string_before_commercial_gates_branch (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_non_string_delivery_status_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_observed_fact_without_evidence_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_and_mirror_flag_cannot_be_malformed (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_requires_nonempty_typed_final_view_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_deformation_and_view_change_are_not_permitted_scene_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_view_evidence_must_be_a_nonempty_string (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_views_and_presentation_orientations_must_be_recognized (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_protected_pixel_qa_requires_complete_comparison_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_records_require_nonempty_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_redrawn_unknown_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_reference_plan_collections_are_not_treated_as_empty_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_required_product_sources_cannot_be_dropped_to_fit_reference_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_scene_plan_must_be_an_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_section_records_must_be_objects (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sections_must_be_arrays (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_deterministic_atlases_preserve_required_source_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_reference_ids_must_be_known_and_fit_the_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_backed_topology_can_support_prompt_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_and_atlases_require_sha256_hashes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_must_not_silently_become_an_empty_coverage_set (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_must_be_a_complete_typed_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_rejects_unknown_and_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_source_view_must_support_its_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_topology_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... FAIL
+test_unapproved_user_confirmed_fact_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_topology_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... FAIL
+test_unknown_delivery_status_is_rejected_by_the_real_cli (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_handle_count_cannot_support_exactly_one_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_rejects_protected_product_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_complete_well_formed_qa_proof (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_landmark_qa_for_all_visible_identity_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_visible_conflicting_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+======================================================================
+FAIL: test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1419, in test_manifest_reference_documents_real_cli_and_its_evidence_limit
+    self.require_rule(reference, r"默认.*接受一个.*JSON.*路径", "Preserve the normal one-argument CLI.")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1350, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Preserve the normal one-argument CLI.
+
+======================================================================
+FAIL: test_topology_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1076, in test_topology_evidence_regions_must_be_finite_normalized_rectangles
+    self.assertRejectedCodes(result, ["MISSING_FACT_EVIDENCE"])
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 80, in assertRejectedCodes
+    self.assertEqual(
+AssertionError: Lists differ: ['UNSUPPORTED_VISIBLE_ATTACHMENT_POINT', 'U[90 chars]NCE'] != ['MISSING_FACT_EVIDENCE']
+
+First differing element 0:
+'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT'
+'MISSING_FACT_EVIDENCE'
+
+First list contains 3 additional elements.
+First extra element 1:
+'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT'
+
+- ['UNSUPPORTED_VISIBLE_ATTACHMENT_POINT',
+-  'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT',
+-  'UNRESOLVED_HIGH_RISK_TOPOLOGY',
+-  'MISSING_FACT_EVIDENCE']
+? ^
+
++ ['MISSING_FACT_EVIDENCE']
+? ^
+
+
+======================================================================
+FAIL: test_unapproved_user_confirmed_topology_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1189, in test_unapproved_user_confirmed_topology_has_distinct_diagnostic
+    self.assertRejectedCodes(result, ["UNCONFIRMED_USER_FACT"])
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 80, in assertRejectedCodes
+    self.assertEqual(
+AssertionError: Lists differ: ['UNSUPPORTED_VISIBLE_ATTACHMENT_POINT', 'UNS[88 chars]ACT'] != ['UNCONFIRMED_USER_FACT']
+
+First differing element 0:
+'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT'
+'UNCONFIRMED_USER_FACT'
+
+First list contains 3 additional elements.
+First extra element 1:
+'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT'
+
+- ['UNSUPPORTED_VISIBLE_ATTACHMENT_POINT',
+-  'UNSUPPORTED_VISIBLE_ATTACHMENT_POINT',
+-  'UNRESOLVED_HIGH_RISK_TOPOLOGY',
+-  'UNCONFIRMED_USER_FACT']
+? ^
+
++ ['UNCONFIRMED_USER_FACT']
+? ^
+
+
+----------------------------------------------------------------------
+Ran 101 tests in 4.541s
+
+FAILED (failures=3)
+
+The final 104-test GREEN above supersedes this intermediate output.
+
+Task 8 quality-review follow-up RED (2026-09-13): input integrity and documentation count.
+
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -k 'ManifestInputIntegrityTests' -v
+Exit code: 1
+Exact output:
+test_deep_json_returns_structured_error_without_traceback_or_contract (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... FAIL
+test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... test_nested_duplicate_json_keys_reject_even_outside_qa (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... FAIL
+test_unknown_topology_cannot_be_hidden_by_renaming_visible_and_qa_ids (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... FAIL
+
+======================================================================
+FAIL: test_deep_json_returns_structured_error_without_traceback_or_contract (test_validate_fidelity_manifest.ManifestInputIntegrityTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1436, in test_deep_json_returns_structured_error_without_traceback_or_contract
+    self.assertEqual(result.stderr, "")
+AssertionError: 'Traceback (most recent call last):\n  Fil[1408 chars]ng\n' != ''
+Diff is 1470 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (first='drift', second='pass', emit=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1422, in test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders
+    payload = self.assertRejected(result, "DUPLICATE_JSON_KEY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (first='drift', second='pass', emit=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1422, in test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders
+    payload = self.assertRejected(result, "DUPLICATE_JSON_KEY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (first='pass', second='drift', emit=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1422, in test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders
+    payload = self.assertRejected(result, "DUPLICATE_JSON_KEY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'DUPLICATE_JSON_KEY' not found in ['PROTECTED_PRODUCT_PIXEL_DRIFT']
+
+======================================================================
+FAIL: test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (first='pass', second='drift', emit=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1422, in test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders
+    payload = self.assertRejected(result, "DUPLICATE_JSON_KEY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'DUPLICATE_JSON_KEY' not found in ['PROTECTED_PRODUCT_PIXEL_DRIFT']
+
+======================================================================
+FAIL: test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (mode='commercial_exact_product', status='verified_composite', field='visible_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1398, in test_identity_region_ids_must_resolve_in_verified_and_preflight_modes
+    payload = self.assertRejected(result, "UNKNOWN_IDENTITY_REGION_ID")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'UNKNOWN_IDENTITY_REGION_ID' not found in ['MISSING_LANDMARK_QA']
+
+======================================================================
+FAIL: test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (mode='commercial_exact_product', status='verified_composite', field='redrawn_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1398, in test_identity_region_ids_must_resolve_in_verified_and_preflight_modes
+    payload = self.assertRejected(result, "UNKNOWN_IDENTITY_REGION_ID")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 70, in assertRejected
+    self.assertIn(
+AssertionError: 'UNKNOWN_IDENTITY_REGION_ID' not found in ['MISSING_LANDMARK_QA']
+
+======================================================================
+FAIL: test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (mode='commercial_exact_product', status='unverified_draft', field='visible_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1398, in test_identity_region_ids_must_resolve_in_verified_and_preflight_modes
+    payload = self.assertRejected(result, "UNKNOWN_IDENTITY_REGION_ID")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (mode='commercial_exact_product', status='unverified_draft', field='redrawn_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1398, in test_identity_region_ids_must_resolve_in_verified_and_preflight_modes
+    payload = self.assertRejected(result, "UNKNOWN_IDENTITY_REGION_ID")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (mode='concept_draft', status='unverified_draft', field='visible_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1398, in test_identity_region_ids_must_resolve_in_verified_and_preflight_modes
+    payload = self.assertRejected(result, "UNKNOWN_IDENTITY_REGION_ID")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) (mode='concept_draft', status='unverified_draft', field='redrawn_identity_critical_regions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1398, in test_identity_region_ids_must_resolve_in_verified_and_preflight_modes
+    payload = self.assertRejected(result, "UNKNOWN_IDENTITY_REGION_ID")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_nested_duplicate_json_keys_reject_even_outside_qa (test_validate_fidelity_manifest.ManifestInputIntegrityTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1429, in test_nested_duplicate_json_keys_reject_even_outside_qa
+    payload = self.assertRejected(self.run_raw_manifest(raw, emit_contract), "DUPLICATE_JSON_KEY")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_unknown_topology_cannot_be_hidden_by_renaming_visible_and_qa_ids (test_validate_fidelity_manifest.ManifestInputIntegrityTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1410, in test_unknown_topology_cannot_be_hidden_by_renaming_visible_and_qa_ids
+    payload = self.assertRejected(run_validator_data(data, emit_contract=emit_contract), "UNKNOWN_IDENTITY_REGION_ID")
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 58, in assertRejected
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.337s
+
+FAILED (failures=13)
+
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -k 'test_manifest_reference_top_level_count_matches_contract' -v
+Exit code: 1
+Exact output:
+test_manifest_reference_top_level_count_matches_contract (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+
+======================================================================
+FAIL: test_manifest_reference_top_level_count_matches_contract (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1531, in test_manifest_reference_top_level_count_matches_contract
+    self.assertEqual(int(declared_count.group(1)), len(valid_manifest()))
+AssertionError: 12 != 11
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)
+
+Quality-review follow-up GREEN and targeted CLI probes (2026-09-13):
+
+Command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -q
+Exit code: 0
+Exact output:
+----------------------------------------------------------------------
+Ran 110 tests in 5.265s
+
+OK
+
+Command: python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py
+Exit code: 0
+Exact output:
+
+Command: python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/fixtures/valid-deterministic-composite.json
+Exit code: 0
+Exact output:
+{"effective_delivery_status": "verified_composite", "errors": [], "valid": true}
+
+Command: python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py --emit-prompt-contract .codex/skills/preserving-product-fidelity/tests/fixtures/valid-deterministic-composite.json
+Exit code: 0
+Exact output:
+{"effective_delivery_status": "verified_composite", "errors": [], "prompt_contract": {"applied_scene_adjustments": [], "delivery_status": "verified_composite", "facts": [{"assertion": "The visible front panel has a rectangular quilted silhouette.", "commercial_importance": "high", "component": "bag_body", "evidence": [{"normalized_region": [0.18, 0.22, 0.64, 0.58], "source_id": "product-front"}], "id": "front-silhouette", "status": "observed"}, {"assertion": "A centered metal clasp is visible on the front flap.", "commercial_importance": "high", "component": "clasp", "evidence": [{"normalized_region": [0.32, 0.28, 0.36, 0.4], "source_id": "product-clasp-detail"}], "id": "front-clasp", "status": "observed"}], "final_orientation": "front", "final_visible_surfaces": ["front"], "forbidden_invented_regions": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"], "forbidden_mutations": [], "method": {"allowed_edit_mask": {"regions": ["hand_occlusion", "contact_shadow"]}, "product_pixels_preserved": true, "protected_regions": [{"id": "front-product-pixels", "normalized_region": [0.18, 0.22, 0.64, 0.58], "source_id": "product-front"}], "type": "deterministic_composite"}, "mirrored_product_view": false, "mode": "commercial_exact_product", "permitted_scene_adjustments": ["model_pose", "hand_placement", "crop", "product_position"], "presentation_envelope": {"must_remain_hidden": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"], "supported_orientations": ["front"], "surface_evidence": {"front": ["product-front", "product-clasp-detail"]}, "visible_attachment_points": ["left_attachment", "right_attachment"], "visible_surfaces": ["front"]}, "prompt_claims": [{"claim": "Preserve the observed rectangular quilted front silhouette.", "id": "claim-front-silhouette", "supporting_ids": ["front-silhouette"]}, {"claim": "Preserve the observed centered front clasp.", "id": "claim-front-clasp", "supporting_ids": ["front-clasp"]}], "source_roles": [{"id": "product-front", "role": "product_truth"}, {"id": "product-clasp-detail", "role": "detail_truth"}, {"id": "target-model-scene", "role": "target_scene"}], "topology": [{"component": "chain_strap", "component_count": 1, "connection_type": "fixed", "endpoints": ["left_attachment", "right_attachment"], "evidence": [{"normalized_region": [0.14, 0.05, 0.72, 0.3], "source_id": "product-front"}], "id": "front-chain-path", "path": "Visible front chain segment runs between the two front attachment points.", "purpose": "carrying", "status": "observed"}]}, "valid": true}
+
+Command: python3 - <<'PY'
+import json
+import sys
+sys.path.insert(0, ".codex/skills/preserving-product-fidelity/tests")
+from test_validate_fidelity_manifest import valid_manifest, run_validator_data, ManifestInputIntegrityTests
+runner = ManifestInputIntegrityTests()
+data = valid_manifest()
+data["topology"][0]["status"] = "unknown"
+data["prompt_claims"] = []
+data["scene_plan"]["presentation_envelope"]["visible_attachment_points"] = []
+data["scene_plan"]["visible_identity_critical_regions"][-1] = "renamed-chain"
+data["qa"]["landmark_records"][-1]["landmark_id"] = "renamed-chain"
+for emit in (False, True):
+    result = run_validator_data(data, emit_contract=emit)
+    print("renamed unknown topology, emit =", emit, "exit =", result.returncode)
+    print(result.stdout, end="")
+for first, second in (("drift", "pass"), ("pass", "drift")):
+    raw = json.dumps(valid_manifest())
+    raw = raw.replace('"protected_pixels": {"verdict": "pass",', '"protected_pixels": {"verdict": "' + first + '", "verdict": "' + second + '",')
+    result = runner.run_raw_manifest(raw, True)
+    print("duplicate", first, second, "exit =", result.returncode)
+    print(result.stdout, end="")
+result = runner.run_raw_manifest('{"nested":' * 2000 + '0' + '}' * 2000, True)
+print("2000 nested objects, exit =", result.returncode, "stderr =", repr(result.stderr))
+print(result.stdout, end="")
+PY
+Exit code: 0
+Exact output:
+renamed unknown topology, emit = False exit = 1
+{"effective_delivery_status": "blocked", "errors": [{"code": "UNKNOWN_IDENTITY_REGION_ID", "message": "Identity region renamed-chain does not resolve to a fact or topology ID."}], "valid": false}
+renamed unknown topology, emit = True exit = 1
+{"effective_delivery_status": "blocked", "errors": [{"code": "UNKNOWN_IDENTITY_REGION_ID", "message": "Identity region renamed-chain does not resolve to a fact or topology ID."}], "valid": false}
+duplicate drift pass exit = 1
+{"effective_delivery_status": "blocked", "errors": [{"code": "DUPLICATE_JSON_KEY", "message": "Duplicate JSON key: 'verdict'."}], "valid": false}
+duplicate pass drift exit = 1
+{"effective_delivery_status": "blocked", "errors": [{"code": "DUPLICATE_JSON_KEY", "message": "Duplicate JSON key: 'verdict'."}], "valid": false}
+2000 nested objects, exit = 1 stderr = ''
+{"effective_delivery_status": "blocked", "errors": [{"code": "JSON_NESTING_TOO_DEEP", "message": "Manifest JSON exceeds the parser nesting limit."}], "valid": false}
+
+All 110 tests pass. The six additions cover shared support-ID references, the renamed-topology reproduction, duplicate verdict keys in both orders, nested duplicate keys, deep JSON, and the 11-field documentation count. Every targeted rejected input returns no contract; parsing failures have empty stderr.
+
+Final documentation alignment RED/GREEN (2026-09-13):
+The current validator requires both commercial identity-region lists and at least one declared identity ID for verified delivery. Updated documentation only; validator unchanged in this correction.
+
+RED command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -k 'test_commercial_identity_lists_and_verified_landmark_minimum_are_documented' -v
+Exit code: 1
+Exact output:
+test_commercial_identity_lists_and_verified_landmark_minimum_are_documented (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+
+======================================================================
+FAIL: test_commercial_identity_lists_and_verified_landmark_minimum_are_documented (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1601, in test_commercial_identity_lists_and_verified_landmark_minimum_are_documented
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1516, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Both identity lists are mandatory in commercial manifests.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+
+GREEN command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+Exit code: 0
+Exact output:
+test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_commercial_identity_lists_and_verified_landmark_minimum_are_documented (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_fresh_predelivery_validation (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_preflight_before_first_commercial_candidate (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_generic_preview_and_packaging_approval_cannot_confirm_facts (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_historical_facts_have_opening_nontransfer_warning (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_manifest_reference_top_level_count_matches_contract (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_reference_limit_requires_provenance_atlas_or_blocking (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_deep_json_returns_structured_error_without_traceback_or_contract (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_nested_duplicate_json_keys_reject_even_outside_qa (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_unknown_topology_cannot_be_hidden_by_renaming_visible_and_qa_ids (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_concept_export_still_requires_supported_presentation (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_is_deterministic_and_normal_mode_has_no_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_omits_hidden_unknowns_and_unrecognized_freeform_fields (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_preserves_ids_evidence_and_validated_edit_scope (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_rejects_malformed_structural_values_instead_of_exporting_nested_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_empty_and_explicitly_confirmed_attachment_points_are_accepted (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_forbidden_mutations_require_support_and_export_only_validated_records (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_full_redraw_export_rejects_unvalidated_method_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_invalid_emit_request_never_returns_a_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_arbitrarily_large_evidence_integer_is_structured_rejection (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_landmark_readability_must_be_a_boolean_when_present (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_parents_cannot_be_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_provenance_requires_safe_complete_crop_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlases_cannot_have_unknown_parents_or_duplicate_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_capability_complete_masked_contact_edit_can_be_verified (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_must_explicitly_hide_every_other_canonical_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_rejects_unknown_surface_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_exact_product_rejects_any_mirrored_product_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_concept_draft_cannot_be_mislabeled_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_detail_source_with_a_front_view_can_support_the_front_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_deterministic_composite_requires_preserved_product_pixels_and_protected_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_distinct_nonoverlapping_crops_from_one_parent_are_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_fact_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_selected_references_are_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_topology_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_cannot_self_authorize_a_right_side_with_front_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_orientation_must_be_supported_by_a_product_source_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_draft_qa_failures_reject_and_do_not_export (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_user_confirmation_with_evidence_is_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_id_collision_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_known (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_strings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_facts_require_closed_commercial_importance_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_failed_landmark_retains_rejection_with_invalid_source_or_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_final_surfaces_cannot_be_marked_hidden_or_forbidden (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_accepts_permitted_pose_and_crop_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_rejects_a_side_and_opening_in_the_final_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_cannot_be_delivered_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_is_allowed_only_as_an_unverified_draft (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_preserves_explicit_restrictive_delivery_statuses (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_generic_approval_does_not_confirm_hidden_structure (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_landmark_failure_rejects_the_delivery (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_region_lists_must_contain_nonempty_string_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_independent_blocker_outranks_full_redraw_delivery_ceiling (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_invalid_utf8_manifest_is_rejected_as_structured_json (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_and_protected_pixel_qa_verdicts_have_closed_string_enums (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_qa_requires_unique_source_backed_pass_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_malformed_landmarks_cannot_hide_protected_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_contact_edit_rejects_invalid_masks_and_scalar_method_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_generative_contact_requires_literal_protective_capabilities (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirrored_right_side_rejects_even_with_independent_right_side_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirroring_cannot_substitute_for_an_unphotographed_opposite_side (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_missing_prompt_claim_support_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mode_must_be_a_recognized_string_before_commercial_gates_branch (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_non_string_delivery_status_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_observed_fact_without_evidence_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_pending_draft_qa_remains_an_unverified_draft (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_and_mirror_flag_cannot_be_malformed (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_requires_nonempty_typed_final_view_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_deformation_and_view_change_are_not_permitted_scene_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_view_evidence_must_be_a_nonempty_string (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_views_and_presentation_orientations_must_be_recognized (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_protected_pixel_qa_requires_complete_comparison_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_records_require_nonempty_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_redrawn_unknown_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_reference_plan_collections_are_not_treated_as_empty_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_required_product_sources_cannot_be_dropped_to_fit_reference_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_scene_plan_must_be_an_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_section_records_must_be_objects (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sections_must_be_arrays (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_deterministic_atlases_preserve_required_source_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_reference_ids_must_be_known_and_fit_the_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_backed_topology_can_support_prompt_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_and_atlases_require_sha256_hashes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_must_not_silently_become_an_empty_coverage_set (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_must_be_a_complete_typed_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_rejects_unknown_and_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_source_view_must_support_its_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_topology_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_fact_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_topology_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_delivery_status_is_rejected_by_the_real_cli (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_handle_count_cannot_support_exactly_one_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_rejects_protected_product_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_both_identity_lists_and_never_exports_when_missing (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_complete_well_formed_qa_proof (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_landmark_qa_for_all_visible_identity_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_visible_attachment_topology_must_be_identity_tracked_and_qa_covered (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_visible_conflicting_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 115 tests in 5.357s
+
+OK
+
+Visible-attachment topology / landmark-QA documentation RED/GREEN (2026-09-13):
+No validator changes. Every source-backed topology record proving a visible attachment must be identity-tracked and receive landmark QA before verified delivery.
+
+RED command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -k 'test_visible_attachment_supporting_topology_must_be_declared_for_landmark_qa' -v
+Exit code: 1
+Exact output:
+test_visible_attachment_supporting_topology_must_be_declared_for_landmark_qa (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... FAIL
+
+======================================================================
+FAIL: test_visible_attachment_supporting_topology_must_be_declared_for_landmark_qa (test_validate_fidelity_manifest.FidelityDocumentationContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1618, in test_visible_attachment_supporting_topology_must_be_declared_for_landmark_qa
+    self.require_rule(
+  File "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py", line 1516, in require_rule
+    self.assertTrue(re.search(pattern, document, re.MULTILINE), message)
+AssertionError: None is not true : Every topology record proving a visible attachment must enter an identity list.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+
+GREEN command: python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+Exit code: 0
+Exact output:
+test_case_is_optional_exact_sku_retrospective_and_not_general_bag_routing (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_commercial_identity_lists_and_verified_landmark_minimum_are_documented (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_and_protocol_adapt_model_pose_to_supported_envelope (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_fresh_predelivery_validation (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_entrypoint_requires_preflight_before_first_commercial_candidate (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_full_redraw_has_draft_ceiling_even_after_visual_approval (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_generic_preview_and_packaging_approval_cannot_confirm_facts (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_historical_facts_have_opening_nontransfer_warning (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_manifest_reference_documents_real_cli_and_its_evidence_limit (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_manifest_reference_top_level_count_matches_contract (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_only_validated_verified_composite_may_claim_exact_faithful_commercial (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_reference_limit_requires_provenance_atlas_or_blocking (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_visible_attachment_supporting_topology_must_be_declared_for_landmark_qa (test_validate_fidelity_manifest.FidelityDocumentationContractTests) ... ok
+test_deep_json_returns_structured_error_without_traceback_or_contract (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_duplicate_protected_pixel_verdict_keys_reject_in_both_orders (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_identity_region_ids_must_resolve_in_verified_and_preflight_modes (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_nested_duplicate_json_keys_reject_even_outside_qa (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_unknown_topology_cannot_be_hidden_by_renaming_visible_and_qa_ids (test_validate_fidelity_manifest.ManifestInputIntegrityTests) ... ok
+test_attachment_points_must_be_resolved_source_backed_topology_endpoints (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_attachment_points_require_unique_nonempty_string_array (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_concept_export_still_requires_supported_presentation (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_is_deterministic_and_normal_mode_has_no_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_omits_hidden_unknowns_and_unrecognized_freeform_fields (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_mode_preserves_ids_evidence_and_validated_edit_scope (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_emit_rejects_malformed_structural_values_instead_of_exporting_nested_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_empty_and_explicitly_confirmed_attachment_points_are_accepted (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_forbidden_mutations_require_support_and_export_only_validated_records (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_full_redraw_export_rejects_unvalidated_method_prose (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_invalid_emit_request_never_returns_a_contract (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_unresolved_visible_or_redrawn_topology_blocks_without_prompt_claim (test_validate_fidelity_manifest.PromptContractAndTopologyTests) ... ok
+test_arbitrarily_large_evidence_integer_is_structured_rejection (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_landmark_readability_must_be_a_boolean_when_present (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_output_regions_cannot_overlap_or_duplicate_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_parents_cannot_be_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlas_provenance_requires_safe_complete_crop_mappings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_atlases_cannot_have_unknown_parents_or_duplicate_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_capability_complete_masked_contact_edit_can_be_verified (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_must_explicitly_hide_every_other_canonical_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_envelope_rejects_unknown_surface_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_commercial_exact_product_rejects_any_mirrored_product_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_concept_draft_cannot_be_mislabeled_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_detail_source_with_a_front_view_can_support_the_front_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_deterministic_composite_requires_preserved_product_pixels_and_protected_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_distinct_nonoverlapping_crops_from_one_parent_are_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_fact_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_selected_references_are_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_duplicate_topology_ids_are_rejected_before_claim_lookup (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_cannot_self_authorize_a_right_side_with_front_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_envelope_orientation_must_be_supported_by_a_product_source_view (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_draft_qa_failures_reject_and_do_not_export (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_explicit_user_confirmation_with_evidence_is_accepted (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_id_collision_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_known (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_and_topology_statuses_must_be_strings (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_fact_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_facts_require_closed_commercial_importance_labels (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_failed_landmark_retains_rejection_with_invalid_source_or_region (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_final_surfaces_cannot_be_marked_hidden_or_forbidden (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_accepts_permitted_pose_and_crop_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_front_only_envelope_rejects_a_side_and_opening_in_the_final_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_cannot_be_delivered_as_verified_composite (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_is_allowed_only_as_an_unverified_draft (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_full_generative_redraw_preserves_explicit_restrictive_delivery_statuses (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_generic_approval_does_not_confirm_hidden_structure (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_landmark_failure_rejects_the_delivery (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_identity_region_lists_must_contain_nonempty_string_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_independent_blocker_outranks_full_redraw_delivery_ceiling (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_invalid_utf8_manifest_is_rejected_as_structured_json (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_and_protected_pixel_qa_verdicts_have_closed_string_enums (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_landmark_qa_requires_unique_source_backed_pass_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_malformed_landmarks_cannot_hide_protected_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_contact_edit_rejects_invalid_masks_and_scalar_method_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_masked_generative_contact_requires_literal_protective_capabilities (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirrored_right_side_rejects_even_with_independent_right_side_evidence (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mirroring_cannot_substitute_for_an_unphotographed_opposite_side (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_missing_prompt_claim_support_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_mode_must_be_a_recognized_string_before_commercial_gates_branch (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_non_string_delivery_status_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_observed_fact_without_evidence_is_rejected (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_pending_draft_qa_remains_an_unverified_draft (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_and_mirror_flag_cannot_be_malformed (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_presentation_envelope_requires_nonempty_typed_final_view_fields (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_deformation_and_view_change_are_not_permitted_scene_adjustments (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_view_evidence_must_be_a_nonempty_string (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_product_views_and_presentation_orientations_must_be_recognized (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_protected_pixel_qa_requires_complete_comparison_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_records_require_nonempty_ids (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_redrawn_unknown_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_reference_plan_collections_are_not_treated_as_empty_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_required_product_sources_cannot_be_dropped_to_fit_reference_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_scene_plan_must_be_an_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_section_records_must_be_objects (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sections_must_be_arrays (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_deterministic_atlases_preserve_required_source_coverage (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_selected_reference_ids_must_be_known_and_fit_the_limit (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_backed_topology_can_support_prompt_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_source_roles_are_closed_and_product_evidence_cannot_use_target_scene (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_and_atlases_require_sha256_hashes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_sources_must_not_silently_become_an_empty_coverage_set (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_must_be_a_complete_typed_object (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_rejects_unknown_and_target_scene_sources (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_surface_evidence_source_view_must_support_its_surface (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_topology_evidence_regions_must_be_finite_normalized_rectangles (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_fact_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unapproved_user_confirmed_topology_has_distinct_diagnostic (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_delivery_status_is_rejected_by_the_real_cli (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_unknown_handle_count_cannot_support_exactly_one_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_valid_deterministic_composite_passes (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_rejects_protected_product_pixel_drift (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_both_identity_lists_and_never_exports_when_missing (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_complete_well_formed_qa_proof (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_verified_composite_requires_landmark_qa_for_all_visible_identity_records (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_visible_attachment_topology_must_be_identity_tracked_and_qa_covered (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+test_visible_conflicting_high_risk_fact_is_rejected_without_claim (test_validate_fidelity_manifest.ValidateFidelityManifestTests) ... ok
+
+----------------------------------------------------------------------
+Ran 116 tests in 5.377s
+
+OK

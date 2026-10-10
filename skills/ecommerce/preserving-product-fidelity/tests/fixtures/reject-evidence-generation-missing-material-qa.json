@@ -1,0 +1,43 @@
+{
+  "mode": "commercial_exact_product",
+  "sources": [
+    {"id":"product-front","role":"product_truth","path":"fixtures/burgundy-front.png","sha256":"8c96d8d491d78a9b4a13e43df84c530568e75ef4718604a332178801de7c1f72","view":"front","required":true},
+    {"id":"product-material-detail","role":"detail_truth","path":"fixtures/burgundy-material.png","sha256":"3119fe77cc65939e6060ff6014472a0b0e2dab0bc83f1ea2be45957238127fe7","view":"front","required":true},
+    {"id":"target-model-scene","role":"target_scene","path":"fixtures/model-scene.png","sha256":"7147a94c3ac7ab1ac95095ee0a526ea931b9e67d625e5fa8e52bd16b4514bfd7","view":"front","required":false}
+  ],
+  "facts": [
+    {"id":"front-geometry","component":"bag_body","assertion":"Observed structured front silhouette and envelope flap geometry.","status":"observed","commercial_importance":"high","evidence":[{"source_id":"product-front","normalized_region":[0.18,0.22,0.64,0.58]}]},
+    {"id":"material-crosshatch","component":"material","assertion":"Observed wine-red fine crosshatch leather grain, restrained sheen, matching stitching, and gold-tone hardware response.","status":"observed","commercial_importance":"high","evidence":[{"source_id":"product-material-detail","normalized_region":[0.10,0.10,0.80,0.80]}]}
+  ],
+  "topology": [],
+  "prompt_claims": [
+    {"id":"claim-front-geometry","claim":"Render only the observed front geometry.","supporting_ids":["front-geometry"]},
+    {"id":"claim-material","claim":"Match the observed wine-red fine crosshatch leather and restrained sheen.","supporting_ids":["material-crosshatch"]}
+  ],
+  "reference_plan": {"tool_reference_limit":5,"selected_source_ids":["product-front","product-material-detail","target-model-scene"],"deterministic_atlases":[]},
+  "scene_plan": {
+    "target_scene_source_id":"target-model-scene",
+    "required_product_view":"front",
+    "presentation_envelope":{"supported_orientations":["front"],"visible_surfaces":["front"],"surface_evidence":{"front":["product-front","product-material-detail"]},"visible_attachment_points":[],"must_remain_hidden":["left_side","right_side","back","top","bottom","opening","interior"]},
+    "final_orientation":"front",
+    "final_visible_surfaces":["front"],
+    "mirrored_product_view":false,
+    "visible_identity_critical_regions":[],
+    "redrawn_identity_critical_regions":["front-geometry","material-crosshatch"],
+    "material_identity_fact_ids":["material-crosshatch"],
+    "permitted_scene_adjustments":["model_pose","hand_placement","crop","product_position"],
+    "applied_scene_adjustments":["model_pose","hand_placement","product_position"],
+    "forbidden_invented_regions":["left_side","right_side","back","top","bottom","opening","interior"]
+  },
+  "method": {"type":"evidence_constrained_generation","product_pixels_preserved":false,"view_anchor_source_ids":["product-front","product-material-detail"],"material_fidelity_required":true},
+  "approval":{"confirmed_fact_ids":[]},
+  "qa": {
+    "original_resolution_comparison":true,
+    "landmark_records":[
+      {"landmark_id":"front-geometry","source_id":"product-front","normalized_region":[0.18,0.22,0.64,0.58],"verdict":"pass"},
+      {"landmark_id":"material-crosshatch","source_id":"product-material-detail","normalized_region":[0.10,0.10,0.80,0.80],"verdict":"pass"}
+    ],
+    "overall_verdict":"pass"
+  },
+  "delivery_status":"verified_reference_match"
+}

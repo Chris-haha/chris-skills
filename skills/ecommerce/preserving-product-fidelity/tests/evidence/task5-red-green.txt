@@ -1,0 +1,136 @@
+Task 5 RED/GREEN evidence
+==========================
+
+The entries before the "Raw mode/canonical-surface cycle" section are
+narrative summaries from earlier Task 5 work, not verbatim command transcripts.
+
+RED — 2026-09-13
+Command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_validate_fidelity_manifest.py' -v
+
+Result before presentation-envelope validation:
+- 47 tests run; 10 failures.
+- The front-only side/opening fixture was accepted (return code 0) instead of
+  reporting UNSUPPORTED_VISIBLE_SURFACE.
+- The malformed envelope, unsupported source orientation, mirrored opposite
+  side, hidden/forbidden final surface, and product-deformation tests were
+  likewise accepted. This demonstrates the missing Task 5 gate.
+
+GREEN — 2026-09-13
+Command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Result after implementation:
+- 49 tests run; all passed.
+- `python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py`
+  exited successfully.
+- Direct validation of `reject-front-only-side-opening.json` returned a blocked
+  result with `UNSUPPORTED_VISIBLE_SURFACE` for `opening` and `right_side`.
+
+Surface-evidence bypass RED — 2026-09-13
+Command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Result before source-backed surface-evidence validation:
+- 53 tests run; 4 failures.
+- A front-only source could self-authorize `right_side` by adding it to both
+  the envelope and final scene, and malformed, unknown, and target-scene
+  surface evidence were accepted.
+
+Surface-evidence bypass GREEN — 2026-09-13
+Command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Result after implementation:
+- 54 tests run; all passed.
+- `python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py`
+  exited successfully.
+- The front-only adjusted-pose fixture validates as `verified_composite`; the
+  self-authorized `right_side` regression rejects with
+  `UNSUPPORTED_SURFACE_EVIDENCE_VIEW`.
+
+Mirroring bypass RED — 2026-09-13
+Command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Result before the unconditional commercial mirroring gate:
+- 55 tests run; 1 failure.
+- A front-only, otherwise source-backed commercial manifest with literal
+  `mirrored_product_view: true` was accepted.
+
+Reviewer right-side mirroring RED — 2026-09-13
+Command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Result before restoring the unconditional gate:
+- 56 tests run; 2 failures.
+- The reviewer case—right-side source evidence, right-side final presentation,
+  and `mirrored_product_view: true`—was accepted, proving matching evidence
+  could bypass the mirror prohibition.
+
+Mirroring GREEN — 2026-09-13
+Command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Result after implementation:
+- 56 tests run; all passed.
+- `python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py`
+  exited successfully.
+- Both literal-mirror tests, including the reviewer right-side case with
+  independent right-side evidence, reject with
+  `MIRRORED_PRODUCT_VIEW_UNSUPPORTED`.
+
+Raw mode/canonical-surface cycle — 2026-09-13
+================================================
+
+RED command (verbatim):
+```text
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v; task5_exit=$?; printf 'EXIT_CODE=%s\n' "$task5_exit"
+```
+
+RED abridged failure excerpts (passing test lines omitted):
+```text
+FAIL: test_commercial_envelope_must_explicitly_hide_every_other_canonical_surface
+AssertionError: 'INCOMPLETE_CANONICAL_SURFACE_ENVELOPE' not found in ['UNHIDDEN_FORBIDDEN_REGION']
+FAIL: test_commercial_envelope_rejects_unknown_surface_labels
+AssertionError: 0 == 0
+FAIL: test_mode_must_be_a_recognized_string_before_commercial_gates_branch (mode='None')
+AssertionError: 0 == 0
+FAIL: test_mode_must_be_a_recognized_string_before_commercial_gates_branch (mode="'commercial_exact'")
+AssertionError: 0 == 0
+FAIL: test_mode_must_be_a_recognized_string_before_commercial_gates_branch (mode="'handbag'")
+AssertionError: 0 == 0
+FAIL: test_product_views_and_presentation_orientations_must_be_recognized
+AssertionError: 'INVALID_PRODUCT_SOURCE_VIEW' not found in ['UNSUPPORTED_SURFACE_EVIDENCE_VIEW']
+Ran 60 tests in 2.761s
+FAILED (failures=6)
+EXIT_CODE=1
+```
+
+GREEN command (verbatim):
+```text
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v; task5_exit=$?; printf 'EXIT_CODE=%s\n' "$task5_exit"
+```
+
+GREEN raw output (verbatim tail; all 60 test lines reported `ok`):
+```text
+Ran 60 tests in 2.763s
+OK
+EXIT_CODE=0
+```
+
+Compile and targeted CLI probe command (verbatim):
+```text
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py; task5_compile_exit=$?; printf 'PY_COMPILE_EXIT_CODE=%s\n' "$task5_compile_exit"
+$ python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/fixtures/accept-front-only-adjusted-pose.json; task5_accept_exit=$?; printf 'ACCEPT_PROBE_EXIT_CODE=%s\n' "$task5_accept_exit"
+$ python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py .codex/skills/preserving-product-fidelity/tests/fixtures/reject-front-only-side-opening.json; task5_reject_exit=$?; printf 'REJECT_PROBE_EXIT_CODE=%s\n' "$task5_reject_exit"
+```
+
+Compile and targeted CLI probe raw output (verbatim):
+```text
+PY_COMPILE_EXIT_CODE=0
+{"effective_delivery_status": "verified_composite", "errors": [], "valid": true}
+ACCEPT_PROBE_EXIT_CODE=0
+{"effective_delivery_status": "blocked", "errors": [{"code": "INCOMPATIBLE_FINAL_ORIENTATION_SURFACE", "message": "Final surface opening is incompatible with orientation front."}, {"code": "INCOMPATIBLE_FINAL_ORIENTATION_SURFACE", "message": "Final surface right_side is incompatible with orientation front."}, {"code": "UNSUPPORTED_VISIBLE_SURFACE", "message": "Final visible surface opening is outside the presentation envelope."}, {"code": "UNSUPPORTED_VISIBLE_SURFACE", "message": "Final visible surface right_side is outside the presentation envelope."}, {"code": "UNSUPPORTED_FINAL_VISIBLE_SURFACE_EVIDENCE", "message": "Final visible surface opening lacks source-backed surface evidence."}, {"code": "UNSUPPORTED_FINAL_VISIBLE_SURFACE_EVIDENCE", "message": "Final visible surface right_side lacks source-backed surface evidence."}, {"code": "VISIBLE_MUST_REMAIN_HIDDEN", "message": "Final visible surface opening is declared must_remain_hidden."}, {"code": "VISIBLE_MUST_REMAIN_HIDDEN", "message": "Final visible surface right_side is declared must_remain_hidden."}, {"code": "VISIBLE_FORBIDDEN_REGION", "message": "Final visible surface opening is a forbidden invented region."}, {"code": "VISIBLE_FORBIDDEN_REGION", "message": "Final visible surface right_side is a forbidden invented region."}], "valid": false}
+REJECT_PROBE_EXIT_CODE=1
+```

@@ -1,0 +1,105 @@
+Product Fidelity Fail-Closed Upgrade: Final Verification Evidence
+Date: 2026-09-13 (Asia/Shanghai)
+Workspace: /Volumes/Samsung_T5/code/test-image
+
+1. Full regression suite
+Exact command:
+python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py' -v
+
+Exit code: 0
+Count/output summary:
+----------------------------------------------------------------------
+Ran 116 tests in 5.377s
+
+OK
+
+2. Skill package validation
+Exact command:
+python3 /Users/chris/.codex/skills/.system/skill-creator/scripts/quick_validate.py .codex/skills/preserving-product-fidelity
+
+Exit code: 0
+Output: Skill is valid!
+
+3. Python syntax validation
+Exact command:
+python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+
+Exit code: 0
+Output: (none)
+
+4. Placeholder scans
+Production-only exact command:
+rg -n 'TBD|TODO|FIXME|placeholder' .codex/skills/preserving-product-fidelity/SKILL.md .codex/skills/preserving-product-fidelity/references .codex/skills/preserving-product-fidelity/scripts
+
+Exit code: 1
+Count/output: 0 matches (rg exit 1 denotes no matches).
+
+Required recursive exact command:
+rg -n 'TBD|TODO|FIXME|placeholder' .codex/skills/preserving-product-fidelity
+
+Exit code: 0
+Relevant output: matches occur in evidence records, including this record because it quotes the literal scan command. Evidence logs intentionally contain these search words. The recursive count is self-referential and may change when this file changes, so no fixed match count is claimed. The production-only scan above is the authoritative production result.
+
+5. Normal validator mode: all 11 fixtures
+Exact command pattern:
+python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py <fixture>
+
+Executed group:
+for fixture in .codex/skills/preserving-product-fidelity/tests/fixtures/*.json; do python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py "$fixture"; done
+
+Accepted fixtures: 3/3 produced exit code 0 and:
+{"effective_delivery_status": "verified_composite", "errors": [], "valid": true}
+- accept-front-only-adjusted-pose.json
+- accept-provenance-atlas.json
+- valid-deterministic-composite.json
+
+Rejected fixtures: 8/8 produced exit code 1 and valid: false.
+- reject-dropped-product-references.json — effective_delivery_status: blocked; stable intended code: UNCOVERED_REQUIRED_SOURCE.
+- reject-front-only-side-opening.json — effective_delivery_status: blocked; stable intended code: UNSUPPORTED_VISIBLE_SURFACE.
+- reject-full-generative-commercial.json — effective_delivery_status: unverified_draft; stable intended code: UNSAFE_COMMERCIAL_METHOD.
+- reject-generic-approval.json — effective_delivery_status: blocked; stable intended code: UNRESOLVED_HIGH_RISK_FACT.
+- reject-incomplete-landmark-qa.json — effective_delivery_status: blocked; stable intended code: MISSING_LANDMARK_QA.
+- reject-maskless-contact-edit.json — effective_delivery_status: blocked; stable intended code: MISSING_PROTECTIVE_TOOL_CAPABILITY.
+- reject-protected-pixel-drift.json — effective_delivery_status: rejected; stable intended code: PROTECTED_PRODUCT_PIXEL_DRIFT.
+- reject-unknown-handle-claim.json — effective_delivery_status: blocked; stable intended code: UNSUPPORTED_PROMPT_CLAIM.
+
+6. Prompt-contract emission mode: all 11 fixtures
+Exact command pattern:
+python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py --emit-prompt-contract <fixture>
+
+Executed group:
+for fixture in .codex/skills/preserving-product-fidelity/tests/fixtures/*.json; do python3 .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py --emit-prompt-contract "$fixture"; done
+
+Accepted fixtures: 3/3 produced exit code 0, valid: true, and exactly one prompt_contract key.
+- accept-front-only-adjusted-pose.json — verified_composite prompt contract.
+- accept-provenance-atlas.json — verified_composite prompt contract.
+- valid-deterministic-composite.json — verified_composite prompt contract.
+
+Rejected fixtures: 8/8 produced exit code 1, valid: false, and 0 prompt_contract keys.
+- reject-dropped-product-references.json — blocked; UNCOVERED_REQUIRED_SOURCE.
+- reject-front-only-side-opening.json — blocked; UNSUPPORTED_VISIBLE_SURFACE.
+- reject-full-generative-commercial.json — unverified_draft; UNSAFE_COMMERCIAL_METHOD.
+- reject-generic-approval.json — blocked; UNRESOLVED_HIGH_RISK_FACT.
+- reject-incomplete-landmark-qa.json — blocked; MISSING_LANDMARK_QA.
+- reject-maskless-contact-edit.json — blocked; MISSING_PROTECTIVE_TOOL_CAPABILITY.
+- reject-protected-pixel-drift.json — rejected; PROTECTED_PRODUCT_PIXEL_DRIFT.
+- reject-unknown-handle-claim.json — blocked; UNSUPPORTED_PROMPT_CLAIM.
+
+7. v3 pressure-evidence hash attestation
+Record inspected:
+.codex/skills/preserving-product-fidelity/tests/evidence/post-change-pressure-test-v3.md
+
+Exact command:
+shasum -a 256 .codex/skills/preserving-product-fidelity/SKILL.md .codex/skills/preserving-product-fidelity/references/fidelity-manifest.md .codex/skills/preserving-product-fidelity/references/product-truth-protocol.md
+
+Exit code: 0
+Observed hashes match the values recorded in post-change-pressure-test-v3.md:
+- SKILL.md: 19c71c23d4e6be3815d102de0f41d17e626d880359106bb7a2643dcd83b2438c
+- references/fidelity-manifest.md: 7006b138ca3e3913f34d6a419fec215149f804044fa0b91a0c50ab461cdfad74
+- references/product-truth-protocol.md: f537239da964fba04f0af99b8d16d2f24b284cb9d02404053c5d9617dc659c6c
+
+8. Pressure-evidence supersession confirmation
+- v1 (`post-change-pressure-test.md`) begins: "SUPERSEDED — FAILED TEST-HARNESS EVIDENCE ONLY" and explains that its harness input was corrupted and provenance insufficient.
+- v2 (`post-change-pressure-test-v2.md`) begins: "Superseded by v3 only for current-version hash attestation after a documentation-only invariant correction." It remains valid prior behavior evidence.
+
+Verification result: every required check completed with its required outcome. This task modified only this refreshed evidence record; no production file was changed.

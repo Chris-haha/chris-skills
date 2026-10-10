@@ -1,0 +1,583 @@
+{
+  "collectedAt": "2026-10-10",
+  "sourceIndex": "/Volumes/Samsung_T5/macmini/code/coding-blog/PROJECT_SOURCES.md",
+  "skills": [
+    {
+      "slug": "preserving-product-fidelity",
+      "title": "产品保真",
+      "category": "ecommerce",
+      "path": "skills/ecommerce/preserving-product-fidelity",
+      "source": "/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity",
+      "blog": "/lab/preserving-product-fidelity",
+      "summary": "根据原图证据约束商品合成与重建，提供 manifest 验证、逐张质检与质量修复协议。验证器不能代替视觉核验。",
+      "status": "copied",
+      "supplemental": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "13d20f3552959beef6a5fc52196f7ed3fac9afbdda68d6b7a4f72654f6368b19"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "d6fae1ad274186c81703c5d950c598fe4f6e19c66b71dba29138b3308e590d70"
+        },
+        {
+          "path": "references/black-bag-case-study.md",
+          "sha256": "8e0dad508f2cb9960ec89eb65afce015a5b4d0032e9e8f62ae4fc05d98f7ab47"
+        },
+        {
+          "path": "references/fidelity-manifest.md",
+          "sha256": "0a071ce51605c92db80df2bda7558a0f52a7a4ea5ded3ab46d84632c9b874354"
+        },
+        {
+          "path": "references/product-truth-protocol.md",
+          "sha256": "2c110440b7ca4d34375e7648b671fae3ad0a056948d3ff00418dcbe30cdd6490"
+        },
+        {
+          "path": "references/quality-restoration-protocol.md",
+          "sha256": "9d3f15b1c5c9405a4a2f21b4b9af96f044bd59c3b05bc4b7d885d041962a384e"
+        },
+        {
+          "path": "scripts/validate_fidelity_manifest.py",
+          "sha256": "73135d0f52ee1401d82039b990440dc2997dc3cff6dc3a783e91e8c1614d09a3"
+        },
+        {
+          "path": "tests/__init__.py",
+          "sha256": "f6d7c8fb02377930030db24f99c8952354b88e00cf5ef468a39870f19241b59c"
+        },
+        {
+          "path": "tests/evidence/baseline-pressure-test.md",
+          "sha256": "f3057200c6a7e2416f1e9b7bab06cb1c7eb256df2f6dd18f39afc3343ad5966e"
+        },
+        {
+          "path": "tests/evidence/final-verification.txt",
+          "sha256": "36d254caf0df6f5883fad0b1a82837cb7befefb605b17bb6b7b71339894f08bc"
+        },
+        {
+          "path": "tests/evidence/post-change-pressure-test-v2.md",
+          "sha256": "5cc904bed789b2d7e40a82402c8c8e20540d97e682182a19cf90cc748794a62f"
+        },
+        {
+          "path": "tests/evidence/post-change-pressure-test-v3.md",
+          "sha256": "0a9affd946819797d4dd18cf718bb1b312b3c0c28b0d3b78c014de97e0a083aa"
+        },
+        {
+          "path": "tests/evidence/post-change-pressure-test.md",
+          "sha256": "a261d7d123d42aa5672ddc56e3e9fca1b42f690a1e27f2ec104297b67766cfa5"
+        },
+        {
+          "path": "tests/evidence/task2-red-green.txt",
+          "sha256": "ebed944eea87f55d7764f48207b11fa859e558e80dced5c6205f9a4e3729a87b"
+        },
+        {
+          "path": "tests/evidence/task3-red-green.txt",
+          "sha256": "fb1077867186d17f122fe50daadb6bdeffeaa86c1af3f638595de4b3c568410e"
+        },
+        {
+          "path": "tests/evidence/task4-red-green.txt",
+          "sha256": "36e0f2fe8699d5ab937045c8ed5272aa9f81037c954bffdf78d57308691df8f0"
+        },
+        {
+          "path": "tests/evidence/task5-red-green.txt",
+          "sha256": "7e7460db48b32efbfa60d2bbecfc4050db59fc09e2ad1a673d81443e12f519ad"
+        },
+        {
+          "path": "tests/evidence/task6-red-green.txt",
+          "sha256": "3b0799e2222d26e66f0a56cad623f9d393817145847fb34497e5cd447e6a7733"
+        },
+        {
+          "path": "tests/evidence/task7-red-green.txt",
+          "sha256": "05bf87e0be71b0e18c94ea5618c1d09331a9f0f5598bcb44c0352e8c2a45b46a"
+        },
+        {
+          "path": "tests/evidence/task8-red-green.txt",
+          "sha256": "9763794b4ab7db8883a110f7c64c2284c61545eddf69662305ec4bcfb6c49128"
+        },
+        {
+          "path": "tests/fixtures/accept-evidence-constrained-generation.json",
+          "sha256": "45a2a35832aa3e10d787cc823a639d30c51695efa3ecc5c4aa1dd7739abb0d82"
+        },
+        {
+          "path": "tests/fixtures/accept-front-only-adjusted-pose.json",
+          "sha256": "370de5b183a3846d8cc103c34a247cfcc3c4f3230d420ae40b086f144b2b7e05"
+        },
+        {
+          "path": "tests/fixtures/accept-provenance-atlas.json",
+          "sha256": "9b5ec3e95c1a582d25ef6d4970ffdce76f754feceef56810342afe4776c0e585"
+        },
+        {
+          "path": "tests/fixtures/reject-dropped-product-references.json",
+          "sha256": "05f952cd5ffc9881ecc3135658927c8fb4560b6fd287d9a37d775088ae2357de"
+        },
+        {
+          "path": "tests/fixtures/reject-evidence-generation-missing-material-qa.json",
+          "sha256": "8a6e83aa2f283a0293353c3c90611dd65ce1d05c1cc57abab2010ef28acd219f"
+        },
+        {
+          "path": "tests/fixtures/reject-front-only-side-opening.json",
+          "sha256": "642b7837818967d9450d7ecfde0fcbb7772f16d46c0e394879863ea7d40dced7"
+        },
+        {
+          "path": "tests/fixtures/reject-full-generative-commercial.json",
+          "sha256": "5afdbea202046f2dceea6401eaf4d6a9f6bc58ad4d24f34c08fa4f5ad6298df6"
+        },
+        {
+          "path": "tests/fixtures/reject-generic-approval.json",
+          "sha256": "7ae5fbcdab9b9ceef23f12eb992b619367b934a959681b031da53d9d201db801"
+        },
+        {
+          "path": "tests/fixtures/reject-incomplete-landmark-qa.json",
+          "sha256": "13a9ceb982d9a41a912b4ff29a046234efe96010dfb7178c22a2fbda63a36d7b"
+        },
+        {
+          "path": "tests/fixtures/reject-maskless-contact-edit.json",
+          "sha256": "7a8b267cc35602531bbeaa4175b1000eb4a3d2d445466de34272db4c3e7a26a3"
+        },
+        {
+          "path": "tests/fixtures/reject-protected-pixel-drift.json",
+          "sha256": "0516e3c5c9cd2ca43b0d480ae632eff8eb7208e267fdc23c30d9362973a755f3"
+        },
+        {
+          "path": "tests/fixtures/reject-unknown-handle-claim.json",
+          "sha256": "d3965e6482389d458b5dbd0e5896ded0e5290f1f5b3839c1b58dcd1e402b618c"
+        },
+        {
+          "path": "tests/fixtures/valid-deterministic-composite.json",
+          "sha256": "0ee65ae758fc26c568ff3aa8f36022b7515c95bb00894f11d93cfd5ca2810a3e"
+        },
+        {
+          "path": "tests/test_validate_fidelity_manifest.py",
+          "sha256": "74b627897dc24bc57bb360b1e807b3e4031056fda6297852959c05e1ef98fd86"
+        }
+      ]
+    },
+    {
+      "slug": "feishu-ecommerce-workflow",
+      "title": "飞书电商生图工作流",
+      "category": "ecommerce",
+      "path": "skills/ecommerce/feishu-ecommerce-workflow",
+      "source": "/Volumes/Samsung_T5/code/my-workflow/E-commerce/codex_ecommerce_workflow_analysis_20260720/mvp-workflow/skills/feishu-ecommerce-workflow",
+      "blog": "/lab/feishu-ecommerce-workflow",
+      "summary": "读取飞书多维表任务，执行生图、归档、状态回写与通知；默认 mock 模式，ERP 报表为模拟数据。真实执行需配置服务。",
+      "status": "copied",
+      "supplemental": [
+        {
+          "source": "/Volumes/Samsung_T5/code/my-workflow/E-commerce/codex_ecommerce_workflow_analysis_20260720/mvp-workflow",
+          "destination": "workflow",
+          "reason": "来源 Skill 未携带说明中要求的 workflow；补齐所属项目源码、测试、依赖锁及配置模板。"
+        }
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c4f7cceb9e770936a551f67b07c90e815d6206437d2434be715ea8da7bf9657b"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "94ae0a9ac6bf4f42557bf4b5b2c79369790ca52964141c4b2354cb38d9b00860"
+        },
+        {
+          "path": "references/user-manual.md",
+          "sha256": "7561b0163ddec63da259072480b50f2817f9a20dd6257c3175ea9d638c8c10f5"
+        },
+        {
+          "path": "scripts/run_workflow.py",
+          "sha256": "e7f01b77487cf00c1b15ca7b434c814a7fca869f8393fd4ea9233b3a8ffebe24"
+        },
+        {
+          "path": "tests/test_run_workflow.py",
+          "sha256": "8b2746772777799e5220ceca4a17b6830b297e5acedc083e898f7ef2bfa733ab"
+        },
+        {
+          "path": "workflow/.env.example",
+          "sha256": "1103b430c07d1ac756803cbaab5f139123f73c40e57d1f62f37dcb03d041eecc"
+        },
+        {
+          "path": "workflow/README.md",
+          "sha256": "b0956faf0c5ab5e0d1084bdf7db4a7abfd80f397427f205cfdc90e009cea3c82"
+        },
+        {
+          "path": "workflow/docs/superpowers/plans/2026-07-23-openai-compatible-image-gateway.md",
+          "sha256": "d08b6971107d1e4a5b9f9b66df77aaa878f4a38dde3e4d72ae61f033e78c2bf2"
+        },
+        {
+          "path": "workflow/docs/superpowers/plans/2026-07-25-feishu-task-sequence.md",
+          "sha256": "18748adc7e472d210333ed6d179d68f20a77e557bd72cc986ad36a9d1d97681e"
+        },
+        {
+          "path": "workflow/docs/superpowers/plans/2026-07-26-auto-run-and-rerun-plan.md",
+          "sha256": "536f4c1f85d48c968599ccb88c10681f16b02528cf5affa8a146e7d4642e8855"
+        },
+        {
+          "path": "workflow/docs/superpowers/plans/2026-07-26-mock-erp-reporting-plan.md",
+          "sha256": "edfa98a5961f4b42d40b1c897be818e9042ecdff90da12f7a536b05c9b73bdd3"
+        },
+        {
+          "path": "workflow/docs/superpowers/specs/2026-07-26-auto-run-and-mock-erp-design.md",
+          "sha256": "5c0eac3faf021b7221e0703cedb192370104d76ca37f4f149041712f0cf4d28f"
+        },
+        {
+          "path": "workflow/package-lock.json",
+          "sha256": "c036af460a32e913c4785d8dd0a49c29f84f8f692e9db059a5ce9911de7a417f"
+        },
+        {
+          "path": "workflow/package.json",
+          "sha256": "7be0fbd81de1d778338dff3df9289c8d91e08233848d4a6128c3a98cee5904b0"
+        },
+        {
+          "path": "workflow/src/adapters/feishu.ts",
+          "sha256": "3e656e8a54070594c266a616a85b8a4b064b92f55b7fdfcdd8ff37c7b27353f0"
+        },
+        {
+          "path": "workflow/src/config.ts",
+          "sha256": "77e43ea87e185e1334c6b2c553847523bac6c231fda03cb9dad33e86b4893164"
+        },
+        {
+          "path": "workflow/src/providers/erp-data-provider.ts",
+          "sha256": "6aac3e72735940b090a869e0e6908a49b5de9708354b3b4bd8c58e5f340d36b2"
+        },
+        {
+          "path": "workflow/src/providers/image-provider.ts",
+          "sha256": "d4396dd89acdd8ea229f5b52d0ab2b8e1dc9068045dddced5c27d71ce9000dc4"
+        },
+        {
+          "path": "workflow/src/providers/mock-erp-data-provider.ts",
+          "sha256": "9f095dd3151d50b36a627e32b49912b83481c3ac639734256e0f8b4469d065c0"
+        },
+        {
+          "path": "workflow/src/providers/mock-image-provider.ts",
+          "sha256": "b47fc0aa379def9616399f71d0cafb784f94438927a012fd6871557c219d7219"
+        },
+        {
+          "path": "workflow/src/providers/openai-image-provider.ts",
+          "sha256": "5d5c42c071f10a72b1b054920d194038881c20dca724713ec468dc0ea9712a4b"
+        },
+        {
+          "path": "workflow/src/runner.ts",
+          "sha256": "6a0e8d2dc667c64898ca5a3355833eb3ff22c314cfacadac9c8b344233417845"
+        },
+        {
+          "path": "workflow/src/services/archive-service.ts",
+          "sha256": "3486c6c150318d2b04507487ead39a9cf99009d4df153b896c60b73c7fedec11"
+        },
+        {
+          "path": "workflow/src/services/cleanup-service.ts",
+          "sha256": "c1744db53efed8935d77b8faadbd2fe5edad0ff6c75cc74409b125deac7cdd03"
+        },
+        {
+          "path": "workflow/src/services/report-service.ts",
+          "sha256": "cf8795fda856c311e85210f050325c5f1aa3e0694e8630a14bf7a7f64e91bf59"
+        },
+        {
+          "path": "workflow/src/services/task-loop-runner.ts",
+          "sha256": "8ee9a7edc9a69ba8c6c24a2a4cb01f8c043ea1fda2fd3700c4e9628635d929a4"
+        },
+        {
+          "path": "workflow/src/services/task-runner.ts",
+          "sha256": "a56d516e5bf17221ce3a65719cc6b779af7ecb6a8b018d54bea8ea7d2d7b1a4e"
+        },
+        {
+          "path": "workflow/src/types.ts",
+          "sha256": "402210a22a2843b1b7ebe513ea197c9f15c13c3eeb4b34c6ae1eb43b435cfd28"
+        },
+        {
+          "path": "workflow/tests/archive-service.test.ts",
+          "sha256": "83d522726f1bebc469c528fe80abfef1ccc7d78e82ba04028d1e48cac8a23e45"
+        },
+        {
+          "path": "workflow/tests/config.test.ts",
+          "sha256": "5d3e09f51876819bfaf9ca0c9a4964964e7062af53581c9ea9e015ce792b87e0"
+        },
+        {
+          "path": "workflow/tests/e2e-smoke.test.ts",
+          "sha256": "378d4b146de40a78871cb70fcbe2a78b8f7575214ff1ddefa9e1e7d0d1a7d955"
+        },
+        {
+          "path": "workflow/tests/feishu-adapter.test.ts",
+          "sha256": "c7ad853006c09dd0ab08308a72a1c044e4d60bfddae5327ce6cb33fc576ccd66"
+        },
+        {
+          "path": "workflow/tests/mock-erp-data-provider.test.ts",
+          "sha256": "514043dc38901cd723d7ba645e841564e3bfd5cf1783b98f185ab3163b1c2798"
+        },
+        {
+          "path": "workflow/tests/mock-image-provider.test.ts",
+          "sha256": "21bc95192d31fcd276d5b904dcd08b0de35e4b497dbc4830378be0f15ac3a828"
+        },
+        {
+          "path": "workflow/tests/openai-image-provider.test.ts",
+          "sha256": "b5dab9eec64e29e2a8a9df9164ac8d30f00ea7ae829f0085f4ada26756b60f70"
+        },
+        {
+          "path": "workflow/tests/report-service.test.ts",
+          "sha256": "96f17559199d257daf5f718df6c4000ca6c44af8f54c6eb2156501a0ee16a922"
+        },
+        {
+          "path": "workflow/tests/runner.test.ts",
+          "sha256": "0d38ee3ab12d30738f28d641fb6380675c002a12a3f78d97cf65e6f6dd1e8b27"
+        },
+        {
+          "path": "workflow/tests/task-loop-runner.test.ts",
+          "sha256": "8dc1f0aa4edc2ab112681e953b3d79ef3d84d871bd7d73c87752af84cdc1403c"
+        },
+        {
+          "path": "workflow/tests/task-runner.test.ts",
+          "sha256": "1d1b7f72c9d17c9bb8927da84f4891336b19f2efa679792bc68a514f9a49f5a0"
+        },
+        {
+          "path": "workflow/tsconfig.json",
+          "sha256": "6544837e719b196a438e7db4a2986d8fd377239098b1afaed8aada364f0223ba"
+        },
+        {
+          "path": "workflow/vitest.config.ts",
+          "sha256": "e9ae92a53caf71a7fd50e9e25db5a029c8eb2b93ee1a0229c0e9bc52279491a9"
+        }
+      ]
+    },
+    {
+      "slug": "garment-spec-cn-annotation",
+      "title": "服装规格书中文批注",
+      "category": "ecommerce",
+      "path": "skills/ecommerce/garment-spec-cn-annotation",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/skills/garment-spec-cn-annotation",
+      "blog": "/lab/garment-spec-cn-annotation",
+      "summary": "将规格书中的日文、英文整理为中文批注，保留底图，提供翻译清单校验与批注渲染脚本；识别和翻译仍由 Agent 或人工完成。",
+      "status": "copied",
+      "supplemental": [],
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "2294ea6cb9bb0d7bebdd9e7b3adccd5eae5790a24584337cae7d117777d1eb3d"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "48fb26f477b481ccc9e9453f749041ae064b8a47e39137435b9808907e32ca8f"
+        },
+        {
+          "path": "examples/finished.png",
+          "sha256": "8df51105ca383da528dcf6801b16520e20b3ab0ac47ee94d4e39e7c02d02ae16"
+        },
+        {
+          "path": "examples/original.png",
+          "sha256": "74e483f01b6de71056127d7b62d6164dc495a078039dbf7f91b15ae78d56a0f1"
+        },
+        {
+          "path": "prompts/retry_prompt.txt",
+          "sha256": "93f21c047acb761dc8b10c5e078f4e15b8a91d6c9182bd30a31fa1189855a2aa"
+        },
+        {
+          "path": "prompts/system_prompt.txt",
+          "sha256": "01faef433d721afd3052cba1b52af1bec3cfec4cdf2a4e98de9380b7d9d82eb5"
+        },
+        {
+          "path": "scripts/render_annotations.py",
+          "sha256": "6650a302eb0947003827c579807d4f942963e83e679ca1fea1a0df5eaa96681b"
+        },
+        {
+          "path": "scripts/validate_annotations.py",
+          "sha256": "97b1a07ce12f4cbda36b334a43db2c9bf1d62570500ad4ec5b1bba5b5cca4492"
+        },
+        {
+          "path": "templates/annotations.schema.json",
+          "sha256": "6faa2007f5d4589cf5963a3d3d8b09614212b53a6daed47ba7597b304a373408"
+        }
+      ]
+    },
+    {
+      "slug": "beijing-zhongkao-admissions-advisor",
+      "title": "北京中考志愿填报顾问",
+      "category": "education",
+      "path": "skills/education/beijing-zhongkao-admissions-advisor",
+      "source": "/Volumes/Samsung_T5/code/my-volunteer/skills/beijing-zhongkao-admissions-advisor",
+      "blog": "/lab/beijing-zhongkao-admissions-advisor",
+      "summary": "前置核对届别、户籍学籍、报名报考资格及成绩口径；按资格待确认、规划预案、志愿建议分层输出，含独立行为测试场景。",
+      "status": "customized",
+      "supplemental": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "d0eadeaaf00e14a62cf06b87dd812441adfdb1c11e2a1f15d3837e43873f2089",
+          "sourceSha256": "a58fb05e28b86e0d66f82ce8357b07de4a198981d564822f79e96d994fca832a"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "1fc7cb370fe95b7b152ef745ab78a2767da6ae1df3cf8e52cf8fbcb5d3bd6401",
+          "sourceSha256": "91597ebef62faf109cf8b2d4b2c15ee37ac3d0f0b24e5955166d17763b211d82"
+        },
+        {
+          "path": "references/eligibility-and-score.md",
+          "sha256": "f10787167036e62fd03aed7724d61454cf05086c2b44fa09c5ec459b624cc0b5",
+          "origin": "local-customization"
+        },
+        {
+          "path": "references/output-template.md",
+          "sha256": "b35cc4b1f2bd9ae331ad412797abd796aa934a75ec353197605b08976e48aff4",
+          "sourceSha256": "2a5af2aa9397ff4ff40136f068d5ce04bde6a86375e1302dfd6c34b37f513ede"
+        },
+        {
+          "path": "references/question-flow.md",
+          "sha256": "8c52e77c38cd6a2a070a5cfc7009a67cdd375479daf0e14c0bfaac6131aeff3e",
+          "sourceSha256": "e9d69b0c343d5e2e79d9b3afee65474926db96e5fbfff138dc38b0cf496de73f"
+        },
+        {
+          "path": "references/source-policy.md",
+          "sha256": "b272ca55021e1246cd128b053bccae765fe7401e2f7d4a0ce974ea9c227dc257",
+          "sourceSha256": "816a07f8a46932430adb453101d786ad0e0ec1c158feaafd1fe664d3cdf8eef7"
+        },
+        {
+          "path": "tests/baseline-results.json",
+          "sha256": "3e9c4579d7b212378f334e8a9e380ad27b5f691cdc520fdbc7fd340d5019255a",
+          "origin": "local-customization"
+        },
+        {
+          "path": "tests/behavior-results.json",
+          "sha256": "ea0c1788589fd3030a0ed498fc947d34d6163d090a31a534552c26e06f452656",
+          "origin": "local-customization"
+        },
+        {
+          "path": "tests/scenarios.json",
+          "sha256": "5bb76f6a600582b10ef1d41392432ff93d73bcb1fe70f5f614964e82594f5dbd",
+          "origin": "local-customization"
+        }
+      ],
+      "updatedAt": "2026-10-10",
+      "modifications": [
+        "资格与成绩前置检查",
+        "按证据分层输出与隐私限制",
+        "更新提示入口和官方来源规则",
+        "新增14个独立行为验收场景及测试记录"
+      ],
+      "validation": {
+        "date": "2026-10-10",
+        "method": "independent agent behavior simulation including synthetic positive follow-ups",
+        "passed": 14,
+        "failed": 0,
+        "report": "tests/behavior-results.json",
+        "limits": "未验证真实政策准确率或实际填报录取；政策正文请求超时，已记录来源限制。"
+      }
+    },
+    {
+      "slug": "voice-driven-video",
+      "title": "录音驱动动态图解",
+      "category": "video",
+      "path": "skills/video/voice-driven-video",
+      "source": "/Users/chris/.codex/skills/voice-driven-video",
+      "blog": "/lab/voice-driven-video",
+      "summary": "把口播稿和本人录音制作成字幕、分镜与可编辑动态图解视频，提供音轨准备、转写、时间线、渲染与媒体检查工具；需安装视频和转写依赖。",
+      "status": "copied",
+      "supplemental": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "17197f046ecd3ee3435c348a682dda6dd1f497873da8ba776042bf130a901632"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "bee4a60d853427f669e9707b410c428c8407d62482721f5fecc5c867d04f947f"
+        },
+        {
+          "path": "assets/starter/package-lock.json",
+          "sha256": "d49edaa52525aaa479265c0879a10428ea85a98929714c5fc5de962738a9a9ce"
+        },
+        {
+          "path": "assets/starter/package.json",
+          "sha256": "6230aaedc9b783cc0a012361554d2bca3583f9a156fec1f814f14fe93b4e72dc"
+        },
+        {
+          "path": "assets/starter/render.mjs",
+          "sha256": "236349fa025f1c61aa395c4c57c5ba4a8a1f4c1803f2722cdb68125017f62f93"
+        },
+        {
+          "path": "assets/starter/script.json",
+          "sha256": "0d142d326675e5c2a79b217fb5c354ac02beb8d83c533207f976330cd7cfceee"
+        },
+        {
+          "path": "assets/starter/src/Film.tsx",
+          "sha256": "f397493c748e1c234987f349774b45ed5bc39962135590b8bc18bc2f36bbcd4e"
+        },
+        {
+          "path": "assets/starter/src/Root.tsx",
+          "sha256": "56e4138ea41db833b697708c3bfdc1bfd9e03aa285898b1e4bb142a9288b4341"
+        },
+        {
+          "path": "assets/starter/src/index.ts",
+          "sha256": "f9bc4e836a064aca9c58a681e1dc779b62a4d82894450e8e15d5cdd05840e36e"
+        },
+        {
+          "path": "assets/starter/src/storyboard.json",
+          "sha256": "dc98c8657efaece618af4af4e1a5f870e5df56a9e653386b4d89a9d97fee76af"
+        },
+        {
+          "path": "assets/starter/src/timeline.json",
+          "sha256": "95c2b7c8b2a7133c3387b5ba429525763cd791dbf2fa818e72e5bcae95073671"
+        },
+        {
+          "path": "assets/starter/tsconfig.json",
+          "sha256": "7f66aa1c5137290dd93d6c1813e7b5e1c6d3b28ee783aab1c21f6ce895f04722"
+        },
+        {
+          "path": "references/recording.md",
+          "sha256": "f1ca446d08348c3c733d3e2b72fc7616326eb961caf54abd7775161a85a058ed"
+        },
+        {
+          "path": "references/timing.md",
+          "sha256": "6a41ecc24b8e6de17ff68f37493431a6d31f984af9061949f3d65aa1119555eb"
+        },
+        {
+          "path": "references/visual-direction.md",
+          "sha256": "f46c057f613793704f83313bf2c947dd3b9409b648d620d9942af1d1d7510027"
+        },
+        {
+          "path": "scripts/align_narration.py",
+          "sha256": "e295507d851850b1b2c53d3c5d0f26accf2b86e84965a0f1c52de66a6e6bba1a"
+        },
+        {
+          "path": "scripts/common.py",
+          "sha256": "9863cbec7003fb46e75c72fd4866d9c8acd0a12c154aa583eedc53b2338e3fa1"
+        },
+        {
+          "path": "scripts/export_srt.py",
+          "sha256": "4da88ae7bf91d8b99b0d3a5f37c220d5f80d7952c1b627617b2b0fea68244f29"
+        },
+        {
+          "path": "scripts/init_project.py",
+          "sha256": "6dd316fe1c0725e79f0c75eb1b81b794539bb584edd0ce23bcb7ce4bb3831b77"
+        },
+        {
+          "path": "scripts/mux_audio.py",
+          "sha256": "184b504a62f6e1df7ad74a17896552a3384abb65b286f79ca1b726bde3ca2fcd"
+        },
+        {
+          "path": "scripts/prepare_audio.py",
+          "sha256": "37f9b90f4abdf98657837aa0dd88ef15a99416a3713ed0115c5af3068d74f620"
+        },
+        {
+          "path": "scripts/requirements.txt",
+          "sha256": "59b61352b9036f3ac55d180390e70ca3c0439564cb16ba72ced84e2d9bc21165"
+        },
+        {
+          "path": "scripts/run_asr.py",
+          "sha256": "8af5aa59fa236d5fb4af398e4fab90415a6121b0913e6b7f891a5ddf2ee34875"
+        },
+        {
+          "path": "scripts/validate_timeline.py",
+          "sha256": "9e2d2fc94387ed37147c4e101bbf96a1d1fecc3a5847692d82097829ff3b7219"
+        },
+        {
+          "path": "scripts/verify_media.py",
+          "sha256": "ef6e4ec553730468f14fb28867b104232cd5d2017088cc42ff644abecc67781b"
+        }
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "slug": "entrepreneurship-system",
+      "title": "创业系统学习 Skill",
+      "source": "/Users/chris/.agents/skills/entrepreneurship-system",
+      "status": "missing_source",
+      "blog": "/lab/entrepreneurship-system",
+      "note": "2026-10-10 来源索引已确认换机后源码缺失；未用博客介绍重建 SKILL.md。恢复后归入 skills/learning/entrepreneurship-system。"
+    }
+  ]
+}

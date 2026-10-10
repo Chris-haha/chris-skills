@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Fidelity Compositing"
+  short_description: "Preserve exact product identity in model-photo swaps"
+  default_prompt: "Use $preserving-product-fidelity to replace a product in a model photo without inventing, duplicating, removing, or redesigning product details."

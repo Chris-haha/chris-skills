@@ -1,0 +1,110 @@
+{
+  "collected_at": "2026-10-10",
+  "index": "/Volumes/Samsung_T5/macmini/code/coding-blog/PROJECT_SOURCES.md",
+  "files": [
+    {
+      "path": "assets/examples/preserving-product-fidelity/yellow-bag-model-scene.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/preserving-product-fidelity/yellow-bag-model-scene.png",
+      "sha256": "cf7ada62dced5eceddc740828a8eab64b67167e9e462081fe832de138e898e3b"
+    },
+    {
+      "path": "assets/examples/preserving-product-fidelity/yellow-bag-front-scene.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/preserving-product-fidelity/yellow-bag-front-scene.png",
+      "sha256": "327201999ad3831429f50db73f41475fde4689163952c3bbfdfc7d9ed13a2df6"
+    },
+    {
+      "path": "assets/examples/preserving-product-fidelity/yellow-bag-arm-scene.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/preserving-product-fidelity/yellow-bag-arm-scene.png",
+      "sha256": "34607958edb0ccd0044215ed1d442262f26088f3a8b3e4495b4476912e54eba6"
+    },
+    {
+      "path": "assets/examples/feishu-ecommerce-workflow/phone-scene.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/feishu-ecommerce-workflow/phone-scene.png",
+      "sha256": "e68808fb449bf94a6cbe09f867e4b5ca81b9b296fbad13630db447731ee11635"
+    },
+    {
+      "path": "assets/examples/feishu-ecommerce-workflow/laptop-scene.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/feishu-ecommerce-workflow/laptop-scene.png",
+      "sha256": "c05f06f05e913eed3fe6bb074e3879f7e203bb356da8183d0cdb002c826e6162"
+    },
+    {
+      "path": "assets/examples/garment-spec-cn-annotation/khje6075-original.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/garment-spec-cn-annotation/khje6075-original.png",
+      "sha256": "fd34c278859b906187c7734b937b9d47e23eb926fe9fef11558feb7275c4a55c"
+    },
+    {
+      "path": "assets/examples/garment-spec-cn-annotation/khje6075-annotated.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/garment-spec-cn-annotation/khje6075-annotated.png",
+      "sha256": "2f3087ad1da8c34d83817ff2af4a5ab4da0dd459f39c3a43e69b73c796181b33"
+    },
+    {
+      "path": "assets/examples/voice-driven-video/poster.jpg",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/poster.jpg",
+      "sha256": "b6b582b7d6299aeb7c54e47dc924470f668ca06302743e8d61a0861d7e36430e"
+    },
+    {
+      "path": "assets/examples/voice-driven-video/liver-science.mp4",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/liver-science.mp4",
+      "sha256": "78b19b5de08a062e164f76fe5197dae9df4a0c7dd9b502729f094dd37d2ff479"
+    },
+    {
+      "path": "assets/examples/voice-driven-video/captions.srt",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/captions.srt",
+      "sha256": "5338d366900699e5642d3e8ccde817c9a508cde33f6fce9b1852978471a8bc3d"
+    },
+    {
+      "path": "assets/examples/voice-driven-video/original.m4a",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/original.m4a",
+      "sha256": "1c428bf8f9025ae75750ce0275f6c94662e6e5b536af83c54807c86caddeb570"
+    },
+    {
+      "path": "assets/examples/voice-driven-video/manuscript.txt",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/manuscript.txt",
+      "sha256": "ffe85988ab79332f5d4b7bef65a82c47f86cebf6052b566bfb6e12395285765e"
+    },
+    {
+      "path": "assets/examples/beijing-zhongkao-admissions-advisor/school-information-template.png",
+      "source": "/Volumes/Samsung_T5/code/my-volunteer/outputs/beijing-haidian-zhongkao-2026/rendered/学校信息采集.png",
+      "sha256": "51a3cbcb6c53e3520831dd870acfa5b4bb256e647afbfbd726cd54df889a76e8"
+    },
+    {
+      "path": "assets/examples/garment-spec-cn-annotation/khje6075-original.pdf",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/examples/garment-spec-cn-annotation/KHJE6075_仕様書.pdf",
+      "sha256": "d4c28c91919192852874b722ed5e14f759eeb065e78db1d98d4c411090dc187f"
+    },
+    {
+      "path": "assets/examples/preserving-product-fidelity/yellow-bag-product.png",
+      "source": "/Volumes/Samsung_T5/code/test-image/原图/黄色包包/8aa1561a46a743cf4c5cdbb48cc69c20.png",
+      "sha256": "37ab6bbf9e235c05e37d1dbeaf69da7b1b7fa51c27336c664fd29c3884a70fe0",
+      "source_role": "product-front",
+      "verification": "SHA-256 matches original task manifest"
+    },
+    {
+      "path": "assets/examples/preserving-product-fidelity/reference-01.png",
+      "source": "/Volumes/Samsung_T5/code/test-image/原图/模特图/95e5a6bb35420793ee3a362b64ded70a.png",
+      "sha256": "2b3a9da3b46a45a3b5cbae57a7ea19af77b3038bd2d0992425a2e053fe5bf7a9",
+      "source_role": "target-model-scene-01",
+      "verification": "SHA-256 matches original task manifest"
+    },
+    {
+      "path": "assets/examples/preserving-product-fidelity/reference-03.png",
+      "source": "/Volumes/Samsung_T5/code/test-image/原图/模特图/389ea0911af6629d9c33505e04af6cfe.png",
+      "sha256": "cfe1c2c9bb7799872db9e5f7985fe569ff1b622c0f0de18a95b0d83d819f73c2",
+      "source_role": "target-model-scene-03",
+      "verification": "SHA-256 matches original task manifest"
+    },
+    {
+      "path": "assets/examples/preserving-product-fidelity/reference-02.png",
+      "source": "/Volumes/Samsung_T5/code/test-image/原图/模特图/e91396781ab4e746981c60a081c0c896.png",
+      "sha256": "3ea540d7f635bb76937bbe905296c07b4c806a09a6a7c426085dcefb9d9e5bbc",
+      "source_role": "target-model-scene-02",
+      "verification": "SHA-256 matches original task manifest"
+    },
+    {
+      "path": "assets/examples/preserving-product-fidelity/input-output-comparison.svg",
+      "source": "由同目录七张已归档输入/输出图片进行 SVG 固定版式排版；图片以原始字节内嵌，不裁切",
+      "sha256": "31a21e7722fe922482c280857bb6801bad1cf403bfbb0a2c149a175c9bde70f0",
+      "type": "derived-layout"
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+Task 7 RED — 2026-09-13
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_verified_composite_requires_landmark_qa_for_all_visible_identity_records ValidateFidelityManifestTests.test_verified_composite_rejects_protected_product_pixel_drift
+FF
+======================================================================
+FAIL: test_verified_composite_requires_landmark_qa_for_all_visible_identity_records
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_verified_composite_rejects_protected_product_pixel_drift
+AssertionError: 0 == 0
+
+Ran 2 tests
+FAILED (failures=2)
+
+Task 7 RED — malformed verdict coverage
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_landmark_and_protected_pixel_qa_verdicts_have_closed_string_enums
+E
+JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+Ran 1 test
+FAILED (errors=1)
+
+Task 7 GREEN — 2026-09-13
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py'
+.............................................................................
+Ran 77 tests
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+Exit status: 0
+
+Task 10 remediation RED — identity/attachment coupling and draft failure evidence
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_verified_composite_requires_both_identity_lists_and_never_exports_when_missing ValidateFidelityManifestTests.test_visible_attachment_topology_must_be_identity_tracked_and_qa_covered ValidateFidelityManifestTests.test_explicit_draft_qa_failures_reject_and_do_not_export ValidateFidelityManifestTests.test_pending_draft_qa_remains_an_unverified_draft
+FFF.
+FAIL: test_verified_composite_requires_both_identity_lists_and_never_exports_when_missing
+AssertionError: 0 == 0
+FAIL: test_visible_attachment_topology_must_be_identity_tracked_and_qa_covered
+AssertionError: 0 == 0
+FAIL: test_explicit_draft_qa_failures_reject_and_do_not_export
+AssertionError: 0 == 0
+
+Ran 4 tests
+FAILED (failures=3)
+
+Task 10 remediation GREEN — identity/attachment coupling and draft failure evidence
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_verified_composite_requires_both_identity_lists_and_never_exports_when_missing ValidateFidelityManifestTests.test_visible_attachment_topology_must_be_identity_tracked_and_qa_covered ValidateFidelityManifestTests.test_explicit_draft_qa_failures_reject_and_do_not_export ValidateFidelityManifestTests.test_pending_draft_qa_remains_an_unverified_draft
+....
+Ran 4 tests
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py'
+..................................................................................................................
+Ran 114 tests
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+Exit status: 0
+
+Normal CLI probe: valid-deterministic-composite.json returned valid true, verified_composite, and no prompt_contract.
+Export CLI probe: the same manifest returned valid true with prompt_contract; reject-incomplete-landmark-qa.json returned valid false with MISSING_LANDMARK_QA and no prompt_contract.
+
+Task 7 quality-review RED — commercial-importance and QA failure accumulation
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_facts_require_closed_commercial_importance_labels ValidateFidelityManifestTests.test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance ValidateFidelityManifestTests.test_malformed_landmarks_cannot_hide_protected_pixel_drift ValidateFidelityManifestTests.test_failed_landmark_retains_rejection_with_invalid_source_or_region
+FFFF
+FAIL: test_facts_require_closed_commercial_importance_labels
+AssertionError: 0 == 0
+FAIL: test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance
+AssertionError: 0 == 0
+FAIL: test_malformed_landmarks_cannot_hide_protected_pixel_drift
+AssertionError: 'blocked' != 'rejected'
+FAIL: test_failed_landmark_retains_rejection_with_invalid_source_or_region
+AssertionError: 'blocked' != 'rejected'
+
+Ran 4 tests
+FAILED (failures=4)
+
+Task 7 quality-review GREEN — commercial-importance and QA failure accumulation
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_facts_require_closed_commercial_importance_labels ValidateFidelityManifestTests.test_explicit_identity_landmarks_remain_required_when_fact_is_low_importance ValidateFidelityManifestTests.test_malformed_landmarks_cannot_hide_protected_pixel_drift ValidateFidelityManifestTests.test_failed_landmark_retains_rejection_with_invalid_source_or_region
+....
+Ran 4 tests
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py'
+..................................................................................
+Ran 82 tests
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+Exit status: 0
+
+Task 7 regression RED — duplicate landmark failure precedence
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict
+F
+FAIL: test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict
+AssertionError: 'blocked' != 'rejected'
+
+Ran 1 test
+FAILED (failures=1)
+
+Task 7 regression GREEN — duplicate landmark failure precedence
+
+$ python3 .codex/skills/preserving-product-fidelity/tests/test_validate_fidelity_manifest.py ValidateFidelityManifestTests.test_duplicate_landmark_record_cannot_hide_a_failed_identity_verdict
+.
+Ran 1 test
+OK
+
+$ python3 -m unittest discover -s .codex/skills/preserving-product-fidelity/tests -p 'test_*.py'
+..............................................................................
+Ran 78 tests
+OK
+
+$ python3 -m py_compile .codex/skills/preserving-product-fidelity/scripts/validate_fidelity_manifest.py
+Exit status: 0

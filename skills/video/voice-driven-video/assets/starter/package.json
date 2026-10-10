@@ -1,0 +1,23 @@
+{
+  "name": "voice-driven-video",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "node render.mjs render",
+    "check": "tsc --noEmit",
+    "stills": "node render.mjs stills"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.484",
+    "@remotion/player": "4.0.484",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "remotion": "4.0.484"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "typescript": "6.0.3"
+  }
+}

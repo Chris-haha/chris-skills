@@ -1,0 +1,163 @@
+{
+  "mode": "commercial_exact_product",
+  "sources": [
+    {
+      "id": "product-front",
+      "role": "product_truth",
+      "path": "fixtures/black-bag-front.png",
+      "sha256": "8c96d8d491d78a9b4a13e43df84c530568e75ef4718604a332178801de7c1f72",
+      "view": "front",
+      "required": true
+    },
+    {
+      "id": "product-clasp-detail",
+      "role": "detail_truth",
+      "path": "fixtures/black-bag-clasp-detail.png",
+      "sha256": "3119fe77cc65939e6060ff6014472a0b0e2dab0bc83f1ea2be45957238127fe7",
+      "view": "front",
+      "required": true
+    },
+    {
+      "id": "target-model-scene",
+      "role": "target_scene",
+      "path": "fixtures/model-scene.png",
+      "sha256": "7147a94c3ac7ab1ac95095ee0a526ea931b9e67d625e5fa8e52bd16b4514bfd7",
+      "view": "front",
+      "required": false
+    }
+  ],
+  "facts": [
+    {
+      "id": "front-silhouette",
+      "component": "bag_body",
+      "assertion": "The visible front panel has a rectangular quilted silhouette.",
+      "status": "observed",
+      "commercial_importance": "high",
+      "evidence": [
+        {
+          "source_id": "product-front",
+          "normalized_region": [0.18, 0.22, 0.64, 0.58]
+        }
+      ]
+    },
+    {
+      "id": "front-clasp",
+      "component": "clasp",
+      "assertion": "A centered metal clasp is visible on the front flap.",
+      "status": "observed",
+      "commercial_importance": "high",
+      "evidence": [
+        {
+          "source_id": "product-clasp-detail",
+          "normalized_region": [0.32, 0.28, 0.36, 0.40]
+        }
+      ]
+    }
+  ],
+  "topology": [
+    {
+      "id": "front-chain-path",
+      "component": "chain_strap",
+      "component_count": 1,
+      "endpoints": ["left_attachment", "right_attachment"],
+      "path": "Visible front chain segment runs between the two front attachment points.",
+      "connection_type": "fixed",
+      "purpose": "carrying",
+      "status": "observed",
+      "evidence": [
+        {
+          "source_id": "product-front",
+          "normalized_region": [0.14, 0.05, 0.72, 0.30]
+        }
+      ]
+    }
+  ],
+  "prompt_claims": [
+    {
+      "id": "claim-front-silhouette",
+      "claim": "Preserve the observed rectangular quilted front silhouette.",
+      "supporting_ids": ["front-silhouette"]
+    },
+    {
+      "id": "claim-front-clasp",
+      "claim": "Preserve the observed centered front clasp.",
+      "supporting_ids": ["front-clasp"]
+    }
+  ],
+  "reference_plan": {
+    "tool_reference_limit": 5,
+    "selected_source_ids": ["product-front", "product-clasp-detail", "target-model-scene"],
+    "deterministic_atlases": []
+  },
+  "scene_plan": {
+    "target_scene_source_id": "target-model-scene",
+    "required_product_view": "front",
+    "presentation_envelope": {
+      "supported_orientations": ["front"],
+      "visible_surfaces": ["front"],
+      "surface_evidence": {"front": ["product-front", "product-clasp-detail"]},
+      "visible_attachment_points": ["left_attachment", "right_attachment"],
+      "must_remain_hidden": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"]
+    },
+    "final_orientation": "front",
+    "final_visible_surfaces": ["front"],
+    "mirrored_product_view": false,
+    "visible_identity_critical_regions": ["front-silhouette", "front-clasp", "front-chain-path"],
+    "redrawn_identity_critical_regions": [],
+    "permitted_scene_adjustments": ["model_pose", "hand_placement", "crop", "product_position"],
+    "applied_scene_adjustments": [],
+    "forbidden_invented_regions": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"]
+  },
+  "method": {
+    "type": "deterministic_composite",
+    "tool_capabilities": {
+      "supports_deterministic_transform": true,
+      "supports_mask": true,
+      "supports_layer_lock": true
+    },
+    "protected_regions": [
+      {
+        "id": "front-product-pixels",
+        "source_id": "product-front",
+        "normalized_region": [0.18, 0.22, 0.64, 0.58]
+      }
+    ],
+    "allowed_edit_mask": {
+      "regions": ["hand_occlusion", "contact_shadow"]
+    },
+    "product_pixels_preserved": true
+  },
+  "approval": {
+    "confirmed_fact_ids": [],
+    "preview_approval": "not_required_for_observed_facts"
+  },
+  "qa": {
+    "original_resolution_comparison": true,
+    "landmark_records": [
+      {
+        "landmark_id": "front-silhouette",
+        "source_id": "product-front",
+        "normalized_region": [0.18, 0.22, 0.64, 0.58],
+        "verdict": "pass"
+      },
+      {
+        "landmark_id": "front-clasp",
+        "source_id": "product-clasp-detail",
+        "normalized_region": [0.32, 0.28, 0.36, 0.40],
+        "verdict": "pass"
+      },
+      {
+        "landmark_id": "front-chain-path",
+        "source_id": "product-front",
+        "normalized_region": [0.14, 0.05, 0.72, 0.30],
+        "verdict": "pass"
+      }
+    ],
+    "protected_pixels": {
+      "verdict": "pass",
+      "compared_region_ids": ["front-product-pixels"]
+    },
+    "overall_verdict": "pass"
+  },
+  "delivery_status": "verified_composite"
+}

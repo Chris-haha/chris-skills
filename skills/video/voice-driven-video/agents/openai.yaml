@@ -1,0 +1,4 @@
+interface:
+  display_name: "录音驱动视频"
+  short_description: "将口播稿和本人录音制作成可自动对齐的不露脸动态图解视频"
+  default_prompt: "使用 $voice-driven-video，根据我的口播稿和录音制作不露脸动态图解视频，按真实语音重排字幕与分镜并导出 MP4。"

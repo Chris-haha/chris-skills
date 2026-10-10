@@ -1,0 +1,1 @@
+{"title":"替换为口播主题","fps":30,"units":[{"id":"u1","text":"第一句话。"},{"id":"u2","text":"第二句话。"}],"scenes":[{"id":"s1","anchorUnit":"u1","label":"介绍"},{"id":"s2","anchorUnit":"u2","label":"解释"}]}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Garment spec translation annotations",
+  "type": "object",
+  "properties": {
+    "style": {
+      "type": "object"
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "text",
+          "source_box"
+        ],
+        "properties": {
+          "source_text": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "description": "必须以简体中文为主；不得包含乱码或大量未翻译日文/英文"
+          },
+          "source_box": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "preferred_side": {
+            "enum": [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ]
+          },
+          "leader": {
+            "type": "boolean"
+          },
+          "max_width": {
+            "type": "number"
+          },
+          "category": {
+            "enum": [
+              "translate",
+              "keep",
+              "already_cn",
+              "uncertain"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "annotations"
+  ]
+}

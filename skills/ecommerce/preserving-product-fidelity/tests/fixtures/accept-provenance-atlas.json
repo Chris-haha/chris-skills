@@ -1,0 +1,72 @@
+{
+  "mode": "commercial_exact_product",
+  "sources": [
+    {"id": "product-view-1", "role": "product_truth", "view": "front", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "required": true},
+    {"id": "product-view-2", "role": "product_truth", "view": "front", "sha256": "2222222222222222222222222222222222222222222222222222222222222222", "required": true},
+    {"id": "product-view-3", "role": "product_truth", "view": "front", "sha256": "3333333333333333333333333333333333333333333333333333333333333333", "required": true},
+    {"id": "product-view-4", "role": "product_truth", "view": "front", "sha256": "4444444444444444444444444444444444444444444444444444444444444444", "required": true},
+    {"id": "product-view-5", "role": "product_truth", "view": "front", "sha256": "5555555555555555555555555555555555555555555555555555555555555555", "required": true},
+    {"id": "product-view-6", "role": "product_truth", "view": "front", "sha256": "6666666666666666666666666666666666666666666666666666666666666666", "required": true},
+    {"id": "product-view-7", "role": "product_truth", "view": "front", "sha256": "7777777777777777777777777777777777777777777777777777777777777777", "required": true}
+  ],
+  "facts": [{"id": "front-identity", "component": "bag_body", "assertion": "Observed front product identity.", "status": "observed", "commercial_importance": "high", "evidence": [{"source_id": "product-view-1", "normalized_region": [0.18, 0.22, 0.64, 0.58]}]}],
+  "topology": [],
+  "prompt_claims": [],
+  "reference_plan": {
+    "tool_reference_limit": 3,
+    "selected_source_ids": ["atlas-front", "atlas-side", "atlas-detail"],
+    "deterministic_atlases": [
+      {
+        "id": "atlas-front",
+        "deterministic": true,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "parent_source_ids": ["product-view-1", "product-view-2", "product-view-3"],
+        "crop_mappings": [
+          {"parent_source_id": "product-view-1", "source_normalized_region": [0.0, 0.0, 1.0, 1.0], "atlas_normalized_region": [0.0, 0.0, 0.5, 0.5], "identity_landmarks_readable": true},
+          {"parent_source_id": "product-view-2", "source_normalized_region": [0.0, 0.0, 1.0, 1.0], "atlas_normalized_region": [0.5, 0.0, 0.5, 0.5], "identity_landmarks_readable": true},
+          {"parent_source_id": "product-view-3", "source_normalized_region": [0.0, 0.0, 1.0, 1.0], "atlas_normalized_region": [0.0, 0.5, 0.5, 0.5], "identity_landmarks_readable": true}
+        ]
+      },
+      {
+        "id": "atlas-side",
+        "deterministic": true,
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "parent_source_ids": ["product-view-4", "product-view-5"],
+        "crop_mappings": [
+          {"parent_source_id": "product-view-4", "source_normalized_region": [0.0, 0.0, 1.0, 1.0], "atlas_normalized_region": [0.0, 0.0, 0.5, 1.0], "identity_landmarks_readable": true},
+          {"parent_source_id": "product-view-5", "source_normalized_region": [0.0, 0.0, 1.0, 1.0], "atlas_normalized_region": [0.5, 0.0, 0.5, 1.0], "identity_landmarks_readable": true}
+        ]
+      },
+      {
+        "id": "atlas-detail",
+        "deterministic": true,
+        "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "parent_source_ids": ["product-view-6", "product-view-7"],
+        "crop_mappings": [
+          {"parent_source_id": "product-view-6", "source_normalized_region": [0.0, 0.0, 1.0, 1.0], "atlas_normalized_region": [0.0, 0.0, 0.5, 1.0], "identity_landmarks_readable": true},
+          {"parent_source_id": "product-view-7", "source_normalized_region": [0.0, 0.0, 1.0, 1.0], "atlas_normalized_region": [0.5, 0.0, 0.5, 1.0], "identity_landmarks_readable": true}
+        ]
+      }
+    ]
+  },
+  "scene_plan": {
+    "presentation_envelope": {
+      "visible_attachment_points": [], "supported_orientations": ["front"],
+      "visible_surfaces": ["front"],
+      "surface_evidence": {"front": ["product-view-1"]},
+      "must_remain_hidden": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"]
+    },
+    "final_orientation": "front",
+    "final_visible_surfaces": ["front"],
+    "mirrored_product_view": false,
+    "visible_identity_critical_regions": ["front-identity"],
+    "redrawn_identity_critical_regions": [],
+    "permitted_scene_adjustments": ["model_pose", "hand_placement", "crop", "product_position"],
+    "applied_scene_adjustments": [],
+    "forbidden_invented_regions": ["left_side", "right_side", "back", "top", "bottom", "opening", "interior"]
+  },
+  "method": {"type": "deterministic_composite", "product_pixels_preserved": true, "protected_regions": [{"id": "front-product-pixels", "source_id": "product-view-1", "normalized_region": [0.18, 0.22, 0.64, 0.58]}]},
+  "approval": {"confirmed_fact_ids": []},
+  "qa": {"original_resolution_comparison": true, "landmark_records": [{"landmark_id": "front-identity", "source_id": "product-view-1", "normalized_region": [0.18, 0.22, 0.64, 0.58], "verdict": "pass"}], "protected_pixels": {"verdict": "pass", "compared_region_ids": ["front-product-pixels"]}, "overall_verdict": "pass"},
+  "delivery_status": "verified_composite"
+}

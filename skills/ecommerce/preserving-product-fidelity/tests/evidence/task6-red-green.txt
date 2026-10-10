@@ -1,0 +1,89 @@
+Task 6 RED evidence (tests added before validator implementation)
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest tests/test_validate_fidelity_manifest.py
+Result: exit code 1
+
+..........F.F..............F....FF.................................
+Ran 67 tests in 2.740s
+FAILED (failures=5)
+
+Expected feature-gap failures:
+- test_full_generative_redraw_cannot_be_delivered_as_verified_composite: validator returned exit code 0
+- test_masked_generative_contact_requires_literal_protective_capabilities: validator returned exit code 0
+- test_deterministic_composite_requires_preserved_product_pixels_and_protected_region: validator returned exit code 0
+- test_masked_contact_edit_rejects_invalid_masks_and_scalar_method_fields: validator returned exit code 0
+- test_concept_draft_cannot_be_mislabeled_as_verified_composite: validator returned exit code 0
+
+Task 6 GREEN evidence (minimal method and delivery-state implementation)
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest discover -s tests -p 'test_*.py'
+Result: exit code 0
+
+Task 6 delivery-status enum RED evidence
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest tests.test_validate_fidelity_manifest.ValidateFidelityManifestTests.test_unknown_delivery_status_is_rejected_by_the_real_cli
+Result: exit code 1
+
+F
+Ran 1 test in 0.028s
+FAILED (failures=1)
+
+Expected feature-gap failure: test_unknown_delivery_status_is_rejected_by_the_real_cli received CLI exit code 0 for delivery_status "not_a_delivery_state".
+
+Task 6 delivery-status enum GREEN evidence
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest tests.test_validate_fidelity_manifest.ValidateFidelityManifestTests.test_unknown_delivery_status_is_rejected_by_the_real_cli
+Result: exit code 0
+
+.
+Ran 1 test in 0.028s
+OK
+
+Task 6 delivery-ceiling precedence final verification
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest discover -s tests -p 'test_*.py' && python3 -m py_compile scripts/validate_fidelity_manifest.py
+Result: exit code 0
+
+......................................................................
+Ran 70 tests in 3.055s
+OK
+
+Task 6 delivery-ceiling precedence RED evidence
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest tests.test_validate_fidelity_manifest.ValidateFidelityManifestTests.test_full_generative_redraw_preserves_explicit_restrictive_delivery_statuses tests.test_validate_fidelity_manifest.ValidateFidelityManifestTests.test_independent_blocker_outranks_full_redraw_delivery_ceiling
+Result: exit code 1
+
+F
+Ran 2 tests in 0.082s
+FAILED (failures=3)
+
+Expected feature-gap failures:
+- full_generative_redraw with requested blocked returned CLI exit code 1 instead of preserving blocked.
+- full_generative_redraw with requested rejected returned CLI exit code 1 instead of preserving rejected.
+- full redraw plus unsupported visible surface returned effective_delivery_status unverified_draft instead of blocked.
+
+Task 6 delivery-ceiling precedence GREEN evidence
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest tests.test_validate_fidelity_manifest.ValidateFidelityManifestTests.test_full_generative_redraw_preserves_explicit_restrictive_delivery_statuses tests.test_validate_fidelity_manifest.ValidateFidelityManifestTests.test_independent_blocker_outranks_full_redraw_delivery_ceiling
+Result: exit code 0
+
+..
+Ran 2 tests in 0.078s
+OK
+
+Task 6 delivery-status enum final verification
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m unittest discover -s tests -p 'test_*.py' && python3 -m py_compile scripts/validate_fidelity_manifest.py
+Result: exit code 0
+
+....................................................................
+Ran 68 tests in 3.012s
+OK
+
+...................................................................
+Ran 67 tests in 2.920s
+OK
+
+Command:
+  cd /Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity && python3 -m py_compile scripts/validate_fidelity_manifest.py
+Result: exit code 0

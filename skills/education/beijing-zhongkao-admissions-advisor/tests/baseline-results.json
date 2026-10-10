@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-10",
+  "method": "independent agent simulation of original instructions",
+  "overall": "FAIL",
+  "actual_response": "我先整理一下：孩子在海淀，620分，能接受住校。现在最需要补的一条是：有没有区排名或一分一段定位？",
+  "failures": [
+    "旧停止追问条件缺届别、资格、户籍学籍、成绩类型",
+    "默认六段输出可在资格未核验时进入学校池与顺序",
+    "外省学籍和非京籍缺明确分流，校内排名与模拟成绩缺比较约束"
+  ]
+}

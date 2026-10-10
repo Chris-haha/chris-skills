@@ -1,0 +1,62 @@
+{
+  "mode": "commercial_exact_product",
+  "sources": [
+    {
+      "id": "product-front",
+      "role": "product_truth",
+      "path": "fixtures/foam-obscured-bag-front.png",
+      "sha256": "8c96d8d491d78a9b4a13e43df84c530568e75ef4718604a332178801de7c1f72",
+      "view": "front",
+      "required": true
+    },
+    {
+      "id": "target-model-scene",
+      "role": "target_scene",
+      "path": "fixtures/model-scene.png",
+      "sha256": "7147a94c3ac7ab1ac95095ee0a526ea931b9e67d625e5fa8e52bd16b4514bfd7",
+      "view": "front",
+      "required": false
+    }
+  ],
+  "facts": [
+    {
+      "id": "handle-count",
+      "component": "top_handle",
+      "assertion": "The top handle count remains unknown because the attachments are hidden.",
+      "status": "unknown",
+      "commercial_importance": "high",
+      "evidence": [
+        {
+          "source_id": "product-front",
+          "normalized_region": [0.20, 0.02, 0.60, 0.28]
+        }
+      ]
+    }
+  ],
+  "topology": [],
+  "prompt_claims": [],
+  "reference_plan": {
+    "tool_reference_limit": 5,
+    "selected_source_ids": ["product-front", "target-model-scene"],
+    "deterministic_atlases": []
+  },
+  "scene_plan": {
+    "target_scene_source_id": "target-model-scene",
+    "visible_identity_critical_regions": ["handle-count"],
+    "redrawn_identity_critical_regions": [],
+    "permitted_scene_adjustments": ["hand_placement"]
+  },
+  "method": {
+    "type": "generative_redraw",
+    "product_pixels_preserved": false
+  },
+  "approval": {
+    "confirmed_fact_ids": [],
+    "preview_approval": "Preview approved.",
+    "packaging_approval": "Packaging placement approved."
+  },
+  "qa": {
+    "overall_verdict": "pending"
+  },
+  "delivery_status": "verified_composite"
+}

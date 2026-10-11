@@ -14,7 +14,7 @@
 
 - 飞书 Skill 来源没有 `workflow/`，按其 wrapper 要求从所属 mvp-workflow 补入源码、测试、文档、依赖清单与 `.env.example`。未复制本地 `.env`、运行数据、依赖目录和构建产物。
 - `entrepreneurship-system` 原始目录缺失，待从旧电脑或备份恢复；不创建空壳 Skill。
-- 原有 `deal-with-jerks(sb)` 保持原位置，本轮未修改。
+- 人际冲突 Skill 最初保留在根目录 `deal-with-jerks(sb)`；2026-10-11 已统一迁入 `skills/communication/deal-with-jerks/`。
 - 逐文件 SHA-256 与来源映射保存在 `catalog.json`。不额外归集博客案例录音、客户资料与运行输出；Skill 包自带示例保持原样。
 
 ## 2026-10-10 收录范围调整
@@ -43,3 +43,7 @@
 ## 2026-10-11 面向使用者的 README 整理
 
 规格书案例改为仅展示原始截图与中文批注图片；移除仓库展示用 PDF 及其 assets/examples/sources.json 记录，原始来源文件未修改。README 简化内部状态字段、归集过程和维护操作说明，移除不符合当前判断规则的历史冲突案例入口，保留许可、依赖与影响使用的能力边界，并补充持续更新说明。
+
+## 2026-10-11 沟通类 Skill 目录统一
+
+新增 communication（沟通与边界）分类，将根目录 deal-with-jerks(sb) 完整迁移为 skills/communication/deal-with-jerks，Skill 名称仍为 deal-with-jerks。迁移时全部文件逐字节哈希一致；随后仅更新第三方声明中的仓库路径。README、catalog.json 与各 Skill 的第三方说明同步更新。

@@ -3,6 +3,110 @@
   "sourceIndex": "/Volumes/Samsung_T5/macmini/code/coding-blog/PROJECT_SOURCES.md",
   "skills": [
     {
+      "slug": "deal-with-jerks",
+      "title": "人际冲突与边界应对",
+      "category": "communication",
+      "path": "skills/communication/deal-with-jerks",
+      "source": "原有仓库目录 deal-with-jerks(sb)，2026-10-11 迁移",
+      "summary": "梳理人际冲突事实、选择沟通策略、建立边界并组织可执行回复。",
+      "status": "organized",
+      "supplemental": [],
+      "files": [
+        {
+          "path": ".DS_Store",
+          "sha256": "c7e6a02f579ceeda846edf56c554067d0b749e0511a0773c62a77f84b07b375c"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "fb366c414ac3bc1e0e13c50d1768589e2eb601fde6afdf956f2bbafe3e13fddf"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f"
+        },
+        {
+          "path": "cases/supervisor-case/_base.html",
+          "sha256": "6abc03e2a769489123e8c16abd84d91c6ccfd96aa299b11bcfb5d78b249d98c0"
+        },
+        {
+          "path": "cases/supervisor-case/_footer.html",
+          "sha256": "74b885e11beafd0c427fd25b8571499caccb2a02f9b4160ffc69ad59264c474e"
+        },
+        {
+          "path": "cases/supervisor-case/build.sh",
+          "sha256": "99daa15d3b1ade679ec081907b8d0338e62e95645bd1a873cb5de99102f799b9"
+        },
+        {
+          "path": "cases/supervisor-case/index.html",
+          "sha256": "1f89c8863ee29415e6015c2499a8c589eeb2b582f824ca6d202cf820b5465706"
+        },
+        {
+          "path": "cases/supervisor-case/modules/01-hero.html",
+          "sha256": "483a41e4542181336084172e51d9e01f529dae2cc60cdc6604e3dbb0676a2a56"
+        },
+        {
+          "path": "cases/supervisor-case/modules/02-diagnosis.html",
+          "sha256": "7c1ceb4878c2e16665e15678c30ce74334234775bdf55984034cc2b74cabbd4e"
+        },
+        {
+          "path": "cases/supervisor-case/modules/03-protect.html",
+          "sha256": "2c210448dcbc2f26cd2602b756c66a59d26d0be5a65a3a0f2e09aba8a2fe2263"
+        },
+        {
+          "path": "cases/supervisor-case/modules/04-strategy.html",
+          "sha256": "24932461ab9ace1e558637b97e3fd0b1438349d7d4c8a59bd7e60995c069096e"
+        },
+        {
+          "path": "cases/supervisor-case/modules/05-scripts.html",
+          "sha256": "18beac94ed64e3c1e56b2401538ffbeb6badab098e05c1058658d00b1c7a01fa"
+        },
+        {
+          "path": "cases/supervisor-case/modules/06-next.html",
+          "sha256": "63af60c7fc3cf7eb75f2466d462eb2d0070892041a24206c410ff269340a2e3c"
+        },
+        {
+          "path": "cases/supervisor-case/styles.css",
+          "sha256": "2933eec42c82a2af6c8b9726b58b007d2ab631ac7ba336e45fe3caab657791f8"
+        },
+        {
+          "path": "references/_base.html",
+          "sha256": "6abc03e2a769489123e8c16abd84d91c6ccfd96aa299b11bcfb5d78b249d98c0"
+        },
+        {
+          "path": "references/_footer.html",
+          "sha256": "74b885e11beafd0c427fd25b8571499caccb2a02f9b4160ffc69ad59264c474e"
+        },
+        {
+          "path": "references/build.sh",
+          "sha256": "99daa15d3b1ade679ec081907b8d0338e62e95645bd1a873cb5de99102f799b9"
+        },
+        {
+          "path": "references/evaluation-scenarios.md",
+          "sha256": "9011951eba15fbcf45f22e6687b96824beb354b4b6e57ae62ebd726b241f5e22"
+        },
+        {
+          "path": "references/html-output.md",
+          "sha256": "41bee8b18dbdc451ebe2ba5a87cea53f8dbe98f22bcf200dc097e45e5cfaa8fb"
+        },
+        {
+          "path": "references/strategies-and-scripts.md",
+          "sha256": "ad2edcc9e42d68f3e193339713ec92ace14a3050a6f3d3e263cdadb981129772"
+        },
+        {
+          "path": "references/styles.css",
+          "sha256": "2933eec42c82a2af6c8b9726b58b007d2ab631ac7ba336e45fe3caab657791f8"
+        }
+      ]
+    },
+    {
       "slug": "preserving-product-fidelity",
       "title": "产品保真",
       "category": "ecommerce",
@@ -156,7 +260,7 @@
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
-          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f",
           "origin": "local-license-configuration"
         },
         {
@@ -354,7 +458,7 @@
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
-          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f",
           "origin": "local-license-configuration"
         },
         {
@@ -418,7 +522,7 @@
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
-          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f",
           "origin": "local-license-configuration"
         },
         {
@@ -491,7 +595,7 @@
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
-          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f",
           "origin": "local-license-configuration"
         },
         {
@@ -634,7 +738,7 @@
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
-          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f",
           "origin": "local-license-configuration"
         },
         {

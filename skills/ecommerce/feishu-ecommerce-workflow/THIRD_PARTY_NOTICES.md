@@ -7,7 +7,7 @@
 | 内容 | 已知来源 | 许可处理 |
 | --- | --- | --- |
 | 五个分类 Skill 的来源副本 | 根目录 SOURCES.md 与 catalog.json 记录的本机项目；规格书 Skill 来自归档上传包 | 本人有权授权的部分适用 LICENSE；来源记录本身不证明所有文件原创，遇到第三方标记应保留并按其授权处理 |
-| 人际冲突 Skill 及历史 HTML 案例 | deal-with-jerks(sb)/ | 本人有权授权的部分适用 LICENSE；历史案例不作为事实或咨询质量的证明 |
+| 人际冲突 Skill 及历史 HTML 案例 | skills/communication/deal-with-jerks/ | 本人有权授权的部分适用 LICENSE；历史案例不作为事实或咨询质量的证明 |
 | 商品图、模特参考图与生成场景图 | assets/examples/sources.json 所列原始项目和博客资产 | 可能涉及摄影、肖像、商标、商品设计及生成服务条款；不授予独立转载、商业使用或品牌背书权限 |
 | 外文服装规格书 PDF、原稿与批注成品 | 用户提供材料及 coding-blog 归档 | 原稿及所含第三方信息的权利仍归相应权利人；上传或展示不等于可转授权 |
 | 原录音、口播稿、字幕、视频、表格截图 | assets/examples/sources.json 所列来源 | 本人有权授权的部分受 LICENSE 约束；其他素材及输出仍须核对各自权利 |

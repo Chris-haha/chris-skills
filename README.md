@@ -14,7 +14,7 @@
 
 | 分类 | Skill | 用途 |
 | --- | --- | --- |
-| 沟通与边界 | [人际冲突与边界应对](deal-with-jerks(sb)/SKILL.md) | 处理职场、家庭和社交冲突，整理事实、策略与回复话术。 |
+| 沟通与边界 | [人际冲突与边界应对](skills/communication/deal-with-jerks/SKILL.md) | 处理职场、家庭和社交冲突，整理事实、策略与回复话术。 |
 | 电商与商品资料 | [产品保真](skills/ecommerce/preserving-product-fidelity/SKILL.md) | 根据商品原图制作模特图与场景图，逐项核对商品结构、材质和细节。 |
 | 电商与商品资料 | [飞书电商生图工作流](skills/ecommerce/feishu-ecommerce-workflow/SKILL.md) | 从飞书多维表读取生图任务，生成图片并归档打包，回写进度和通知负责人。 |
 | 电商与商品资料 | [服装规格书中文批注](skills/ecommerce/garment-spec-cn-annotation/SKILL.md) | 上传服装规格书图片，将日文、英文翻译为中文批注，保留原图并输出批注图片。 |
@@ -38,7 +38,7 @@
 
 ### 1. 人际冲突与边界应对
 
-[阅读 Skill](deal-with-jerks(sb)/SKILL.md) · `deal-with-jerks`
+[阅读 Skill](skills/communication/deal-with-jerks/SKILL.md) · `deal-with-jerks`
 
 **解决的问题：** 面对甩锅、羞辱、挑衅、道德绑架或反复越界，容易陷入情绪争辩，却不知道怎样澄清责任、拒绝要求或退出关系。
 

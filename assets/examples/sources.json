@@ -68,11 +68,6 @@
       "sha256": "51a3cbcb6c53e3520831dd870acfa5b4bb256e647afbfbd726cd54df889a76e8"
     },
     {
-      "path": "assets/examples/garment-spec-cn-annotation/khje6075-original.pdf",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/examples/garment-spec-cn-annotation/KHJE6075_仕様書.pdf",
-      "sha256": "d4c28c91919192852874b722ed5e14f759eeb065e78db1d98d4c411090dc187f"
-    },
-    {
       "path": "assets/examples/preserving-product-fidelity/yellow-bag-product.png",
       "source": "/Volumes/Samsung_T5/code/test-image/原图/黄色包包/8aa1561a46a743cf4c5cdbb48cc69c20.png",
       "sha256": "37ab6bbf9e235c05e37d1dbeaf69da7b1b7fa51c27336c664fd29c3884a70fe0",

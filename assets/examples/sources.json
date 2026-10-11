@@ -18,16 +18,6 @@
       "sha256": "34607958edb0ccd0044215ed1d442262f26088f3a8b3e4495b4476912e54eba6"
     },
     {
-      "path": "assets/examples/feishu-ecommerce-workflow/phone-scene.png",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/feishu-ecommerce-workflow/phone-scene.png",
-      "sha256": "e68808fb449bf94a6cbe09f867e4b5ca81b9b296fbad13630db447731ee11635"
-    },
-    {
-      "path": "assets/examples/feishu-ecommerce-workflow/laptop-scene.png",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/feishu-ecommerce-workflow/laptop-scene.png",
-      "sha256": "c05f06f05e913eed3fe6bb074e3879f7e203bb356da8183d0cdb002c826e6162"
-    },
-    {
       "path": "assets/examples/garment-spec-cn-annotation/khje6075-original.png",
       "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/garment-spec-cn-annotation/khje6075-original.png",
       "sha256": "fd34c278859b906187c7734b937b9d47e23eb926fe9fef11558feb7275c4a55c"
@@ -61,11 +51,6 @@
       "path": "assets/examples/voice-driven-video/manuscript.txt",
       "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/manuscript.txt",
       "sha256": "ffe85988ab79332f5d4b7bef65a82c47f86cebf6052b566bfb6e12395285765e"
-    },
-    {
-      "path": "assets/examples/beijing-zhongkao-admissions-advisor/school-information-template.png",
-      "source": "/Volumes/Samsung_T5/code/my-volunteer/outputs/beijing-haidian-zhongkao-2026/rendered/学校信息采集.png",
-      "sha256": "51a3cbcb6c53e3520831dd870acfa5b4bb256e647afbfbd726cd54df889a76e8"
     },
     {
       "path": "assets/examples/preserving-product-fidelity/yellow-bag-product.png",

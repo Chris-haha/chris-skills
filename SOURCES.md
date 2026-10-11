@@ -47,3 +47,7 @@
 ## 2026-10-11 沟通类 Skill 目录统一
 
 新增 communication（沟通与边界）分类，将根目录 deal-with-jerks(sb) 完整迁移为 skills/communication/deal-with-jerks，Skill 名称仍为 deal-with-jerks。迁移时全部文件逐字节哈希一致；随后仅更新第三方声明中的仓库路径。README、catalog.json 与各 Skill 的第三方说明同步更新。
+
+## 2026-10-11 闲置展示图片清理
+
+删除已被 README 卡通配图替换的学校信息采集表截图，以及飞书手机、笔记本两张旧任务示例图，移除空目录并同步 assets/examples/sources.json。历史归集记录保留用于追溯；原始来源项目未修改。保留 README 当前展示图、产品保真对照图的七张原始素材、Skill 包内示例及独立交付的朋友圈宣传素材。

@@ -148,6 +148,21 @@
         {
           "path": "tests/test_validate_fidelity_manifest.py",
           "sha256": "74b627897dc24bc57bb360b1e807b3e4031056fda6297852959c05e1ef98fd86"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "origin": "local-license-configuration"
         }
       ]
     },
@@ -331,6 +346,21 @@
         {
           "path": "workflow/vitest.config.ts",
           "sha256": "e9ae92a53caf71a7fd50e9e25db5a029c8eb2b93ee1a0229c0e9bc52279491a9"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "origin": "local-license-configuration"
         }
       ]
     },
@@ -380,6 +410,21 @@
         {
           "path": "templates/annotations.schema.json",
           "sha256": "6faa2007f5d4589cf5963a3d3d8b09614212b53a6daed47ba7597b304a373408"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "origin": "local-license-configuration"
         }
       ]
     },
@@ -438,6 +483,21 @@
           "path": "tests/scenarios.json",
           "sha256": "5bb76f6a600582b10ef1d41392432ff93d73bcb1fe70f5f614964e82594f5dbd",
           "origin": "local-customization"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "origin": "local-license-configuration"
         }
       ],
       "updatedAt": "2026-10-10",
@@ -566,6 +626,21 @@
         {
           "path": "scripts/verify_media.py",
           "sha256": "ef6e4ec553730468f14fb28867b104232cd5d2017088cc42ff644abecc67781b"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "783f2a51157cdc022a122498c0173f2ff76d264760b9602536200643a8d2952a",
+          "origin": "local-license-configuration"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "origin": "local-license-configuration"
         }
       ]
     }
@@ -579,5 +654,12 @@
       "blog": "/lab/entrepreneurship-system",
       "note": "2026-10-10 来源索引已确认换机后源码缺失；未用博客介绍重建 SKILL.md。恢复后归入 skills/learning/entrepreneurship-system。"
     }
-  ]
+  ],
+  "license": {
+    "name": "Chris Skills 个人非商业学习许可 v1.0",
+    "type": "custom-source-available",
+    "path": "LICENSE",
+    "effectiveDate": "2026-10-11",
+    "scope": "仅限本人有权授权的内容；第三方内容除外"
+  }
 }

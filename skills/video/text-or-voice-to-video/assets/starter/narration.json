@@ -1,0 +1,9 @@
+{
+  "provider": "doubao",
+  "resourceId": "seed-tts-2.0",
+  "speaker": "zh_female_vv_uranus_bigtts",
+  "speechRate": 0,
+  "sampleRate": 24000,
+  "maxChunkChars": 300,
+  "timeoutSeconds": 60
+}

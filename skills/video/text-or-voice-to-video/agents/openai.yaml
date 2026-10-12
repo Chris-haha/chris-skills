@@ -1,0 +1,4 @@
+interface:
+  display_name: "文字／录音转动态图解视频"
+  short_description: "将文字稿配成豆包AI旁白，或使用已有录音，制作自动对齐字幕与分镜的不露脸视频"
+  default_prompt: "使用 $text-or-voice-to-video，根据我的文字稿或已有录音制作不露脸动态图解视频；仅有文字时用豆包生成AI旁白，按实际音轨对齐字幕与分镜并导出 MP4。"

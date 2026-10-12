@@ -621,31 +621,47 @@
       }
     },
     {
-      "slug": "voice-driven-video",
-      "title": "录音驱动动态图解",
+      "slug": "text-or-voice-to-video",
+      "title": "文字／录音转动态图解视频",
       "category": "video",
-      "path": "skills/video/voice-driven-video",
-      "source": "/Users/chris/.codex/skills/voice-driven-video",
+      "path": "skills/video/text-or-voice-to-video",
+      "source": "/Users/chris/.codex/skills/text-or-voice-to-video",
       "blog": "/lab/voice-driven-video",
-      "summary": "把口播稿和本人录音制作成字幕、分镜与可编辑动态图解视频，提供音轨准备、转写、时间线、渲染与媒体检查工具；需安装视频和转写依赖。",
-      "status": "copied",
+      "summary": "将文字稿经豆包 AI 配音，或使用已有录音，制作字幕与分镜跟随音轨的动态图解视频。",
+      "status": "synced",
       "supplemental": [],
       "files": [
         {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6"
+        },
+        {
           "path": "SKILL.md",
-          "sha256": "17197f046ecd3ee3435c348a682dda6dd1f497873da8ba776042bf130a901632"
+          "sha256": "11d926b25c5fc69872d28b03dc59901ea09d2c8071155f481dd70622ef13682c"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f"
         },
         {
           "path": "agents/openai.yaml",
-          "sha256": "bee4a60d853427f669e9707b410c428c8407d62482721f5fecc5c867d04f947f"
+          "sha256": "14838bafff2f5574105a0ac10d1187f17456023473ac3a96832d1b4135c02970"
+        },
+        {
+          "path": "assets/starter/narration.json",
+          "sha256": "1edcf70a6632669183bcc28e705bf5cba3b2a06b8bf9b2c8f2fe7da152401d21"
         },
         {
           "path": "assets/starter/package-lock.json",
-          "sha256": "d49edaa52525aaa479265c0879a10428ea85a98929714c5fc5de962738a9a9ce"
+          "sha256": "282eb97475453f8d5c8a31b6cde0e97958ec59fdef86f9a628b75515c215af5a"
         },
         {
           "path": "assets/starter/package.json",
-          "sha256": "6230aaedc9b783cc0a012361554d2bca3583f9a156fec1f814f14fe93b4e72dc"
+          "sha256": "45987e0dfd2028b73791d5ca849b553f248b63c81adb7fadf4a1f0d621dca28d"
         },
         {
           "path": "assets/starter/render.mjs",
@@ -673,19 +689,23 @@
         },
         {
           "path": "assets/starter/src/timeline.json",
-          "sha256": "95c2b7c8b2a7133c3387b5ba429525763cd791dbf2fa818e72e5bcae95073671"
+          "sha256": "1d1962f4dd892aa041ea62baac2fab0d193ef2bbecad29225157752946849624"
         },
         {
           "path": "assets/starter/tsconfig.json",
           "sha256": "7f66aa1c5137290dd93d6c1813e7b5e1c6d3b28ee783aab1c21f6ce895f04722"
         },
         {
+          "path": "references/narration.md",
+          "sha256": "11820f4b808d5eefb7d83fc0ebca5d99da28881708571843eccd9060c08eda1c"
+        },
+        {
           "path": "references/recording.md",
-          "sha256": "f1ca446d08348c3c733d3e2b72fc7616326eb961caf54abd7775161a85a058ed"
+          "sha256": "7e0cd1408eaecc613751f0c44188c994ed33e38ca819003b95295654d3338f58"
         },
         {
           "path": "references/timing.md",
-          "sha256": "6a41ecc24b8e6de17ff68f37493431a6d31f984af9061949f3d65aa1119555eb"
+          "sha256": "6f794bae72495fbabb00dc4e4d82c874d33135fd8a032233468933b83f10ef32"
         },
         {
           "path": "references/visual-direction.md",
@@ -716,6 +736,10 @@
           "sha256": "37f9b90f4abdf98657837aa0dd88ef15a99416a3713ed0115c5af3068d74f620"
         },
         {
+          "path": "scripts/prepare_script.py",
+          "sha256": "2e54f303572cf892b795a97ba84b89882efabf09abe9286b070035ced73d3d7d"
+        },
+        {
           "path": "scripts/requirements.txt",
           "sha256": "59b61352b9036f3ac55d180390e70ca3c0439564cb16ba72ced84e2d9bc21165"
         },
@@ -724,29 +748,32 @@
           "sha256": "8af5aa59fa236d5fb4af398e4fab90415a6121b0913e6b7f891a5ddf2ee34875"
         },
         {
+          "path": "scripts/synthesize_narration.py",
+          "sha256": "b94fbb9c80c0dcac2e4205ac0f9c7a910654fb34c16832770ebfe7f25d1527ee"
+        },
+        {
+          "path": "scripts/tests/test_recording_pipeline.py",
+          "sha256": "1c1af8fcd88f9cdc8c6a4f24689a5ac50df2a0d8207fe4a441e526ec556e074b"
+        },
+        {
+          "path": "scripts/tests/test_text_narration.py",
+          "sha256": "4f1bbd57838fb592d32959c65cfaaa72dd300d915c46a9b36cb22b8b48a28324"
+        },
+        {
+          "path": "scripts/tests/test_text_pipeline_integration.py",
+          "sha256": "cedf2331e59b307d037ff59d58115de4a06bd1bc0737b4332fa471e7d6afae31"
+        },
+        {
           "path": "scripts/validate_timeline.py",
           "sha256": "9e2d2fc94387ed37147c4e101bbf96a1d1fecc3a5847692d82097829ff3b7219"
         },
         {
           "path": "scripts/verify_media.py",
           "sha256": "ef6e4ec553730468f14fb28867b104232cd5d2017088cc42ff644abecc67781b"
-        },
-        {
-          "path": "LICENSE",
-          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
-          "origin": "local-license-configuration"
-        },
-        {
-          "path": "THIRD_PARTY_NOTICES.md",
-          "sha256": "80f5e4559a8f640994ed4f8ba96b706da54b61a105aba99f07e14209a5209c9f",
-          "origin": "local-license-configuration"
-        },
-        {
-          "path": "COMMERCIAL-LICENSE.md",
-          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
-          "origin": "local-license-configuration"
         }
-      ]
+      ],
+      "updatedAt": "2026-10-12",
+      "note": "原名 voice-driven-video；同步本机最新版并改名，博客历史页面 slug 保留。"
     }
   ],
   "pending": [

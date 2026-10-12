@@ -19,7 +19,7 @@
 | 电商与商品资料 | [飞书电商生图工作流](skills/ecommerce/feishu-ecommerce-workflow/SKILL.md) | 从飞书多维表读取生图任务，生成图片并归档打包，回写进度和通知负责人。 |
 | 电商与商品资料 | [服装规格书中文批注](skills/ecommerce/garment-spec-cn-annotation/SKILL.md) | 上传服装规格书图片，将日文、英文翻译为中文批注，保留原图并输出批注图片。 |
 | 教育咨询 | [北京中考志愿填报顾问](skills/education/beijing-zhongkao-admissions-advisor/SKILL.md) | 逐步了解孩子情况，核验对应届别的报考资格与政策，整理升学路径和志愿建议。 |
-| 视频创作 | [录音驱动动态图解](skills/video/voice-driven-video/SKILL.md) | 把口播稿和本人录音制作成字幕同步的不露脸动态图解视频，并交付可编辑工程。 |
+| 视频创作 | [文字／录音转动态图解视频](skills/video/text-or-voice-to-video/SKILL.md) | 文字稿可配成 AI 旁白，也可使用已有录音，制作字幕同步的动态图解视频并交付可编辑工程。 |
 
 目前收录 6 个 Skill，覆盖沟通、电商、教育咨询与视频创作。
 
@@ -32,7 +32,7 @@
 | 电商生图任务散落在表格、聊天和本地文件中 | 飞书电商生图工作流 | 图片、ZIP、任务状态回写、机器人通知 |
 | 日文或英文服装规格书难以交给中文团队执行 | 服装规格书中文批注 | 中文批注 PNG、翻译清单、质检报告 |
 | 北京中考信息不完整，不知道如何筛学校、排志愿 | 北京中考志愿填报顾问 | 孩子画像、路径诊断、冲稳保学校池、建议顺序 |
-| 有口播稿和自己的录音，想做字幕同步的不露脸视频 | 录音驱动动态图解 | MP4、SRT、可编辑工程、来源与 QA 报告 |
+| 只有文字稿，或已有录音，想制作字幕同步的不露脸视频 | 文字／录音转动态图解视频 | MP4、SRT、可编辑工程、来源与 QA 报告 |
 
 ## Skill 详细介绍
 
@@ -135,26 +135,32 @@
 
 > 此图为 AI 生成的能力示意；政策需按届别核验，志愿建议由家长最终复核。
 
-### 6. 录音驱动动态图解
+### 6. 文字／录音转动态图解视频
 
-[阅读 Skill](skills/video/voice-driven-video/SKILL.md) · `voice-driven-video`
+[阅读 Skill](skills/video/text-or-voice-to-video/SKILL.md) · `text-or-voice-to-video`
 
-**解决的问题：** 有稿件和本人录音，但手动剪字幕、卡分镜耗时；换一版录音后，画面和字幕又需要重新调整。
+**解决的问题：** 想把文字或录音制作成不露脸视频，却需要分别处理配音、字幕、分镜和动画；改稿或换录音后，时间点又要重新调整。
 
-- **功能：** 准备音轨、语音转写、文稿对齐、生成时间线，制作分镜与动态图解，渲染视频、合入原声并检查媒体同步。
-- **特点：** 当前录音是唯一时间基准，字幕和场景从时间线读取；保留完整原声；更换录音后重新转写、对齐和渲染，场景随新节奏重排。
-- **优势：** 将录音变化传递到字幕与场景，减少分散修改固定时间点的工作；同时交付可编辑工程，方便持续修订和复用。
-- **使用边界：** 需要 Python、Node、FFmpeg 和转写等依赖。自动字幕对齐仍需复核关键位置；缺少本人录音时无法按本人节奏定版。
+- **功能：** 支持两种输入：文字稿经豆包生成 AI 旁白，或直接使用已有录音；随后转写并对齐字幕、设计分镜与动画，渲染视频并检查音画同步。
+- **特点：** 以实际音轨为时间基准；文字模式可配置音色与语速，复用未改变的配音分段；录音模式保留原声，两种模式都交付可编辑工程。
+- **优势：** 没有录音也能从文字稿开始制作；修改稿件、音色或录音后，可重新生成时间线，让字幕和场景跟随新的讲述节奏。
+- **使用边界：** 文字配音需要配置豆包语音服务 API Key，并按服务规则计费；已有录音无需豆包密钥。视频制作仍需 Python、Node、FFmpeg、Whisper 等依赖，字幕与关键画面需要复核；不包含声音克隆或数字人口型。
 
-> 示例：使用 voice-driven-video，把这份口播稿和我的录音制作成不露脸动态图解视频，保留完整原声，先检查代表静帧，再交付 MP4、SRT 和可编辑工程。
+> 文字示例：使用 text-or-voice-to-video，把这份文字稿用豆包生成 AI 旁白，再制作字幕同步的动态图解视频，交付 MP4、旁白、SRT 和可编辑工程。
+
+> 录音示例：使用 text-or-voice-to-video，把这份口播稿和我的录音制作成不露脸动态图解视频，保留完整原声，先检查代表静帧，再输出成片。
+
+![文字或录音转动态图解视频：两种输入汇入字幕、分镜和视频制作流程](assets/readme/text-or-voice-to-video.png)
+
+*能力示意：文字稿生成 AI 旁白，已有录音保留原声。*
 
 #### 视频示例
 
-《肝胆养护科普》示例视频约 58 秒，1920 × 1080、30 fps。点击下方 MP4 链接观看完整视频。
+以下是已有录音模式的《肝胆养护科普》示例，约 58 秒，1920 × 1080、30 fps。点击下方 MP4 链接观看完整视频。
 
-![录音驱动动态图解成片静帧](assets/examples/voice-driven-video/poster.jpg)
+![文字／录音转动态图解视频成片静帧](assets/examples/text-or-voice-to-video/poster.jpg)
 
-[观看完整 MP4 成片](assets/examples/voice-driven-video/liver-science.mp4) · [查看字幕 SRT](assets/examples/voice-driven-video/captions.srt) · [试听原始录音](assets/examples/voice-driven-video/original.m4a) · [查看原始口播稿](assets/examples/voice-driven-video/manuscript.txt)
+[观看完整 MP4 成片](assets/examples/text-or-voice-to-video/liver-science.mp4) · [查看字幕 SRT](assets/examples/text-or-voice-to-video/captions.srt) · [试听原始录音](assets/examples/text-or-voice-to-video/original.m4a) · [查看原始口播稿](assets/examples/text-or-voice-to-video/manuscript.txt)
 
 可结合口播稿、原始录音、字幕与成片，了解“口播稿 + 本人录音 → 字幕 + 动态图解”的制作流程。
 
@@ -175,8 +181,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[口播稿 + 本人录音] --> B[转写与文稿对齐]
-    B --> C[录音驱动的时间线]
+    A[文字稿] --> T[豆包 AI 配音]
+    R[已有录音] --> B[转写与文稿对齐]
+    T --> B
+    B --> C[实际音轨驱动的时间线]
     C --> D[字幕 + 分镜 + 动画]
     D --> E[渲染合音与媒体检查]
     E --> F[MP4 · SRT · 可编辑工程]

@@ -25,6 +25,8 @@ PROJECT_DIR/.venv/bin/python -m pip install -r SKILL_DIR/scripts/requirements.tx
 
 随后Python命令使用这个解释器。本地Whisper模型路径由安装环境查找，不在skill里写死用户名或下载完整大模型作为每次默认操作。转写缺少工具时，可以选择用户已授权的转写器并转换字段；禁止直接均匀分配整稿时间来冒充结果。
 
+FFmpeg必须支持PCM浮点解码输出（`-f f32le`）、重采样和AAC/H.264编码；回归测试还使用lavfi的color滤镜。不能仅凭存在名为ffmpeg的文件判断可用，Remotion自带的精简版本可能缺少这些能力。若借用它的ffprobe，也要检查动态库路径；实际验证环境和补充依赖应在工程说明中记录。
+
 关键事件需要更准时，可用支持当前语言的声学强制对齐器，例如WhisperX的已验证本机环境；或者逐段播放和波形检查后人工标记。不要宣称本skill默认已经完成WhisperX强制对齐。人工复核可写`reviewedUnits:{"u2":{"startMs":2100,"endMs":3700,"reason":"依据当前音轨复核该句边界"}}`，保留依据。此方式适合少数疑点，不适合整片没有时间证据的假对齐。更换音轨后删除旧复核时间重新处理。
 
 每个已生成时间线绑定规范音轨SHA256、样本数与采样率。渲染和合音前使用validate_timeline，音轨发生变化即拒绝复用。ASR的出处仍需验证：使用run_asr.py转写并在align时传入`--asr-manifest`，严格核对实际输入和识别输出摘要。没有识别时生成的来源manifest时，重新转写。禁止在导入旧转写时用当前录音临时补写摘要来绕过关联检查。

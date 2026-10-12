@@ -28,27 +28,27 @@
       "sha256": "2f3087ad1da8c34d83817ff2af4a5ab4da0dd459f39c3a43e69b73c796181b33"
     },
     {
-      "path": "assets/examples/voice-driven-video/poster.jpg",
+      "path": "assets/examples/text-or-voice-to-video/poster.jpg",
       "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/poster.jpg",
       "sha256": "b6b582b7d6299aeb7c54e47dc924470f668ca06302743e8d61a0861d7e36430e"
     },
     {
-      "path": "assets/examples/voice-driven-video/liver-science.mp4",
+      "path": "assets/examples/text-or-voice-to-video/liver-science.mp4",
       "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/liver-science.mp4",
       "sha256": "78b19b5de08a062e164f76fe5197dae9df4a0c7dd9b502729f094dd37d2ff479"
     },
     {
-      "path": "assets/examples/voice-driven-video/captions.srt",
+      "path": "assets/examples/text-or-voice-to-video/captions.srt",
       "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/captions.srt",
       "sha256": "5338d366900699e5642d3e8ccde817c9a508cde33f6fce9b1852978471a8bc3d"
     },
     {
-      "path": "assets/examples/voice-driven-video/original.m4a",
+      "path": "assets/examples/text-or-voice-to-video/original.m4a",
       "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/original.m4a",
       "sha256": "1c428bf8f9025ae75750ce0275f6c94662e6e5b536af83c54807c86caddeb570"
     },
     {
-      "path": "assets/examples/voice-driven-video/manuscript.txt",
+      "path": "assets/examples/text-or-voice-to-video/manuscript.txt",
       "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/manuscript.txt",
       "sha256": "ffe85988ab79332f5d4b7bef65a82c47f86cebf6052b566bfb6e12395285765e"
     },

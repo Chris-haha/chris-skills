@@ -11,11 +11,11 @@
 未来一次调用的输入形式：
 
 ```text
-使用 $voice-driven-video。
+使用 $text-or-voice-to-video。
 口播稿：/absolute/path/script.md
 本人录音：/absolute/path/voice.m4a
 参考风格：/absolute/path/reference.mp4
 要求：不露脸，1920×1080，保留自然语速。
 ```
 
-只有稿件时可以完成分镜、资产和临时节奏预览。最终替换本人录音后必须重做时间线，不能只替换音频文件。
+只有稿件时可按 narration.md 使用豆包生成正式 AI 旁白并完成视频；如需改用本人录音，必须重新转写、对齐和检查时间线，不能只替换音频文件。

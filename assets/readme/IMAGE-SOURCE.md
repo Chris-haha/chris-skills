@@ -1,5 +1,13 @@
 # README 配图记录
 
+## 文字／录音转动态图解视频更新
+
+- 日期：2026-10-12。
+- 文件：`skills-overview.png`（更新视频面板）、`text-or-voice-to-video.png`（两种输入的流程示意）。
+- 生成方式：内置 `image_gen`；工具未披露实际模型名称。
+- 性质：能力示意；README 的实际成片仍使用已有录音实例。
+- 提示词：见 `video-update-20261012-prompts.txt`。下方总览提示词保留为历史生成记录。
+
 ## 北京中考志愿填报顾问卡通图
 
 - 文件：`beijing-zhongkao-advisor-cartoon.png`

@@ -48,6 +48,22 @@ def clean_markdown(text):
     return text.strip()
 
 
+CLOSING_MARKS = '”’」』）)]】》〉\"\''
+
+
+def split_sentences(text):
+    """Keep trailing quotation/bracket marks with the sentence they close."""
+    closers = '[' + re.escape(CLOSING_MARKS) + ']*'
+    pattern = r'[。！？!?；;]' + closers + r'|\.' + closers + r'(?=\s+[A-Z])'
+    sentences, start = [], 0
+    for match in re.finditer(pattern, text):
+        sentences.append(text[start:match.end()])
+        start = match.end()
+    if start < len(text):
+        sentences.append(text[start:])
+    return sentences
+
+
 def split_chunks(paragraphs, limit=300):
     """Pack complete sentences within a paragraph; never silently drop characters."""
     if isinstance(limit, bool) or not isinstance(limit, int) or limit < 1:
@@ -56,7 +72,7 @@ def split_chunks(paragraphs, limit=300):
     for paragraph in paragraphs:
         current = ''
         # Use zero-width boundaries so joining chunks preserves English spaces.
-        sentences = re.split(r'(?<=[。！？!?；;])|(?<=\.)(?=\s+[A-Z])', paragraph)
+        sentences = split_sentences(paragraph)
         for sentence in sentences:
             if not sentence:
                 continue
@@ -67,8 +83,11 @@ def split_chunks(paragraphs, limit=300):
                 chunks.append(current)
                 current = ''
             while len(sentence) > limit:
-                chunks.append(sentence[:limit])
-                sentence = sentence[limit:]
+                boundary = limit
+                while boundary < len(sentence) and sentence[boundary] in CLOSING_MARKS:
+                    boundary += 1
+                chunks.append(sentence[:boundary])
+                sentence = sentence[boundary:]
             current = sentence
         if current:
             chunks.append(current)
@@ -89,7 +108,7 @@ def prepare(raw, output_dir, title=None, markdown=False, replace=False, fps=30):
     for paragraph in paragraphs:
         paragraph_id = 'p-' + hashlib.sha256(paragraph.encode()).hexdigest()[:12]
         start = len(units)
-        sentences = re.split(r'(?<=[。！？!?；;])|(?<=\.)(?=\s+[A-Z])', paragraph)
+        sentences = split_sentences(paragraph)
         for sentence in split_chunks(sentences, 80):
             if not sentence.strip():
                 continue

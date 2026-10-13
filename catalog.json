@@ -737,7 +737,7 @@
         },
         {
           "path": "scripts/prepare_script.py",
-          "sha256": "2e54f303572cf892b795a97ba84b89882efabf09abe9286b070035ced73d3d7d"
+          "sha256": "d2683a871870fc9154b2f1dfe3a74c8906819f50a284f1f977d5ce23fd75191b"
         },
         {
           "path": "scripts/requirements.txt",
@@ -750,6 +750,10 @@
         {
           "path": "scripts/synthesize_narration.py",
           "sha256": "b94fbb9c80c0dcac2e4205ac0f9c7a910654fb34c16832770ebfe7f25d1527ee"
+        },
+        {
+          "path": "scripts/tests/test_quote_boundaries.py",
+          "sha256": "5c09d7e660b0e31123d5db8d0c9f737ae219c0f5b57d92086a535be66906c581"
         },
         {
           "path": "scripts/tests/test_recording_pipeline.py",

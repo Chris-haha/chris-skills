@@ -76,3 +76,17 @@ Create a beautifully art-directed editorial infographic for a personal AI skills
 6 title "录音驱动动态图解" description "本人录音 · 字幕对齐 · 视频制作"; illustration microphone, waveform and video editing timeline with illustrated frames.
 Small footer exactly "能力示意 · 非实际运行截图". Cohesive professional visual storytelling, legible lettering, no unrelated logos or watermark. This is a conceptual overview, no numerical performance claims.
 ```
+
+## 2026-10-13 独立工作流收录配图
+
+- 日期：2026-10-13。
+- 生成方式：内置 `image_gen`；工具未披露实际模型名称。
+- 总览：编辑既有 `skills-overview.png`，保留六个 Skill，增加独立工作流区域；标题改为“Chris 的 AI 工具箱”，数量为“6 个 Skill · 1 个工作流”。
+- 流程图：新增 `ecommerce-template-image-workflow.png`，展示模板入库、自动选模、产品锁定、几何预检、明确渠道单张生成、逐实例质检及失败重做当前图。
+- 性质：能力与流程示意，不是实际运行截图，不作为结构或生成效果的验证依据。
+- 完整提示词：[workflow-update-20261013-prompts.md](workflow-update-20261013-prompts.md)。
+
+- `skills-overview.png` SHA-256：`2dba0738f1064a021bd744ddd831961edb9655bc572bd3af78499af4ce34f785`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a13553-7610-7d92-8e5a-58c1a3a1a0d7/exec-b934c564-49d8-4a00-8278-7a5c40e6f851.png`。
+- `ecommerce-template-image-workflow.png` SHA-256：`b0a153bb5cb8dcfe82cb70359fffeb0eb6fcfeeb91681a1f5e223bab96e11678`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a13553-7610-7d92-8e5a-58c1a3a1a0d7/exec-81bff2cb-99e6-4158-bace-31651b4b520c.png`。

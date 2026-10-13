@@ -796,5 +796,398 @@
     "path": "LICENSE",
     "effectiveDate": "2026-10-11",
     "scope": "仅限本人有权授权的内容；第三方内容除外"
-  }
+  },
+  "updatedAt": "2026-10-13",
+  "workflows": [
+    {
+      "slug": "ecommerce-template-image-workflow",
+      "title": "模板库电商生图工作流",
+      "category": "ecommerce",
+      "type": "workflow",
+      "path": "workflows/ecommerce/ecommerce-template-image-workflow",
+      "source": "/Volumes/Samsung_T5/code/my-workflow/E-commerce/ecommerce-template-image-workflow",
+      "summary": "参考图确认入库、按平台与用途选模、产品事实锁定、几何预检、单张生成与逐实例质检。",
+      "status": "collected",
+      "collectedAt": "2026-10-13",
+      "updatedAt": "2026-10-13",
+      "entrypoint": "python -m workflow.runner",
+      "supplemental": [
+        {
+          "source": "仓库根目录 LICENSE 和 COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入完整归集副本的许可说明，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明模板参考图、依赖与源目录未附许可的边界。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "projects/.gitkeep",
+          "reason": "保留空运行目录，不归集历史任务。"
+        }
+      ],
+      "excluded": [
+        "projects/*（仅补空 .gitkeep）",
+        "template-inbox/",
+        "image-env.yaml",
+        ".git/",
+        ".DS_Store",
+        "__pycache__/",
+        ".pytest_cache/",
+        ".superpowers/",
+        ".venv/",
+        "node_modules/"
+      ],
+      "note": "源目录无 SKILL.md，作为独立工作流收录；65 个源文件哈希一致，另补 4 个文件。源 README 原路径示例保留，本仓库入口见 workflows/README.md。",
+      "files": [
+        {
+          "path": ".gitignore",
+          "sha256": "9e4b0854c5dda9146d0abd5f8db71ac9100546ffc23606f9a519e3941b94eae6",
+          "sourceSha256": "9e4b0854c5dda9146d0abd5f8db71ac9100546ffc23606f9a519e3941b94eae6"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原来源未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原来源未含此文件。"
+        },
+        {
+          "path": "README.md",
+          "sha256": "98343337805c5558510aafe1f80552fecd61fb679defe2e69d6f08ee268261ce",
+          "sourceSha256": "98343337805c5558510aafe1f80552fecd61fb679defe2e69d6f08ee268261ce"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "e491428b7d63df3064f773ddb32fe8276f99bc80a8c7c73a80cb9cf9c0800089",
+          "note": "仓库补充；原来源未含此文件。"
+        },
+        {
+          "path": "docs/geometry-preflight.md",
+          "sha256": "511537f42d83fc340ebe111ea2ab0ac3f0180a5e614c9072635f77077c7d8605",
+          "sourceSha256": "511537f42d83fc340ebe111ea2ab0ac3f0180a5e614c9072635f77077c7d8605"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-10-product-functional-lock.md",
+          "sha256": "6aeeefe03193efcf7805ae05353ea4d87f6134225170e0f26d807912a3d97d40",
+          "sourceSha256": "6aeeefe03193efcf7805ae05353ea4d87f6134225170e0f26d807912a3d97d40"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-10-product-identity-lock.md",
+          "sha256": "5e66f76405220c8df17cf64d7c0fb31521c8bda586cdc770741f6a698056c0a7",
+          "sourceSha256": "5e66f76405220c8df17cf64d7c0fb31521c8bda586cdc770741f6a698056c0a7"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-11-product-human-action-feasibility-lock.md",
+          "sha256": "9fabc34a0b76a786544ac53f2725165a373509e440f75ff46f34bd7d630a4d99",
+          "sourceSha256": "9fabc34a0b76a786544ac53f2725165a373509e440f75ff46f34bd7d630a4d99"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-11-product-physical-plausibility-lock.md",
+          "sha256": "da7d3e5bb36ece952217983571e0f5bf1331e751e45715fe2d9dde074678fe38",
+          "sourceSha256": "da7d3e5bb36ece952217983571e0f5bf1331e751e45715fe2d9dde074678fe38"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-11-product-source-truth-lock.md",
+          "sha256": "98c037829d4d4dbb6ba19c23315952b00d74cdfff818fbaff2ad5ef8b8acf00c",
+          "sourceSha256": "98c037829d4d4dbb6ba19c23315952b00d74cdfff818fbaff2ad5ef8b8acf00c"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-11-product-visible-connectivity-lock.md",
+          "sha256": "8b54d5d597f99a1cc5fac004e3f7e39f2101527c72618fbb199622c54aec14b6",
+          "sourceSha256": "8b54d5d597f99a1cc5fac004e3f7e39f2101527c72618fbb199622c54aec14b6"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-12-assembly-state-coupling-lock.md",
+          "sha256": "1757b38ff621f620830eae6a941c88643d7a064ccfee3ad8d46f6a31378b92b4",
+          "sourceSha256": "1757b38ff621f620830eae6a941c88643d7a064ccfee3ad8d46f6a31378b92b4"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-13-generic-collision-clearance-gate.md",
+          "sha256": "17d8e077ed2c5380e87f48cef44e5d02bf46249721c18af946e90b3dac6700a8",
+          "sourceSha256": "17d8e077ed2c5380e87f48cef44e5d02bf46249721c18af946e90b3dac6700a8"
+        },
+        {
+          "path": "docs/superpowers/plans/2026-09-13-generic-visible-instance-continuity-gate.md",
+          "sha256": "3557dff306588af308cfd2206580f15b1d0724244c463fc30c578cc5f9be8e17",
+          "sourceSha256": "3557dff306588af308cfd2206580f15b1d0724244c463fc30c578cc5f9be8e17"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-10-product-functional-lock-design.md",
+          "sha256": "3dae2dfdbe359e71645dc2cd766b8363bc3c6b3d2aa0ca11cadaf2b7f4e4ad7f",
+          "sourceSha256": "3dae2dfdbe359e71645dc2cd766b8363bc3c6b3d2aa0ca11cadaf2b7f4e4ad7f"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-10-product-identity-lock-design.md",
+          "sha256": "ba38b3404bf2e6bdecb73900d4f5b17742f06196358e5e2199cf0484d4ecf50b",
+          "sourceSha256": "ba38b3404bf2e6bdecb73900d4f5b17742f06196358e5e2199cf0484d4ecf50b"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-11-product-human-action-feasibility-lock-design.md",
+          "sha256": "c81705d87b03e108d94771cd3643e661ab2184d07c9ab08bcb668d4fbd492f69",
+          "sourceSha256": "c81705d87b03e108d94771cd3643e661ab2184d07c9ab08bcb668d4fbd492f69"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-11-product-physical-plausibility-lock-design.md",
+          "sha256": "d484227f42b7307e44ca99495f2bfb8d980d856cdbc197952d01dd615e094b5e",
+          "sourceSha256": "d484227f42b7307e44ca99495f2bfb8d980d856cdbc197952d01dd615e094b5e"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-11-product-source-truth-lock-design.md",
+          "sha256": "b9794195f416328345dc3742a0fd47fb5b8a11f386df8270c9c5e0ac4efc73ba",
+          "sourceSha256": "b9794195f416328345dc3742a0fd47fb5b8a11f386df8270c9c5e0ac4efc73ba"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-11-product-visible-connectivity-lock-design.md",
+          "sha256": "50dba18d142aa76c54a22389b03a4b724fbb38d94adb244947eaf3e34252514e",
+          "sourceSha256": "50dba18d142aa76c54a22389b03a4b724fbb38d94adb244947eaf3e34252514e"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-12-assembly-state-coupling-lock-design.md",
+          "sha256": "6765ab04638b21bd327813e9e1194027dab9d03d99d7393efb4f1860ed90ca46",
+          "sourceSha256": "6765ab04638b21bd327813e9e1194027dab9d03d99d7393efb4f1860ed90ca46"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-13-generic-collision-clearance-gate-design.md",
+          "sha256": "388b043a28b1ea904f454aa26f28fdc52bdd909a6c1c62769bf2ba3a3d7c4be7",
+          "sourceSha256": "388b043a28b1ea904f454aa26f28fdc52bdd909a6c1c62769bf2ba3a3d7c4be7"
+        },
+        {
+          "path": "docs/superpowers/specs/2026-09-13-generic-visible-instance-continuity-gate-design.md",
+          "sha256": "d2633718f1f8cff656a9310e2f568dc8b8d282257ac96e98cb0e7558db6ecdfa",
+          "sourceSha256": "d2633718f1f8cff656a9310e2f568dc8b8d282257ac96e98cb0e7558db6ecdfa"
+        },
+        {
+          "path": "image-env.example.yaml",
+          "sha256": "e59ebbf90a627639cab6d383c1191d41b1216e2a8d32c4ed3ef2feef7da325d4",
+          "sourceSha256": "e59ebbf90a627639cab6d383c1191d41b1216e2a8d32c4ed3ef2feef7da325d4"
+        },
+        {
+          "path": "projects/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "note": "仓库补充；原来源未含此文件。"
+        },
+        {
+          "path": "requirements.txt",
+          "sha256": "d5d65e41fab76a723b12981e88e31baec84ab3fd00cfb9f8fd043f5c3a2e3c57",
+          "sourceSha256": "d5d65e41fab76a723b12981e88e31baec84ab3fd00cfb9f8fd043f5c3a2e3c57"
+        },
+        {
+          "path": "template-library/amazon/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/benefit-comparison/reference-01.png",
+          "sha256": "c1ce3a0cd2f1f6b3edbc9caa9e2930b19a075e135d65d2e4d9f2740a50765b4a",
+          "sourceSha256": "c1ce3a0cd2f1f6b3edbc9caa9e2930b19a075e135d65d2e4d9f2740a50765b4a"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/benefit-comparison/template.md",
+          "sha256": "3ae8c5895da3c73e44c5716befe59556d589bbe3ef276a934f437a947d90623c",
+          "sourceSha256": "3ae8c5895da3c73e44c5716befe59556d589bbe3ef276a934f437a947d90623c"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/care-steps/reference-01.png",
+          "sha256": "c2fcf5ebd6befbb6588876c52d42f89af20f34848d28fe2e8815a16e3ef947de",
+          "sourceSha256": "c2fcf5ebd6befbb6588876c52d42f89af20f34848d28fe2e8815a16e3ef947de"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/care-steps/template.md",
+          "sha256": "f1b9823e53408ffcdc3d70287ec99104d34d262c4a5ed6500e00c1d3a6caa4fe",
+          "sourceSha256": "f1b9823e53408ffcdc3d70287ec99104d34d262c4a5ed6500e00c1d3a6caa4fe"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/compatibility-grid/reference-01.png",
+          "sha256": "d114d688ff66c77c3645d6b63cd4b0bc14c534c054fe1d0be49e9a46a2cb3893",
+          "sourceSha256": "d114d688ff66c77c3645d6b63cd4b0bc14c534c054fe1d0be49e9a46a2cb3893"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/compatibility-grid/template.md",
+          "sha256": "6a7c3385c6f4ba8f27dcccec34f9e6c18ab4bf76da28cdbd53b92a49f223f1c4",
+          "sourceSha256": "6a7c3385c6f4ba8f27dcccec34f9e6c18ab4bf76da28cdbd53b92a49f223f1c4"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/feature-hero/reference-01.png",
+          "sha256": "efa524beaad9da9f9d2668feb02aafcac3591149a67dfbd7ba7eced9bfbac9df",
+          "sourceSha256": "efa524beaad9da9f9d2668feb02aafcac3591149a67dfbd7ba7eced9bfbac9df"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/feature-hero/template.md",
+          "sha256": "a8841869a5df404eacdf0fde86803867ee2c6698bd5f48c0e45726e40fea745b",
+          "sourceSha256": "a8841869a5df404eacdf0fde86803867ee2c6698bd5f48c0e45726e40fea745b"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/ingredient-grid/reference-01.png",
+          "sha256": "277961d655bcb45bc2f34a9be8a533b97398847e8c04962195655faf9cb5e083",
+          "sourceSha256": "277961d655bcb45bc2f34a9be8a533b97398847e8c04962195655faf9cb5e083"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/ingredient-grid/template.md",
+          "sha256": "848387ad5e4d21a797b1b1dcc45558058d5cd551a31990cd349431e3846b01b9",
+          "sourceSha256": "848387ad5e4d21a797b1b1dcc45558058d5cd551a31990cd349431e3846b01b9"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/lifestyle-grid/reference-01.png",
+          "sha256": "bb2cd1fdb6701262a4fd84ce7d9a4fa8a6fc2dca53c70eeba6859b0c01b15790",
+          "sourceSha256": "bb2cd1fdb6701262a4fd84ce7d9a4fa8a6fc2dca53c70eeba6859b0c01b15790"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/lifestyle-grid/template.md",
+          "sha256": "d2e476565b9a75648de55636324e011098d562c7c28e6243169c9590da34e723",
+          "sourceSha256": "d2e476565b9a75648de55636324e011098d562c7c28e6243169c9590da34e723"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/storyboard-portrait/reference-01.png",
+          "sha256": "0bca302e0bb8b7dd0f2df6fe08fc5a2a4f051f007cc83211b1690b6672e67a0c",
+          "sourceSha256": "0bca302e0bb8b7dd0f2df6fe08fc5a2a4f051f007cc83211b1690b6672e67a0c"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/storyboard-portrait/template.md",
+          "sha256": "711a2839ac5ab39e4fc87156718c20940020d459cbea41f486f3151134c82a04",
+          "sourceSha256": "711a2839ac5ab39e4fc87156718c20940020d459cbea41f486f3151134c82a04"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/use-steps/reference-01.png",
+          "sha256": "3af63a542d9ba1ab5c7554022e699aa8aa51f68de2325042b22f76e6bfb76997",
+          "sourceSha256": "3af63a542d9ba1ab5c7554022e699aa8aa51f68de2325042b22f76e6bfb76997"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/modules/use-steps/template.md",
+          "sha256": "a759a18384c6847d145d9384a0b1f9efea05e76a9f30272de153319e9f717abe",
+          "sourceSha256": "a759a18384c6847d145d9384a0b1f9efea05e76a9f30272de153319e9f717abe"
+        },
+        {
+          "path": "template-library/amazon/warm-organic-brown-editorial-01/template-set.md",
+          "sha256": "67b4226d5b5da133d811665b966f98ce8b539ff330b3ba1d505ce4cc288caa62",
+          "sourceSha256": "67b4226d5b5da133d811665b966f98ce8b539ff330b3ba1d505ce4cc288caa62"
+        },
+        {
+          "path": "template-library/shopify/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "template-library/taobao/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "template-library/tiktok-shop/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "tests/test_config.py",
+          "sha256": "0c4e67607eedab20598e9df89989e4cc169ed1affe2efdb8cba33f02fc1cce4f",
+          "sourceSha256": "0c4e67607eedab20598e9df89989e4cc169ed1affe2efdb8cba33f02fc1cce4f"
+        },
+        {
+          "path": "tests/test_gateway.py",
+          "sha256": "228521eaa599e8a40a208cbe9a8a7dc725d83be3450a65300f6a6e7ee4d3d1e8",
+          "sourceSha256": "228521eaa599e8a40a208cbe9a8a7dc725d83be3450a65300f6a6e7ee4d3d1e8"
+        },
+        {
+          "path": "tests/test_geometry_preflight.py",
+          "sha256": "5003273785448789f9ff6916b344595203a520e5d4c55ae4b8614ebde207effe",
+          "sourceSha256": "5003273785448789f9ff6916b344595203a520e5d4c55ae4b8614ebde207effe"
+        },
+        {
+          "path": "tests/test_inbox.py",
+          "sha256": "571ae763c8e0ff191f78693dc3e65fab028137a0b9be35de7e06cf02b35ecbbb",
+          "sourceSha256": "571ae763c8e0ff191f78693dc3e65fab028137a0b9be35de7e06cf02b35ecbbb"
+        },
+        {
+          "path": "tests/test_projects.py",
+          "sha256": "803b19879b0257a278b5774e555b4560d596d5097da00ef20c1e807cb67ce5aa",
+          "sourceSha256": "803b19879b0257a278b5774e555b4560d596d5097da00ef20c1e807cb67ce5aa"
+        },
+        {
+          "path": "tests/test_prompt_builder.py",
+          "sha256": "a51e4ff27d38481938de6d4201093b960148892bc020ced5589c0573c8b39cb7",
+          "sourceSha256": "a51e4ff27d38481938de6d4201093b960148892bc020ced5589c0573c8b39cb7"
+        },
+        {
+          "path": "tests/test_template_sets.py",
+          "sha256": "18d9bd995bb2b412dbf18e36aa2b139e6c84ee123f298ef2af477802f5eafa30",
+          "sourceSha256": "18d9bd995bb2b412dbf18e36aa2b139e6c84ee123f298ef2af477802f5eafa30"
+        },
+        {
+          "path": "tests/test_templates.py",
+          "sha256": "35c14cbee1a5eb5c6172b719556409ef107c7f3073ebd3dfd9f39eca32674550",
+          "sourceSha256": "35c14cbee1a5eb5c6172b719556409ef107c7f3073ebd3dfd9f39eca32674550"
+        },
+        {
+          "path": "tests/test_visual_qa.py",
+          "sha256": "b119a1c9ff4e488a9ec8ce696be00f855faae767644dc307ec483a28fd27c513",
+          "sourceSha256": "b119a1c9ff4e488a9ec8ce696be00f855faae767644dc307ec483a28fd27c513"
+        },
+        {
+          "path": "workflow/__init__.py",
+          "sha256": "6e02425e3ed64cb94bcb037b9a4f588bcde356cda4268856af0077b5da69060a",
+          "sourceSha256": "6e02425e3ed64cb94bcb037b9a4f588bcde356cda4268856af0077b5da69060a"
+        },
+        {
+          "path": "workflow/config.py",
+          "sha256": "50b73d4d26856c599eb6e752405f0d6ac5ceb2133be269364c966e1ccd7b5ae9",
+          "sourceSha256": "50b73d4d26856c599eb6e752405f0d6ac5ceb2133be269364c966e1ccd7b5ae9"
+        },
+        {
+          "path": "workflow/gateway.py",
+          "sha256": "4a3ceadd74792dbc1dd555595c55fae8aa946517b104907bc1feae168a771d3d",
+          "sourceSha256": "4a3ceadd74792dbc1dd555595c55fae8aa946517b104907bc1feae168a771d3d"
+        },
+        {
+          "path": "workflow/geometry.py",
+          "sha256": "4375c32891a3d7d0b5a1e8386af4a3c8a6f10148b0e3a2193e1b830f304d2bd4",
+          "sourceSha256": "4375c32891a3d7d0b5a1e8386af4a3c8a6f10148b0e3a2193e1b830f304d2bd4"
+        },
+        {
+          "path": "workflow/inbox.py",
+          "sha256": "ba96627f3aef087b4235ee1b56738a1add4a9ed71af150717c234792c1a0a19d",
+          "sourceSha256": "ba96627f3aef087b4235ee1b56738a1add4a9ed71af150717c234792c1a0a19d"
+        },
+        {
+          "path": "workflow/models.py",
+          "sha256": "99a051b266f3f20d09ee22a4a3aca9b2be25e73d331f8ecce496ee83a3f40e49",
+          "sourceSha256": "99a051b266f3f20d09ee22a4a3aca9b2be25e73d331f8ecce496ee83a3f40e49"
+        },
+        {
+          "path": "workflow/projects.py",
+          "sha256": "6a5c175b29c111274c00dd61a37a921714b5069b90759648fc806eb829274853",
+          "sourceSha256": "6a5c175b29c111274c00dd61a37a921714b5069b90759648fc806eb829274853"
+        },
+        {
+          "path": "workflow/prompt_builder.py",
+          "sha256": "394f434563692e96b4f7d55c7afa7b12036649901038feeb385ccd9335c99455",
+          "sourceSha256": "394f434563692e96b4f7d55c7afa7b12036649901038feeb385ccd9335c99455"
+        },
+        {
+          "path": "workflow/runner.py",
+          "sha256": "d9f80e469ce4c7cd19bfc05a4fcff5d2b46ba9044d77452d55f3d3b19599603f",
+          "sourceSha256": "d9f80e469ce4c7cd19bfc05a4fcff5d2b46ba9044d77452d55f3d3b19599603f"
+        },
+        {
+          "path": "workflow/template_sets.py",
+          "sha256": "be857b67c5f95eedfdb626f1af0b3803985628c907f641ca293235b6968c58e9",
+          "sourceSha256": "be857b67c5f95eedfdb626f1af0b3803985628c907f641ca293235b6968c58e9"
+        },
+        {
+          "path": "workflow/templates.py",
+          "sha256": "c084a2c58a5229751aa1a8cbbf2e020367599519f31740d4f120367a20c0e886",
+          "sourceSha256": "c084a2c58a5229751aa1a8cbbf2e020367599519f31740d4f120367a20c0e886"
+        },
+        {
+          "path": "workflow/visual_qa.py",
+          "sha256": "4d59b6795f52158933a9a606a7b8a1906ffbc0655b7edbf2610109efe111a254",
+          "sourceSha256": "4d59b6795f52158933a9a606a7b8a1906ffbc0655b7edbf2610109efe111a254"
+        }
+      ]
+    }
+  ]
 }

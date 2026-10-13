@@ -10,6 +10,10 @@
 | beijing-zhongkao-admissions-advisor | `/Volumes/Samsung_T5/code/my-volunteer/skills/beijing-zhongkao-admissions-advisor` | `skills/education/beijing-zhongkao-admissions-advisor` |
 | text-or-voice-to-video | `/Users/chris/.codex/skills/text-or-voice-to-video` | `skills/video/text-or-voice-to-video` |
 
+| 工作流 | 原始目录 | 归集目录 |
+| --- | --- | --- |
+| ecommerce-template-image-workflow | `/Volumes/Samsung_T5/code/my-workflow/E-commerce/ecommerce-template-image-workflow` | `workflows/ecommerce/ecommerce-template-image-workflow` |
+
 ## 补充与缺失
 
 - 飞书 Skill 来源没有 `workflow/`，按其 wrapper 要求从所属 mvp-workflow 补入源码、测试、文档、依赖清单与 `.env.example`。未复制本地 `.env`、运行数据、依赖目录和构建产物。
@@ -55,3 +59,13 @@
 ## 2026-10-12 视频 Skill 同步与改名
 
 将本机 voice-driven-video 改名为 text-or-voice-to-video（文字／录音转动态图解视频），同步最新版文字稿整理、豆包配音、缓存、音轨与字幕时间线检查及测试到仓库同名分类目录。保留仓库许可，并同步到本机独立 Skill；排除缓存、凭据和已安装依赖。旧录音示例目录随新调用名迁移，博客历史来源路径与页面 slug 不改。更新 README、素材来源索引及 catalog 文件哈希；未调用真实豆包服务。
+
+## 2026-10-13 独立电商工作流收录
+
+- 经目录与 catalog 检索确认此前未收录。源工程没有 `SKILL.md`，入口是 `python -m workflow.runner`，因此新增与 `skills/` 平级的 `workflows/`，按 `ecommerce` 分类保存完整工程。
+- 从上表来源复制 65 个文件，包含源码、九个测试文件、README、设计文档、依赖清单、公开配置样例和一套八模块模板库。复制文件逐字节保留，SHA-256 与来源一致；未修改原项目、未转换或安装为 Skill。
+- 排除约 130MB 历史 `projects/` 任务、`template-inbox/` 收件箱、`.DS_Store`、Python/pytest 缓存、依赖目录和本地 `image-env.yaml`。仅新建空 `projects/.gitkeep`，运行任务继续由工程 `.gitignore` 排除。
+- 工程额外补入仓库 LICENSE、COMMERCIAL-LICENSE.md 与专属 THIRD_PARTY_NOTICES.md；源目录未附许可声明，内置八张模板参考图的权利需另行核实，仓库许可仅覆盖本人有权授权的内容。
+- 新增 `workflows/README.md` 说明分类、安装和本仓库运行路径；同步根 README、维护约定、第三方说明及 catalog.json 的工作流来源、日期和文件哈希。源工程 README 的原目录命令保持原样，工作流索引给出本仓库替换路径。
+- 使用内置 image_gen 更新能力总览为“6 个 Skill · 1 个工作流”，新增模板库电商生图流程配图。提示词、输出来源及哈希见 `assets/readme/IMAGE-SOURCE.md` 和对应提示词文件。配图仅用于能力说明。
+- 验证：归集副本的 181 项自带测试通过，CLI 帮助可正常运行；65 个来源文件哈希一致，69 个交付文件全部登记；42 个本地文档链接有效，生成配置、任务输出和缓存的忽略规则生效。未执行工作流的真实生图接口，未提交或推送 Git。

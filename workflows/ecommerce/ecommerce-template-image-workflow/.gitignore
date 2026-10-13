@@ -1,0 +1,6 @@
+image-env.yaml
+__pycache__/
+.pytest_cache/
+.superpowers/
+projects/*
+!projects/.gitkeep

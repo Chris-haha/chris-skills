@@ -1,0 +1,3 @@
+base_url: https://your-gateway.example/v1
+api_key: replace-with-your-local-api-key
+model: your-image-model

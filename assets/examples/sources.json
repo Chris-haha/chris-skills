@@ -28,31 +28,6 @@
       "sha256": "2f3087ad1da8c34d83817ff2af4a5ab4da0dd459f39c3a43e69b73c796181b33"
     },
     {
-      "path": "assets/examples/text-or-voice-to-video/poster.jpg",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/poster.jpg",
-      "sha256": "b6b582b7d6299aeb7c54e47dc924470f668ca06302743e8d61a0861d7e36430e"
-    },
-    {
-      "path": "assets/examples/text-or-voice-to-video/liver-science.mp4",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/liver-science.mp4",
-      "sha256": "78b19b5de08a062e164f76fe5197dae9df4a0c7dd9b502729f094dd37d2ff479"
-    },
-    {
-      "path": "assets/examples/text-or-voice-to-video/captions.srt",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/captions.srt",
-      "sha256": "5338d366900699e5642d3e8ccde817c9a508cde33f6fce9b1852978471a8bc3d"
-    },
-    {
-      "path": "assets/examples/text-or-voice-to-video/original.m4a",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/original.m4a",
-      "sha256": "1c428bf8f9025ae75750ce0275f6c94662e6e5b536af83c54807c86caddeb570"
-    },
-    {
-      "path": "assets/examples/text-or-voice-to-video/manuscript.txt",
-      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/voice-driven-video/manuscript.txt",
-      "sha256": "ffe85988ab79332f5d4b7bef65a82c47f86cebf6052b566bfb6e12395285765e"
-    },
-    {
       "path": "assets/examples/preserving-product-fidelity/yellow-bag-product.png",
       "source": "/Volumes/Samsung_T5/code/test-image/原图/黄色包包/8aa1561a46a743cf4c5cdbb48cc69c20.png",
       "sha256": "37ab6bbf9e235c05e37d1dbeaf69da7b1b7fa51c27336c664fd29c3884a70fe0",
@@ -85,6 +60,18 @@
       "source": "由同目录七张已归档输入/输出图片进行 SVG 固定版式排版；图片以原始字节内嵌，不裁切",
       "sha256": "31a21e7722fe922482c280857bb6801bad1cf403bfbb0a2c149a175c9bde70f0",
       "type": "derived-layout"
+    },
+    {
+      "path": "assets/examples/text-or-voice-to-video/text-or-voice-demo.mp4",
+      "source": "/Users/chris/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_8ji05hs5w3gc22_3eea/temp/RWTemp/2026-10/4624979617340e7f3fdf860b3e52b8af/442061116c803c21e49075b60e620cab.mp4",
+      "sha256": "4e5a648573fd3cc34d4f36ae7282168cd16486fff18354ecf9fe86d3203184c3",
+      "updated_at": "2026-10-14"
+    },
+    {
+      "path": "assets/examples/text-or-voice-to-video/poster.jpg",
+      "source": "由同目录 text-or-voice-demo.mp4 第 4 秒提取，缩放为宽 960 像素",
+      "sha256": "b937a01057d2ba79f729392c9854cbd70b45b9927af6c55f50a79c8d802d94cf",
+      "updated_at": "2026-10-14"
     }
   ]
 }

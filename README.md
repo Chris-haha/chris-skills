@@ -197,13 +197,11 @@ flowchart LR
 
 #### 视频示例
 
-以下是已有录音模式的《肝胆养护科普》示例，约 58 秒，1920 × 1080、30 fps。点击下方 MP4 链接观看完整视频。
+以下为文字／录音转视频的能力展示成片，约 60 秒，1920 × 1080、30 fps，展示内容如何结合配音、字幕与动画呈现。
 
-![文字／录音转动态图解视频成片静帧](assets/examples/text-or-voice-to-video/poster.jpg)
+![文字／录音转视频示例：把你的内容变成看得见的表达](assets/examples/text-or-voice-to-video/poster.jpg)
 
-[观看完整 MP4 成片](assets/examples/text-or-voice-to-video/liver-science.mp4) · [查看字幕 SRT](assets/examples/text-or-voice-to-video/captions.srt) · [试听原始录音](assets/examples/text-or-voice-to-video/original.m4a) · [查看原始口播稿](assets/examples/text-or-voice-to-video/manuscript.txt)
-
-可结合口播稿、原始录音、字幕与成片，了解“口播稿 + 本人录音 → 字幕 + 动态图解”的制作流程。
+[观看完整示例视频（MP4）](assets/examples/text-or-voice-to-video/text-or-voice-demo.mp4)
 
 ## 独立工作流详细介绍
 

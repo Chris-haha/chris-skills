@@ -9,14 +9,29 @@ import shutil
 import sys
 
 from common import pcm_wav, probe, run, save_json, sha256, validate_timeline
+from mix_audio import reject_collisions, validate_mix
 
 
-def mux(video_path, voice_path, output_path, timeline_path=None):
+def mux(video_path, voice_path, output_path, timeline_path=None, mix_path=None):
     video_path, voice_path, output_path = map(lambda path: Path(path).resolve(),
                                               (video_path, voice_path, output_path))
     if output_path in (video_path, voice_path):
         raise ValueError('Mux output must differ from both input files')
     _, audio = pcm_wav(voice_path)
+    mix_manifest = None
+    sources = [video_path, voice_path]
+    audio_input = voice_path
+    if mix_path is not None:
+        audio_input = Path(mix_path).resolve()
+        mix_manifest, mix_sources = validate_mix(audio_input, voice_path)
+        sources.extend(mix_sources)
+    if timeline_path:
+        sources.append(Path(timeline_path).resolve())
+        if mix_manifest is not None and sha256(timeline_path) != mix_manifest['timeline']['sha256']:
+            raise ValueError('Supplied timeline hash differs from the mix timeline; regenerate the audio plan and mix for current timing')
+    reject_collisions([output_path, output_path.with_suffix('.mux.json'),
+                       output_path.with_suffix('.mux.json.tmp'),
+                       output_path.with_name(output_path.stem + '.mux.tmp' + output_path.suffix)], sources)
     video_probe = probe(video_path, count_frames=True)
     streams = [stream for stream in video_probe['streams'] if stream['codec_type'] == 'video']
     if len(streams) != 1:
@@ -42,7 +57,7 @@ def mux(video_path, voice_path, output_path, timeline_path=None):
     ffmpeg = shutil.which('ffmpeg')
     if not ffmpeg:
         raise ValueError('System ffmpeg was not found')
-    command = [ffmpeg, '-v', 'error', '-y', '-i', video_path, '-i', voice_path,
+    command = [ffmpeg, '-v', 'error', '-y', '-i', video_path, '-i', audio_input,
                '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac',
                '-b:a', '192k', '-af', f'apad=whole_len={padded_samples}',
                '-movflags', '+faststart', temporary]
@@ -58,6 +73,10 @@ def mux(video_path, voice_path, output_path, timeline_path=None):
                 'command': list(map(str, command)),
                 'ffmpegVersion': run([ffmpeg, '-version']).decode().splitlines()[0],
                 'tailCaveat': 'AAC may decode extra codec padding; verify_media.py measures decoded duration and content offsets'}
+    if mix_manifest is not None:
+        metadata['mix'] = {'path': str(audio_input), 'sha256': sha256(audio_input),
+            'manifestPath': mix_manifest['manifestPath'], 'manifestSha256': mix_manifest['manifestSha256'],
+            'voiceValidated': True, 'pcmRebuildValidated': True}
     save_json(output_path.with_suffix('.mux.json'), metadata)
     return metadata
 
@@ -68,9 +87,10 @@ def main():
     parser.add_argument('--voice', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--timeline')
+    parser.add_argument('--mix', help='Optional mix WAV with adjacent .mix.json manifest; voice drives timing')
     args = parser.parse_args()
     try:
-        result = mux(args.video, args.voice, args.output, args.timeline)
+        result = mux(args.video, args.voice, args.output, args.timeline, args.mix)
         print(f"Muxed {result['frames']} frames; voice retained; {result['padMs']:.3f} ms silence padding")
     except (ValueError, OSError, KeyError, ZeroDivisionError) as error:
         print(str(error), file=sys.stderr)

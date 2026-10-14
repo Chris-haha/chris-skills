@@ -1,7 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import timeline from './timeline.json';
-import storyboard from './storyboard.json';
+import storyboardData from './storyboard.json';
+const storyboard=(Array.isArray(storyboardData)?storyboardData:[]) as {sceneId:string;eyebrow:string;title:string;layout:string;items:{title:string;body:string;visual?:string}[];notes:string}[];
 
 // Replace these layouts with content-specific art direction before final delivery.
 const ink='#142d35',paper='#f0ece0',bg='#13232b',accent='#eac567';

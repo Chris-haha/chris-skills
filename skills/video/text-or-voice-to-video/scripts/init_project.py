@@ -12,7 +12,8 @@ def main():
     if output.exists() and any(output.iterdir()):
         parser.error('Output must be empty; existing projects are never overwritten')
     starter=Path(__file__).resolve().parents[1]/'assets'/'starter'
-    shutil.copytree(starter,output,dirs_exist_ok=True)
+    shutil.copytree(starter,output,dirs_exist_ok=True,
+                    ignore=shutil.ignore_patterns('node_modules','out','.cache','__pycache__','.DS_Store'))
     shutil.copytree(Path(__file__).resolve().parent,output/'pipeline',ignore=shutil.ignore_patterns('__pycache__','init_project.py'))
     (output/'public'/'audio').mkdir(parents=True,exist_ok=True)
     print(output)

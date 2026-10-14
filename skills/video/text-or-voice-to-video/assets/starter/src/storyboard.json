@@ -1,4 +1,1 @@
-[
-  {"sceneId":"s1","eyebrow":"构图草案","title":"按实际内容设计此镜头","layout":"hero","items":[{"title":"主题图解","body":"替换为具体事实、图像和标注。","visual":""}],"notes":"通用起点，请先完成美术设计再定版。"},
-  {"sceneId":"s2","eyebrow":"关系图解","title":"解释真实的联系","layout":"flow","items":[{"title":"事实","body":"来自口播的具体信息。","visual":""},{"title":"提问","body":"这里解释关系与原因。","visual":""},{"title":"观点","body":"落到自己的表达。","visual":""}],"notes":"所有镜头时间来自当前音轨。"}
-]
+{"schemaVersion":2,"shots":[{"id":"example-shot","sceneId":"s1","goal":"结构示意：同一请求从输入传递到接收","media":"diagram","recipe":"path","subjects":["request","receiver"],"assetIds":[],"holdMs":800,"transition":{"kind":"cut"},"events":[{"id":"request-arrives","unitId":"u1","subjectId":"request","action":"transfer","offsetMs":300,"durationMs":1200}],"content":{"heading":"结构预览 · 请按实际内容重新设计","nodes":[{"label":"输入","body":"示意请求"},{"label":"接收","body":"示意结果"}]}}]}

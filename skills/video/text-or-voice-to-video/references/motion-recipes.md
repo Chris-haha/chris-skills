@@ -8,8 +8,8 @@
 |---|---|---|
 | assemble / Assemble | children必需；distance=140；style可选；duration=30 | 零件保留身份后组装。children按索引错开5帧，淡入10帧；最后一件可能比首件晚落定，应纳入hold检查。使用spring，非几何形变。 |
 | path / PathTransfer | from、to为像素二元组；color=blue；children可选；duration=30 | 同一对象沿三次贝塞尔路径移动；无children时为光点。路径显示浅线，到达后16帧光圈扩散，给尾效留空间。不是物理模拟。 |
-| state / StateChange | before、after必需；duration=18 | 同一坐标空间内两状态交叉淡化。父容器须有宽高；保留对象外形与位置才有连续性，不能把两张无关卡片叫作对象变形。 |
-| link / RelationTrace | path为SVG path字符串；color=blue；width=4；duration=24 | 按pathLength绘制关系线；路径坐标对应父舞台。仅画线，不自动移动对象或推导关系。 |
+| state / StateChange | before、after必需；duration=18 | 同一坐标空间内先淡出旧状态，再淡入新状态，不叠加两层文案。父容器须有宽高；保留对象外形与位置才有连续性，不能把两张无关卡片叫作对象变形。 |
+| link / RelationTrace（SemanticConnector别名） | id、source/target（id、box、port）、relationship、meaning必填；via可选；width=5；duration=24 | 绑定实际对象边界并留12px间距；flow在生长尖端带箭头，association只用于确有依据的无向关联。禁止分类放射线和裸path接口；与文字及无关对象的碰撞由真实渲染测量。 |
 | focus / FocusCamera | src为public相对路径；x=.5、y=.5；zoom=1.6；highlight可选[x,y,w,h]；duration=30 | 通过transformOrigin与scale聚焦。x/y和highlight归一化；图像objectFit=contain，有留白时高亮须按实际呈现核对。标签应在缩放层外。 |
 | parallax / ParallaxStage | layers为{src,depth,style?}数组；travel=30；duration=120 | 各图层以不同深度横移并轻微缩放；src为public相对路径。透明前景与背景应分离，整张图反复复制不能产生真实遮挡关系。 |
 | compare / CompareWipe | before、after必需；labels可选二字符串组；duration=40 | 同一视口从左向右揭示after，orange分割线。当前labels[1]显示左下、labels[0]显示右下；使用前核对顺序。对照对象必须同尺度／同指标。 |
@@ -36,8 +36,11 @@ return <div style={{position:'relative', width:1200, height:600}}>
     <BookCopy id="book-copy" />
   </PathTransfer>
   <RelationTrace frame={f} at={associate.frame}
-    duration={associate.durationFrames} path="M600 300 C760 300 820 420 1000 420" />
+    duration={associate.durationFrames} id="book-reader"
+    source={{id:'book-copy',box:[500,240,160,120],port:'right'}}
+    target={{id:'reader-card',box:[900,240,220,120],port:'left'}}
+    relationship="association" meaning="这本书的借阅记录关联到读者" />
 </div>;
 ```
 
-`BookCopy`是项目自己实现的书本对象，不是技能提供的组件。还应按mark-loaned事件更新同一书本的状态和日期，避免同时存在一个旧书本与一个未关联的新书本。完整shot示例见[visual-story.md](visual-story.md)。先看动作起、中、末连续帧，再看正常速度；落定静帧不能揭示遮挡、跳变或不自然的加速。
+`BookCopy`和读者卡是项目自建对象，须用VisualObject登记真实边界，移动结束后的box必须与连接端口一致；上述片段只说明API，不能直接作为完整场景交付。还应按mark-loaned事件更新同一书本的状态和日期。完整shot见[visual-story.md](visual-story.md)，组件及实际看图规则见[visual-quality.md](visual-quality.md)。先看动作起、中、末连续帧，再看正常速度。

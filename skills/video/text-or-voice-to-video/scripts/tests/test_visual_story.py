@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 import subprocess
 import shutil
@@ -52,6 +53,22 @@ class VisualStoryTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         after = json.loads((self.root / 'compiled.json').read_text())
         self.assertEqual(after['shots'][0]['events'][0]['frame'] - before['shots'][0]['events'][0]['frame'], 27)
+
+    def test_recompiling_is_deterministic_across_python_hash_seeds(self):
+        self.assertEqual(self.compile().returncode, 0)
+        command = [sys.executable, str(PIPELINE / 'compile_storyboard.py'),
+            '--timeline', str(self.root / 'timeline.json'),
+            '--storyboard', str(self.root / 'storyboard.json'),
+            '--assets', str(self.root / 'assets.json'), '--public-dir', str(self.root / 'public'),
+            '--output', str(self.root / 'compiled.json')]
+        outputs = []
+        for seed in ('1', '2', '3', '17'):
+            result = subprocess.run(command, env={**os.environ, 'PYTHONHASHSEED': seed},
+                                    capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            outputs.append((self.root / 'compiled.json').read_bytes())
+        for output in outputs[1:]:
+            self.assertEqual(output, outputs[0], 'Unchanged visual sources must retain export approval')
 
     def test_missing_asset_fails_and_invalidates_compiled_output(self):
         self.assertEqual(self.compile().returncode, 0)

@@ -1,0 +1,10 @@
+export type Box=[number,number,number,number];
+export type Point=[number,number];
+export function intersectBoxes(a:Box,b:Box):Box|null;
+export function insetClipBounds(box:Box,css:string):Box|null;
+export type Port='left'|'right'|'top'|'bottom';
+export type Endpoint={id:string;box:Box;port:Port};
+export function connectorPoints(source:Endpoint,target:Endpoint,via?:Point[]):Point[];
+export function trimPoints(points:Point[],progress:number):Point[];
+export function segmentHitsBox(a:Point,b:Point,box:Box,pad?:number):boolean;
+export function auditSnapshot(snapshot:Record<string,unknown>):{code:string;ids:string[];detail:string;frame:number;sceneId:string}[];

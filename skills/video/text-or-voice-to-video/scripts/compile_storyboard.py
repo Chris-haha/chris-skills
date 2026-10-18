@@ -69,7 +69,8 @@ def compile_story(story, timeline, assets, public_dir):
     unique(shots, 'id', 'shot')
     if not shots or len(shots) != len(scenes) or {s['sceneId'] for s in shots} != set(scenes):
         raise ValueError('Each timeline scene requires exactly one visual shot')
-    compiled, media_frames = [], {m: 0 for m in MEDIA}
+    # Stable bytes across Python processes keep a current visual review current.
+    compiled, media_frames = [], {m: 0 for m in sorted(MEDIA)}
     event_ids = set()
     for shot in shots:
         scene = scenes[shot['sceneId']]

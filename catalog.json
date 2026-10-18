@@ -641,7 +641,7 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "ea7c56dec35037bad5770d0e472fd16a437d7495d34cf2ecd35cf2508f045166"
+          "sha256": "9f89f2c1626ad1eed0c1fa8e21cf5ed8ecaf221b54b2b436288554a877dbc441"
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
@@ -649,7 +649,7 @@
         },
         {
           "path": "agents/openai.yaml",
-          "sha256": "b9f27263be4f64eaef7336f1a86ee828553b3f0b758ea9e96e5bc467e4406b45"
+          "sha256": "c8696a52d97c97cd91d46d6a9c3f82e7ffa62b744ce75da8f5c7c6330d80d322"
         },
         {
           "path": "assets/starter/assets.json",
@@ -677,7 +677,7 @@
         },
         {
           "path": "assets/starter/render.mjs",
-          "sha256": "5669f94d5a55275137f9ea9bc3fa1eb0c794e47d6fde87b426c59c10f5213192"
+          "sha256": "ac03eae8b0bd70292793b7fb1f861979ff18d297b36a9003c257a379dc678aa6"
         },
         {
           "path": "assets/starter/script.json",
@@ -689,11 +689,11 @@
         },
         {
           "path": "assets/starter/src/Root.tsx",
-          "sha256": "cce0ed8dd1238a49efe08764b38998291efabf7d07140e579796365ea2589ee6"
+          "sha256": "45f29df703745662b6dd1f4ec79147c198a19f351296e795b39164cec9d19b50"
         },
         {
           "path": "assets/starter/src/VisualFilm.tsx",
-          "sha256": "d53c4a94dfda15622df4405517cf35d2eb7a321f2d3a08d6087a1e019c1e2d63"
+          "sha256": "d3d1a0e1e82a11e01c7da725820e52b4a7dcd86e96f6665392613bca1610d675"
         },
         {
           "path": "assets/starter/src/compiled-storyboard.json",
@@ -705,11 +705,11 @@
         },
         {
           "path": "assets/starter/src/motion/Gallery.tsx",
-          "sha256": "55648133f56f78e447fa825175aa1ad79fadafa33219cb77dc7ab6058eba7257"
+          "sha256": "47491391e7cd79a241a04a08bf9b9cb187231fe0a55325713e7abb50f1d53525"
         },
         {
           "path": "assets/starter/src/motion/LibraryExample.tsx",
-          "sha256": "258775becc7e2c34e6298c47defaf3a4d4fa69a5a012a025f2f2ae1eccf2ab16"
+          "sha256": "71198c48029b82f92ac42e12815dbfaebe265bf7b95e8d3e9aada18d202e390d"
         },
         {
           "path": "assets/starter/src/motion/library-example.json",
@@ -717,7 +717,7 @@
         },
         {
           "path": "assets/starter/src/motion/recipes.tsx",
-          "sha256": "aa27fa5a6726c6b2e1af0110e8e26a1bd3551adb737e3cd8a09aba4c2f2091f7"
+          "sha256": "49599f8add0efc1dbce1b2dd97e63275f0ff184eae313978512ab1f81512651a"
         },
         {
           "path": "assets/starter/src/motion/types.ts",
@@ -725,19 +725,43 @@
         },
         {
           "path": "assets/starter/src/storyboard.json",
-          "sha256": "c455bf6535184f0a54d8adfbb185fed5ff8c334bc25ab437aa2b34e0cbcd1975"
+          "sha256": "9f61f15d5ba885d0dd0edbc9e3883447b641de279b6e683542fda7c68fa84b74"
         },
         {
           "path": "assets/starter/src/timeline.json",
           "sha256": "1d1962f4dd892aa041ea62baac2fab0d193ef2bbecad29225157752946849624"
         },
         {
+          "path": "assets/starter/src/visual/Visual.tsx",
+          "sha256": "d51e4b6feeb5892ac6da4f8904affd779e06813270ed35bf9e2012a312be352c"
+        },
+        {
+          "path": "assets/starter/src/visual/quality.d.mts",
+          "sha256": "4a9de2a5b74791a1c2709846516b1e4f5b9f67376bcbfd66d82d90bf4212939f"
+        },
+        {
+          "path": "assets/starter/src/visual/quality.mjs",
+          "sha256": "0153f17d52b5918c0f51753d6776a87dcc7c16a002ee102b5c698cfa82a59aab"
+        },
+        {
           "path": "assets/starter/tsconfig.json",
           "sha256": "7f66aa1c5137290dd93d6c1813e7b5e1c6d3b28ee783aab1c21f6ce895f04722"
         },
         {
+          "path": "assets/starter/visual-audit.mjs",
+          "sha256": "223d1f5e1c9563fbd14a5948035c23277d8036da58f769bc8069e0ad6851053f"
+        },
+        {
+          "path": "assets/starter/visual-gate.test.mjs",
+          "sha256": "497676d4863611cfac064621ce9bed81f99a59ddc7c16a6f3ba73fbaaa7fb9e6"
+        },
+        {
+          "path": "assets/starter/visual-quality.test.mjs",
+          "sha256": "12db459498dda28e31b1655203602f3c0c5f0cbb1f2eae12079f30331b8943f7"
+        },
+        {
           "path": "references/assets.md",
-          "sha256": "5c352ce5ac242ff0819df86a44eacebf78fe83df340760942505a6b5343b5a95"
+          "sha256": "4be5c4a05cc2a5e2b310d8abbdf4dcf63c90a3d42ea12c18d41cbfe2d6d5c3a7"
         },
         {
           "path": "references/audio-test-evidence.md",
@@ -749,11 +773,11 @@
         },
         {
           "path": "references/motion-recipes.md",
-          "sha256": "0aba9f712d9c80aa394fa884a770f51107ed5d8c284db8bacc0d320bbadcda18"
+          "sha256": "10f098b4ec73ab408e94975ec86fcd3e7631ad897747dc1db0f86150a5e901a3"
         },
         {
           "path": "references/narration.md",
-          "sha256": "11820f4b808d5eefb7d83fc0ebca5d99da28881708571843eccd9060c08eda1c"
+          "sha256": "058b2f3eb5b8cd049cce3d257099fe115170c1614bac0c4d76945c0d7f5350d8"
         },
         {
           "path": "references/recording.md",
@@ -769,11 +793,15 @@
         },
         {
           "path": "references/visual-direction.md",
-          "sha256": "ad3666b6921f848b00ebfcd167074b14f09fab127de1327794716f71fd8c6514"
+          "sha256": "664f6f90439f1c36e513fae4ed3e147e4f5d799cf66802a1e134b7ac396b823d"
+        },
+        {
+          "path": "references/visual-quality.md",
+          "sha256": "20277fbd4c04def8416aeac4e63e39afa8f7f066a9f4a18aaf639d8067d29f74"
         },
         {
           "path": "references/visual-story.md",
-          "sha256": "42657e124e9a31321a5c90652228695fc4a3790a253024e4c3b5c511b0c93e22"
+          "sha256": "a16fa466b10ec7d5447cd98e2b36d888d3044b4c3ca961dc5b4b57d25a33cc5f"
         },
         {
           "path": "scripts/align_narration.py",
@@ -785,7 +813,7 @@
         },
         {
           "path": "scripts/compile_storyboard.py",
-          "sha256": "95bfc6a012374606a1c75e20c1d370ce0edbce11c9cb76f5fc64d665ff6ef9ae"
+          "sha256": "276e68d7a420d8bb75ae978b3fcd698b1ff66d07f19df29b2c9b6b5cc639ddfb"
         },
         {
           "path": "scripts/export_srt.py",
@@ -845,7 +873,7 @@
         },
         {
           "path": "scripts/tests/test_visual_story.py",
-          "sha256": "019c9f3da48ff85769a03f45e6c3e7a46ef46a32dad8574d165357fd18973a68"
+          "sha256": "abb61d7bbd697ff057b30ba70125c32a82dd91076c74dc73d9dd88eb43c7150d"
         },
         {
           "path": "scripts/validate_timeline.py",
@@ -856,7 +884,7 @@
           "sha256": "6be75b0d8b629290590e31e38cfdf8098f778e05dc28760dfa2114a9c08471a4"
         }
       ],
-      "updatedAt": "2026-10-13",
+      "updatedAt": "2026-10-18",
       "note": "原名 voice-driven-video；同步本机最新版并改名，博客历史页面 slug 保留。"
     }
   ],

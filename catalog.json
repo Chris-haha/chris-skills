@@ -886,6 +886,106 @@
       ],
       "updatedAt": "2026-10-18",
       "note": "原名 voice-driven-video；同步本机最新版并改名，博客历史页面 slug 保留。"
+    },
+    {
+      "slug": "project-llm-wiki",
+      "title": "项目开发 LLM Wiki",
+      "category": "development",
+      "path": "skills/development/project-llm-wiki",
+      "source": "/Users/chris/Downloads/llm-wiki.zip",
+      "summary": "搭建项目 Markdown 知识库，支持资料摄入、查询、开发任务验证及知识回流。",
+      "status": "installed",
+      "updatedAt": "2026-10-17",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "027fa1d06257602ad6baf9e5bba2550bb0bb272c2f4b7fb6933e51e9e20fb5b9"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "5154bc6143a74c6b4bee811d575c271998bea121cb97aa5958abb2c693c214ee"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "9e65eb95862a66b487f1d1c642a707b2adf12ffddd257d418de5d9236c2ebee1"
+        },
+        {
+          "path": "assets/project-entry.md",
+          "sha256": "5ddb1df531f4fb07a213e1603eb207cb927cdaed91377985ec275cc94904e376"
+        },
+        {
+          "path": "assets/wiki/AGENTS.md",
+          "sha256": "df90c835e1a370bd0f9814104ebc43c50410d345f81aae44da47a23bb5a86246"
+        },
+        {
+          "path": "assets/wiki/agent-workflow.md",
+          "sha256": "a5290ad9bf3d0b9b336a83a795172190e76ffb0be61be8e85c9405ac8e4ac8a6"
+        },
+        {
+          "path": "assets/wiki/glossary.md",
+          "sha256": "26e84c4f9d0e1d998d7863ca8080b2ac66cd906c64ad8594e659f55a4d40b478"
+        },
+        {
+          "path": "assets/wiki/index.md",
+          "sha256": "b8aedca027e742b933e893be437ac22a159c38cd9d23f5febbd755a9cbdae36f"
+        },
+        {
+          "path": "assets/wiki/log.md",
+          "sha256": "b139681eaa546d98ea6cc134653cc9991eae7e2550fd8d4cb732191cfaaa4072"
+        },
+        {
+          "path": "assets/wiki/open-questions.md",
+          "sha256": "0818243016687219d5f36ddc56bdd28dc1a40a78329ced1dfd4291df00d45762"
+        },
+        {
+          "path": "assets/wiki/overview.md",
+          "sha256": "4a63ef98c933705d3f44350f46d4fb301eb08caedbb8bd4dc07675479c12825a"
+        },
+        {
+          "path": "assets/wiki/raw/.gitignore",
+          "sha256": "90572454aae237c84790ac5808fb928e7d2c03791016f634f7d39c87d7963a3f"
+        },
+        {
+          "path": "assets/wiki/raw/README.md",
+          "sha256": "41646feb56b851af15c770df34790a2fc9a36c62324c16242f7b0af8ae8446f4"
+        },
+        {
+          "path": "assets/wiki/sources.md",
+          "sha256": "1a6e630349f6ff53a91db8221bfb94dc1670d91e2e3adc2df7d4cbd5a5c74d5d"
+        },
+        {
+          "path": "references/bootstrap.md",
+          "sha256": "4789669aa137f27698a26df824cba4fe91b6b36c803a5a61d6b92a733856d18f"
+        },
+        {
+          "path": "references/page-patterns.md",
+          "sha256": "3aa1e1a99a94a122fa7268fdd4adcb859a4efe3b1ca95ed7e03f66075a8f1434"
+        },
+        {
+          "path": "references/usage.md",
+          "sha256": "043b4e4e4eebae144275972dfac0eab41ef7ba64ea3cb2686149c62731816006"
+        },
+        {
+          "path": "references/workflows.md",
+          "sha256": "431e7b60e03e7baad5f4ae33dc5ab779dfa9f0d5ff3b7f65c9979eaa3f9ba964"
+        },
+        {
+          "path": "scripts/wiki.mjs",
+          "sha256": "9e096575faa3718cfe3f9171d1099aafac8cc41d49b7a7b7239cad8422ed7480"
+        },
+        {
+          "path": "scripts/wiki.test.mjs",
+          "sha256": "01885a81e59f1a5cc9b75217b43fff84d350c0254b8aceababec8f34082f1443"
+        }
+      ]
     }
   ],
   "pending": [

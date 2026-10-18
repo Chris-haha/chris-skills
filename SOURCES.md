@@ -69,3 +69,7 @@
 - 新增 `workflows/README.md` 说明分类、安装和本仓库运行路径；同步根 README、维护约定、第三方说明及 catalog.json 的工作流来源、日期和文件哈希。源工程 README 的原目录命令保持原样，工作流索引给出本仓库替换路径。
 - 使用内置 image_gen 更新能力总览为“6 个 Skill · 1 个工作流”，新增模板库电商生图流程配图。提示词、输出来源及哈希见 `assets/readme/IMAGE-SOURCE.md` 和对应提示词文件。配图仅用于能力说明。
 - 验证：归集副本的 181 项自带测试通过，CLI 帮助可正常运行；65 个来源文件哈希一致，69 个交付文件全部登记；42 个本地文档链接有效，生成配置、任务输出和缓存的忽略规则生效。未执行工作流的真实生图接口，未提交或推送 Git。
+
+## 2026-10-17 项目开发 LLM Wiki
+
+来源为用户提供的 `/Users/chris/Downloads/llm-wiki.zip`，SHA-256：`4ffac068245c9f187f6d1a320abe6574bb396f6e36ce70dc75f1e791fd89a293`。原包名 `llm-wiki`，改名为 `project-llm-wiki`，归入 `skills/development/`，并安装至 `/Users/chris/.codex/skills/project-llm-wiki`。保留包内模板与脚本，同步修改调用名称；追加仓库许可说明，第三方权利仍按其原授权处理。

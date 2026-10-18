@@ -18,6 +18,7 @@ skills/                      # 可安装到 Agent 的 Skill，按业务分类
   ecommerce/                 # 电商与商品资料
   education/                 # 教育咨询
   video/                     # 视频创作
+  development/               # 项目开发与知识管理
 workflows/                   # 独立运行的工作流工程
   ecommerce/
     ecommerce-template-image-workflow/
@@ -36,6 +37,7 @@ assets/                      # README 配图与案例素材
 | 电商与商品资料 | [服装规格书中文批注](skills/ecommerce/garment-spec-cn-annotation/SKILL.md) | 上传服装规格书图片，将日文、英文翻译为中文批注，保留原图并输出批注图片。 |
 | 教育咨询 | [北京中考志愿填报顾问](skills/education/beijing-zhongkao-admissions-advisor/SKILL.md) | 逐步了解孩子情况，核验对应届别的报考资格与政策，整理升学路径和志愿建议。 |
 | 视频创作 | [文字／录音转动态图解视频](skills/video/text-or-voice-to-video/SKILL.md) | 文字稿配音或使用已有录音，结合真实截图、统一插画与对象动画制作讲解视频，可加入背景音乐和音效，交付可编辑工程。 |
+| 项目开发 | [项目开发 LLM Wiki](skills/development/project-llm-wiki/SKILL.md) | 搭建项目 Markdown 知识库，摄入资料、查询证据，让开发与排障结果按影响回流。 |
 
 目前收录 6 个 Skill、1 个独立工作流，覆盖沟通、电商、教育咨询与视频创作。
 
@@ -203,6 +205,19 @@ flowchart LR
 ![文字／录音转视频示例：把你的内容变成看得见的表达](assets/examples/text-or-voice-to-video/poster.jpg)
 
 [观看完整示例视频（MP4）](assets/examples/text-or-voice-to-video/text-or-voice-demo.mp4)
+
+### 7. 项目开发 LLM Wiki
+
+[阅读 Skill](skills/development/project-llm-wiki/SKILL.md) · `project-llm-wiki`
+
+**解决的问题：** 项目资料、设计决策与排障经验分散，Agent 在后续任务中反复摸索，修改代码后文档容易过期。
+
+- **功能：** 搭建或接入项目内 Markdown Wiki，摄入资料、建立来源与互链，查询项目知识，并将开发、排障与验证结果回流到受影响页面。
+- **特点：** 尊重已有 Wiki 的目录与规则；区分原始资料、知识页面和维护规则，保留来源、未决项与更新日志；支持结构体检。
+- **优势：** 项目知识随仓库保存，便于后续 Agent 查证据、执行任务和维护一致性；无需向量数据库或外部服务。
+- **使用边界：** 可选脚本需要 Node.js 18+；结构检查不代表事实正确。初始化骨架后仍需摄入真实资料，不收录凭证与敏感信息。
+
+> 示例：使用 project-llm-wiki，为当前项目搭建 LLM Wiki，接入项目任务流程，先摄入架构说明与关键模块资料，再运行结构检查；以后开发完成后同步受影响的知识页。
 
 ## 独立工作流详细介绍
 

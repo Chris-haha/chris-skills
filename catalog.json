@@ -627,7 +627,7 @@
       "path": "skills/video/text-or-voice-to-video",
       "source": "/Users/chris/.codex/skills/text-or-voice-to-video",
       "blog": "/lab/voice-driven-video",
-      "summary": "将文字稿经豆包 AI 配音，或使用已有录音，制作字幕与分镜跟随音轨的动态图解视频。",
+      "summary": "从主题、文字稿或录音制作可编辑讲解视频，支持人物动作、代码动画路线与发布文案交付。",
       "status": "synced",
       "supplemental": [],
       "files": [
@@ -641,7 +641,7 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "9f89f2c1626ad1eed0c1fa8e21cf5ed8ecaf221b54b2b436288554a877dbc441"
+          "sha256": "c4479f8fbb383af35c2324cfe9c4a3b2910f636f47373bb5809ddd51a6dbb302"
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
@@ -649,7 +649,7 @@
         },
         {
           "path": "agents/openai.yaml",
-          "sha256": "c8696a52d97c97cd91d46d6a9c3f82e7ffa62b744ce75da8f5c7c6330d80d322"
+          "sha256": "b993afb040407bd7f6b9185b292d57e27cd6f14d8c08514e1ac590bda569433f"
         },
         {
           "path": "assets/starter/assets.json",
@@ -704,12 +704,20 @@
           "sha256": "f9bc4e836a064aca9c58a681e1dc779b62a4d82894450e8e15d5cdd05840e36e"
         },
         {
+          "path": "assets/starter/src/motion/Character.tsx",
+          "sha256": "81a1990b08f18ce4b68494361ac9bbe86d6d0823fc669c2d71cd850ba0779c97"
+        },
+        {
           "path": "assets/starter/src/motion/Gallery.tsx",
           "sha256": "47491391e7cd79a241a04a08bf9b9cb187231fe0a55325713e7abb50f1d53525"
         },
         {
           "path": "assets/starter/src/motion/LibraryExample.tsx",
           "sha256": "71198c48029b82f92ac42e12815dbfaebe265bf7b95e8d3e9aada18d202e390d"
+        },
+        {
+          "path": "assets/starter/src/motion/characterMath.ts",
+          "sha256": "7ac124ee913c50374a8ca74a811038cb4bbe2e02f462eca25680c270a76dac02"
         },
         {
           "path": "assets/starter/src/motion/library-example.json",
@@ -772,6 +780,14 @@
           "sha256": "b8bfd1b0a16f75ae667a6e52789cb90ae6480420fab729907f35c0697ca91282"
         },
         {
+          "path": "references/character-staging.md",
+          "sha256": "67d15c5153d25459e1f0b1bee9618e7e874bef0655fcc364265a254067ddf416"
+        },
+        {
+          "path": "references/code-animation.md",
+          "sha256": "7fcb827171938ec44628a70f1d1646c3d0496dbfcad13c10856ecace360d3b95"
+        },
+        {
           "path": "references/motion-recipes.md",
           "sha256": "10f098b4ec73ab408e94975ec86fcd3e7631ad897747dc1db0f86150a5e901a3"
         },
@@ -785,7 +801,7 @@
         },
         {
           "path": "references/reference-analysis.md",
-          "sha256": "ea81766569cb2f3259a551321326d2bf88895ec652ad4b27320d6c174574f2a3"
+          "sha256": "025e824ca9da1f939b0d40090b2cfcad97227b2fb9d52ff6389a3ea5a554f601"
         },
         {
           "path": "references/timing.md",
@@ -797,11 +813,11 @@
         },
         {
           "path": "references/visual-quality.md",
-          "sha256": "20277fbd4c04def8416aeac4e63e39afa8f7f066a9f4a18aaf639d8067d29f74"
+          "sha256": "a29db7b412d8c2fa32e4c74d87bf6c12082d0592d3f407c84c5cbe9fed582296"
         },
         {
           "path": "references/visual-story.md",
-          "sha256": "a16fa466b10ec7d5447cd98e2b36d888d3044b4c3ca961dc5b4b57d25a33cc5f"
+          "sha256": "6e179cbcfe940907fa1addb0db4c9d42c5c5e1a18f5c26a3fd80907a95c5a08b"
         },
         {
           "path": "scripts/align_narration.py",
@@ -884,7 +900,7 @@
           "sha256": "6be75b0d8b629290590e31e38cfdf8098f778e05dc28760dfa2114a9c08471a4"
         }
       ],
-      "updatedAt": "2026-10-18",
+      "updatedAt": "2026-10-20",
       "note": "原名 voice-driven-video；同步本机最新版并改名，博客历史页面 slug 保留。"
     },
     {

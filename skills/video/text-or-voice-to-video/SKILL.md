@@ -1,36 +1,49 @@
 ---
 name: text-or-voice-to-video
-description: "Create editable faceless explainer videos from a manuscript with Doubao AI narration or an existing recording, combining real screen evidence, cohesive illustrations, and semantic object animation. Use for 文字生成视频、文字稿配音、本人录音、不露脸讲解、自动对齐字幕与分镜, or replacing narration while retaining editable visuals."
+description: "Use when making editable faceless explainer videos from a topic, manuscript, or recording, including 文字生成视频、先看文字稿、豆包配音、本人录音、代码动画科普、手绘讲解、公式推演、3D机制演示、自动对齐字幕与分镜, or replacing narration while retaining editable visuals."
 ---
 
 # 文字／录音转动态图解视频
 
 把文字稿或已有录音制作成可编辑、不露脸的讲解视频：真实截图／录屏提供证据，统一风格的插画建立场景，持续变化的对象解释机制。仅有文字稿时用豆包语音合成生成正式 AI 旁白，再按实际音轨对齐字幕和画面。Codex负责分镜和视觉判断，脚本负责配音、音频准备、时间线、渲染和媒体检查。以当前音轨为唯一时钟；目标时长用于写稿阶段估算，不能靠裁掉录音或加速本人声音强行满足。
 
+优先让代码精确控制对象、文字、公式、数据与时间；连续人物表演或复杂风格穿越可按需加入局部生成镜头。先判断理解目标和美术效果，再选渲染工具，不要求用户懂代码或先指定框架。工具建议不等于已安装、已接通或已经验证的能力。
+
 ## 选择输入
 
+- 只有主题：先写口播稿。沿用用户给出的受众、平台和时长；缺少非关键偏好时采用普通话、面向非专业观众的清晰讲解，不为选工具反复询问。用户要求“先看文字稿／制作前确认”时，保存并展示完整稿件，停在该节点，收到明确的稿件确认后才初始化视频工程、配音、生成素材和渲染；单纯等待不算确认。没有审稿要求时可按授权继续制作，不额外强制确认。
 - 仅文字稿：进入豆包配音模式，读取 [narration.md](references/narration.md)。支持粘贴文字及 UTF-8 TXT/Markdown；保留原稿，清理格式符号，默认不改写或删减正文。用户文字经文件或结构化参数传入，不拼接进shell。
 - 已有录音：沿用原流程，无需豆包密钥。两者都提供且未另行说明时优先录音，以实际说出的内容修订字幕稿。
 - 已有偏好直接沿用；否则默认中文普通话、原语速、1920×1080、30fps、不露脸动态图解。首版云端配音仅接豆包系统音色，不做声音克隆、数字人口型或整片文生视频。
+
+## 制作路线与美术方向
+
+开始分镜前读 [code-animation.md](references/code-animation.md)，按镜头需求选择：SVG／Canvas 2D负责对象与路径，Rough.js负责手绘质感，p5.js／p5.brush负责笔触与水彩，Three.js负责可编程3D，Manim负责较复杂的数学推演，Blender负责建模、材质和离线3D。Remotion默认负责多场景、字幕、截图及整片合成；一个简单比例公式不构成引入Manim的理由。只为实际需要的镜头检查和安装依赖。
+
+用户要求可爱小人、火柴人、手绘人物或人物参与的叙事时，读 [character-staging.md](references/character-staging.md)。让角色操作具体对象并引起可见结果，例如伸手开窗、拆分文字、搬运片段、调节参数；静态人物贴图、角落挥手、整个人物平移或摆头不构成这些任务的完成。`VisualObject`是测量与语义边界，不要求画成可见矩形卡片。画风服从本期要求，不把某一期的可爱人物强制用于所有题材。
+
+参考视频先按 [reference-analysis.md](references/reference-analysis.md) 拆成镜头与动作，再选实现方式。把受众、核心信息、时长、预期行动，以及实际Logo、字体、色板、材质、每屏重点写成具体约束；没有的品牌资料不捏造。先验证代表镜头，后扩展整片。外部引擎的可重现渲染与资产接入按code-animation执行，不改变现有storyboard枚举或绕过视觉审计。
 
 ## 视觉交付硬约束
 
 先读 [visual-quality.md](references/visual-quality.md)，对所有题材、所有新工程与后续改稿生效。禁止通用机器人头／天线笑脸充当AI图标，禁止通用图标配白卡片拼成演示稿；使用用户人物、具体场景与实际成果表达内容。流程线必须有明确起终对象、方向箭头和避让空间；分类／比较用有层级的分组排版，不画放射状伪流程。禁止无含义横线、开口绕圈、线压文字、文字互盖以及悬空红叉。状态放在所属对象内部的预留区域，用简短文字表达。
 
+讲解神经网络参数、训练误差等具体技术机制时，主画面先呈现该机制的对象和结构，例如分层节点、带权重的连接及预测输出；人物和生活比喻用于辅助，不能用不相干的机械道具代替机制图。逐幕检查人物的任务、操作对象及可见结果，删改只抱抽象标签或不明道具的角色；局部修正后同步搜索全片相关镜头。数字、权重、输出与误差应来自同一计算或有依据的示意映射，不各自随意变化。
+
 这些约束必须落实到分镜、组件、真实画面复核和导出检查，不能只写一句“注意美观”。保留组合根部的AuditComposition；使用visual目录中的语义对象、连接与状态组件。默认VisualFilm仅是不可交付的占位预览，必须按本期内容设计。结构检查不代替看图，图片内部的机器人与图标、层级和审美必须逐幕实际查看；复核由Codex完成，不增设用户确认步骤。
 
 ## 输入与执行
 
-1. 找到稿件、可选录音、参考视频或品牌约束。文字稿模式在配音manifest、工程和交付说明中明确记录AI合成来源；已有录音不能自动改成合成声音。成片画面不得自动添加“旁白：豆包AI合成”“AI配音”“声音由某服务生成”等旁白来源文字、水印或片尾署名，本机用户明确禁止这类画面标注。
+1. 找到稿件、可选录音、参考视频或品牌约束；只有主题时先按“选择输入”写稿，用户要求的稿件确认尚未完成则不执行后续制作步骤。文字稿模式在配音manifest、工程和交付说明中明确记录AI合成来源；已有录音不能自动改成合成声音。成片画面不得自动添加“旁白：豆包AI合成”“AI配音”“声音由某服务生成”等旁白来源文字、水印或片尾署名，本机用户明确禁止这类画面标注。
 2. 录音模式按 [recording.md](references/recording.md) 指导自然录音，先整理最终要保留的口播，再对齐。保留原文件，处理产生新文件；已有原声含音乐时记录这个事实。
 3. 创建新项目：`python3 SKILL_DIR/scripts/init_project.py --output PROJECT_DIR`。用可用Node运行 `npm ci`。先检查本机ffmpeg、ffprobe、whisper-cli及模型；只安装确实缺的依赖。按 [timing.md](references/timing.md) 创建项目venv并安装scripts/requirements.txt；以下Python命令使用该解释器，渲染前设置VIDEO_PYTHON为其绝对路径。
 4. 文字模式在初始化工程后运行 `python3 SKILL_DIR/scripts/prepare_script.py --input MANUSCRIPT --output-dir PROJECT_DIR --replace-script`，生成可编辑 `script.json`、原稿副本、朗读稿和 `narration.json`；`--replace-script`会替换草案分镜，后续只改某句时直接编辑script，不必重建已设计分镜。录音模式继续手写 `{title,fps,units:[{id,text}],scenes:[{id,anchorUnit,label}]}`。unit按一句或自然呼吸段划分，scene引用稳定unit ID。数字、专有词和实际说出的内容要复核。
 5. 文字模式先运行 `python3 SKILL_DIR/scripts/synthesize_narration.py --script PROJECT_DIR/script.json --config PROJECT_DIR/narration.json --output-dir PROJECT_DIR/out/narration --dry-run` 查看字符数与缓存命中，再去掉`--dry-run`生成配音。密钥仅从`DOUBAO_TTS_API_KEY`读取，缺少密钥时完成能独立推进的分镜与配置，明确阻塞，不冒充已生成配音。用生成的`PROJECT_DIR/out/narration/voice.wav`作为下一步RECORDING；录音模式用原录音。随后运行 `python3 SKILL_DIR/scripts/prepare_audio.py --input RECORDING --output-dir PROJECT_DIR/out/audio`，生成48k规范副本、16k识别副本、波形和来源摘要，保留实际时长。
 6. 用实际ASR得到时间信息：`python3 SKILL_DIR/scripts/run_asr.py --audio PROJECT_DIR/out/audio/canonical.wav --model MODEL --output-prefix PROJECT_DIR/out/audio/asr --timing-policy segment`。它记录实际识别命令与音轨摘要，后续严格验证关联。整句字幕和镜头优先句段时间；逐字效果可选token，但要复核累计提前或漂移。DTW若失败切换句段或token offsets并标为近似。完整JSON有时包含拆开的中文UTF-8 token字节，配套解析器处理此情况。
 7. 对齐：`python3 SKILL_DIR/scripts/align_narration.py --audio PROJECT_DIR/out/audio/canonical.wav --asr PROJECT_DIR/out/audio/asr.json --asr-manifest PROJECT_DIR/out/audio/asr.manifest.json --timing-policy segment --script PROJECT_DIR/script.json --output PROJECT_DIR/src/timeline.json`。阅读coverage、needsReview和report；检查新增长停顿是否被ASR错算到下一句，使用当前PCM静音边界修正，含背景音乐或底噪时重点复核；明显错稿应停止并修正文稿，低置信内容只复核相关段。脚本的句段/token时间匹配是近似对齐，不是声学强制对齐。真正需要逐字卡点时按 [timing.md](references/timing.md) 升级对齐或复核关键事件。
-8. 从真实口播拆视觉任务，读取 [visual-story.md](references/visual-story.md) 与 [visual-quality.md](references/visual-quality.md)。每幕写清理解目标、具体对象、状态变化、证据与layoutIntent；根据内容选择场景、流程、比较、分类或变换，再设计排版。素材前完成风格板，约定人物、色板、字级、留白、状态区与路径通道；沿用用户品牌和主题需要。参考原则见 [reference-analysis.md](references/reference-analysis.md)。
+8. 从真实口播拆视觉任务，读取 [visual-story.md](references/visual-story.md) 与 [visual-quality.md](references/visual-quality.md)。每幕写清理解目标、具体对象、状态变化、证据与layoutIntent；根据内容选择场景、流程、比较、分类或变换，再设计排版。人物叙事另写“谁对哪个对象做什么、接触点在哪里、动作后对象变成什么状态”，不要只写人物入场。素材前完成风格板，约定人物、色板、字级、留白、状态区与路径通道；沿用用户品牌和主题需要。按code-animation记录各幕渲染路线、语义锚点和转场的对象连续性；需要音乐卡点时语义事件优先，不为拍点提前揭晓答案或压缩阅读停留。参考原则见 [reference-analysis.md](references/reference-analysis.md)。
 9. 按 [assets.md](references/assets.md) 收集实际截图／录屏并生成一致插画，素材放public，登记assets.json。按 [motion-recipes.md](references/motion-recipes.md) 编写v2分镜，实现本期专用画面并显式消费每个语义event。具体对象用VisualObject管理；关系用SemanticConnector，状态用StatusLabel；禁止绕过根部审计。八个recipe只提供运动原语，不提供可交付模板；旧五布局与示意节点不能作为设计兜底。
-10. 将规范音轨复制到public/audio/voice.wav。运行node render.mjs audit，检查每幕和每个事件起／中／落定的全部抽帧，修正后重审；实际看图后填写visual-review.json的逐幕理由，不自动勾选通过。render必须通过当前源码／素材／截图绑定的审计与复核，再验证音轨；渲染时逐帧测量文字、路径与状态，失败的pending-visual.mp4不能交付。最后正常速度观看整片。横竖版分别审计，改稿使旧复核失效。style／gallery仅预览。具体流程见上述两份视觉参考。
+10. 将规范音轨复制到public/audio/voice.wav。运行node render.mjs audit，检查每幕和每个事件起／中／落定的全部抽帧，修正后重审；实际看图后填写visual-review.json的逐幕理由，不自动勾选通过。render必须通过当前源码／素材／截图绑定的审计与复核，再验证音轨；渲染时逐帧测量可测量图层的文字、路径与状态，失败的pending-visual.mp4不能交付。Canvas／WebGL／导入视频内部的内容须按code-animation所述实际看图与运动复核，QA明确自动测量覆盖边界，不声称内部已全部自动验收。最后正常速度观看整片。横竖版分别审计，改稿使旧复核失效。style／gallery仅预览。具体流程见上述两份视觉参考。
 11. 静音视频先按原流程合入纯旁白并运行verify_media。需要BGM／音效时读取 [audio.md](references/audio.md)，以当前caption ID锚定音效；保留纯旁白，生成混合PCM及manifest，通过mux_audio.py和verify_media.py的--mix路径验证。不要用纯旁白相关性去验证混音。混音后听最终版和无BGM版，并复查字幕、音量、转场与全片节奏；未听过不能声称主观听感通过。
 12. 每次成片生成完成，同步生成自媒体视频标题、话题标签列表和简介，默认平台为小红书；用户已指定平台时按指定平台适配，不再为平台选择停下来询问。依据最终实际口播与视频内容生成，按下方“自媒体发布文案”保存并纳入本次交付。
 

@@ -1002,6 +1002,70 @@
           "sha256": "01885a81e59f1a5cc9b75217b43fff84d350c0254b8aceababec8f34082f1443"
         }
       ]
+    },
+    {
+      "slug": "video-text-redactor",
+      "title": "视频文字跟踪打码",
+      "category": "video",
+      "path": "skills/video/video-text-redactor",
+      "source": "/Users/chris/.codex/skills/video-text-redactor",
+      "summary": "根据指定词语或语义类别逐帧定位视频文字，跟踪打码并复扫成片。",
+      "status": "collected",
+      "updatedAt": "2026-10-22",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "a925ba96560fdc761d8d07c3d501a04df90d41c8b8ea734357f21f56be809201"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "5154bc6143a74c6b4bee811d575c271998bea121cb97aa5958abb2c693c214ee"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "4538e0b1fec96d3e7a9e469971dccada9808385e6c4feb82ff5eac2f87ffeb33"
+        },
+        {
+          "path": "references/rules.md",
+          "sha256": "e9f5087bfb8c0d16f20668b5994ea7a72bf7c58c610e778e7bca12f22c0d7d59"
+        },
+        {
+          "path": "scripts/VisionOCR.swift",
+          "sha256": "db53525fa50dc077364e0d536ba710276cb078c75dc8d8681f466b985cf9d647"
+        },
+        {
+          "path": "scripts/bootstrap.sh",
+          "sha256": "262d069b41be711423dfc8cabd7f45f207806e834c3d0b98e130b1423942edc0"
+        },
+        {
+          "path": "scripts/redaction_core.py",
+          "sha256": "1d2944cee53d6bb09ca4e2ea4cf164f090d05678123876f36aa340279ae4aca2"
+        },
+        {
+          "path": "scripts/requirements.txt",
+          "sha256": "a587cfc16f0ae4ebdc7298344d5f6e42c18bfc2ee9aa6a3a855b28ac8df3d3ac"
+        },
+        {
+          "path": "scripts/runtime.py",
+          "sha256": "b92f0ca18bb741bfa8840beb38886e57273a8ce8d1ed00370f96964a7e3eab83"
+        },
+        {
+          "path": "scripts/video_text_redactor.py",
+          "sha256": "8290f7d7414a10532f467c11d3f34ac1767c328470686f8c2ffb70f5e59ec39e"
+        },
+        {
+          "path": "tests/test_redaction_core.py",
+          "sha256": "c8834a8be5d5fbc794a5122815bd9193d973ed1c5b9e6d0d1499ce06bcd27819"
+        }
+      ]
     }
   ],
   "pending": [

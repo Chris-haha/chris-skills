@@ -73,3 +73,7 @@
 ## 2026-10-17 项目开发 LLM Wiki
 
 来源为用户提供的 `/Users/chris/Downloads/llm-wiki.zip`，SHA-256：`4ffac068245c9f187f6d1a320abe6574bb396f6e36ce70dc75f1e791fd89a293`。原包名 `llm-wiki`，改名为 `project-llm-wiki`，归入 `skills/development/`，并安装至 `/Users/chris/.codex/skills/project-llm-wiki`。保留包内模板与脚本，同步修改调用名称；追加仓库许可说明，第三方权利仍按其原授权处理。
+
+## 2026-10-22 视频文字跟踪打码
+
+从 `/Users/chris/.codex/skills/video-text-redactor` 收录到 `skills/video/video-text-redactor`，保留脚本、测试与规则说明，排除运行环境和缓存；原本机目录不修改。追加仓库许可文件，第三方权利按其原授权处理。

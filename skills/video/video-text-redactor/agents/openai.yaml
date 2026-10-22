@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频文字跟踪打码"
+  short_description: "按自然语言指定内容，为缩放、平移、滚动录屏中的敏感文字自动跟踪打码"
+  default_prompt: "使用 $video-text-redactor 处理这个视频，自动识别我指定的文字或信息类别，跟随缩放移动打码并检查成片。"

@@ -9,6 +9,7 @@
 | garment-spec-cn-annotation | `/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/skills/garment-spec-cn-annotation` | `skills/ecommerce/garment-spec-cn-annotation` |
 | beijing-zhongkao-admissions-advisor | `/Volumes/Samsung_T5/code/my-volunteer/skills/beijing-zhongkao-admissions-advisor` | `skills/education/beijing-zhongkao-admissions-advisor` |
 | text-or-voice-to-video | `/Users/chris/.codex/skills/text-or-voice-to-video` | `skills/video/text-or-voice-to-video` |
+| story-vocabulary-studio | `/Volumes/Samsung_T5/code/my-workflow/education/story-vocabulary-research/skills/story-vocabulary-studio` | `skills/education/story-vocabulary-studio` |
 | project-flow-guide（原名 project-xray） | `/Users/chris/.codex/skills/project-xray` | `skills/development/project-flow-guide` |
 
 | 工作流 | 原始目录 | 归集目录 |
@@ -79,10 +80,36 @@
 
 从 `/Users/chris/.codex/skills/video-text-redactor` 收录到 `skills/video/video-text-redactor`，保留脚本、测试与规则说明，排除运行环境和缓存；原本机目录不修改。追加仓库许可文件，第三方权利按其原授权处理。
 
+## 2026-10-25 故事词汇工作室
+
+- 从用户指定的上表目录归集 `story-vocabulary-studio` 到 `skills/education/`。12 个源文件逐字节保留，包含 SKILL.md、Agent 元数据、三份 Python 脚本、阅读器 HTML/CSS/JavaScript 及四份参考资料；原项目与本机已安装版本不修改。
+- 源包未附独立许可文件；补入仓库 LICENSE、COMMERCIAL-LICENSE.md、专属 THIRD_PARTY_NOTICES.md 和使用 README，共 16 个文件。逐文件 SHA-256、来源和本地补充标记见 catalog.json。
+- 收录范围仅为指定 Skill，不额外归集原项目的考试词表、研究原始资料、历史故事样包、运行输出、配音、凭证或测试工程。
+- README 补充教育类目录条目、如何选择、能力介绍、调用示例、依赖及使用边界。修正此前遗留的总计为 9 个 Skill、1 个独立工作流；新增可维护的 SVG 能力总览，保留历史 AI 配图及其来源记录；新 Skill 的流程用 Mermaid 说明。
+- 检查脚本入口、Python 与 JavaScript 语法、输入模板的未完成状态、离线配音 dry-run、草稿渲染和未审校内容的打包阻断；仅使用临时结构草稿，不盖语义审批章，不调用真实豆包服务，不将检查用网页作为学习成品。
+
 ## 2026-10-25 项目主线导读（改名收录）
 
 - 从用户指定的 `/Users/chris/.codex/skills/project-xray` 完整复制 4 个源文件，归入 `skills/development/project-flow-guide/`，中文名称为“项目主线导读”。本次用户明确要求改名，作为维护约定中通常保留原名规则的例外；原本机目录与安装名称不修改。
 - SKILL.md 的 frontmatter 名称与标题、agents/openai.yaml 的显示标题及默认 `$project-flow-guide` 调用名同步替换；其余方法内容不变，两份参考文档逐字节保留。catalog.json 分别保存原始 sourceSha256、当前 sha256 与改名说明。
 - 源包未附独立许可文件，按仓库约定补入 LICENSE、COMMERCIAL-LICENSE.md 与专属 THIRD_PARTY_NOTICES.md；共收录 7 个文件，许可仅覆盖本人有权授权的部分。
-- 同步 README 的用途表、选择指引、详细介绍、示例与流程图，更新 catalog 和第三方来源说明；SVG 能力总览更新为 9 个 Skill、1 个独立工作流。
-- 此前检查发现的“公司”“集成”等通用表述按用户要求保留；不修改既有 Skill 内容，不自动安装；提交与推送按用户后续明确授权执行。
+- 同步 README 的用途表、选择指引、详细介绍、示例与流程图，更新 catalog 和第三方来源说明；SVG 能力总览更新为 10 个 Skill、1 个独立工作流。
+- 此前检查发现的“公司”“集成”等通用表述按用户要求保留；不修改既有 Skill 内容，不自动安装、提交或推送。
+
+## 2026-10-25 README 插画与流程显示修复
+
+- 按用户反馈，将 README 顶部 SVG 文字卡片改回内置 image_gen 生成的插画合集，保留全部 10 个 Skill 和 1 个独立工作流，沿用历史纸感插画风格。输出、提示词及配图来源见 assets/readme/IMAGE-SOURCE.md。
+- 预览器未能显示的五个 Mermaid 流程代码块改为预渲染 PNG；保留对应 `.mmd` 源文件和可选渲染脚本，补一张项目开发 LLM Wiki 的查询、执行、验证、回流流程图。Mermaid 解析与浏览器渲染均已运行，README 直接显示 PNG。
+- 核对 `skills/development/project-llm-wiki/` 与 `/Users/chris/.codex/skills/project-llm-wiki/`，22 个文件逐字节一致，无缺失或差异；收录来源与 Skill 内容保持原记录，不因展示调整覆盖源码。README 补充选择指引、交付与流程，说明其与项目主线导读的区别。
+
+## 2026-10-25 README 场景插画调整
+
+- 按用户进一步反馈，撤下上一阶段的方框箭头图及临时 Mermaid 渲染文件。此前解决的是显示问题，用户要求的视觉表达改为有角色、具体场景与动作的生图插画。
+- 使用内置 image_gen 分别生成项目开发 LLM Wiki 的知识工坊、故事词汇工作室的阅读场景、项目主线导读的项目探索景观；替换对应三张配图。视频与电商保留已有生动插画，移除重复的方框流程汇总。提示词、来源与哈希见 assets/readme/IMAGE-SOURCE.md。
+- 将 README 配图偏好写入 MAINTENANCE.md：使用场景插画辅助理解，不用 Mermaid、方框箭头或 SVG 文字卡片充当能力配图。此轮仅调整展示及维护说明，Skill 内容与已归集文件哈希保持不变。
+
+## 2026-10-25 视频打码配图与按用途区分画风
+
+- 为 `video-text-redactor` 补充电影感剪辑室概念图，展示视频文字跟踪、移动与缩放中的遮挡、原声及成片复查；仅为能力展示，不是实际软件界面或匿名化结果证明。
+- 将项目开发 LLM Wiki 的详情配图改为现代工程资料工作台的写实画面；故事词汇保留绘本风、项目导读保留探索地图风，避免所有 Skill 共用同一画风和角色。合集继续承担统一目录展示。
+- 使用内置 image_gen 生成，提示词与图像来源记入 assets/readme/IMAGE-SOURCE.md；维护约定补充按 Skill 用途选画风的规则。此轮不修改 Skill 源码、依赖或内容哈希。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "故事词汇工作室"
+  short_description: "用连续原创故事制作中英阅读、词义回忆、拼写练习、真实配音与离线学习样包"
+  default_prompt: "使用 $story-vocabulary-studio，按我的词表和故事设定生成或续写一个可独立打开的英语学习包。"

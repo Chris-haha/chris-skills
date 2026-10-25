@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="reader-version" content="20261021-word-audio-only-v4">
+  <title>故事背单词</title>
+  <style><!--STYLE--></style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">读</span><span>读词<span class="brand-en">STORY VOCABULARY</span></span></div>
+    <a href="book.json" class="source-link" download>下载学习内容</a>
+  </header>
+  <div class="book-intro">
+    <div><p class="eyebrow">一本小故事 / 一次认真记住</p><h1 id="bookTitle"></h1><p id="bookSubtitle" class="subtitle"></p></div>
+    <p id="vocabularySummary" class="sample-note"></p>
+  </div>
+  <main class="workspace">
+    <aside class="contents" aria-label="故事章节">
+      <div class="contents-heading"><span>故事目录</span><span id="chapterCount"></span></div>
+      <nav id="chapterList" aria-label="选择章节"></nav>
+      <div class="reading-guide"><span class="guide-index">READ → RECALL</span><p>先跟着故事读一遍。<br>再撤去提示，试着想起来。</p><small>练习只记录在本次页面会话中。<br>读过，不等于已经掌握。</small></div>
+    </aside>
+    <article class="reader" aria-label="故事与练习">
+      <div class="chapter-heading"><p id="chapterKicker" class="eyebrow"></p><h2 id="chapterTitle"></h2><p id="chapterSummary"></p><div id="chapterTags" class="chapter-tags"></div></div>
+      <section id="learningPath" class="learning-path" aria-label="本次学习三步" hidden>
+        <div class="path-steps"><button type="button" data-step="mixed">1 读故事</button><button type="button" data-step="meaning">2 词义回忆</button><button type="button" data-step="answers">3 看解释</button></div>
+        <div class="path-action"><span id="sessionProgress" role="status"></span><button type="button" id="guidedNext" class="primary-button">开始词义回忆</button></div>
+      </section>
+      <nav id="modeTabs" class="mode-tabs" aria-label="学习模式">
+        <button data-mode="mixed" type="button">故事阅读</button><button data-mode="vocabulary" type="button">本章词表</button><button data-mode="meaning" type="button">词义回忆</button><button data-mode="spelling" type="button">拼写练习</button><button data-mode="english" type="button">英文故事</button><button data-mode="answers" type="button">答案讲解</button>
+      </nav>
+      <section class="audio-panel" aria-label="本章英文朗读">
+        <button id="chapterPlay" type="button" aria-label="播放本章英文"><span aria-hidden="true">▶</span><span>英文朗读</span></button>
+        <div class="audio-detail"><span id="audioStatus" role="status"></span><input id="audioSeek" type="range" min="0" max="100" value="0" aria-label="章节播放进度"><span id="audioTime">0:00 / 0:00</span></div>
+        <label class="speed-label">语速<select id="audioSpeed" aria-label="朗读倍速"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option></select></label>
+        <audio id="chapterAudio" preload="metadata"></audio>
+      </section>
+      <div class="mode-heading"><h3 id="modeTitle" tabindex="-1"></h3><p id="modeHelp"></p></div>
+      <div id="recallTools" class="recall-tools" hidden><label>回忆语境 <select id="recallContext"><option value="story">故事语境</option><option value="transfer">新语境回顾</option></select></label><span>每个目标词另有一条新句子，按本书同一义项回忆。</span></div>
+      <div id="answerTools" class="recall-tools" hidden><label>查看 <select id="answerScope"><option value="needs">待巩固词</option><option value="all">本章全部</option></select></label><span id="answerSummary" role="status"></span><button type="button" id="retryNeeds" class="plain-button" disabled>只重练待巩固词</button></div>
+      <div id="retryTools" class="recall-tools retry-tools" hidden><span id="retrySummary" role="status"></span><button type="button" id="returnFullExercise" class="plain-button">返回整章练习</button></div>
+      <section id="readingContent" class="reading-content" aria-label="本章学习内容"></section>
+      <div id="exerciseActions" class="exercise-actions" hidden><button type="button" id="checkAnswers" class="primary-button">检查本页答案</button><button type="button" id="resetAnswers" class="plain-button">重新练习</button><p id="exerciseResult" role="status" aria-live="polite"></p></div>
+      <section id="sessionEnd" class="session-end" hidden><h3>本次学习已结束</h3><p>结束标记仅保留在本次会话，不代表已经掌握。之后可用新语境再次回顾，刷新会清空作答与标记。</p><button id="continueChapter" class="primary-button" type="button">继续下一章</button></section>
+      <footer class="chapter-footer"><button id="previousChapter" type="button">← 上一章</button><span id="footerChapter"></span><button id="nextChapter" type="button">下一章 →</button></footer>
+    </article>
+  </main>
+  <footer class="site-footer"><p>让词留在语境里，也给回忆留一点空白。</p><span>原创学习示例 · 词义与拼写分开练习 · 音频按实际生成状态提供</span></footer>
+  <dialog id="wordDialog" aria-labelledby="wordTitle">
+    <button id="closeWord" class="dialog-close" type="button" aria-label="关闭词卡">×</button><p class="eyebrow">这个词，在这段故事里</p><h2 id="wordTitle" lang="en"></h2><p id="wordIpa" class="ipa"></p><p id="wordMeaning" class="word-meaning"></p><blockquote id="wordContext"></blockquote><p id="wordExplanation"></p><button id="wordPlay" class="primary-button" type="button" aria-label="播放单词发音">▶ 单词发音</button><p id="wordAudioStatus" class="small-status" role="status"></p>
+  </dialog>
+  <script><!--BOOK--><!--AUDIO--></script>
+  <script><!--SCRIPT--></script>
+</body>
+</html>

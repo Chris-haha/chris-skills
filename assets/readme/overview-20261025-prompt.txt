@@ -1,0 +1,17 @@
+Use case: infographic-diagram. Edit the supplied previous illustrated overview into a complete current edition for this Chinese README. The reference image is an EDIT TARGET AND STYLE REFERENCE. Preserve its rich hand-drawn editorial illustrations, warm ivory paper texture, navy Chinese typography, thin cobalt frames, watercolor plants, orange and mint accents, charming human figures and realistic product miniatures. The requested result is a true polished illustrated raster infographic, NOT plain text cards, NOT a UI wireframe, NOT a flat SVG diagram. Recompose to fit all content with generous whitespace and large legible Chinese.
+Canvas: high resolution portrait 4:5, three columns, four rows of illustrated panels. First three rows contain nine Skills; bottom row has the tenth Skill in the left third and ONE independent workflow spanning the remaining two thirds. Ten Skill panels in total plus one distinct workflow panel. Important: include project-llm-wiki prominently as Skill 7; do not omit it.
+Heading exact "Chris 的 AI 工具箱". Subtitle exact "10 个 Skill · 1 个独立工作流".
+Ten illustrated Skill panels, in reading order, each marked "SKILL":
+1 "人际冲突与边界" subtitle "梳理事实 · 建立边界 · 组织回复": two people talking across a healthy boundary, speech cards.
+2 "产品保真" subtitle "原图证据 · 结构核对 · 材质质检": a detailed brown leather handbag with reference photos and magnifier showing stitches.
+3 "飞书电商工作流" subtitle "任务读取 · 生图归档 · 状态回写": spreadsheet tasks, generated apparel image cards, ZIP box and notification bell.
+4 "服装规格书中文批注" subtitle "识别翻译 · 保留原稿 · 中文批注": jacket technical sketch with blue Chinese annotations.
+5 "北京中考志愿顾问" subtitle "信息补问 · 政策核验 · 志愿建议": parent and teenager planning branching school paths, official papers.
+6 "文字／录音转动态图解视频" subtitle "配音与录音 · 字幕对齐 · 视频制作": document and microphone converge into narration waveform and a vivid illustrated video editing timeline.
+7 "项目开发 LLM Wiki" subtitle "资料摄入 · 知识查询 · 验证回流": an open luminous knowledge book, linked document pages with source tabs, a friendly robot reading evidence and returning a verified note to the book. Strong clear title.
+8 "视频文字跟踪打码" subtitle "目标定位 · 跟踪遮挡 · 成片复扫": video frames, moving OCR boxes tracking redacted account name, audio waveform preserved. No real private text.
+9 "故事词汇工作室" subtitle "连续故事 · 词义回忆 · 离线学习": student reading an illustrated original storybook, English word cards, a pen filling a blank, speaker icon.
+10 "项目主线导读" subtitle "主流程 · 关键职责 · 阅读入口": curious person following a colored route through a miniature project map and folders, magnifier tracing entrypoint to module.
+Distinct last-row double-width orange-accent panel marked "WORKFLOW", title exact "模板库电商生图工作流". Illustrate a miniature image studio assembly line with reference template gallery, simple unbranded mug product truth photo, magnifier, generated picture and review approval. Flow labels exact "模板入库 → 自动选模 → 产品锁定" and second line "几何预检 → 单张生图 → 逐实例质检".
+Footer exact "能力示意 · 非实际运行截图".
+Avoid: missing or duplicated panels, invented skill names, fabricated numerical results, tiny dense text, blank text-only tiles, brand logos, watermarks, unsupported promises. Clearly ten Skills and one workflow, preserve illustrated storytelling quality of reference.

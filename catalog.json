@@ -1068,6 +1068,117 @@
       ]
     },
     {
+      "slug": "story-vocabulary-studio",
+      "title": "故事词汇工作室",
+      "category": "education",
+      "path": "skills/education/story-vocabulary-studio",
+      "source": "/Volumes/Samsung_T5/code/my-workflow/education/story-vocabulary-research/skills/story-vocabulary-studio",
+      "summary": "按指定英语词表创作连续原创故事，生成六模式离线学习网页、练习答案、可选豆包音频与独立 ZIP。",
+      "status": "collected",
+      "collectedAt": "2026-10-25",
+      "updatedAt": "2026-10-25",
+      "supplemental": [
+        {
+          "source": "仓库根目录 LICENSE 和 COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入独立复制所需的仓库许可说明，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明源包、外部词表、豆包服务和素材的权利边界。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "README.md",
+          "reason": "介绍用途、安装、运行依赖、常用命令和交付状态。"
+        }
+      ],
+      "note": "12 个来源文件原样收录，另补 README 与三份许可说明；未收录原项目词库、样包、运行输出或凭据，未安装或改动本机 Skill。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "README.md",
+          "sha256": "87da59e156cda406de3693980611d26f8e917852ab8e9629f41f729131d1bfdc",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c8f688ff326ab5ad5bcc122337fd3520a6e8c6645b869719fe9cd3933695fc70",
+          "sourceSha256": "c8f688ff326ab5ad5bcc122337fd3520a6e8c6645b869719fe9cd3933695fc70"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "fbc2e5aaae479427217358424e91a7e8edaddaf3db45043fda32b25ec71894fd",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "cafaada853c6ca86dcab68791641c3b5a8c4746ded84f5c644178a5130fa9964",
+          "sourceSha256": "cafaada853c6ca86dcab68791641c3b5a8c4746ded84f5c644178a5130fa9964"
+        },
+        {
+          "path": "assets/reader.css",
+          "sha256": "cc884e56fd6738f7c3d4c3c82f11b1b419a7badc0c57f2dd7c833d4620a7270a",
+          "sourceSha256": "cc884e56fd6738f7c3d4c3c82f11b1b419a7badc0c57f2dd7c833d4620a7270a"
+        },
+        {
+          "path": "assets/reader.html",
+          "sha256": "942c50262550c98505209981b1b7d541f65ddc7b4e63cd500635846f001e2574",
+          "sourceSha256": "942c50262550c98505209981b1b7d541f65ddc7b4e63cd500635846f001e2574"
+        },
+        {
+          "path": "assets/reader.js",
+          "sha256": "55fde694ebcf57385f9b506e5cf612fc18dcf4e92118a6e1b6ad496e81661b1c",
+          "sourceSha256": "55fde694ebcf57385f9b506e5cf612fc18dcf4e92118a6e1b6ad496e81661b1c"
+        },
+        {
+          "path": "references/audio.md",
+          "sha256": "dfdcd8b7e526b22aa8a23b6eca88d06ad20f8e5a678ba856e5ece60b58eeeaf9",
+          "sourceSha256": "dfdcd8b7e526b22aa8a23b6eca88d06ad20f8e5a678ba856e5ece60b58eeeaf9"
+        },
+        {
+          "path": "references/book-template.json",
+          "sha256": "c8576c4a2b99e1f8977a51e443c06f92b8ef6ae38414fbc42e8f517f3c929f1c",
+          "sourceSha256": "c8576c4a2b99e1f8977a51e443c06f92b8ef6ae38414fbc42e8f517f3c929f1c"
+        },
+        {
+          "path": "references/content-contract.md",
+          "sha256": "c4a1c491dd99440a211114bd23eccb85cf8b9efd6d453521547db7f7d3939ab9",
+          "sourceSha256": "c4a1c491dd99440a211114bd23eccb85cf8b9efd6d453521547db7f7d3939ab9"
+        },
+        {
+          "path": "references/exam-wordlist-review.md",
+          "sha256": "d009fee21d845336a4b620684986d6e2a4a3131d6f39d70b72e7f36b5a20dec7",
+          "sourceSha256": "d009fee21d845336a4b620684986d6e2a4a3131d6f39d70b72e7f36b5a20dec7"
+        },
+        {
+          "path": "scripts/audio.py",
+          "sha256": "0ee0364909fa8a0ab57fd33a24161b6273daf01dc1ba32b53f914e2ea90e3b43",
+          "sourceSha256": "0ee0364909fa8a0ab57fd33a24161b6273daf01dc1ba32b53f914e2ea90e3b43"
+        },
+        {
+          "path": "scripts/validation.py",
+          "sha256": "14b7c2d3c16759854eaa447e00ccd1c892a284f6f72358b5bc990640b46dee62",
+          "sourceSha256": "14b7c2d3c16759854eaa447e00ccd1c892a284f6f72358b5bc990640b46dee62"
+        },
+        {
+          "path": "scripts/workflow.py",
+          "sha256": "e4e56664edb84815520d8d7fd9d28bda778dff6363d37c41d6de2af7812feeb4",
+          "sourceSha256": "e4e56664edb84815520d8d7fd9d28bda778dff6363d37c41d6de2af7812feeb4"
+        }
+      ]
+    },
+    {
       "slug": "project-flow-guide",
       "title": "项目主线导读",
       "category": "development",

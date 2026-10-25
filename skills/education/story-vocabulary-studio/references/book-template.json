@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "book": {
+    "book_id": "cet4-letter",
+    "title": "闭馆后的那封信",
+    "subtitle": "三章轻悬疑 · 四级备考示例",
+    "audience": "有基础的大学英语四级学习者",
+    "vocabulary_source": "人工自选四级备考场景示例词；不是官方完整词表",
+    "characters": [
+      {
+        "name": "林夏 / Xia Lin",
+        "role": "大学图书馆志愿者"
+      },
+      {
+        "name": "周宁 / Ning Zhou",
+        "role": "图书修复实习生"
+      },
+      {
+        "name": "陈老师 / Ms Chen",
+        "role": "图书管理员"
+      }
+    ],
+    "new_words_per_chapter": 1,
+    "review_words_per_chapter": 0,
+    "chapter_min_chars": 600,
+    "chapter_max_chars": 1000
+  },
+  "vocabulary": [
+    {
+      "word_id": "notice",
+      "lemma": "notice",
+      "pos": "v.",
+      "ipa": "/ˈnoʊtɪs/",
+      "sense_zh": "注意到",
+      "forms": [
+        "notice",
+        "notices",
+        "noticed",
+        "noticing"
+      ],
+      "explanation": "表示意识到具体细节；可接名词或that从句。",
+      "source": "人工自选示例词",
+      "source_version": "2026-10-20"
+    }
+  ],
+  "chapters": [
+    {
+      "chapter_id": "ch01",
+      "title": "闭馆后的留言",
+      "summary": "发现异常",
+      "new_word_ids": [
+        "notice"
+      ],
+      "review_word_ids": [],
+      "paragraphs": [
+        {
+          "paragraph_id": "ch01-p01",
+          "mixed": "林夏[[notice|注意到]]门边多了一封信。",
+          "english": "Xia noticed a letter beside the door."
+        }
+      ],
+      "questions": [
+        {
+          "question_id": "ch01-q01",
+          "prompt": "林夏首先发现了什么？",
+          "options": [
+            "一封信",
+            "一把钥匙",
+            "一张车票"
+          ],
+          "answer_index": 0,
+          "explanation": "她在门边看到了信。",
+          "evidence_paragraph_id": "ch01-p01"
+        }
+      ]
+    }
+  ]
+}

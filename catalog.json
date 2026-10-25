@@ -1066,6 +1066,74 @@
           "sha256": "c8834a8be5d5fbc794a5122815bd9193d973ed1c5b9e6d0d1499ce06bcd27819"
         }
       ]
+    },
+    {
+      "slug": "project-flow-guide",
+      "title": "项目主线导读",
+      "category": "development",
+      "path": "skills/development/project-flow-guide",
+      "source": "/Users/chris/.codex/skills/project-xray",
+      "sourceName": "project-xray",
+      "summary": "从陌生项目或冗长文档提炼主要流程、关键角色与名称职责，生成一页概览并按追问展开相关分支。",
+      "status": "collected",
+      "collectedAt": "2026-10-25",
+      "updatedAt": "2026-10-25",
+      "modifications": [
+        "按用户要求将技能名改为 project-flow-guide，标题改为 Project Flow Guide。",
+        "同步 Agent 显示标题和默认调用名；保留方法、参考内容与原调用策略。"
+      ],
+      "supplemental": [
+        {
+          "source": "仓库根目录 LICENSE 和 COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入独立复制所需的仓库许可说明，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "记录原始名称、改名范围及源包许可边界。"
+        }
+      ],
+      "note": "完整收录 4 个来源文件；仅 SKILL.md 与 agents/openai.yaml 作名称替换，两份参考文档逐字节不变。另补三份许可说明，未修改或重命名本机原 Skill。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "5bda79345162f19d2ceb287dd40e5369a2717111f9efb99fd1365e05c94a503d",
+          "sourceSha256": "0a331b37e2c25439c67be3dd277a44302f3cfe7336848ac0a31f80ed2039c4c5",
+          "note": "按用户要求仅替换技能名称、显示标题及调用名。"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "3400c15573708a24237c04d9758f1d126c6dc735156e6847b2c939661fb7a0c4",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "959c8a1b5194687fc109b45d689eed79aaf46dd1b232a5490bf7992e51f0516d",
+          "sourceSha256": "aa079acfdae7d00da2927f1c68bd89e005c9c7a24586a3bff80e4094911cd1b6",
+          "note": "按用户要求仅替换技能名称、显示标题及调用名。"
+        },
+        {
+          "path": "references/output-contract.md",
+          "sha256": "efd5670cf555da7130d32b56dd8efb7388c25f9a5ecc6f499fa955df55637b12",
+          "sourceSha256": "efd5670cf555da7130d32b56dd8efb7388c25f9a5ecc6f499fa955df55637b12"
+        },
+        {
+          "path": "references/reading-passes.md",
+          "sha256": "603038b3ec7d25c7178e4052f10020ed21153fca85fbcf618f9f05d7a365f0d2",
+          "sourceSha256": "603038b3ec7d25c7178e4052f10020ed21153fca85fbcf618f9f05d7a365f0d2"
+        }
+      ]
     }
   ],
   "pending": [
@@ -1085,7 +1153,7 @@
     "effectiveDate": "2026-10-11",
     "scope": "仅限本人有权授权的内容；第三方内容除外"
   },
-  "updatedAt": "2026-10-13",
+  "updatedAt": "2026-10-25",
   "workflows": [
     {
       "slug": "ecommerce-template-image-workflow",

@@ -6,13 +6,15 @@
 
 | 内容 | 已知来源 | 许可处理 |
 | --- | --- | --- |
-| 五个分类 Skill 的来源副本 | 根目录 SOURCES.md 与 catalog.json 记录的本机项目；规格书 Skill 来自归档上传包 | 本人有权授权的部分适用 LICENSE；来源记录本身不证明所有文件原创，遇到第三方标记应保留并按其授权处理 |
+| 分类 Skill 的来源副本 | 根目录 SOURCES.md 与 catalog.json 记录的本机项目；规格书 Skill 来自归档上传包 | 本人有权授权的部分适用 LICENSE；来源记录本身不证明所有文件原创，遇到第三方标记应保留并按其授权处理 |
+| 项目主线导读 | skills/development/project-flow-guide/；原名 project-xray，来源见 SOURCES.md 与 catalog.json | 原包未附独立许可；保留完整指导与参考文件，仅调整技能名称和调用元数据，仓库许可仅覆盖本人有权授权的内容，详见包内 THIRD_PARTY_NOTICES.md |
 | 人际冲突 Skill 及历史 HTML 案例 | skills/communication/deal-with-jerks/ | 本人有权授权的部分适用 LICENSE；历史案例不作为事实或咨询质量的证明 |
 | 模板库电商生图工作流及八张模板参考图 | workflows/ecommerce/ecommerce-template-image-workflow/；来源见 SOURCES.md 与 catalog.json | 源目录未附许可或逐图权利证明；本人有权授权的部分适用 LICENSE，模板参考图使用前需核实授权，详见工程 THIRD_PARTY_NOTICES.md |
 | 商品图、模特参考图与生成场景图 | assets/examples/sources.json 所列原始项目和博客资产 | 可能涉及摄影、肖像、商标、商品设计及生成服务条款；不授予独立转载、商业使用或品牌背书权限 |
 | 外文服装规格书 PDF、原稿与批注成品 | 用户提供材料及 coding-blog 归档 | 原稿及所含第三方信息的权利仍归相应权利人；上传或展示不等于可转授权 |
 | 原录音、口播稿、字幕、视频、表格截图 | assets/examples/sources.json 所列来源 | 本人有权授权的部分受 LICENSE 约束；其他素材及输出仍须核对各自权利 |
 | AI 生成的 README 配图 | assets/readme/IMAGE-SOURCE.md 及对应记录 | 按生成服务条款及适用法律处理；不保证全部元素具有可主张的著作权 |
+| README 分类目录 SVG 总览 | assets/readme/toolbox-overview.svg，根据 README 与 catalog.json 编排 | 本仓库制作，仅包含文字与基础图形，使用系统字体回退，不随图分发字体文件 |
 
 ## 外部依赖和服务
 

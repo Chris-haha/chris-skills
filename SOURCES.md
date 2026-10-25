@@ -9,6 +9,7 @@
 | garment-spec-cn-annotation | `/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/skills/garment-spec-cn-annotation` | `skills/ecommerce/garment-spec-cn-annotation` |
 | beijing-zhongkao-admissions-advisor | `/Volumes/Samsung_T5/code/my-volunteer/skills/beijing-zhongkao-admissions-advisor` | `skills/education/beijing-zhongkao-admissions-advisor` |
 | text-or-voice-to-video | `/Users/chris/.codex/skills/text-or-voice-to-video` | `skills/video/text-or-voice-to-video` |
+| project-flow-guide（原名 project-xray） | `/Users/chris/.codex/skills/project-xray` | `skills/development/project-flow-guide` |
 
 | 工作流 | 原始目录 | 归集目录 |
 | --- | --- | --- |
@@ -77,3 +78,11 @@
 ## 2026-10-22 视频文字跟踪打码
 
 从 `/Users/chris/.codex/skills/video-text-redactor` 收录到 `skills/video/video-text-redactor`，保留脚本、测试与规则说明，排除运行环境和缓存；原本机目录不修改。追加仓库许可文件，第三方权利按其原授权处理。
+
+## 2026-10-25 项目主线导读（改名收录）
+
+- 从用户指定的 `/Users/chris/.codex/skills/project-xray` 完整复制 4 个源文件，归入 `skills/development/project-flow-guide/`，中文名称为“项目主线导读”。本次用户明确要求改名，作为维护约定中通常保留原名规则的例外；原本机目录与安装名称不修改。
+- SKILL.md 的 frontmatter 名称与标题、agents/openai.yaml 的显示标题及默认 `$project-flow-guide` 调用名同步替换；其余方法内容不变，两份参考文档逐字节保留。catalog.json 分别保存原始 sourceSha256、当前 sha256 与改名说明。
+- 源包未附独立许可文件，按仓库约定补入 LICENSE、COMMERCIAL-LICENSE.md 与专属 THIRD_PARTY_NOTICES.md；共收录 7 个文件，许可仅覆盖本人有权授权的部分。
+- 同步 README 的用途表、选择指引、详细介绍、示例与流程图，更新 catalog 和第三方来源说明；SVG 能力总览更新为 9 个 Skill、1 个独立工作流。
+- 此前检查发现的“公司”“集成”等通用表述按用户要求保留；不修改既有 Skill 内容，不自动安装；提交与推送按用户后续明确授权执行。

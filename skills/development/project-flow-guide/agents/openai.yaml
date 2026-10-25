@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Flow Guide"
+  short_description: "快速抓住陌生项目主线"
+  default_prompt: "Use $project-flow-guide to map this unfamiliar project into a one-page overview before drilling into details."
+
+policy:
+  allow_implicit_invocation: true

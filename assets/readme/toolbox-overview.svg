@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="910" viewBox="0 0 1240 910" role="img" aria-labelledby="title description">
+<title id="title">Chris 的 AI 工具箱：9 个 Skill 与 1 个独立工作流</title>
+<desc id="description">按沟通、电商、教育咨询、视频创作和项目开发分类展示九个 Skill，底部单列模板库电商生图工作流。2026-10-25 更新；能力示意，非实际运行截图。</desc>
+<style>
+text { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+.heading { font-size: 38px; font-weight: 700; fill: #172d43; }
+.subtitle { font-size: 19px; fill: #586675; }
+.card-title { font-size: 22px; font-weight: 600; fill: #172d43; }
+.body { font-size: 18px; fill: #526271; }
+.category { font-size: 14px; font-weight: 600; }
+.number { font-size: 12px; fill: #697788; letter-spacing: 1px; }
+</style>
+<rect width="1240" height="910" fill="#faf8f3"/>
+<text x="40" y="63" class="heading">Chris 的 AI 工具箱</text>
+<text x="40" y="103" class="subtitle">9 个 Skill · 1 个独立工作流</text>
+<text x="1200" y="101" text-anchor="end" class="subtitle">把具体问题，变成可执行的工作流</text>
+<g transform="translate(40 139)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="92" height="28" rx="7" fill="#f2e6d7"/>
+<text x="33" y="39" class="category" fill="#9b5b24">沟通与边界</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 01</text>
+<text x="22" y="82" class="card-title">人际冲突与边界应对</text>
+<text x="22" y="116" class="body">梳理事实 · 建立边界</text>
+<text x="22" y="143" class="body">组织回复与后续动作</text>
+</g>
+<g transform="translate(434 139)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="120" height="28" rx="7" fill="#e0edf5"/>
+<text x="33" y="39" class="category" fill="#275a7b">电商与商品资料</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 02</text>
+<text x="22" y="82" class="card-title">产品保真</text>
+<text x="22" y="116" class="body">原图证据 · 结构核对</text>
+<text x="22" y="143" class="body">材质与细节逐张质检</text>
+</g>
+<g transform="translate(828 139)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="120" height="28" rx="7" fill="#e0edf5"/>
+<text x="33" y="39" class="category" fill="#275a7b">电商与商品资料</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 03</text>
+<text x="22" y="82" class="card-title">飞书电商生图工作流</text>
+<text x="22" y="116" class="body">任务读取 · 生图归档</text>
+<text x="22" y="143" class="body">状态回写与负责人通知</text>
+</g>
+<g transform="translate(40 329)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="120" height="28" rx="7" fill="#e0edf5"/>
+<text x="33" y="39" class="category" fill="#275a7b">电商与商品资料</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 04</text>
+<text x="22" y="82" class="card-title">服装规格书中文批注</text>
+<text x="22" y="116" class="body">识别翻译 · 保留原稿</text>
+<text x="22" y="143" class="body">中文批注与覆盖检查</text>
+</g>
+<g transform="translate(434 329)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="120" height="28" rx="7" fill="#e1eee3"/>
+<text x="33" y="39" class="category" fill="#356f48">教育咨询</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 05</text>
+<text x="22" y="82" class="card-title">北京中考志愿填报顾问</text>
+<text x="22" y="116" class="body">信息补问 · 政策核验</text>
+<text x="22" y="143" class="body">升学路径与志愿建议</text>
+</g>
+<g transform="translate(828 329)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="78" height="28" rx="7" fill="#ebe8f4"/>
+<text x="33" y="39" class="category" fill="#675386">视频创作</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 06</text>
+<text x="22" y="82" class="card-title">文字／录音转动态图解视频</text>
+<text x="22" y="116" class="body">文字配音或已有录音</text>
+<text x="22" y="143" class="body">字幕、画面与可编辑工程</text>
+</g>
+<g transform="translate(40 519)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="78" height="28" rx="7" fill="#e9eaf0"/>
+<text x="33" y="39" class="category" fill="#4d5e80">项目开发</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 07</text>
+<text x="22" y="82" class="card-title">项目开发 LLM Wiki</text>
+<text x="22" y="116" class="body">资料摄入 · 知识查询</text>
+<text x="22" y="143" class="body">执行验证与知识回流</text>
+</g>
+<g transform="translate(434 519)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="78" height="28" rx="7" fill="#ebe8f4"/>
+<text x="33" y="39" class="category" fill="#675386">视频创作</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 08</text>
+<text x="22" y="82" class="card-title">视频文字跟踪打码</text>
+<text x="22" y="116" class="body">定位目标 · 跟踪遮挡</text>
+<text x="22" y="143" class="body">保留原声并复扫成片</text>
+</g>
+<g transform="translate(828 519)">
+<rect width="370" height="170" rx="16" fill="#ffffff" stroke="#d9dfdf"/>
+<rect x="22" y="20" width="78" height="28" rx="7" fill="#e9eaf0"/>
+<text x="33" y="39" class="category" fill="#4d5e80">项目开发</text>
+<text x="348" y="39" text-anchor="end" class="number">SKILL 09</text>
+<text x="22" y="82" class="card-title">项目主线导读</text>
+<text x="22" y="116" class="body">主流程 · 关键角色与职责</text>
+<text x="22" y="143" class="body">一页概览与分支阅读入口</text>
+</g>
+<g transform="translate(40 733)">
+<rect width="1158" height="113" rx="16" fill="#fff4e6" stroke="#dcb47d"/>
+<text x="24" y="34" font-size="13" font-weight="700" letter-spacing="2" fill="#9b5b24">WORKFLOW</text>
+<text x="24" y="67" class="card-title">模板库电商生图工作流</text>
+<text x="400" y="48" class="body">模板入库 → 自动选模 → 产品锁定 → 几何预检</text>
+<text x="400" y="80" class="body">明确渠道单张生图 → 逐实例质检 → 确认后继续</text>
+</g>
+<text x="40" y="884" font-size="14" fill="#697788">能力示意 · 非实际运行截图</text>
+<text x="1198" y="884" text-anchor="end" font-size="14" fill="#697788">更新于 2026-10-25</text>
+</svg>

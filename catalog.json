@@ -1245,6 +1245,420 @@
           "sourceSha256": "603038b3ec7d25c7178e4052f10020ed21153fca85fbcf618f9f05d7a365f0d2"
         }
       ]
+    },
+    {
+      "slug": "ecommerce-video-breakdown",
+      "title": "电商视频爆款拆解",
+      "category": "ecommerce",
+      "path": "skills/ecommerce/ecommerce-video-breakdown",
+      "source": "/Volumes/Samsung_T5/code/my-workflow/ecommerce/video-breakdown/skills/ecommerce-video-breakdown",
+      "summary": "拆解商品种草、测评和带货视频，归纳博主拍法、创作同类商品脚本，并持续更新七表 Excel；仅处理匿名公开或本地素材。",
+      "status": "collected",
+      "collectedAt": "2026-10-26",
+      "updatedAt": "2026-10-27",
+      "supplemental": [
+        {
+          "source": "仓库根目录 LICENSE 和 COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入独立复制所需的仓库许可说明，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明当前实现、外部工具、模型、平台协议及视频素材的权利边界。"
+        }
+      ],
+      "note": "初次归集后在本仓库重新实现媒体取材模块与字幕格式读取；保持输入输出、匿名边界和后续工作区契约。当前文件与来源版本分别记录，不修改来源项目或本机已安装Skill，不归集运行环境和用户媒体。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "94593db53dc4e895d6f29c0a40e13b783e1a9e811753a359b6937a9814d2cb45",
+          "sourceSha256": "4e588829f2e4fcf8215afb36c3f22e72009fbe1301282e2c35f5a5e4cf3127ff",
+          "note": "本仓库更新；sourceSha256保留初次收录来源版本，sha256为当前交付文件。"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "41d2fea1fcca1a961fe1c5cee69e8e78c695e3ea40361bc3907a2f341b1b855f",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "b6023c6515041f82d393169af23101bc423d110d9fb594cda1f8c8f09cc9a652",
+          "sourceSha256": "b6023c6515041f82d393169af23101bc423d110d9fb594cda1f8c8f09cc9a652"
+        },
+        {
+          "path": "assets/requirements-transcription.txt",
+          "sha256": "2e43f0fc38a841fbc91514a5d446cc4fb1789509b6f25ffbc487b918a4ddd40f",
+          "sourceSha256": "608de26771062491ba3692dbead469c1b9916ce45d5ae3871627fba8654693cc",
+          "note": "本仓库更新；sourceSha256保留初次收录来源版本，sha256为当前交付文件。"
+        },
+        {
+          "path": "assets/requirements.txt",
+          "sha256": "d2d651048c0ca4002f9db4adf6c6dc8261a1c8557b3cf0fbe3ae30a1280e0b5b",
+          "sourceSha256": "d2d651048c0ca4002f9db4adf6c6dc8261a1c8557b3cf0fbe3ae30a1280e0b5b"
+        },
+        {
+          "path": "assets/runtime.example.json",
+          "sha256": "33cf3313ac3852ac16b97ddf5a8f364b96b48e7c5c06c27e6973c861b65648eb",
+          "sourceSha256": "33cf3313ac3852ac16b97ddf5a8f364b96b48e7c5c06c27e6973c861b65648eb"
+        },
+        {
+          "path": "references/analysis-method.md",
+          "sha256": "26178cea071021ab59d6a1c80ae1e8c831fb9f8e275f124831f6ffffaa33077a",
+          "sourceSha256": "26178cea071021ab59d6a1c80ae1e8c831fb9f8e275f124831f6ffffaa33077a"
+        },
+        {
+          "path": "references/creation-transfer.md",
+          "sha256": "5bfdebb4f9c988d3b908410e5e6d0bc0847c85c1bcaacfdb2fc8de2f6c445e94",
+          "sourceSha256": "5bfdebb4f9c988d3b908410e5e6d0bc0847c85c1bcaacfdb2fc8de2f6c445e94"
+        },
+        {
+          "path": "references/editorial-check.md",
+          "sha256": "8e8fe34b2ae34efc4b35f6f0a38f84775c79e29a8d7029aa6640df6aac6c49cf",
+          "sourceSha256": "8e8fe34b2ae34efc4b35f6f0a38f84775c79e29a8d7029aa6640df6aac6c49cf"
+        },
+        {
+          "path": "references/excel-delivery.md",
+          "sha256": "136dad0353a26ecf81e18fbb08b7315c87d2ad24b4aaeb4955144f08e6ed954d",
+          "sourceSha256": "136dad0353a26ecf81e18fbb08b7315c87d2ad24b4aaeb4955144f08e6ed954d"
+        },
+        {
+          "path": "references/media-acquisition.md",
+          "sha256": "1c23cfa4c3f9e47267465390c4329d8a81e2b23634d016941872475ec99ff032",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "references/quality-routing.md",
+          "sha256": "48635ce4c7dbdf72d06aabde3c814078a54ef02ab1c31f9c103c8179d538a2e0",
+          "sourceSha256": "48635ce4c7dbdf72d06aabde3c814078a54ef02ab1c31f9c103c8179d538a2e0"
+        },
+        {
+          "path": "references/report-contract.md",
+          "sha256": "9f5eabaf0636c48e8ce3f7f7fea27733da4e443da89999905bbbd38f94495e0c",
+          "sourceSha256": "9f5eabaf0636c48e8ce3f7f7fea27733da4e443da89999905bbbd38f94495e0c"
+        },
+        {
+          "path": "references/research.md",
+          "sha256": "e27bf8e9ddc537615d5160b315ec63e7dd19275bc9fbfa4547726342256a07c9",
+          "sourceSha256": "09fb9f061dc0445dfdc7b0a326c54cef438f3f705454c1edbdb0da96b17e1489",
+          "note": "本仓库更新；sourceSha256保留初次收录来源版本，sha256为当前交付文件。"
+        },
+        {
+          "path": "references/runtime.md",
+          "sha256": "4ba6da569e1dcac9ff8d73a25c0fc38ad67d1527e1fdf6e8e46012755e603568",
+          "sourceSha256": "c65ce9d271cddfc5ec9935c18d895f02476e1e82ab0523082b93b345de4024ec",
+          "note": "本仓库更新；sourceSha256保留初次收录来源版本，sha256为当前交付文件。"
+        },
+        {
+          "path": "scripts/analysis.py",
+          "sha256": "d7f8ec47d6588f77fd0b61f42d4689c94b82a21bc42d76ad41a1e7f8408ebb1d",
+          "sourceSha256": "d7f8ec47d6588f77fd0b61f42d4689c94b82a21bc42d76ad41a1e7f8408ebb1d"
+        },
+        {
+          "path": "scripts/archive.py",
+          "sha256": "0ce30a5dd8ebdd0c01b475c3f56a28b332eac697f4c2f3dbde76c656a514cfce",
+          "sourceSha256": "0ce30a5dd8ebdd0c01b475c3f56a28b332eac697f4c2f3dbde76c656a514cfce"
+        },
+        {
+          "path": "scripts/creation.py",
+          "sha256": "7d82853c97651811aa6216bd21af6ae22c81820e9ce3b414ae63d837cac04a30",
+          "sourceSha256": "7d82853c97651811aa6216bd21af6ae22c81820e9ce3b414ae63d837cac04a30"
+        },
+        {
+          "path": "scripts/creation_reports.py",
+          "sha256": "df16db5601df4fcebb062c8e90f89a08a63fd384fae1259de8307b9e430ce4d5",
+          "sourceSha256": "df16db5601df4fcebb062c8e90f89a08a63fd384fae1259de8307b9e430ce4d5"
+        },
+        {
+          "path": "scripts/editorial.py",
+          "sha256": "eb4849e2e1ce79651f70b8f08dceb5513b638a78798556b002a8812e3f851bfb",
+          "sourceSha256": "eb4849e2e1ce79651f70b8f08dceb5513b638a78798556b002a8812e3f851bfb"
+        },
+        {
+          "path": "scripts/excel_export.py",
+          "sha256": "6b3ccb51e4e9351e913d843c71fbc60498665b3789d74e45c99e56f325233a9d",
+          "sourceSha256": "6b3ccb51e4e9351e913d843c71fbc60498665b3789d74e45c99e56f325233a9d"
+        },
+        {
+          "path": "scripts/excel_native.py",
+          "sha256": "89809b7c3ea627e3d678666b1fd3a9698e5ec8486d5dcee1d28fad07c62284a3",
+          "sourceSha256": "89809b7c3ea627e3d678666b1fd3a9698e5ec8486d5dcee1d28fad07c62284a3"
+        },
+        {
+          "path": "scripts/excel_writer.mjs",
+          "sha256": "c1a256ab90fcd75b6e7b989b39701f5b18db5004229cb3b20f98cd775a60d115",
+          "sourceSha256": "c1a256ab90fcd75b6e7b989b39701f5b18db5004229cb3b20f98cd775a60d115"
+        },
+        {
+          "path": "scripts/portable.py",
+          "sha256": "b7b7f23724a905c8104b31b2df9bd002d00ebca79a13fb4e4f8791ccca70b325",
+          "sourceSha256": "b7b7f23724a905c8104b31b2df9bd002d00ebca79a13fb4e4f8791ccca70b325"
+        },
+        {
+          "path": "scripts/public_media.py",
+          "sha256": "93d13ba765de6625a8b4443c59699fc5980b765054cd54a04038656a8283615e",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "scripts/quality.py",
+          "sha256": "2329ba735fa07d6e4bc3498f5aa7571f8b2743acb58cfc56d9fcdf9626c59eb4",
+          "sourceSha256": "2329ba735fa07d6e4bc3498f5aa7571f8b2743acb58cfc56d9fcdf9626c59eb4"
+        },
+        {
+          "path": "scripts/reports.py",
+          "sha256": "c605f5f6b8f6e7e614c91a3b61ad1ecad579ef3114a82a3708e9272c2454cec0",
+          "sourceSha256": "c605f5f6b8f6e7e614c91a3b61ad1ecad579ef3114a82a3708e9272c2454cec0"
+        },
+        {
+          "path": "scripts/subtitle_formats.py",
+          "sha256": "fcb05cf5b59488ecca3f1af740c0d8cc14dd654c938b33572b456325a0a8ed35",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "scripts/upstream.py",
+          "sha256": "e74729a07e812a6113fcc35e96b6cc2752208c0872ef633ffb85544a2f0237f2",
+          "sourceSha256": "8d781a3379df204cdeffc7321be51450f43e6ce3fd117ac8e7d163aafcbb2ad5",
+          "note": "本仓库更新；sourceSha256保留初次收录来源版本，sha256为当前交付文件。"
+        },
+        {
+          "path": "scripts/video_breakdown.py",
+          "sha256": "9be5bf908ceaecc5dc135d8b4a852e5980ac75865816a5acd439b7d5ffca352e",
+          "sourceSha256": "51459726e9fe8e71e030ff92cf1da70856d83db2ec206d534ec2a2cfe0648bd2",
+          "note": "本仓库更新；sourceSha256保留初次收录来源版本，sha256为当前交付文件。"
+        },
+        {
+          "path": "tests/public-contract-fixtures/bili-subtitle.json",
+          "sha256": "3c55aeb071c588a0492164d08a1a70733bccdb3eefa4b884c199acf45ce52883",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/public-contract-fixtures/bili-view.json",
+          "sha256": "7823c59b5d3a6c6d8a93bf32cd22327632c102883bdec405a8273329f03301c9",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/public-contract-fixtures/douyin.html",
+          "sha256": "0eb8ff14c529d60b9ec005423f96887263a9186d0c14cba275f9b83b750f9d33",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/public-contract-fixtures/xhs-login.html",
+          "sha256": "576c30c28daf049088c3fbc0d91fd8873bfd14ff9541a6e76726ef703d4144fd",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/public-contract-fixtures/xhs-match.html",
+          "sha256": "e7abb658a8973416dd4026a8c93e9666657358ed409deffc65c24cbc5517108c",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/public-contract-fixtures/xhs-wrong.html",
+          "sha256": "29e2c520134985c9b41cd28409f63f252a9bae6f9fa8de5376e260c564546c3c",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/test_media_reader.py",
+          "sha256": "f50a4a43919bf0427a0ccc3a79cf23b8733ae1cbef16b206afe4fdf1a6d68485",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/test_public_media_contract.py",
+          "sha256": "5b78a7045f24a3cd7319af33d72dc14768551c087512ace441c346baf9aac2df",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        },
+        {
+          "path": "tests/test_tool_cleanup.py",
+          "sha256": "682d49567925ce8650bb98273ed0129adaf7e502bd8ae23b958f311662668d04",
+          "note": "本仓库新增：媒体取材实现、随包字幕读取或离线行为测试及公开格式fixture。"
+        }
+      ]
+    },
+    {
+      "slug": "media-urls-batch-archive",
+      "title": "视频链接批量归档",
+      "category": "video",
+      "path": "skills/video/media-urls-batch-archive",
+      "source": "/Users/chris/.codex/skills/media-urls-batch-archive",
+      "summary": "直接接收视频链接或读取任意位置的链接文件，提取字幕或本地转录并按博主与视频归档；支持去重、失败记录和续跑。",
+      "status": "collected",
+      "collectedAt": "2026-10-27",
+      "updatedAt": "2026-10-27",
+      "supplemental": [
+        {
+          "source": "仓库根目录 LICENSE 和 COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入独立复制所需的仓库许可说明，仅覆盖本人有权授权的内容。"
+        }
+      ],
+      "note": "完整收录12个来源文件并补入两份许可说明；保留自主流程与工具依赖声明，不归集运行环境、模型、凭据或真实归档，不修改已安装来源。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "82c6f3a7e18b9239da3a4313c937ff26952013ed78dad2db83a9e22c594b28d8",
+          "sourceSha256": "82c6f3a7e18b9239da3a4313c937ff26952013ed78dad2db83a9e22c594b28d8"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "22c56cbef7c1fa47d8003c03a16c16b5bdda2eed582b3c49d842c94313975b64",
+          "sourceSha256": "22c56cbef7c1fa47d8003c03a16c16b5bdda2eed582b3c49d842c94313975b64"
+        },
+        {
+          "path": "config.example.json",
+          "sha256": "66211e8c011ba15cd2e7c9aa3b3aaee3d4f76e964ddb1173ffd7e3474458beea",
+          "sourceSha256": "66211e8c011ba15cd2e7c9aa3b3aaee3d4f76e964ddb1173ffd7e3474458beea"
+        },
+        {
+          "path": "references/migration.md",
+          "sha256": "783efb52292197ee23f843c7b7106cd55692d55eafc86bf0443766ca0cafa958",
+          "sourceSha256": "783efb52292197ee23f843c7b7106cd55692d55eafc86bf0443766ca0cafa958"
+        },
+        {
+          "path": "requirements-transcription.txt",
+          "sha256": "2f79f18504e8ac13d8aeddbbfd34134669a769ae36e87d1dd2d5ed9c8893a0a8",
+          "sourceSha256": "2f79f18504e8ac13d8aeddbbfd34134669a769ae36e87d1dd2d5ed9c8893a0a8"
+        },
+        {
+          "path": "requirements.txt",
+          "sha256": "9035efcdbba81f6a4c21b45462258771d2bb06b88520051e47940485d8ac4059",
+          "sourceSha256": "9035efcdbba81f6a4c21b45462258771d2bb06b88520051e47940485d8ac4059"
+        },
+        {
+          "path": "scripts/batch_archive_media_urls.py",
+          "sha256": "f46c45b635811d758cd8983a082d5efdf15811bd182ae4f6242ca7e3adc1b39b",
+          "sourceSha256": "f46c45b635811d758cd8983a082d5efdf15811bd182ae4f6242ca7e3adc1b39b"
+        },
+        {
+          "path": "scripts/extract_video.py",
+          "sha256": "9d21819672d971bc740fa898fc35e8e65812f3bd1e900f2bb2fe9c13ea7f90ca",
+          "sourceSha256": "9d21819672d971bc740fa898fc35e8e65812f3bd1e900f2bb2fe9c13ea7f90ca"
+        },
+        {
+          "path": "scripts/media_pipeline.py",
+          "sha256": "7e4a52c69b73e023b7e5d73dd2dbae99e24981382cd04730e429fb4d8ee08a3d",
+          "sourceSha256": "7e4a52c69b73e023b7e5d73dd2dbae99e24981382cd04730e429fb4d8ee08a3d"
+        },
+        {
+          "path": "scripts/run.py",
+          "sha256": "76c4b75b20ae802cdcc9ecba63d2d9ec4fff1d1b4d40302a25e79eee9004bf04",
+          "sourceSha256": "76c4b75b20ae802cdcc9ecba63d2d9ec4fff1d1b4d40302a25e79eee9004bf04"
+        },
+        {
+          "path": "scripts/runtime.py",
+          "sha256": "c76771c4aebf0008207b5136f58684892a726e47afb86a492974042e4d93454a",
+          "sourceSha256": "c76771c4aebf0008207b5136f58684892a726e47afb86a492974042e4d93454a"
+        },
+        {
+          "path": "tests/test_standalone.py",
+          "sha256": "b707e38c194b34fa5bed03ead88be28dfc45e22463a6fc0c4dda36f6eecb1e4a",
+          "sourceSha256": "b707e38c194b34fa5bed03ead88be28dfc45e22463a6fc0c4dda36f6eecb1e4a"
+        }
+      ]
+    },
+    {
+      "slug": "ecommerce-reference-product-swap",
+      "title": "按参考换商品套图",
+      "category": "ecommerce",
+      "path": "skills/ecommerce/ecommerce-reference-product-swap",
+      "source": "/Users/chris/.codex/skills/ecommerce-reference-product-swap",
+      "summary": "按用户提供的参考顺序逐张替换当前商品，保留原人物、场景和版式，核对真实颜色，导出主图、SKU与详情 PNG 套图。",
+      "status": "collected",
+      "collectedAt": "2026-10-27",
+      "updatedAt": "2026-10-27",
+      "supplemental": [
+        {
+          "source": "仓库根目录 LICENSE 和 COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入独立复制所需的仓库许可说明，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明宿主生图能力、导出依赖及用户参考、人物和品牌素材的权利边界。"
+        }
+      ],
+      "note": "完整收录九个来源文件并补入三份许可与权利说明；不附带商品、人物、参考图或模板库，不修改已安装来源。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "82f47ca05c8c43eaf2f75ba13eeef44434cb39e9f795d7ae00a3f3ee876b3c1e",
+          "sourceSha256": "82f47ca05c8c43eaf2f75ba13eeef44434cb39e9f795d7ae00a3f3ee876b3c1e"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "fe2f5df84d78636cc2241d11e44b57302e438bc2b403e47d4dd8d750b44b709c",
+          "note": "仓库补充；原 Skill 包未含此文件。"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "baad5eb33c5524969e7e0757ec9af9e72d3e6b0d4886e19520ff7a05e1206231",
+          "sourceSha256": "baad5eb33c5524969e7e0757ec9af9e72d3e6b0d4886e19520ff7a05e1206231"
+        },
+        {
+          "path": "references/brand-identity.md",
+          "sha256": "2cd4dd354740bec7da7aa5de2f486a172c10481c39f1b088cd880995cacf0bc9",
+          "sourceSha256": "2cd4dd354740bec7da7aa5de2f486a172c10481c39f1b088cd880995cacf0bc9"
+        },
+        {
+          "path": "references/edit-and-review.md",
+          "sha256": "6524566859651cf5f3466823f03e5d59cad14b54b4eb5e01474844077a20af2b",
+          "sourceSha256": "6524566859651cf5f3466823f03e5d59cad14b54b4eb5e01474844077a20af2b"
+        },
+        {
+          "path": "references/export-contract.md",
+          "sha256": "883a4a2c50f0cc1863f844ba507d30c3ea382f630a19dc9ce0f9694e9a7fe775",
+          "sourceSha256": "883a4a2c50f0cc1863f844ba507d30c3ea382f630a19dc9ce0f9694e9a7fe775"
+        },
+        {
+          "path": "references/input-and-references.md",
+          "sha256": "69328ed3c44621b28f5162bbb27872643360efda3f3c9ff02c93444b9350e292",
+          "sourceSha256": "69328ed3c44621b28f5162bbb27872643360efda3f3c9ff02c93444b9350e292"
+        },
+        {
+          "path": "references/main-images.md",
+          "sha256": "3ed73aa703fd9c0b09f5bfae9996e3c56b06fdc538dff3aac3abd0767eaf6efe",
+          "sourceSha256": "3ed73aa703fd9c0b09f5bfae9996e3c56b06fdc538dff3aac3abd0767eaf6efe"
+        },
+        {
+          "path": "references/sku-images.md",
+          "sha256": "349ca4d85ec64674c5499322ed98fd8020212293bcc5c65eec35a136a5e86a4a",
+          "sourceSha256": "349ca4d85ec64674c5499322ed98fd8020212293bcc5c65eec35a136a5e86a4a"
+        },
+        {
+          "path": "scripts/export_set.py",
+          "sha256": "eb358dbe3197d444c7241c8ba227bbc4a636ac50a39703ba177ce8d5100bb989",
+          "sourceSha256": "eb358dbe3197d444c7241c8ba227bbc4a636ac50a39703ba177ce8d5100bb989"
+        }
+      ]
     }
   ],
   "pending": [
@@ -1264,7 +1678,7 @@
     "effectiveDate": "2026-10-11",
     "scope": "仅限本人有权授权的内容；第三方内容除外"
   },
-  "updatedAt": "2026-10-25",
+  "updatedAt": "2026-10-27",
   "workflows": [
     {
       "slug": "ecommerce-template-image-workflow",

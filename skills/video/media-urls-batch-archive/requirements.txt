@@ -1,0 +1,4 @@
+# Python 3.11+. FFmpeg binaries are fetched only by the setup command if needed.
+yt-dlp[default]>=2025.1.26
+youtube-transcript-api>=1.0,<2
+static-ffmpeg>=3.0,<4

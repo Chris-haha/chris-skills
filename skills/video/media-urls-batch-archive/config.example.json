@@ -1,0 +1,11 @@
+{
+  "whisper_mode": "local",
+  "whisper_model": "base",
+  "language": "zh",
+  "extract_frames": false,
+  "frames_per_video": 6,
+  "cache_ttl_days": 7,
+  "ffmpeg": "",
+  "ffprobe": "",
+  "cookies_file": ""
+}

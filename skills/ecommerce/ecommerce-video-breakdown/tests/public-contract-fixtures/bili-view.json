@@ -1,0 +1,1 @@
+{"code": 0, "data": {"bvid": "BVabc123", "aid": 1, "cid": 2, "title": "合成测评", "desc": "完整正文", "duration": 12, "owner": {"mid": 88, "name": "合成作者"}, "pages": [{"page": 1, "cid": 2, "duration": 12}], "subtitle": {"list": [{"subtitle_url": "https://cdn.example/subtitle.json", "lan": "zh-CN", "lan_doc": "中文"}]}}}

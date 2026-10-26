@@ -1,0 +1,2 @@
+yt-dlp>=2025.1.26
+static-ffmpeg>=3.0,<4

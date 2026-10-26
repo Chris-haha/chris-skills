@@ -9,6 +9,9 @@
 | 分类 Skill 的来源副本 | 根目录 SOURCES.md 与 catalog.json 记录的本机项目；规格书 Skill 来自归档上传包 | 本人有权授权的部分适用 LICENSE；来源记录本身不证明所有文件原创，遇到第三方标记应保留并按其授权处理 |
 | 故事词汇工作室 | skills/education/story-vocabulary-studio/；来源见 SOURCES.md 与 catalog.json | 原包未附独立许可，仓库许可仅覆盖本人有权授权的内容；外部词表、考试材料和豆包音频服务规则独立适用，详见包内 THIRD_PARTY_NOTICES.md |
 | 项目主线导读 | skills/development/project-flow-guide/；原名 project-xray，来源见 SOURCES.md 与 catalog.json | 原包未附独立许可；保留完整指导与参考文件，仅调整技能名称和调用元数据，仓库许可仅覆盖本人有权授权的内容，详见包内 THIRD_PARTY_NOTICES.md |
+| 电商视频爆款拆解 | skills/ecommerce/ecommerce-video-breakdown/；来源见 SOURCES.md 与 catalog.json | 媒体取材模块已在本仓库重新实现；保留来源版本与修改记录，仓库许可仅覆盖本人有权授权的内容，平台协议、视频素材与外部工具依赖按各自权利使用，详见包内 THIRD_PARTY_NOTICES.md |
+| 视频链接批量归档 | skills/video/media-urls-batch-archive/；来源为本机已安装 Skill | 保留来源版本的开发与工具依赖说明；仓库许可仅覆盖本人有权授权的流程代码与文档，yt-dlp、FFmpeg、字幕与语音识别工具、模型适用各自许可 |
+| 按参考换商品套图 | skills/ecommerce/ecommerce-reference-product-swap/；来源为本机已安装 Skill | 原包未附独立许可文件；本人有权授权的部分适用 LICENSE，宿主生图服务与 Pillow 等工具独立适用各自条款，用户参考、商品、人物与品牌素材不随包授权 |
 | 人际冲突 Skill 及历史 HTML 案例 | skills/communication/deal-with-jerks/ | 本人有权授权的部分适用 LICENSE；历史案例不作为事实或咨询质量的证明 |
 | 模板库电商生图工作流及八张模板参考图 | workflows/ecommerce/ecommerce-template-image-workflow/；来源见 SOURCES.md 与 catalog.json | 源目录未附许可或逐图权利证明；本人有权授权的部分适用 LICENSE，模板参考图使用前需核实授权，详见工程 THIRD_PARTY_NOTICES.md |
 | 商品图、模特参考图与生成场景图 | assets/examples/sources.json 所列原始项目和博客资产 | 可能涉及摄影、肖像、商标、商品设计及生成服务条款；不授予独立转载、商业使用或品牌背书权限 |
@@ -26,6 +29,9 @@
 - Python 与媒体处理：numpy、opencc-python-reimplemented、Pillow（相关渲染脚本使用）、FFmpeg/FFprobe、Whisper CLI 及所使用的识别模型；以实际安装组件为准。
 - 模板库电商生图工作流：Pillow、PyYAML、pytest；依赖要求见工程 requirements.txt，各组件适用各自许可。
 - 故事词汇工作室：运行脚本仅使用 Python 标准库，阅读器使用原生 HTML/CSS/JavaScript；可选豆包 TTS 的账户、音色权限、计费及音频使用条款独立适用。
+- 电商视频爆款拆解：FFmpeg/FFprobe、yt-dlp、static-ffmpeg、可选本地 Whisper/faster-whisper，以及按需使用的 Node/宿主表格工具；不分发已安装依赖、模型、账号资料或原视频，具体依赖见包内 assets/requirements*.txt。
+- 视频链接批量归档：Python、yt-dlp、youtube-transcript-api、static-ffmpeg、FFmpeg/FFprobe、faster-whisper、PyAV、CTranslate2 及 Whisper 模型；按目标电脑安装，版本范围见包内 requirements*.txt，不随仓库分发已安装运行时、模型或凭据。
+- 按参考换商品套图：独立导出器使用 Python 3.10+ 与 Pillow，实际图像编辑能力由宿主提供；未随包归集参考图、商品实拍、人物或品牌素材，来源声明与导出校验不构成授权证明。
 - 外部服务：飞书 API、图片生成服务及其他接入服务，其服务条款、费用和数据规则独立适用。
 
 本仓库的 LICENSE 不覆盖上述第三方组件，不撤销其原许可授予的权限，也不免除其署名、分发、源码提供或付费许可等要求。尤其不得因获得本项目商业授权，就推断已获得 Remotion、模型、字体或素材的全部商业权限。

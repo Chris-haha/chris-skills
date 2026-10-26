@@ -11,6 +11,9 @@
 | text-or-voice-to-video | `/Users/chris/.codex/skills/text-or-voice-to-video` | `skills/video/text-or-voice-to-video` |
 | story-vocabulary-studio | `/Volumes/Samsung_T5/code/my-workflow/education/story-vocabulary-research/skills/story-vocabulary-studio` | `skills/education/story-vocabulary-studio` |
 | project-flow-guide（原名 project-xray） | `/Users/chris/.codex/skills/project-xray` | `skills/development/project-flow-guide` |
+| ecommerce-video-breakdown | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/video-breakdown/skills/ecommerce-video-breakdown` | `skills/ecommerce/ecommerce-video-breakdown` |
+| media-urls-batch-archive | `/Users/chris/.codex/skills/media-urls-batch-archive` | `skills/video/media-urls-batch-archive` |
+| ecommerce-reference-product-swap | `/Users/chris/.codex/skills/ecommerce-reference-product-swap` | `skills/ecommerce/ecommerce-reference-product-swap` |
 
 | 工作流 | 原始目录 | 归集目录 |
 | --- | --- | --- |
@@ -113,3 +116,31 @@
 - 为 `video-text-redactor` 补充电影感剪辑室概念图，展示视频文字跟踪、移动与缩放中的遮挡、原声及成片复查；仅为能力展示，不是实际软件界面或匿名化结果证明。
 - 将项目开发 LLM Wiki 的详情配图改为现代工程资料工作台的写实画面；故事词汇保留绘本风、项目导读保留探索地图风，避免所有 Skill 共用同一画风和角色。合集继续承担统一目录展示。
 - 使用内置 image_gen 生成，提示词与图像来源记入 assets/readme/IMAGE-SOURCE.md；维护约定补充按 Skill 用途选画风的规则。此轮不修改 Skill 源码、依赖或内容哈希。
+
+## 2026-10-26 电商视频爆款拆解
+
+- 从用户指定的 my-workflow 项目内完整收录 `ecommerce/video-breakdown/skills/ecommerce-video-breakdown` 到 `skills/ecommerce/`，沿用原名称。初次收录时30个源文件逐字节保留，包含技能入口、Agent元数据、脚本、参考资料和公开运行配置示例；当前媒体取材部分已按下方2026-10-27记录替换。
+- 排除 Python 缓存；不归集原项目 workspace、真实视频/图片/字幕、博主数据、业务 Excel、运行配置、凭据、Cookie、已安装依赖、模型和验收产物，不修改来源项目或本机已安装技能。
+- 源包未附独立许可文件，补入仓库 LICENSE、COMMERCIAL-LICENSE.md 和专属 THIRD_PARTY_NOTICES.md，初次交付共33个文件。当前文件及修改相对于来源版本的SHA-256、本地补充标记见catalog.json。
+- 更新 README 的目录、选择指引、用途、交付、运行依赖与边界；使用内置 image_gen 为新增 Skill 补充视频研究室概念图，并更新 11 个 Skill、1 个独立工作流的总览。图像提示词、输出来源与哈希另记 assets/readme/IMAGE-SOURCE.md。
+- 验证：隔离复制环境下 26 项独立运行、迁移、打包、Excel 与交付测试通过；14 个 Python 文件语法、Node 脚本语法和 Skill 元数据检查通过；30 个来源文件哈希一致，33 个交付文件全部登记，83 个本地文档链接有效；两张生成配图已查看并核对标题、数量与场景。
+- 本轮只归集、整理与本地验证，不自动安装、不提交或推送，不调用视频平台、下载媒体或模型。
+
+## 2026-10-27 视频归档与按参考换商品套图
+
+- 从本机已安装目录收录 `media-urls-batch-archive` 到 `skills/video/`、`ecommerce-reference-product-swap` 到 `skills/ecommerce/`，调用名称保持不变。核对可用的博客 PROJECT_SOURCES.md，未发现这两个准确名称的来源记录，使用用户本次指定的本机 Skill 作为来源。
+- 视频归档完整保留 12 个来源文件并补入两份仓库许可文件，共 14 个文件。来源版本已包含本技能的解析流程、批处理、环境初始化、依赖清单、配置示例、迁移说明与 24 项离线测试；开发范围及通用工具依赖声明逐字节保留。
+- 按参考换商品完整保留九个来源文件：SKILL.md、Agent 元数据、六份参考说明与独立导出脚本；补入三份许可与权利说明，共 12 个文件。未收录商品图、模特图、用户参考、品牌素材、历史案例或默认模板库。
+- 两个来源目录保持不变，来源文件与仓库副本逐字节校验；逐文件 SHA-256、sourceSha256 和补充文件来源记入 catalog.json。未复制环境、模型、缓存、凭据或真实任务输出，未修改已有 Skill。
+- README 目录、选择指引与两项详细介绍同步更新，能力总览调整为 13 个 Skill、1 个独立工作流；配图按维护约定使用内置 image_gen，完整提示词与哈希见 assets/readme/IMAGE-SOURCE.md。
+- 验证：视频归档副本的 24 项离线测试通过；换商品导出器完成主图、SKU、详情与长图像素一致、已有图集保护和无效输入拒绝共八项检查。21 个来源文件保持不变，catalog 中 381 个文件哈希有效，90 个本地文档链接可解析；两个 Skill 入口格式校验与 git diff --check 通过。未执行真实客户商品生图或视频网站任务。
+- 本次仅收录与文档整理，不重复安装，不自动提交或推送；此前电商视频爆款拆解的待提交收录改动保持保留。
+
+## 2026-10-27 电商视频取材模块更新
+
+- 以随包的 scripts/public_media.py 和 scripts/subtitle_formats.py 替换旧取材实现，删除被替换的源码目录及函数快照清单；将解析参考文档改为 references/media-acquisition.md，说明当前取材顺序、身份约束和缓存规则。当前文件清单仅登记随包交付的实现。
+- 保持链接输入、匿名分享页、完整字幕、本地模型、关键帧、身份检查和工作区归档协议，后续创作、报告及七表Excel流程沿用原契约。字幕格式读取代码随包提供，不引入其它Skill依赖。
+- 更新README、运行说明、包内及仓库权利说明与catalog；分发ZIP补齐三份许可及权利文件。本地faster-whisper/PyAV按验证过的兼容范围约束；平台协议与实际工具依赖如实保留。
+- 来源项目、本机安装目录和其它Skill不随本次修改；原有工作区不要求重建。当前文件哈希与原来源哈希分别登记，不再声称当前版本仍为30个源文件逐字节复制。
+- 验证：旧版108项离线测试先建立对照；替换后91项原流程、6项稳定适配接口及19项随包取材/取消测试通过。使用已有本地模型和本地生成视频，实测转录、6帧、4.48秒真实时长、缓存及本地HTTP下载通过；任务取消与工具超时不残留下载子进程。三平台响应以固定fixture验证，未声称真实平台或Windows/Linux实机全部通过。
+- 全库复查：相关项目名称及旧解析文件标识未命中，原有24个完全相同的函数实现已替换；当前389个交付文件哈希、文档相对链接及独立ZIP（含许可）校验通过。未提交或推送。

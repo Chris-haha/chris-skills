@@ -1,5 +1,32 @@
 # README 配图记录
 
+## 2026-10-27 视频归档与按参考换商品收录配图
+
+- 总览：[skills-overview-20261027-media-reference.png](skills-overview-20261027-media-reference.png)，按已查看的旧总览作风格参考，新增两项完整场景，展示 13 个 Skill、1 个独立工作流；此前总览保留为历史记录。
+- 视频归档：[media-urls-batch-archive-cinematic.png](media-urls-batch-archive-cinematic.png)，采用影视资料档案室场景，表现链接收集、文字稿整理、按博主与视频归档及迁移。
+- 按参考换商品：[ecommerce-reference-product-swap-studio.png](ecommerce-reference-product-swap-studio.png)，采用商业摄影与设计工作室场景，表现逐屏参考、商品实拍、人物场景保留与 PNG 套图交付。
+- 生成方式：内置 image_gen；工具未披露实际模型名称。完整提示词见 [media-reference-20261027-prompts.md](media-reference-20261027-prompts.md)。
+- 性质：AI 生成的能力概念图，非实际运行截图、真实商品交付或效果验证；人物与商品均为示意。
+
+- `skills-overview-20261027-media-reference.png` SHA-256：`fbc953c38cfab79963ccd9356e6c3167e4dace490b3dd8ed72117e42bda32c54`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-7ca20f9d-81b4-497b-a50f-ec68276a10c1.png`。
+- `media-urls-batch-archive-cinematic.png` SHA-256：`96296da086e43dd8622a9008fc66f14e52b4d758521f9e863c4fc2db0cb9cf7e`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-98d3d619-4458-4920-90fc-432b406ce153.png`。
+- `ecommerce-reference-product-swap-studio.png` SHA-256：`83ca3e721d1a2aaae385aaabb4d5e15c07af95767f46ea5feff399ef06c605b4`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-b864f440-4604-4721-8d4b-92719debf14b.png`。
+
+## 2026-10-26 电商视频爆款拆解收录配图
+
+- 总览：[skills-overview-20261026.png](skills-overview-20261026.png)，按既有纸感人物与物件插画扩充为 11 个 Skill、1 个独立工作流，替换 README 的旧版总览引用；旧图保留为历史记录。
+- 新 Skill：[ecommerce-video-breakdown-cinematic.png](ecommerce-video-breakdown-cinematic.png)，采用电影感视频研究室场景，表现参考片段、画面笔记、七表 Excel 与原创拍摄准备。
+- 生成方式：内置 image_gen。总览使用已查看的旧图作风格参考，详情图独立生成；工具未披露实际模型名称。
+- 完整提示词：[ecommerce-video-breakdown-20261026-prompts.md](ecommerce-video-breakdown-20261026-prompts.md)。两图均为 AI 生成能力示意，非实际运行截图，不代表真实视频分析或转化效果。
+
+- `skills-overview-20261026.png` SHA-256：`80dfe4f14611a977e95a6c6c7f31a9d59d4ed2f08a63bbf026403253a3029d1f`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-48219aa0-087b-4792-bb5e-e28170c7068f.png`。
+- `ecommerce-video-breakdown-cinematic.png` SHA-256：`e4874effd1e7a15953c3885c819a92eb751bfe8dcb0eb80a1dd61d808a7d0b44`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-21a3f4e2-eb8a-440d-8b25-a649167caf99.png`。
+
 ## 2026-10-25 按 Skill 用途选择画风
 
 - README 视频文字跟踪打码配图：[video-text-redactor-cinematic.png](video-text-redactor-cinematic.png)。采用电影感剪辑室与影视技术视觉，重点表现遮挡随文字位置和大小变化、原声音轨及成片复查。

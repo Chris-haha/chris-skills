@@ -1,0 +1,4 @@
+interface:
+  display_name: "按用户参考换商品套图"
+  short_description: "引导提供商品与可用参考，按原顺序保留人物场景和版式，逐张编辑并交付"
+  default_prompt: "使用 $ecommerce-reference-product-swap，先核对我提供的商品实拍、资料和有权使用的参考图；缺少时只补问必要素材，按本次确认的顺序和数量制作，不使用预置商品或模板。"

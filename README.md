@@ -6,9 +6,9 @@
 
 不吃辣的Chris的个人 AI 工具箱，涵盖电商、视频创作、教育学习与咨询、沟通策略及项目开发，收录可复用的 Skill、独立工作流和实际案例。后续将持续更新更多 Skill 与工作流，完善现有能力与使用示例。各项内容的归属与许可见对应说明。
 
-![Chris 的 AI 工具箱：13 个 Skill 与 1 个独立工作流的插画总览](assets/readme/skills-overview-20261027-media-reference.png)
+![Chris 的 AI 工具箱：此前13个Skill 与 1 个独立工作流的插画总览](assets/readme/skills-overview-20261027-media-reference.png)
 
-*AI 生成的插画总览，用于说明用途与分类，不是实际运行截图；详细依赖与使用边界见下方说明。*
+*此前13项Skill的AI插画总览；本次新增的B站视频解析工具箱见下方目录与详情配图。非实际运行截图，当前收录数量以目录和 catalog.json 为准。*
 
 ## 项目结构
 
@@ -42,10 +42,11 @@ assets/                      # README 配图与案例素材
 | 视频创作 | [文字／录音转动态图解视频](skills/video/text-or-voice-to-video/SKILL.md) | 文字稿配音或使用已有录音，结合真实截图、统一插画与对象动画制作讲解视频，可加入背景音乐和音效，交付可编辑工程。 |
 | 视频创作 | [视频文字跟踪打码](skills/video/video-text-redactor/SKILL.md) | 按指定词语、账号或邮箱等目标逐帧定位、跟踪遮挡，复扫成片并保留原声。 |
 | 视频创作 | [视频链接批量归档](skills/video/media-urls-batch-archive/SKILL.md) | 直接接收视频链接或读取任意位置的链接文件，提取字幕或本地转录，按博主和视频归档并支持续跑。 |
+| 视频创作 | [B站视频解析工具箱](skills/video/bilibili-toolkit/SKILL.md) | 解析链接、元数据与章节，本地转写口播并用屏幕字幕校准，结合浏览器整理 UP 主公开视频清单。 |
 | 项目开发 | [项目开发 LLM Wiki](skills/development/project-llm-wiki/SKILL.md) | 搭建项目 Markdown 知识库，摄入资料、查询证据，让开发与排障结果按影响回流。 |
 | 项目开发 | [项目主线导读](skills/development/project-flow-guide/SKILL.md) | 从陌生项目或冗长文档中提炼主流程、关键角色与名称职责，按问题逐步深入。 |
 
-目前收录 13 个 Skill、1 个独立工作流，覆盖沟通、电商、教育学习与咨询、视频创作及项目开发。
+目前收录 14 个 Skill、1 个独立工作流，覆盖沟通、电商、教育学习与咨询、视频创作及项目开发。
 
 ## Workflows 目录
 
@@ -70,6 +71,7 @@ assets/                      # README 配图与案例素材
 | 想让学生在连续故事里学指定英语词汇，并练习回忆与拼写 | 故事词汇工作室 | 六模式离线网页、故事与词表、练习答案、可选真实音频、独立 ZIP |
 | 只有文字稿，或已有录音，想制作字幕同步的不露脸视频 | 文字／录音转动态图解视频 | MP4、SRT、可编辑工程、来源与 QA 报告 |
 | 视频链接散落在聊天或文件中，想集中提取文字并归档 | 视频链接批量归档 | 每条文字稿、清理稿、来源与元数据，批次汇总、失败清单和续跑日志 |
+| 想提取 B 站视频口播、章节，或整理某个 UP 主的公开视频清单 | B站视频解析工具箱 | 视频元数据 JSON、带时间戳逐字稿、OCR 时间轴与修订说明、公开视频链接清单 |
 | 接手陌生项目，或被冗长文档淹没，不知道从哪里读起 | 项目主线导读 | 一页概览、主流程、关键角色、名称职责对照与下一步阅读入口 |
 | 希望 Agent 持续复用项目资料，并在开发、排障后同步知识 | 项目开发 LLM Wiki | Markdown 知识库、来源与索引、任务验证记录、受影响知识页更新 |
 
@@ -328,6 +330,23 @@ assets/                      # README 配图与案例素材
 ![按参考换商品套图：设计师逐屏对照用户参考、当前商品实拍和对应套图，核对人物场景、商品细节与颜色](assets/readme/ecommerce-reference-product-swap-studio.png)
 
 *AI 生成的设计工作室概念图，非实际成品对照；任务素材由用户提供，文件校验不代替商品与人物保真检查。*
+
+### 14. B站视频解析工具箱
+
+[阅读 Skill](skills/video/bilibili-toolkit/SKILL.md) · [UP 主清单参考](skills/video/bilibili-toolkit/references/up-all-videos.md) · `bilibili-toolkit`
+
+**解决的问题：** 希望从 B 站视频取得标题、章节与口播文字，或整理某个 UP 主的公开视频链接，便于阅读、检索和后续研究。
+
+- **功能：** 解析 BV 号、完整链接及短链，读取元数据与章节；下载音频后用 faster-whisper 本地转写，可抽帧 OCR 辅助核对屏幕字幕；投稿清单通过合集信息、浏览器翻页与元数据补全整理。
+- **交付：** 元数据 JSON、带时间戳逐字稿、修订及存疑说明、OCR 时间轴 JSON 与去重文本、公开视频链接清单。
+- **依赖：** 原包推荐 Python 3.12，示例使用 Windows `py -3.12` 与 `.venv_bili/Scripts/python`；macOS/Linux 需按本机环境改用 `python3.12` 与 `.venv_bili/bin/python`。转写/OCR 依赖 faster-whisper、PyAV、rapidocr-onnxruntime、Pillow 和模型下载；原包指定的版本与镜像是来源经验，本次未安装或实测。
+- **使用边界：** 平台访问与接口状态可能变化；官方 AI 字幕可能需要用户在浏览器登录，本地转写仍需人工复核。UP 主清单只覆盖公开可见投稿，需额外的 `browser-use:control-browser` 技能及兼容浏览器环境，包内没有完整自动采集器。文档提及的 WBI 签名函数未随脚本交付；不据此宣称具备签名能力或保证获取全部投稿。用户内容与账号权限由使用者自行管理。
+
+> 示例：使用 bilibili-toolkit，提取这个 B 站视频的元数据和口播逐字稿，保留时间戳；如需本地转写，标出存疑词语，并说明哪些地方参考了屏幕字幕。
+
+![B站视频解析工具箱：研究员核对音频、逐字稿与屏幕字幕](assets/readme/bilibili-toolkit-research-desk.png)
+
+*AI 生成的能力概念图，非实际运行截图，不代表平台访问或识别准确率验证。*
 
 ## 独立工作流详细介绍
 

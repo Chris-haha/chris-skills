@@ -1659,6 +1659,79 @@
           "sourceSha256": "eb358dbe3197d444c7241c8ba227bbc4a636ac50a39703ba177ce8d5100bb989"
         }
       ]
+    },
+    {
+      "slug": "bilibili-toolkit",
+      "title": "B站视频解析工具箱",
+      "category": "video",
+      "path": "skills/video/bilibili-toolkit",
+      "source": "/Users/chris/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_8ji05hs5w3gc22_3eea/temp/RWTemp/2026-11/b2c0f4fb9b7a2ce09b59bc31f7946a8c/bilibili-toolkit.zip",
+      "sourceArchiveSha256": "fb9ab32ec379a0b75cfca2c2ec90a097d04fba6a5850ac3fbe1486c668c7793a",
+      "archiveRoot": "bilibili-toolkit",
+      "summary": "解析B站视频链接、元数据与章节，下载音频后本地转写并用屏幕字幕辅助校准，结合浏览器整理UP主公开视频链接清单。",
+      "status": "collected",
+      "collectedAt": "2026-11-03",
+      "updatedAt": "2026-11-03",
+      "supplemental": [
+        {
+          "source": "仓库根目录 LICENSE 和 COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补充独立复制所需的仓库许可，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明ZIP来源、外部依赖、上游权利与原包文档限制。"
+        }
+      ],
+      "note": "完整保留六个来源文件并补入三份许可及权利说明；原包以Windows环境为例，WBI函数未交付，UP主列表需额外浏览器技能；不自动安装或执行真实平台任务。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "localSupplement": true
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "localSupplement": true
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "166e13f98c779d2e53a7cb72d845d28c7fe3100e6c1d80093648c67d901d24ec",
+          "sourceSha256": "166e13f98c779d2e53a7cb72d845d28c7fe3100e6c1d80093648c67d901d24ec"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "30e7b8677c8069616e469aa7b29690c5b9f329c2d51c061547b2deb1ed0ee083",
+          "localSupplement": true
+        },
+        {
+          "path": "references/up-all-videos.md",
+          "sha256": "59f4b1703d3e84acd56b8f7d83cb451d8c393727f8e1f19c7e5c620120947d0b",
+          "sourceSha256": "59f4b1703d3e84acd56b8f7d83cb451d8c393727f8e1f19c7e5c620120947d0b"
+        },
+        {
+          "path": "scripts/bili_media.py",
+          "sha256": "869939f76689ddb1eada8eff8bc1c6bfbe0393c6379d71d5b9d3217ea0b4bd59",
+          "sourceSha256": "869939f76689ddb1eada8eff8bc1c6bfbe0393c6379d71d5b9d3217ea0b4bd59"
+        },
+        {
+          "path": "scripts/bili_meta.py",
+          "sha256": "565aed8c9954fad92f1d68e141db512821287e5d364d3fad27c5b3d12ebba2f0",
+          "sourceSha256": "565aed8c9954fad92f1d68e141db512821287e5d364d3fad27c5b3d12ebba2f0"
+        },
+        {
+          "path": "scripts/ocr_frames.py",
+          "sha256": "4ef751c4c94af9bfbcd44b2a54972de2c000b7a7ade4e8ed425d44330a8a0e90",
+          "sourceSha256": "4ef751c4c94af9bfbcd44b2a54972de2c000b7a7ade4e8ed425d44330a8a0e90"
+        },
+        {
+          "path": "scripts/transcribe.py",
+          "sha256": "8dee5cd883b18800e75771bee5378e9edf26b2c36dda23009c8a3032fb1c85f0",
+          "sourceSha256": "8dee5cd883b18800e75771bee5378e9edf26b2c36dda23009c8a3032fb1c85f0"
+        }
+      ]
     }
   ],
   "pending": [
@@ -1678,7 +1751,7 @@
     "effectiveDate": "2026-10-11",
     "scope": "仅限本人有权授权的内容；第三方内容除外"
   },
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-11-03",
   "workflows": [
     {
       "slug": "ecommerce-template-image-workflow",

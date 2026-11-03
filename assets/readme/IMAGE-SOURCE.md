@@ -1,5 +1,18 @@
 # README 配图记录
 
+## 2026-11-03 B站视频解析工具箱收录配图
+
+- 总览：[skills-overview-20261103-bilibili.png](skills-overview-20261103-bilibili.png)，六类具体工作场景展示16个Skill，另列1个独立工作流；此前总览保留。
+- 详情：[bilibili-toolkit-research-desk.png](bilibili-toolkit-research-desk.png)，电影感视频研究桌，展示收听音频、核对时间戳逐字稿与屏幕字幕、整理公开视频清单。
+- 生成方式：内置 image_gen，工具未披露实际模型名称；完整提示词及原始输出见 [bilibili-toolkit-20261103-prompts.md](bilibili-toolkit-20261103-prompts.md)。生成前查看既有总览，本次两图均按文字提示新建。
+- 性质：AI生成的能力概念图，非实际运行截图或平台可用性、转写准确率证明；未使用真实账号、视频或UP主资料。两图已查看并核对标题、数量与场景。
+
+- `skills-overview-20261103-bilibili.png` SHA-256：`a83cb218a56fd28dda9b4df1518d8bd634a45ea97e5c1a08c08cfe498f7fcf8c`。
+- `bilibili-toolkit-research-desk.png` SHA-256：`1a831699329a4a9d5e05f5900843a0b661f4b966906fe6cde0b220c9b1cb64fe`。
+
+本图生成时本地另有两项未提交Skill，16项总览仅作为制作记录保存。本次单独提交后远端目录为14项Skill，README顶部保留明确标为历史的13项总览，新增Skill使用详情配图。
+
+
 ## 2026-10-27 视频归档与按参考换商品收录配图
 
 - 总览：[skills-overview-20261027-media-reference.png](skills-overview-20261027-media-reference.png)，按已查看的旧总览作风格参考，新增两项完整场景，展示 13 个 Skill、1 个独立工作流；此前总览保留为历史记录。

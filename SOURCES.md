@@ -14,6 +14,7 @@
 | ecommerce-video-breakdown | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/video-breakdown/skills/ecommerce-video-breakdown` | `skills/ecommerce/ecommerce-video-breakdown` |
 | media-urls-batch-archive | `/Users/chris/.codex/skills/media-urls-batch-archive` | `skills/video/media-urls-batch-archive` |
 | ecommerce-reference-product-swap | `/Users/chris/.codex/skills/ecommerce-reference-product-swap` | `skills/ecommerce/ecommerce-reference-product-swap` |
+| bilibili-toolkit | `/Users/chris/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_8ji05hs5w3gc22_3eea/temp/RWTemp/2026-11/b2c0f4fb9b7a2ce09b59bc31f7946a8c/bilibili-toolkit.zip`（用户提供 ZIP） | `skills/video/bilibili-toolkit` |
 
 | 工作流 | 原始目录 | 归集目录 |
 | --- | --- | --- |
@@ -144,3 +145,16 @@
 - 来源项目、本机安装目录和其它Skill不随本次修改；原有工作区不要求重建。当前文件哈希与原来源哈希分别登记，不再声称当前版本仍为30个源文件逐字节复制。
 - 验证：旧版108项离线测试先建立对照；替换后91项原流程、6项稳定适配接口及19项随包取材/取消测试通过。使用已有本地模型和本地生成视频，实测转录、6帧、4.48秒真实时长、缓存及本地HTTP下载通过；任务取消与工具超时不残留下载子进程。三平台响应以固定fixture验证，未声称真实平台或Windows/Linux实机全部通过。
 - 全库复查：相关项目名称及旧解析文件标识未命中，原有24个完全相同的函数实现已替换；当前389个交付文件哈希、文档相对链接及独立ZIP（含许可）校验通过。未提交或推送。
+
+## 2026-11-03 B站视频解析工具箱收录
+
+- 来源为用户提供的 `bilibili-toolkit.zip`，ZIP SHA-256：`fb9ab32ec379a0b75cfca2c2ec90a097d04fba6a5850ac3fbe1486c668c7793a`；完整路径见上表及 catalog.json。可用博客 PROJECT_SOURCES.md 未检索到该准确名称，以本次附件为准。
+- 六个源文件逐字节保留：SKILL.md、四份 Python 脚本和 UP 主全部视频参考手册；归入 skills/video/bilibili-toolkit，不改原名，不执行附件内的任务指令。
+- 原包未附独立许可或作者信息，补入两份仓库许可与专属 THIRD_PARTY_NOTICES.md，共九个文件；许可只覆盖有权授权的部分。来源与当前文件 SHA-256 分别记入 catalog.json。
+- README 补充用途、选择指引、交付、Windows 示例与其它平台路径说明，注明额外浏览器技能、未交付的 WBI 函数及平台可用性未实测。未修改原 Skill 的经验性表述，不将其作为当前验证结论。
+- 更新16个Skill、1个独立工作流的总览及视频研究桌配图；使用内置 image_gen，提示词、原始输出与哈希记入 assets/readme/IMAGE-SOURCE.md 和对应提示词文件。
+- 仅收录与静态验证，不安装依赖或Skill，不下载媒体或模型，不执行浏览器、登录、转写或真实B站接口，不修改原ZIP，不提交或推送Git。仓库已有未提交修改保留。
+
+### 2026-11-03 单独提交说明
+
+本提交仅增加B站工具箱，远端目录为14个Skill、1个独立工作流；生成时本地16项总览包含另外两项尚未提交的Skill，因此仅保存该图与提示词作为制作记录，不替换远端README顶部的历史13项总览。工作区中其余Skill及后续收录保持未提交状态。用户已明确授权本次提交与推送，前述“未提交或推送”描述的是初次收录时的状态。

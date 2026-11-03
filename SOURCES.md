@@ -2,7 +2,7 @@
 
 归集日期：2026-10-10。原始项目保持不变；本仓库保存独立副本。
 
-| Skill | 原始目录 | 归集目录 |
+| Skill | 原始目录／归档 | 归集目录 |
 | --- | --- | --- |
 | preserving-product-fidelity | `/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity` | `skills/ecommerce/preserving-product-fidelity` |
 | feishu-ecommerce-workflow | `/Volumes/Samsung_T5/code/my-workflow/E-commerce/codex_ecommerce_workflow_analysis_20260720/mvp-workflow/skills/feishu-ecommerce-workflow` | `skills/ecommerce/feishu-ecommerce-workflow` |
@@ -14,7 +14,10 @@
 | ecommerce-video-breakdown | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/video-breakdown/skills/ecommerce-video-breakdown` | `skills/ecommerce/ecommerce-video-breakdown` |
 | media-urls-batch-archive | `/Users/chris/.codex/skills/media-urls-batch-archive` | `skills/video/media-urls-batch-archive` |
 | ecommerce-reference-product-swap | `/Users/chris/.codex/skills/ecommerce-reference-product-swap` | `skills/ecommerce/ecommerce-reference-product-swap` |
+| failover-imagegen-tool | `/Volumes/Samsung_T5/code/img-switch/sanitized-delivery/failover-imagegen-tool-sanitized.zip` 内 `failover-imagegen-tool/` | `skills/image/failover-imagegen-tool` |
+| product-person-tryon | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/person-tryon/skills/product-person-tryon` | `skills/ecommerce/product-person-tryon` |
 | bilibili-toolkit | `/Users/chris/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_8ji05hs5w3gc22_3eea/temp/RWTemp/2026-11/b2c0f4fb9b7a2ce09b59bc31f7946a8c/bilibili-toolkit.zip`（用户提供 ZIP） | `skills/video/bilibili-toolkit` |
+| rental-company-due-diligence | `/Volumes/Samsung_T5/code/my-workflow/intelligence/rental-company-due-diligence/skills/rental-company-due-diligence` | `skills/intelligence/rental-company-due-diligence` |
 
 | 工作流 | 原始目录 | 归集目录 |
 | --- | --- | --- |
@@ -146,6 +149,25 @@
 - 验证：旧版108项离线测试先建立对照；替换后91项原流程、6项稳定适配接口及19项随包取材/取消测试通过。使用已有本地模型和本地生成视频，实测转录、6帧、4.48秒真实时长、缓存及本地HTTP下载通过；任务取消与工具超时不残留下载子进程。三平台响应以固定fixture验证，未声称真实平台或Windows/Linux实机全部通过。
 - 全库复查：相关项目名称及旧解析文件标识未命中，原有24个完全相同的函数实现已替换；当前389个交付文件哈希、文档相对链接及独立ZIP（含许可）校验通过。未提交或推送。
 
+## 2026-10-29 多源故障切换生图源码收录
+
+- 来源为用户明确指定的 `img-switch/sanitized-delivery/failover-imagegen-tool-sanitized.zip`，归档内根目录为 `failover-imagegen-tool/`；原ZIP的SHA-256为 `105d317c6cc7e3a3ecf2b4fa8dc12e79b2cc39baee24050a3b8ff732abe9801e`。核对可用博客PROJECT_SOURCES.md，未发现该准确技能名或img-switch来源条目，以本次指定的脱敏ZIP为准。
+- 完整保留10个归档文件：技能入口、README、忽略规则、占位符配置、提示词示例、三个脚本和两个测试文件。源包未含独立许可，补入仓库LICENSE、COMMERCIAL-LICENSE.md与专属THIRD_PARTY_NOTICES.md，共13个文件；来源成员名及源／当前SHA-256逐项登记于catalog.json。
+- 分类为图像生成（skills/image），保留原技能名称与实现。只做源码收录，不安装到本机或本项目，不写Agent技能发现目录，不注册、不创建链接、不添加真实中转站，不修改原ZIP。
+- 检查10个来源文件，未发现真实API Key、个人服务地址、本机绝对路径，未命中“电信／公司／数智／集成”；配置示例使用.invalid域名，测试使用127.0.0.1和明确的模拟密钥。未归集config.json、generated、真实图片、模型、依赖或测试运行产物。
+- 验证：隔离目录内23项本地模拟端到端测试通过，含多源／多模型故障切换、生成和编辑、批量续跑、脱敏、模型发现、健康统计、GUI冒烟与自测；未调用真实中转服务。Python 3.8语法兼容检查与Skill入口校验通过。
+- README目录、选择指引、使用边界与14个Skill／1个工作流总览同步更新，新增生图工作室能力配图；使用内置image_gen，提示词与图像来源见assets/readme/IMAGE-SOURCE.md。保留已有图像及全部既有Skill文件。
+- 本次为源码公开仓库的本地收录，不修改仓库既有许可，不自动安装、不提交或推送。
+
+## 2026-11-02 商品人物自然试穿源码收录
+
+- 从用户指定的ecommerce/person-tryon项目中读取skills/product-person-tryon，保留原技能名，将SKILL.md和agents/openai.yaml两份源文件完整收录到skills/ecommerce/product-person-tryon；未把工程目录名当作技能名。可用博客PROJECT_SOURCES.md未发现该准确名称，以用户指定项目和实际文件为准。
+- 来源Skill未附许可文件，补入仓库LICENSE、COMMERCIAL-LICENSE.md及专属THIRD_PARTY_NOTICES.md，共5个交付文件。两个源文件的原始与当前SHA-256分别登记于catalog.json，源项目保持不变。
+- 来源项目README仅用于了解用途；不归集output内的真实人物／商品参考、成片、提示词、浏览器截图、验证记录、演示ZIP或.validate-env。技能无执行脚本与私有配置依赖，默认调用宿主看图及内置图像工具；不把指导文件描述为独立离线模型。
+- 两份源文件未命中“电信／公司／数智／集成”，未发现真实密钥、服务地址或本机绝对路径。通过Skill元数据和引用检查；本次不执行真实人物试穿，也不将来源项目README记录的两款上衣样例扩称为所有类别已验证。
+- 更新README目录、选择指引、详细介绍和15个Skill／1个独立工作流总览，新增人物与商品参考的工作室概念配图。使用内置image_gen，提示词、原始输出和图像SHA-256见assets/readme/IMAGE-SOURCE.md。
+- 保留此前failover-imagegen-tool收录及配图的待提交改动，未覆盖已有Skill。只保存源码副本，不安装、不调整本机已有product-person-tryon发现链接，不提交或推送。
+
 ## 2026-11-03 B站视频解析工具箱收录
 
 - 来源为用户提供的 `bilibili-toolkit.zip`，ZIP SHA-256：`fb9ab32ec379a0b75cfca2c2ec90a097d04fba6a5850ac3fbe1486c668c7793a`；完整路径见上表及 catalog.json。可用博客 PROJECT_SOURCES.md 未检索到该准确名称，以本次附件为准。
@@ -155,6 +177,23 @@
 - 更新16个Skill、1个独立工作流的总览及视频研究桌配图；使用内置 image_gen，提示词、原始输出与哈希记入 assets/readme/IMAGE-SOURCE.md 和对应提示词文件。
 - 仅收录与静态验证，不安装依赖或Skill，不下载媒体或模型，不执行浏览器、登录、转写或真实B站接口，不修改原ZIP，不提交或推送Git。仓库已有未提交修改保留。
 
-### 2026-11-03 单独提交说明
+### 2026-11-03 B站工具箱单独提交说明（历史）
 
 本提交仅增加B站工具箱，远端目录为14个Skill、1个独立工作流；生成时本地16项总览包含另外两项尚未提交的Skill，因此仅保存该图与提示词作为制作记录，不替换远端README顶部的历史13项总览。工作区中其余Skill及后续收录保持未提交状态。用户已明确授权本次提交与推送，前述“未提交或推送”描述的是初次收录时的状态。
+
+## 2026-11-03 租赁公司签约前尽调源码收录
+
+- 从用户指定的intelligence/rental-company-due-diligence/skills/rental-company-due-diligence完整收录9个源文件：Skill入口、Agent元数据、6份参考说明和检索规划脚本。归入skills/intelligence/rental-company-due-diligence，不改原名。可用博客PROJECT_SOURCES.md没有该准确技能名，以本次指定目录为准。
+- 额外补入上级项目tests/test_prepare_research.py，只调整测试所用脚本的相对路径，使单独复制本Skill后可验证；原测试SHA-256与修改说明单独登记。补入LICENSE、COMMERCIAL-LICENSE.md与专属THIRD_PARTY_NOTICES.md，共13个交付文件。
+- references/adaptation-notes.md中的外部方法链接、核对版本与适配边界原样保留；不删除来源标记，不将方法研究记录当作外部服务权限或本次重新完成的许可审查。未复制其指向的第三方仓库或安装外部Skill。
+- 源码中“公司”出现40次，均用于本技能的主体核验、投诉与风险语境，作为通用表述保留；“电信／数智／集成”未命中，未发现真实密钥或私人调查案例。公开来源入口与方法引用保留，不执行真实查询。
+- 不复制来源项目private、out、真实合同、账户、租户资料、企业调查记录、浏览器截图、开发验证报告或运行环境；本次不安装、不登录、不联系企业，不提交投诉或发布评价。
+- 验证：来源快照和仓库副本各4项规划器单元测试通过，覆盖名称和查询编码、旧名去重、正反证查询、计划与结果区分、已有证据文件保护及无效输入拒绝；Skill入口与本地引用校验通过。规划器不联网，此验证不等于真实企业调查或专业结论验收。
+- README新增情报调研分类、用途与边界，完整总览更新为17个Skill、1个独立工作流，新增签约前证据核对工作室概念配图。使用内置image_gen，提示词与图像来源见assets/readme/IMAGE-SOURCE.md。
+- 保留已有未提交的Skill收录与配图，不覆盖其源码或来源索引。此次仅收录到仓库，不改动本机或项目技能发现入口，不提交或推送。
+
+## 2026-11-03 剩余已收录Skill统一提交
+
+按用户明确授权，将多源故障切换生图、商品人物自然试穿、租赁公司签约前尽调及配套文档、来源记录和既有AI配图一并提交并推送。当前目录为17个Skill、1个独立工作流，README顶部采用17项新版总览；此前记录中的“未提交或推送”是各次初始收录状态。本次不安装Skill，不调用真实生图服务或开展企业调查。
+
+本轮提交前复测：租赁检索规划器4/4测试通过；生图工具21/23项本地模拟测试通过，GUI冒烟与模型下拉框两项各在60秒后超时。最小Tk窗口可创建，带堆栈诊断的应用复现停在setup.py的app.update()；当前环境为系统Python 3.9/Tk 8.5，GUI挂起原因尚未确定，本轮保留原源码并如实记录，不能将此前环境的23项通过记录当成本次全部通过。来源文件比对、清单哈希、Python语法、文档链接和配图哈希检查通过；未调用真实外部服务。

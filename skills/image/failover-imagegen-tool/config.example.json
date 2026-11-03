@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "name": "primary",
+      "base_url": "https://example.invalid/v1",
+      "api_key": "sk-REPLACE-ME",
+      "model": "image-model-a",
+      "enabled": true,
+      "timeout": 300
+    },
+    {
+      "name": "backup",
+      "base_url": "https://backup.invalid/v1",
+      "api_key": "sk-REPLACE-ME-TOO",
+      "models": ["image-model-b", "image-model-c", "image-model-d"],
+      "enabled": true
+    }
+  ]
+}

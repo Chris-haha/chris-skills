@@ -1661,6 +1661,160 @@
       ]
     },
     {
+      "slug": "failover-imagegen-tool",
+      "title": "多源故障切换生图",
+      "category": "image",
+      "path": "skills/image/failover-imagegen-tool",
+      "source": "/Volumes/Samsung_T5/code/img-switch/sanitized-delivery/failover-imagegen-tool-sanitized.zip",
+      "sourceArchiveSha256": "105d317c6cc7e3a3ecf2b4fa8dc12e79b2cc39baee24050a3b8ff732abe9801e",
+      "archiveRoot": "failover-imagegen-tool",
+      "summary": "通过用户配置的兼容图像接口生成、编辑和批量出图，按中转站与模型两级故障切换，输出图片与脱敏尝试记录。",
+      "status": "collected",
+      "collectedAt": "2026-10-29",
+      "updatedAt": "2026-10-29",
+      "supplemental": [
+        {
+          "source": "仓库根目录LICENSE和COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "随独立源码副本补入仓库许可，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "记录脱敏ZIP来源、标准库及GUI工具、外部服务与素材的权利边界。"
+        }
+      ],
+      "note": "完整收录10个归档来源文件并补入三份许可及权利说明；仅保存源码，不安装或注册到本机／项目，不归集实际密钥、配置、环境或输出，不修改源ZIP。",
+      "files": [
+        {
+          "path": ".gitignore",
+          "sha256": "e0528216f5ecfe467de2bd54fcfdbbd37bc8f963fc530aa8d595fd1301b44171",
+          "sourceMember": "failover-imagegen-tool/.gitignore",
+          "sourceSha256": "e0528216f5ecfe467de2bd54fcfdbbd37bc8f963fc530aa8d595fd1301b44171"
+        },
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原ZIP未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原ZIP未含此文件。"
+        },
+        {
+          "path": "README.md",
+          "sha256": "310b2bc13975d414a20fc44155d9922d1c71c6b90ec7f6b09f6d3e20f62e55d6",
+          "sourceMember": "failover-imagegen-tool/README.md",
+          "sourceSha256": "310b2bc13975d414a20fc44155d9922d1c71c6b90ec7f6b09f6d3e20f62e55d6"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "ed4c0af927bab03ff33dde154f51c247548baef88af1ecdf142a949073578d5c",
+          "sourceMember": "failover-imagegen-tool/SKILL.md",
+          "sourceSha256": "ed4c0af927bab03ff33dde154f51c247548baef88af1ecdf142a949073578d5c"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "fb06696d8306a08ffb05fc69c464ad6fa9d54c1b4cce03cd39ffa80a8f7c34d9",
+          "note": "仓库补充；原ZIP未含此文件。"
+        },
+        {
+          "path": "config.example.json",
+          "sha256": "09792664b27700e316f453f57d6c01f2dd8522c65767db1e9b3d2cbea14f33e2",
+          "sourceMember": "failover-imagegen-tool/config.example.json",
+          "sourceSha256": "09792664b27700e316f453f57d6c01f2dd8522c65767db1e9b3d2cbea14f33e2"
+        },
+        {
+          "path": "prompts/example.txt",
+          "sha256": "c861f192aa3a85205539c68031ddf58831b1a559cced05ba74583ea8e643cf32",
+          "sourceMember": "failover-imagegen-tool/prompts/example.txt",
+          "sourceSha256": "c861f192aa3a85205539c68031ddf58831b1a559cced05ba74583ea8e643cf32"
+        },
+        {
+          "path": "scripts/failover_imagegen_tool.py",
+          "sha256": "110bdfa5eb26192636179819c9dc7fbaae4f9804fdf00f4f495a1495b4051556",
+          "sourceMember": "failover-imagegen-tool/scripts/failover_imagegen_tool.py",
+          "sourceSha256": "110bdfa5eb26192636179819c9dc7fbaae4f9804fdf00f4f495a1495b4051556"
+        },
+        {
+          "path": "scripts/failovercfg.py",
+          "sha256": "4f1997c5b9d7fcdd6fdf06dcbc07290ea6ff9f558f080fda0587d1e1f3f4913c",
+          "sourceMember": "failover-imagegen-tool/scripts/failovercfg.py",
+          "sourceSha256": "4f1997c5b9d7fcdd6fdf06dcbc07290ea6ff9f558f080fda0587d1e1f3f4913c"
+        },
+        {
+          "path": "scripts/setup.py",
+          "sha256": "b105b30627192c4770435818136b4fbb316f6c6942039ba542fb532c7f30ae45",
+          "sourceMember": "failover-imagegen-tool/scripts/setup.py",
+          "sourceSha256": "b105b30627192c4770435818136b4fbb316f6c6942039ba542fb532c7f30ae45"
+        },
+        {
+          "path": "tests/mock_relay.py",
+          "sha256": "5869ec76d47b798821508b445bae86e186817bce5c29f9ab13096b454301e729",
+          "sourceMember": "failover-imagegen-tool/tests/mock_relay.py",
+          "sourceSha256": "5869ec76d47b798821508b445bae86e186817bce5c29f9ab13096b454301e729"
+        },
+        {
+          "path": "tests/run_tests.py",
+          "sha256": "e9a61555f4fa257744f5c2ad73ff959abed7750b61511e3859c1c378e2d97c5e",
+          "sourceMember": "failover-imagegen-tool/tests/run_tests.py",
+          "sourceSha256": "e9a61555f4fa257744f5c2ad73ff959abed7750b61511e3859c1c378e2d97c5e"
+        }
+      ]
+    },
+    {
+      "slug": "product-person-tryon",
+      "title": "商品人物自然试穿",
+      "category": "ecommerce",
+      "path": "skills/ecommerce/product-person-tryon",
+      "source": "/Volumes/Samsung_T5/code/my-workflow/ecommerce/person-tryon/skills/product-person-tryon",
+      "summary": "使用指定人物图与商品参考图生成自然场景中的穿戴图片，保留人物特征和商品可见结构，记录提示词、角色映射及补全假设。",
+      "status": "collected",
+      "collectedAt": "2026-11-02",
+      "updatedAt": "2026-11-02",
+      "supplemental": [
+        {
+          "source": "仓库根目录LICENSE和COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补充完整源码副本的仓库许可，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明宿主图像能力及人物、商品与场景素材的权利边界。"
+        }
+      ],
+      "note": "完整保留两份来源文件并补入三份许可及权利说明；仅收录Skill，不收录项目输出、真实图片、演示ZIP或虚拟环境，不改动已有发现链接，不自动安装。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原Skill未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原Skill未含此文件。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "e787686d1e2db1ee59d094c8cf8e1c756cc1e3740ce35381d39f68e50dd515d1",
+          "sourceSha256": "e787686d1e2db1ee59d094c8cf8e1c756cc1e3740ce35381d39f68e50dd515d1"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "6b6225b8edaab57dbf84b30daba90263756470ebca79ccec20ac2701e2dc9f46",
+          "note": "仓库补充；原Skill未含此文件。"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "13dce33243c34102470d98afed9a8e45fc9d87d207f096f9d3ac4413ca8d9c71",
+          "sourceSha256": "13dce33243c34102470d98afed9a8e45fc9d87d207f096f9d3ac4413ca8d9c71"
+        }
+      ]
+    },
+    {
       "slug": "bilibili-toolkit",
       "title": "B站视频解析工具箱",
       "category": "video",
@@ -1730,6 +1884,104 @@
           "path": "scripts/transcribe.py",
           "sha256": "8dee5cd883b18800e75771bee5378e9edf26b2c36dda23009c8a3032fb1c85f0",
           "sourceSha256": "8dee5cd883b18800e75771bee5378e9edf26b2c36dda23009c8a3032fb1c85f0"
+        }
+      ]
+    },
+    {
+      "slug": "rental-company-due-diligence",
+      "title": "租赁公司签约前尽调",
+      "category": "intelligence",
+      "path": "skills/intelligence/rental-company-due-diligence",
+      "source": "/Volumes/Samsung_T5/code/my-workflow/intelligence/rental-company-due-diligence/skills/rental-company-due-diligence",
+      "summary": "核对租赁品牌、签约和收款主体，调查公开背景、投诉及司法监管信息，输出有证据与缺口的签约付款建议；自带离线检索规划工具。",
+      "status": "collected",
+      "collectedAt": "2026-11-03",
+      "updatedAt": "2026-11-03",
+      "supplemental": [
+        {
+          "source": "/Volumes/Samsung_T5/code/my-workflow/intelligence/rental-company-due-diligence/tests/test_prepare_research.py",
+          "destination": "tests/test_prepare_research.py",
+          "reason": "补入同项目规划器测试，仅调整包内脚本相对路径。"
+        },
+        {
+          "source": "仓库根目录LICENSE和COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入源码分发所需的仓库许可，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明外部方法来源、工具与公开资料及用户材料的权利边界。"
+        }
+      ],
+      "note": "完整保留9个Skill源文件，补入同项目测试和三份许可及权利说明；保留外部方法引用，不归集private/out、真实案例或开发验证产物，不安装或执行实际企业调查。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充；原Skill未含此文件。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充；原Skill未含此文件。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "102dff153e3067cb16ef7a348526d60e8a2b56164c07a6d46585cbab8a2df42f",
+          "sourceSha256": "102dff153e3067cb16ef7a348526d60e8a2b56164c07a6d46585cbab8a2df42f"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "e4ebd6a043ea0c6b7a9262420f8b7e2af15b5ad7806f33db8dd436a28a015cb8",
+          "note": "仓库补充；原Skill未含此文件。"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "06dabc618f94ad54cf84adb864dd80b90335ea468b01d7e701e22fa93ccac77a",
+          "sourceSha256": "06dabc618f94ad54cf84adb864dd80b90335ea468b01d7e701e22fa93ccac77a"
+        },
+        {
+          "path": "references/adaptation-notes.md",
+          "sha256": "dbe2fe851504034f8d789b082b47b2fd1b205a4140752ffd0224194f605803d4",
+          "sourceSha256": "dbe2fe851504034f8d789b082b47b2fd1b205a4140752ffd0224194f605803d4"
+        },
+        {
+          "path": "references/complaint-review.md",
+          "sha256": "2dd42543023af8838d4a59a04435896e97b8e33a9e8be436f548b7c82877823e",
+          "sourceSha256": "2dd42543023af8838d4a59a04435896e97b8e33a9e8be436f548b7c82877823e"
+        },
+        {
+          "path": "references/evidence-relations.md",
+          "sha256": "10644adbf5de48c4c91749ef16d68cb1d93030b3879eb59b12934b5708df7361",
+          "sourceSha256": "10644adbf5de48c4c91749ef16d68cb1d93030b3879eb59b12934b5708df7361"
+        },
+        {
+          "path": "references/report-format.md",
+          "sha256": "dfe793d41736c3ee4b9fd9b638662313b4e6a006ec50f8cb5ff25259afcb94a9",
+          "sourceSha256": "dfe793d41736c3ee4b9fd9b638662313b4e6a006ec50f8cb5ff25259afcb94a9"
+        },
+        {
+          "path": "references/risk-decision.md",
+          "sha256": "e649e18d3978da589d4ed7e71ce54c28feb240dd791794de96fb3b351d53d81b",
+          "sourceSha256": "e649e18d3978da589d4ed7e71ce54c28feb240dd791794de96fb3b351d53d81b"
+        },
+        {
+          "path": "references/search-and-sources.md",
+          "sha256": "b417fdf4be2df29c5df855c892bdaa7234a980421c65193ccd95816ec6d68d70",
+          "sourceSha256": "b417fdf4be2df29c5df855c892bdaa7234a980421c65193ccd95816ec6d68d70"
+        },
+        {
+          "path": "scripts/prepare_research.py",
+          "sha256": "005cd8a70e4998ce9d20bc3ad652c7c646cab15f8144bafbe2e31caf314acf1a",
+          "sourceSha256": "005cd8a70e4998ce9d20bc3ad652c7c646cab15f8144bafbe2e31caf314acf1a"
+        },
+        {
+          "path": "tests/test_prepare_research.py",
+          "sha256": "938e9cd70f13263cfef4de073db7b2860b114e4c0ef58c96c0960b6443aa96ea",
+          "source": "/Volumes/Samsung_T5/code/my-workflow/intelligence/rental-company-due-diligence/tests/test_prepare_research.py",
+          "sourceSha256": "111150db627d18301f586f2aa4392536d6affd485e4bdd60f1644d85aeffd84d",
+          "note": "同项目原有测试；仅把脚本定位改为本Skill内scripts/prepare_research.py。"
         }
       ]
     }

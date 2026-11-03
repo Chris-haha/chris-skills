@@ -1,0 +1,4 @@
+interface:
+  display_name: "商品人物自然试穿"
+  short_description: "用指定人物和商品参考图生成保留人物特征、商品细节与自然场景的穿戴效果图"
+  default_prompt: "使用 $product-person-tryon，把商品图中的商品穿戴到人物图中的人身上，保留人物特征和商品细节，背景自然应景。"

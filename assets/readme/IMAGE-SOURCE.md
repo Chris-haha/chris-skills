@@ -1,8 +1,20 @@
 # README 配图记录
 
+## 2026-11-03 租赁公司签约前尽调收录配图
+
+- 总览：[skills-overview-20261103-rental.png](skills-overview-20261103-rental.png)，以已查看的B站版本总览为风格参考，加入情报调研场景，展示17个Skill及1个独立工作流；保留此前全部总览和能力配图。
+- 详情：[rental-company-due-diligence-research-desk.png](rental-company-due-diligence-research-desk.png)，以租户和研究顾问共同核对未签合同、主体资料、证据来源和付款条件的场景说明用途；待核验事项仍为空，不能解读为安全认证。
+- 生成方式：内置image_gen，工具未披露实际模型名称。完整提示词和原始输出见 [rental-due-diligence-20261103-prompts.md](rental-due-diligence-20261103-prompts.md)。
+- 性质：AI生成的能力概念图；未使用真实公司、租户、合同或调查资料，不代表实际调查、法律结论或风险概率。两图均已查看并核对中文标题、分类数量和场景。
+
+- `skills-overview-20261103-rental.png` SHA-256：`4173a749ba644e82d359489ff4ec56b36b8f4e6d549d62bab82346bf8f450de8`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-30972af1-e025-4ea6-8cac-085e827e6916.png`。
+- `rental-company-due-diligence-research-desk.png` SHA-256：`6c62875d3ee993f447332731e876f9708fff8499b9a606e6b6dd69488e0d3db2`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-c5c47d9a-bb19-4249-b8ff-2c21d81ac25e.png`。
+
 ## 2026-11-03 B站视频解析工具箱收录配图
 
-- 总览：[skills-overview-20261103-bilibili.png](skills-overview-20261103-bilibili.png)，六类具体工作场景展示16个Skill，另列1个独立工作流；此前总览保留。
+- 总览：[skills-overview-20261103-bilibili.png](skills-overview-20261103-bilibili.png)，六类具体工作场景展示当时本地的16个Skill，另列1个独立工作流；此前总览保留。B站工具箱最初单独提交时远端仅14项，未将此图用于顶部总览；剩余Skill统一提交后，顶部采用17项新版总览。
 - 详情：[bilibili-toolkit-research-desk.png](bilibili-toolkit-research-desk.png)，电影感视频研究桌，展示收听音频、核对时间戳逐字稿与屏幕字幕、整理公开视频清单。
 - 生成方式：内置 image_gen，工具未披露实际模型名称；完整提示词及原始输出见 [bilibili-toolkit-20261103-prompts.md](bilibili-toolkit-20261103-prompts.md)。生成前查看既有总览，本次两图均按文字提示新建。
 - 性质：AI生成的能力概念图，非实际运行截图或平台可用性、转写准确率证明；未使用真实账号、视频或UP主资料。两图已查看并核对标题、数量与场景。
@@ -10,8 +22,30 @@
 - `skills-overview-20261103-bilibili.png` SHA-256：`a83cb218a56fd28dda9b4df1518d8bd634a45ea97e5c1a08c08cfe498f7fcf8c`。
 - `bilibili-toolkit-research-desk.png` SHA-256：`1a831699329a4a9d5e05f5900843a0b661f4b966906fe6cde0b220c9b1cb64fe`。
 
-本图生成时本地另有两项未提交Skill，16项总览仅作为制作记录保存。本次单独提交后远端目录为14项Skill，README顶部保留明确标为历史的13项总览，新增Skill使用详情配图。
+## 2026-11-02 商品人物自然试穿收录配图
 
+- 总览：[skills-overview-20261102-person-tryon.png](skills-overview-20261102-person-tryon.png)，以已查看的旧总览为风格参考，改为四列四行，完整展示15个编号Skill及1个不编号的独立工作流；旧图与此前生图工具收录配图保留。
+- 详情：[product-person-tryon-studio.png](product-person-tryon-studio.png)，采用自然光时装设计工作室场景，表现指定人物照片、商品结构参考与同一人物的自然场景穿戴预览。
+- 生成方式：内置image_gen，工具未披露实际模型名称。完整提示词及原始输出见 [person-tryon-20261102-prompts.md](person-tryon-20261102-prompts.md)。
+- 性质：AI生成的能力概念图，人物、商品与场景均为示意；未复制来源项目的真实样图，不作为试穿结果、身份认证或合身保证。两图均已查看并核对标题、数量及参考角色。
+
+- `skills-overview-20261102-person-tryon.png` SHA-256：`820ca1a0a74d96ef619d76c9d6cb842337b019d73ab39eafc4045a49d9839585`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-5776377a-788b-4a11-a094-a23ed912fecc.png`。
+- `product-person-tryon-studio.png` SHA-256：`a4747d325c3b7bc6bfe3864b5799d5334af12ad076c1e6236d45609292b705b0`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-932b8f48-5f50-4cc8-972e-98823427a1e3.png`。
+
+## 2026-10-29 多源故障切换生图收录配图
+
+- 总览：[skills-overview-20261029-failover.png](skills-overview-20261029-failover.png)，沿用已查看的旧总览作为风格参考，扩展为14个Skill、1个独立工作流；新增外部中转源失败后继续生图的场景，旧总览保留。
+- 详情：[failover-imagegen-tool-atelier.png](failover-imagegen-tool-atelier.png)，采用电影感数字绘画工作室场景，展示停顿的优先工作台、完成图像的备用工作台、批量图片与尝试记录。
+- 生成方式：内置image_gen，工具未披露实际模型名称。未安装或调用本次收录的Skill，未配置真实中转源。
+- 完整提示词及定点修正记录：[failover-imagegen-20261029-prompts.md](failover-imagegen-20261029-prompts.md)。总览初稿第14格的“本地模型／调参”字样已通过图像编辑改为“优先源失败／备用源成功”，避免误述实际能力。
+- 性质：AI生成的能力概念图，非真实应用界面、客户素材、成功率或服务可用性证明；两图均已查看并核对标题、数量和场景。
+
+- `skills-overview-20261029-failover.png` SHA-256：`f5fc97eaef51308863d6939cfda33c4d8cc39dfb467da130f93405aa204bf6fa`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-1d1ce8eb-82fc-4ea0-858e-8981b35bb8b1.png`。
+- `failover-imagegen-tool-atelier.png` SHA-256：`e5ebdb3bc1eea6021f853a8496f2b03cbc69f59c00e9995fd65108f8580007be`。
+  - 原始输出：`/Users/chris/.codex/generated_images/01a171f6-e06a-7913-a4c1-31b38496b916/exec-2189754d-f71b-4fea-9e99-4235ea375f6d.png`。
 
 ## 2026-10-27 视频归档与按参考换商品收录配图
 

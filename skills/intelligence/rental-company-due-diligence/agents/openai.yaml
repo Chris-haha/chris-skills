@@ -1,0 +1,4 @@
+interface:
+  display_name: "租赁公司签约前尽调"
+  short_description: "核查租赁中介背景、投诉与司法记录，识别押金租金及跑路风险并给出签约建议"
+  default_prompt: "请用 $rental-company-due-diligence 调查这家租赁公司，核对签约和收款主体，检索公开背景、投诉及司法信息，给出有证据的签约付款建议。"

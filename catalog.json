@@ -1984,6 +1984,92 @@
           "note": "同项目原有测试；仅把脚本定位改为本Skill内scripts/prepare_research.py。"
         }
       ]
+    },
+    {
+      "slug": "bili-daily-analyst",
+      "title": "B站博主视频与口播分析",
+      "category": "video",
+      "path": "skills/video/bili-daily-analyst",
+      "source": "/Users/chris/.codex/skills/bili-daily-analyst",
+      "summary": "围绕用户指定的B站博主与视频整理口播分析和周期日报，核验账号与时间窗口，记录覆盖、缺失段、重试状态及可恢复进度。",
+      "status": "collected",
+      "collectedAt": "2026-11-14",
+      "updatedAt": "2026-11-14",
+      "supplemental": [
+        {
+          "source": "仓库根目录LICENSE和COMMERCIAL-LICENSE.md",
+          "destination": ".",
+          "reason": "补入完整Skill副本所需的仓库许可，仅覆盖本人有权授权的内容。"
+        },
+        {
+          "source": "本仓库维护补充",
+          "destination": "THIRD_PARTY_NOTICES.md",
+          "reason": "说明本机Skill来源、内置取材工具、外部依赖及用户资料权利边界。"
+        }
+      ],
+      "note": "完整保留九份源文件并补入三份许可及权利说明；不复制个人名单、历史报告、媒体、模型、虚拟环境或凭据，不修改已安装来源，不创建订阅或定时任务。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "localSupplement": true
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "localSupplement": true
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "e93a82bcfe79801b8a4fb003c0fba4d0f4a18cce09505ca5f58337bc329d9be3",
+          "sourceSha256": "e93a82bcfe79801b8a4fb003c0fba4d0f4a18cce09505ca5f58337bc329d9be3"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "09fda12bf751e61389c1367a7db83e1caa824c9a35744edff2695372f239bd7c",
+          "localSupplement": true
+        },
+        {
+          "path": "assets/toolkit/references/up-all-videos.md",
+          "sha256": "59f4b1703d3e84acd56b8f7d83cb451d8c393727f8e1f19c7e5c620120947d0b",
+          "sourceSha256": "59f4b1703d3e84acd56b8f7d83cb451d8c393727f8e1f19c7e5c620120947d0b"
+        },
+        {
+          "path": "assets/toolkit/scripts/bili_media.py",
+          "sha256": "869939f76689ddb1eada8eff8bc1c6bfbe0393c6379d71d5b9d3217ea0b4bd59",
+          "sourceSha256": "869939f76689ddb1eada8eff8bc1c6bfbe0393c6379d71d5b9d3217ea0b4bd59"
+        },
+        {
+          "path": "assets/toolkit/scripts/bili_meta.py",
+          "sha256": "565aed8c9954fad92f1d68e141db512821287e5d364d3fad27c5b3d12ebba2f0",
+          "sourceSha256": "565aed8c9954fad92f1d68e141db512821287e5d364d3fad27c5b3d12ebba2f0"
+        },
+        {
+          "path": "assets/toolkit/scripts/bili_search_ups.py",
+          "sha256": "56a9bbd4dc4d3c238aef9541a6822ec66e7c8f3577e34d7d46ca762b604f1328",
+          "sourceSha256": "56a9bbd4dc4d3c238aef9541a6822ec66e7c8f3577e34d7d46ca762b604f1328"
+        },
+        {
+          "path": "assets/toolkit/scripts/ocr_frames.py",
+          "sha256": "4ef751c4c94af9bfbcd44b2a54972de2c000b7a7ade4e8ed425d44330a8a0e90",
+          "sourceSha256": "4ef751c4c94af9bfbcd44b2a54972de2c000b7a7ade4e8ed425d44330a8a0e90"
+        },
+        {
+          "path": "assets/toolkit/scripts/transcribe.py",
+          "sha256": "8dee5cd883b18800e75771bee5378e9edf26b2c36dda23009c8a3032fb1c85f0",
+          "sourceSha256": "8dee5cd883b18800e75771bee5378e9edf26b2c36dda23009c8a3032fb1c85f0"
+        },
+        {
+          "path": "references/operation.md",
+          "sha256": "fe58af38033d5b113a20ff8d970379a3961fdd218b645ec2b11c1ff8bb3140ea",
+          "sourceSha256": "fe58af38033d5b113a20ff8d970379a3961fdd218b645ec2b11c1ff8bb3140ea"
+        },
+        {
+          "path": "scripts/bootstrap.py",
+          "sha256": "7cd1f8c1f583e8642b656a789240d639d1967c8d55a21b2cdc8b32a0578c4723",
+          "sourceSha256": "7cd1f8c1f583e8642b656a789240d639d1967c8d55a21b2cdc8b32a0578c4723"
+        }
+      ]
     }
   ],
   "pending": [
@@ -2003,7 +2089,7 @@
     "effectiveDate": "2026-10-11",
     "scope": "仅限本人有权授权的内容；第三方内容除外"
   },
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-14",
   "workflows": [
     {
       "slug": "ecommerce-template-image-workflow",

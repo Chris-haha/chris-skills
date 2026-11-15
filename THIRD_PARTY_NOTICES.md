@@ -16,6 +16,7 @@
 | 商品人物自然试穿 | 用户指定的 ecommerce/person-tryon/skills/product-person-tryon；来源见 SOURCES.md 与 catalog.json | 两份指导及元数据源文件原样保留，仓库许可仅覆盖本人有权授权的内容；宿主图像工具及用户人物、商品与场景素材按各自权利使用，不收录真实样图，详见包内 THIRD_PARTY_NOTICES.md |
 | B站视频解析工具箱 | 用户提供的 bilibili-toolkit.zip；解包至 skills/video/bilibili-toolkit/ | 六个来源文件原样保留，源包未附独立许可或作者信息；仓库许可仅覆盖本人有权授权的内容。媒体、字幕、模型及平台权利独立适用，详见包内 THIRD_PARTY_NOTICES.md |
 | 租赁公司签约前尽调 | 用户指定的 intelligence/rental-company-due-diligence/skills/rental-company-due-diligence；来源见 SOURCES.md 与 catalog.json | 原样保留9个源文件及外部方法来源记录，另补入同项目单元测试；许可仅覆盖本人有权授权的内容，公开来源、工具与用户材料独立适用权利说明，详见包内 THIRD_PARTY_NOTICES.md |
+| B站博主视频与口播分析 | 用户指定的本机bili-daily-analyst；来源见SOURCES.md与catalog.json | 九份源文件原样保留；原目录未附独立许可，仓库许可仅覆盖本人有权授权的部分。内置取材工具、外部模型与平台内容按各自权利使用，详见包内THIRD_PARTY_NOTICES.md |
 | 人际冲突 Skill 及历史 HTML 案例 | skills/communication/deal-with-jerks/ | 本人有权授权的部分适用 LICENSE；历史案例不作为事实或咨询质量的证明 |
 | 模板库电商生图工作流及八张模板参考图 | workflows/ecommerce/ecommerce-template-image-workflow/；来源见 SOURCES.md 与 catalog.json | 源目录未附许可或逐图权利证明；本人有权授权的部分适用 LICENSE，模板参考图使用前需核实授权，详见工程 THIRD_PARTY_NOTICES.md |
 | 商品图、模特参考图与生成场景图 | assets/examples/sources.json 所列原始项目和博客资产 | 可能涉及摄影、肖像、商标、商品设计及生成服务条款；不授予独立转载、商业使用或品牌背书权限 |
@@ -40,6 +41,7 @@
 - 商品人物自然试穿：Skill仅包含指导与Agent元数据，默认使用宿主看图及内置图像工具；不分发图像模型、API凭据、人物参考或真实生成结果。人物、摄影、商品与生成服务权利独立适用。
 - B站视频解析工具箱：Python 3.12、faster-whisper、PyAV、CTranslate2、rapidocr-onnxruntime、Pillow 及识别模型；列表整理另依赖额外浏览器技能。原包以 Windows 为例，不分发环境、模型、账号、视频或字幕，版本与平台可用性未在本次收录中验证。
 - 租赁公司签约前尽调：可选查询规划器仅用Python标准库；实际调查需要宿主联网、网页阅读和浏览器能力，公开登记、司法、投诉等资料适用来源规则。方法参考及取舍见包内references/adaptation-notes.md，不分发第三方Skill、真实合同或调查结果。
+- B站博主视频与口播分析：Python、faster-whisper、PyAV、CTranslate2、rapidocr-onnxruntime、Pillow及模型；实际分析需宿主联网／浏览器，定时运行需另行配置自动化，不附带个人订阅、媒体、历史分析、凭据或调度。
 - 外部服务：飞书 API、图片生成服务及其他接入服务，其服务条款、费用和数据规则独立适用。
 
 本仓库的 LICENSE 不覆盖上述第三方组件，不撤销其原许可授予的权限，也不免除其署名、分发、源码提供或付费许可等要求。尤其不得因获得本项目商业授权，就推断已获得 Remotion、模型、字体或素材的全部商业权限。

@@ -18,6 +18,8 @@
 | product-person-tryon | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/person-tryon/skills/product-person-tryon` | `skills/ecommerce/product-person-tryon` |
 | bilibili-toolkit | `/Users/chris/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_8ji05hs5w3gc22_3eea/temp/RWTemp/2026-11/b2c0f4fb9b7a2ce09b59bc31f7946a8c/bilibili-toolkit.zip`（用户提供 ZIP） | `skills/video/bilibili-toolkit` |
 | rental-company-due-diligence | `/Volumes/Samsung_T5/code/my-workflow/intelligence/rental-company-due-diligence/skills/rental-company-due-diligence` | `skills/intelligence/rental-company-due-diligence` |
+| bili-daily-analyst | `/Users/chris/.codex/skills/bili-daily-analyst`（用户指定本机Skill） | `skills/video/bili-daily-analyst` |
+
 
 | 工作流 | 原始目录 | 归集目录 |
 | --- | --- | --- |
@@ -197,3 +199,15 @@
 按用户明确授权，将多源故障切换生图、商品人物自然试穿、租赁公司签约前尽调及配套文档、来源记录和既有AI配图一并提交并推送。当前目录为17个Skill、1个独立工作流，README顶部采用17项新版总览；此前记录中的“未提交或推送”是各次初始收录状态。本次不安装Skill，不调用真实生图服务或开展企业调查。
 
 本轮提交前复测：租赁检索规划器4/4测试通过；生图工具21/23项本地模拟测试通过，GUI冒烟与模型下拉框两项各在60秒后超时。最小Tk窗口可创建，带堆栈诊断的应用复现停在setup.py的app.update()；当前环境为系统Python 3.9/Tk 8.5，GUI挂起原因尚未确定，本轮保留原源码并如实记录，不能将此前环境的23项通过记录当成本次全部通过。来源文件比对、清单哈希、Python语法、文档链接和配图哈希检查通过；未调用真实外部服务。
+
+## 2026-11-14 B站博主视频与口播分析收录
+
+- 按用户指定的本机Skill目录收录九份源文件到skills/video/bili-daily-analyst，保留名称及全部内容；包含SKILL.md、运行指南、初始化脚本、五份取材／转写／OCR脚本及投稿参考手册。可用博客PROJECT_SOURCES.md未检索到该准确名称，以本次指定来源为准。
+- 不修改已安装目录，不执行技能正文中的订阅、视频采集或调度指令。未归集名单、报告、媒体、模型、环境、凭据或其它工作区内容；补入两份仓库许可和专属THIRD_PARTY_NOTICES.md，共12个文件。
+- 更新README用途、选择指引、交付与依赖，说明宿主分析与自动化边界、多P目录约束、平台历史经验和当前转写脚本没有关闭VAD选项。源文件SHA-256与当前哈希逐项登记于catalog.json。
+- 新增视频研究桌概念图并更新18个Skill、1个独立工作流总览，使用内置image_gen；提示词、原始输出及哈希见assets/readme/IMAGE-SOURCE.md及对应提示词文件。
+- 本次仅收录、整理与本地验证，不自动安装、不创建订阅或定时任务、不调用真实B站或模型服务，不创建ZIP，不提交或推送。
+
+### 2026-11-15 提交说明
+
+用户明确授权将本次收录提交至GitHub。提交前重新核对12个交付文件哈希、六份Python脚本语法、初始化和已有文件保护行为、114个本地文档链接及两张配图哈希；检查通过。此前“未提交或推送”描述的是初次收录状态；本次仅提交该Skill及其配套说明与配图，不创建ZIP或定时任务。

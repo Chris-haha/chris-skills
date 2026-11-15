@@ -1,5 +1,16 @@
 # README 配图记录
 
+## 2026-11-14 B站博主视频与口播分析收录配图
+
+- 总览：[skills-overview-20261114-bili-daily.png](skills-overview-20261114-bili-daily.png)，七类具体场景展示18个Skill，另列1个独立工作流；视频创作更新为5项，历史配图保留。
+- 详情：[bili-daily-analyst-research-desk.png](bili-daily-analyst-research-desk.png)，晨光中的视频研究桌，表现账号待核验、口播与逐字稿比对、周期报告、缺失片段和待重试记录。
+- 生成方式：内置image_gen，实际模型名称未披露；两图均按文字提示新建，未使用真实视频、账号、名单或历史报告。完整提示词和原始输出见[bili-daily-analyst-20261114-prompts.md](bili-daily-analyst-20261114-prompts.md)。
+- 性质：能力概念图，非实际运行截图、完整覆盖证明或已建立自动化的证明。两图已查看，核对标题、分类数量及缺口状态。详情图中的2025年日期及口播内容均为模型生成的虚构示例，不代表本次统计窗口或真实研究。
+
+- `skills-overview-20261114-bili-daily.png` SHA-256：`651984bd0c7f8b8f51ffdeef58b81bb9f06628eba167e7caded033ab80ffa905`。
+- `bili-daily-analyst-research-desk.png` SHA-256：`7d48f85236e99da5b88c7d4db080d7e31c947f2daca1525616c7cfe525040998`。
+
+
 ## 2026-11-03 租赁公司签约前尽调收录配图
 
 - 总览：[skills-overview-20261103-rental.png](skills-overview-20261103-rental.png)，以已查看的B站版本总览为风格参考，加入情报调研场景，展示17个Skill及1个独立工作流；保留此前全部总览和能力配图。

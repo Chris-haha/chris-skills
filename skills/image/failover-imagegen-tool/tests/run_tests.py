@@ -387,25 +387,25 @@ def t18_gui_model_combobox():
             extra_env={"FAILOVER_IMAGEGEN_TOOL_GUI_SELFTEST": "1"})
     assert p.returncode == 0 and "gui selftest ok" in p.stdout, \
         "rc=%d out=%s err=%s" % (p.returncode, p.stdout, p.stderr)
-    return "模型字段为可编辑下拉：预置 通用模型 + 手动输入均可用"
+    return "模型字段为可编辑下拉：预置 gpt 系模型 + 手动输入均可用"
 
 
 def t19_model_cascade_500():
-    """站内模型级联：model-image-a 过载(500) -> 自动换本站 model-art-b 成功。"""
+    """站内模型级联：gpt-image-2 过载(500) -> 自动换本站 dall-e-3 成功。"""
     s = start("model_down")
     wd = tempfile.mkdtemp()
     cfg = os.path.join(wd, "config.json")
     write_config(cfg, [make_src_multi("cascade", s.server_address[1],
-                                      ["model-image-a", "model-art-b"])])
+                                      ["gpt-image-2", "dall-e-3"])])
     p = run([GEN, "generate", "--prompt-file", make_prompt(wd), "--name", "t19"], wd, cfg)
     assert p.returncode == 0, p.stdout + p.stderr
     assert "换本站下一个模型" in p.stdout, p.stdout
     meta, _ = read_meta(wd)
     att = meta["attempts"]
     assert len(att) == 2, "应为 2 次尝试（同站两模型），实际 %d" % len(att)
-    assert att[0]["model"] == "model-image-a" and att[0]["ok"] is False and "500" in att[0]["error"]
-    assert att[1]["model"] == "model-art-b" and att[1]["ok"] is True
-    assert meta["source"]["model"] == "model-art-b"
+    assert att[0]["model"] == "gpt-image-2" and att[0]["ok"] is False and "500" in att[0]["error"]
+    assert att[1]["model"] == "dall-e-3" and att[1]["ok"] is True
+    assert meta["source"]["model"] == "dall-e-3"
     return "500 时站内换模型成功（未换站），meta 记录模型级联"
 
 
@@ -415,28 +415,29 @@ def t20_model_cascade_404():
     wd = tempfile.mkdtemp()
     cfg = os.path.join(wd, "config.json")
     write_config(cfg, [make_src_multi("cascade404", s.server_address[1],
-                                      ["model-image-a", "model-art-c"])])
+                                      ["gpt-image-2", "flux-1.1-pro"])])
     p = run([GEN, "generate", "--prompt-file", make_prompt(wd), "--name", "t20"], wd, cfg)
     assert p.returncode == 0, p.stdout + p.stderr
     meta, _ = read_meta(wd)
     att = meta["attempts"]
-    assert att[0]["model"] == "model-image-a" and "404" in att[0]["error"], att[0]
-    assert att[1]["model"] == "model-art-c" and att[1]["ok"] is True, att[1]
+    assert att[0]["model"] == "gpt-image-2" and "404" in att[0]["error"], att[0]
+    assert att[1]["model"] == "flux-1.1-pro" and att[1]["ok"] is True, att[1]
     return "404 时站内换模型成功"
 
 
 def t21_models_discovery():
-    """--models：完整列出服务端返回的模型，包括名称不含图像关键字的模型。"""
+    """--models：过滤出生图模型、排除非生图模型。"""
     s = start("models_ok")
     wd = tempfile.mkdtemp()
     cfg = os.path.join(wd, "config.json")
     write_config(cfg, [make_src("discover", s.server_address[1])])
     p = run([GEN, "--models"], wd, cfg)
     assert p.returncode == 0, p.stdout + p.stderr
-    for mid in ("model-image-a", "model-art-b", "model-text-a", "model-unknown-19"):
-        assert mid in p.stdout, "应完整列出模型 %s: %s" % (mid, p.stdout)
-    assert "自行" in p.stdout and "生图" in p.stdout, p.stdout
-    return "模型发现：完整列出模型并提示自行选择"
+    for mid in ("gpt-image-2", "dall-e-3", "flux-1.1-pro"):
+        assert mid in p.stdout, "应包含生图模型 %s: %s" % (mid, p.stdout)
+    assert "gpt-4o" not in p.stdout and "text-embedding-3" not in p.stdout, \
+        "不应包含非生图模型: %s" % p.stdout
+    return "模型发现：过滤出 4 个生图模型，排除 gpt-4o/embedding"
 
 
 def t22_check_health_and_stats():
@@ -477,6 +478,39 @@ def t23_batch():
     return "批量 3 条：2 成功 1 失败继续跑，注释/空行跳过，退出码 1"
 
 
+def t24_appdata_fallback():
+    """配置回退：无配置路径环境变量且无本地 config.json 时，读取平台统一配置。
+    构造一个无本地配置的引擎副本（模拟 App 安装到 Agent 目录的形态），任何机器结果一致。"""
+    s = start("ok_b64")
+    wd = tempfile.mkdtemp()
+    eng = os.path.join(wd, "engine")
+    shutil.copytree(os.path.join(SKILL_DIR, "scripts"), os.path.join(eng, "scripts"))
+    gen = os.path.join(eng, "scripts", "failover_imagegen_tool.py")
+    assert not os.path.exists(os.path.join(eng, "config.json"))
+    appdata = os.path.join(wd, "Roaming")
+    xdg_config = os.path.join(wd, "xdg-config")
+    config_root = appdata if os.name == "nt" else xdg_config
+    cfg = os.path.join(config_root, "failover-imagegen-tool", "config.json")
+    os.makedirs(os.path.dirname(cfg), exist_ok=True)
+    write_config(cfg, [make_src("appdata-src", s.server_address[1])])
+    env = dict(os.environ)
+    env["HOME"] = wd
+    env["USERPROFILE"] = wd
+    env["APPDATA"] = appdata
+    env["XDG_CONFIG_HOME"] = xdg_config
+    env.pop("FAILOVER_IMAGEGEN_TOOL_CONFIG", None)  # 关键：不给环境变量
+    env["PYTHONIOENCODING"] = "utf-8"
+    p = subprocess.run([PY, gen, "--list-sources"], cwd=wd, capture_output=True,
+                       text=True, encoding="utf-8", errors="replace", env=env, timeout=60)
+    assert p.returncode == 0 and "appdata-src" in p.stdout, p.stdout + p.stderr
+    # 完整生图也应走平台统一配置成功
+    p = subprocess.run([PY, gen, "generate", "--prompt-file", make_prompt(wd), "--name", "t24"],
+                       cwd=wd, capture_output=True, text=True, encoding="utf-8",
+                       errors="replace", env=env, timeout=120)
+    assert p.returncode == 0, p.stdout + p.stderr
+    return "无 env/无本地配置时回退平台统一配置（list + 生图均成功）"
+
+
 def t17_force_overwrite_and_unique():
     s = start("ok_b64")
     wd = tempfile.mkdtemp()
@@ -492,6 +526,82 @@ def t17_force_overwrite_and_unique():
     assert force_run.returncode == 0, force_run.stdout + force_run.stderr
     assert "已存在则追加" not in force_run.stdout
     return "默认不覆盖（追加 -2），--force 生效"
+
+
+def t25_failover_disabled():
+    """failover=false：只尝试首位源首个模型，失败不切换（用户主动关闭故障转移）。"""
+    s1, s2 = start("fail500"), start("ok_b64")
+    wd = tempfile.mkdtemp()
+    cfg = os.path.join(wd, "config.json")
+
+    def write_cfg(sources):
+        with open(cfg, "w", encoding="utf-8") as f:
+            json.dump({"version": 1, "sources": sources, "failover": False},
+                      f, ensure_ascii=False, indent=2)
+
+    write_cfg([make_src_multi("dead", s1.server_address[1], ["m1", "m2"]),
+               make_src("alive", s2.server_address[1])])
+    p = run([GEN, "generate", "--prompt-file", make_prompt(wd), "--name", "t25"], wd, cfg)
+    assert p.returncode == 1, "关闭故障转移后应失败: %s\n%s" % (p.stdout, p.stderr)
+    assert "故障转移已关闭" in p.stdout, "stdout 应说明故障转移已关闭: %s" % p.stdout
+    assert "alive" not in p.stdout, "不应尝试第二个源: %s" % p.stdout
+    pngs, _ = outputs(wd)
+    assert not pngs, "不应产出图片: %s" % pngs
+    write_cfg([make_src("only", s2.server_address[1])])
+    p = run([GEN, "generate", "--prompt-file", make_prompt(wd), "--name", "t25b"], wd, cfg)
+    assert p.returncode == 0, p.stdout + p.stderr
+    meta, _mp = read_meta(wd)
+    assert len(meta["attempts"]) == 1, "关闭故障转移成功路径应只有 1 次尝试: %s" % meta["attempts"]
+    return "failover=false 仅试首位源首个模型（失败不切换 / 成功单次尝试）"
+
+
+def t26_prefer_source():
+    """★首选：prefer 与数组顺序无关，生图先试它；禁用回退首个启用源；关故障转移只用首选。"""
+    import glob as _glob
+    sa, sb, sf = start("ok_b64"), start("ok_url"), start("fail500")
+    wd = tempfile.mkdtemp()
+    cfg = os.path.join(wd, "config.json")
+
+    def save(doc):
+        with open(cfg, "w", encoding="utf-8") as f:
+            json.dump(doc, f, ensure_ascii=False, indent=2)
+
+    def meta_of(prefix):
+        files = sorted(_glob.glob(os.path.join(wd, "generated",
+                                               "%s*.meta.json" % prefix)),
+                       key=os.path.getmtime)
+        assert files, "缺少 %s 的 meta" % prefix
+        with open(files[-1], "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    # 1) prefer 指向数组第二位 → 仍第一个尝试并成功
+    save({"version": 1, "prefer": "beta",
+          "sources": [make_src("alpha", sa.server_address[1]),
+                      make_src("beta", sb.server_address[1])]})
+    p = run([GEN, "generate", "--prompt-file", make_prompt(wd), "--name", "t26a"], wd, cfg)
+    assert p.returncode == 0, p.stdout + p.stderr
+    att = meta_of("t26a")["attempts"]
+    assert att[0]["source"] == "beta" and att[0]["ok"], \
+        "★首选 beta 应第一个尝试且成功: %s" % att
+    # 2) 首选被禁用 → 回退数组顺序首个启用源 alpha
+    doc = json.load(open(cfg, encoding="utf-8"))
+    doc["sources"][1]["enabled"] = False
+    save(doc)
+    p = run([GEN, "generate", "--prompt-file", make_prompt(wd), "--name", "t26b"], wd, cfg)
+    assert p.returncode == 0, p.stdout + p.stderr
+    att = meta_of("t26b")["attempts"]
+    assert att[0]["source"] == "alpha", "首选禁用应回退首个启用源: %s" % att
+    # 3) 故障转移关 + 首选为 500 站 → 只试首选，失败不切换
+    save({"version": 1, "failover": False, "prefer": "beta",
+          "sources": [make_src("alpha", sa.server_address[1]),
+                      make_src("beta", sf.server_address[1])]})
+    p = run([GEN, "generate", "--prompt-file", make_prompt(wd), "--name", "t26c"], wd, cfg)
+    assert p.returncode == 1 and "故障转移已关闭" in p.stdout, p.stdout + p.stderr
+    assert "尝试源 beta" in p.stdout and "尝试源 alpha" not in p.stdout, p.stdout
+    # 4) --list-sources 标注 ★
+    p = run([GEN, "--list-sources"], wd, cfg)
+    assert "★2. [启用] beta" in p.stdout and " 1. [启用] alpha" in p.stdout, p.stdout
+    return "★首选优先尝试（与顺序无关）/禁用回退/关闭故障转移只用首选/list 标★"
 
 
 def main():
@@ -514,15 +624,18 @@ def main():
         ("T12 连接拒绝（站点挂掉）切换源", t12_connection_refused_failover),
         ("T13 200 无图字段切换源", t13_noimage_then_success),
         ("T14 空提示词拦截", t14_empty_prompt),
-        ("T15 setup CLI 全流程 + 生成联动", t15_setup_cli_and_generate),
+        ("T15 setup CLI 全流程 + 生成集成", t15_setup_cli_and_generate),
         ("T16 GUI 冒烟", t16_gui_smoke),
         ("T17 不覆盖/追加后缀与 --force", t17_force_overwrite_and_unique),
         ("T18 模型下拉框（预置+手输）", t18_gui_model_combobox),
         ("T19 站内模型级联（500 换模型）", t19_model_cascade_500),
         ("T20 站内模型级联（404 换模型）", t20_model_cascade_404),
-        ("T21 模型发现", t21_models_discovery),
+        ("T21 模型发现过滤", t21_models_discovery),
         ("T22 健康体检+历史统计", t22_check_health_and_stats),
         ("T23 批量生图（失败续跑）", t23_batch),
+        ("T24 平台统一配置回退", t24_appdata_fallback),
+        ("T25 故障转移开关（关闭=仅首位源）", t25_failover_disabled),
+        ("T26 ★首选源（prefer 置顶）", t26_prefer_source),
     ]
     for name, fn in tests:
         record(name, fn)

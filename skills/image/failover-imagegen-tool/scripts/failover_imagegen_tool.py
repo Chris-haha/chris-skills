@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""failover-imagegen-tool 主脚本：兼容标准接口的中转站生图，多源×多模型级联故障切换。
+"""failover-imagegen-tool 主脚本：OpenAI 兼容中转站生图，多源×多模型级联故障切换。
 
 用法示例：
   python failover_imagegen_tool.py generate --prompt-file p.txt --name test --size 4k
   python failover_imagegen_tool.py generate --prompt "..." --input-image ref.png   # 编辑模式
   python failover_imagegen_tool.py batch --prompts-file jobs.txt --name blog       # 批量生图
-  python failover_imagegen_tool.py --models        # 列出各中转站返回的模型
+  python failover_imagegen_tool.py --models        # 发现各中转站支持的生图模型
   python failover_imagegen_tool.py --check         # 源健康体检 + 历史成功/耗时统计
   python failover_imagegen_tool.py --list-sources
 
@@ -16,7 +16,7 @@
     （模型 ID/尺寸/提示词问题），换站换模型大概率同样失败，不要靠重试绕过
 
 输出：当前目录 generated/ 下 {name}-YYYYMMDD-HHMMSS-{尺寸标签}.png（或 .jpg）
-      与同名 .meta.json（模型、尺寸、提示词快照、耗时、逐次尝试记录，不含 API Key）。
+      与同名 .meta.json（模型、尺寸、提示词快照、耗时、逐次尝试记录，分享前需检查敏感内容）。
 """
 import argparse
 import base64
@@ -49,6 +49,11 @@ DEFAULT_SIZE = (2560, 1440)
 
 # 这些 HTTP 状态视为「站点级故障/限制」：直接换下一个中转站
 FAILOVER_SOURCE_HTTP = {401, 403, 408, 429}
+# 模型发现时的生图模型关键字（大小写不敏感）
+IMAGE_HINT = re.compile(
+    r"image|dall|flux|midjourney|\bmj\b|stable|sdxl|sd3|seedream|ideogram|recraft"
+    r"|kolors|hidream|pixart|imagen|wanx|imagine|banana|leo", re.IGNORECASE)
+
 PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
 JPEG_MAGIC = b"\xff\xd8"
 
@@ -204,7 +209,7 @@ def attempt_source(src, prompt, size, input_image, model, verbose=False):
     timeout = int(src.get("timeout") or failovercfg.DEFAULT_TIMEOUT)
     editing = bool(input_image)
     endpoint = base + ("/images/edits" if editing else "/images/generations")
-    headers = {"Authorization": "Bearer " + src["api_key"]}
+    headers = failovercfg.api_headers(src["api_key"])
     t0 = time.time()
 
     try:
@@ -227,7 +232,7 @@ def attempt_source(src, prompt, size, input_image, model, verbose=False):
             )
         if verbose:
             print("    POST %s model=%s size=%dx%d mode=%s"
-                  % (endpoint, model, size[0], size[1], "edit" if editing else "gen"))
+                  % (failovercfg.endpoint_host(base), model, size[0], size[1], "edit" if editing else "gen"))
         status, data, _raw = _http_json(req, timeout)
     except urllib.error.HTTPError as e:
         code = e.code
@@ -260,7 +265,7 @@ def attempt_source(src, prompt, size, input_image, model, verbose=False):
 
 
 def _extract_image(data, timeout):
-    """从兼容标准接口的响应中取出图片字节：兼容 b64_json / url / images[]（URL 或 data:URI）。"""
+    """从 OpenAI 兼容响应中取出图片字节：兼容 b64_json / url / images[]（URL 或 data:URI）。"""
     if not isinstance(data, dict):
         raise AttemptError("next_model", "响应不是 JSON 对象")
     items = data.get("data") if isinstance(data.get("data"), list) else None
@@ -293,8 +298,8 @@ def _download(url, timeout):
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return resp.read()
     except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
-        raise AttemptError("next_source", "下载图片失败 %s: %s"
-                           % (urllib.parse.urlsplit(url).netloc, failovercfg.mask_secrets(e)))
+        raise AttemptError("next_source", "下载图片失败 %s（%s）"
+                           % (failovercfg.endpoint_host(url), type(e).__name__)) from None
 
 
 # ---------------------------------------------------------------- 级联与保存
@@ -304,13 +309,19 @@ def _attempt_plan_count(sources, model_override):
                for s in sources)
 
 
-def _run_attempts(sources, prompt, size, input_image, model_override, verbose=False):
-    """跑完整「站×模型」级联。返回 (result|None, attempts)。致命错误立即停止。"""
-    total = _attempt_plan_count(sources, model_override)
+def _run_attempts(sources, prompt, size, input_image, model_override,
+                  verbose=False, failover=True):
+    """跑完整「站×模型」级联。返回 (result|None, attempts)。
+    failover=False 时只尝试首位源的首个模型，失败不切换（用户主动关闭故障转移）。"""
+    if not failover:
+        sources = sources[:1]
+    total = _attempt_plan_count(sources, model_override) if failover else 1
     attempts = []
     idx = 0
     for si, src in enumerate(sources):
         models = [model_override] if model_override else failovercfg.source_models(src)
+        if not failover:
+            models = models[:1]
         for model in models:
             idx += 1
             host = failovercfg.endpoint_host(src["base_url"])
@@ -327,6 +338,9 @@ def _run_attempts(sources, prompt, size, input_image, model_override, verbose=Fa
                 if e.kind == "fatal":
                     print("    ✗ 致命错误，停止尝试（不会换站/换模型重试）：%s" % e.message)
                     print("      提示：先确认模型 ID 和允许的尺寸，只调整对应参数；不要为绕过 4xx 反复重试。")
+                    return None, attempts
+                if not failover:
+                    print("    ✗ %s —— 故障转移已关闭，不切换其他源/模型" % e.message)
                     return None, attempts
                 if e.kind == "next_source":
                     print("    ✗ %s —— 切换下一个中转站" % e.message)
@@ -391,7 +405,7 @@ def save_outputs(outdir, name, force, size, result, prompt, prompt_file,
         "output_file": os.path.abspath(img_path),
         "output_bytes": len(result["image_bytes"]),
         "duration_seconds": round(time.time() - started_at, 2),
-        "attempts": attempts,  # 每条只含源/模型名与脱敏后的错误，绝不含 API Key
+        "attempts": attempts,  # 错误文本会尝试脱敏，仍需在分享前检查
     }
     meta_path = os.path.splitext(img_path)[0] + ".meta.json"
     with open(meta_path, "w", encoding="utf-8") as f:
@@ -472,7 +486,7 @@ def pick_sources(cfg, only_name, model_override=None):
             raise SystemExit("错误：源 %r 当前处于禁用状态，先用 setup.py enable 启用。" % only_name)
         sources = [src]
     else:
-        sources = failovercfg.enabled_sources(cfg)
+        sources = failovercfg.ordered_sources(cfg)  # ★首选置顶，其余按数组顺序
         if not sources:
             raise SystemExit(
                 "错误：没有已启用的中转源。运行 python scripts/setup.py add ...（或 setup.py gui）配置，"
@@ -497,20 +511,22 @@ def _prepare_generate(args):
     cfg = _load_cfg_or_exit()
     sources = pick_sources(cfg, getattr(args, "source", None),
                            getattr(args, "model", None))
-    return prompt, size, input_image, sources
+    return prompt, size, input_image, sources, failovercfg.failover_enabled(cfg)
 
 
 # ---------------------------------------------------------------- generate
 
 def cmd_generate(args):
-    prompt, size, input_image, sources = _prepare_generate(args)
+    prompt, size, input_image, sources, failover = _prepare_generate(args)
     outdir = args.outdir or "generated"
     started_at = time.time()
-    print("生图：size=%dx%d 模式=%s 源顺序=%s"
-          % (size[0], size[1], "edit" if input_image else "generate",
-             " -> ".join(s["name"] for s in sources)))
+    chain = " -> ".join(s["name"] for s in (sources[:1] if not failover else sources))
+    print("生图：size=%dx%d 模式=%s 源顺序=%s%s"
+          % (size[0], size[1], "edit" if input_image else "generate", chain,
+             "" if failover else "（故障转移已关闭：仅尝试首位源首个模型）"))
     result, attempts = _run_attempts(sources, prompt, size, input_image,
-                                     getattr(args, "model", None), args.verbose)
+                                     getattr(args, "model", None), args.verbose,
+                                     failover=failover)
     if not result:
         _fail_summary(attempts)
         return 1
@@ -539,11 +555,14 @@ def cmd_batch(args):
         raise SystemExit("错误：%s" % e)
     cfg = _load_cfg_or_exit()
     sources = pick_sources(cfg, args.source, args.model)
+    failover = failovercfg.failover_enabled(cfg)
     outdir = args.outdir or "generated"
 
     total = len(prompts)
-    print("批量生图：共 %d 张，size=%dx%d，输出目录 %s，源顺序=%s"
-          % (total, size[0], size[1], outdir, " -> ".join(s["name"] for s in sources)))
+    chain = " -> ".join(s["name"] for s in (sources[:1] if not failover else sources))
+    print("批量生图：共 %d 张，size=%dx%d，输出目录 %s，源顺序=%s%s"
+          % (total, size[0], size[1], outdir, chain,
+             "" if failover else "（故障转移已关闭：仅尝试首位源首个模型）"))
     results = []  # (序号, 提示词, ok, 产物路径, 失败原因)
     t_all = time.time()
     try:
@@ -551,7 +570,8 @@ def cmd_batch(args):
             print("\n===== [%d/%d] %s =====" % (i, total, p[:40]))
             t0 = time.time()
             result, attempts = _run_attempts(sources, p, size, None,
-                                             args.model, args.verbose)
+                                             args.model, args.verbose,
+                                             failover=failover)
             if result:
                 img_path, _mp, _meta = save_outputs(
                     outdir, "%s-%02d" % (args.name, i), args.force, size, result,
@@ -593,7 +613,7 @@ def cmd_models(args):
         host = failovercfg.endpoint_host(base)
         print("源 %s（%s）：" % (src["name"], host))
         req = urllib.request.Request(
-            base + "/models", headers={"Authorization": "Bearer " + src["api_key"]})
+            base + "/models", headers=failovercfg.api_headers(src["api_key"]))
         timeout = min(20, int(src.get("timeout") or 20))
         try:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -615,15 +635,20 @@ def cmd_models(args):
             print("  △ 接口正常但未返回模型列表（该站可能不开放 /models，以服务商文档为准）")
             any_ok = True
             continue
-        print("  可用模型（%d 个）：" % len(ids))
-        for mid in ids:
-            print("    - %s" % mid)
-        print("  请根据服务商文档自行选择支持生图的模型。")
+        hits = [i for i in ids if IMAGE_HINT.search(i)]
+        if hits:
+            print("  生图相关模型（%d 个）：" % len(hits))
+            for mid in hits:
+                print("    - %s" % mid)
+        else:
+            print("  未匹配到常见生图模型，该站全部模型（前 15 个）：")
+            for mid in ids[:15]:
+                print("    - %s" % mid)
         any_ok = True
     if not any_ok:
         print("\n所有源都不可用，先跑 --check 体检。")
         return 1
-    print("\n提示：将选定的生图模型 ID 填进配置（setup.py add --model，或 GUI 里逗号分隔多个）即可使用。")
+    print("\n提示：把上面任一模型 ID 填进配置（setup.py add --model，或 GUI 里逗号分隔多个）即可使用。")
     return 0
 
 
@@ -641,7 +666,7 @@ def cmd_check(_args):
         base = src["base_url"].rstrip("/")
         host = failovercfg.endpoint_host(base)
         req = urllib.request.Request(
-            base + "/models", headers={"Authorization": "Bearer " + src["api_key"]})
+            base + "/models", headers=failovercfg.api_headers(src["api_key"]))
         t0 = time.time()
         try:
             with urllib.request.urlopen(req, timeout=12) as resp:
@@ -651,9 +676,12 @@ def cmd_check(_args):
             ok_count += 1
         except urllib.error.HTTPError as e:
             latency = int((time.time() - t0) * 1000)
-            if e.code in (401, 403):
+            if e.code == 401:
                 print("  △ %s（%s）可达但密钥无效（HTTP %d），生图会失败"
                       % (src["name"], host, e.code))
+            elif e.code == 403:
+                print("  △ %s（%s）请求被拒绝（HTTP 403）；请检查权限或服务商安全策略"
+                      % (src["name"], host))
             else:
                 print("  △ %s（%s）可达（%dms，HTTP %d 无 /models 接口，生图仍可能可用）"
                       % (src["name"], host, latency, e.code))
@@ -693,13 +721,15 @@ def cmd_list_sources(_args):
     if not sources:
         print("配置为空（%s）。用 setup.py add 添加中转源。" % failovercfg.config_path())
         return 1
-    print("配置文件: %s（站顺序即切换优先级，站内模型按顺序级联，仅启用状态的源参与）"
-          % failovercfg.config_path())
+    print("配置文件: %s（★=生图首选，先于列表顺序尝试；其余按列表顺序后备；"
+          "站内模型按顺序级联；仅启用状态的源参与）" % failovercfg.config_path())
+    pi = failovercfg.prefer_index(cfg)
     for i, s in enumerate(sources, 1):
         state = "启用" if s.get("enabled", True) else "禁用"
         timeout = s.get("timeout") or failovercfg.DEFAULT_TIMEOUT
-        print("%d. [%s] %-12s %s  %s  timeout=%ds key=%s"
-              % (i, state, s["name"], failovercfg.models_display(s), s["base_url"],
+        star = "★" if (pi is not None and i - 1 == pi) else " "
+        print("%s%d. [%s] %-12s %s  %s  timeout=%ds key=%s"
+              % (star, i, state, s["name"], failovercfg.models_display(s), failovercfg.endpoint_host(s["base_url"]),
                  timeout, failovercfg.mask_key(s["api_key"])))
     return 0
 
@@ -712,11 +742,11 @@ def main(argv=None):
             pass
     parser = argparse.ArgumentParser(
         prog="failover_imagegen_tool.py",
-        description="兼容标准接口的中转站生图（多源×多模型级联故障切换，输出到 generated/）",
+        description="OpenAI 兼容中转站生图（多源×多模型级联故障切换，输出到 generated/）",
     )
     parser.add_argument("--list-sources", action="store_true", help="列出已配置的中转源")
     parser.add_argument("--models", action="store_true",
-                        help="列出各中转站返回的模型（查 /v1/models）")
+                        help="发现各中转站支持的生图模型（查 /v1/models 并过滤）")
     parser.add_argument("--check", action="store_true",
                         help="源健康体检 + 历史成功/耗时统计")
     sub = parser.add_subparsers(dest="command")
@@ -745,7 +775,7 @@ def main(argv=None):
     b.add_argument("--verbose", action="store_true", help="打印请求细节（不含密钥）")
     b.set_defaults(func=cmd_batch)
 
-    m = sub.add_parser("models", help="列出各中转站返回的模型")
+    m = sub.add_parser("models", help="发现各中转站支持的生图模型")
     m.add_argument("--source", help="只查某个源")
     m.set_defaults(func=cmd_models)
 

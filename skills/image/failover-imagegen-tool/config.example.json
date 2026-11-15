@@ -2,18 +2,18 @@
   "version": 1,
   "sources": [
     {
-      "name": "primary",
-      "base_url": "https://example.invalid/v1",
+      "name": "example-source",
+      "base_url": "https://relay.example.com/v1",
       "api_key": "sk-REPLACE-ME",
-      "model": "image-model-a",
+      "model": "gpt-image-2.5-flare",
       "enabled": true,
       "timeout": 300
     },
     {
       "name": "backup",
-      "base_url": "https://backup.invalid/v1",
+      "base_url": "https://backup.example.com/v1",
       "api_key": "sk-REPLACE-ME-TOO",
-      "models": ["image-model-b", "image-model-c", "image-model-d"],
+      "models": ["gpt-image-2.5-sunburst", "dall-e-3", "flux-1.1-pro"],
       "enabled": true
     }
   ]

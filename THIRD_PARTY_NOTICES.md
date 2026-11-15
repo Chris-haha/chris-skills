@@ -12,7 +12,7 @@
 | 电商视频爆款拆解 | skills/ecommerce/ecommerce-video-breakdown/；来源见 SOURCES.md 与 catalog.json | 媒体取材模块已在本仓库重新实现；保留来源版本与修改记录，仓库许可仅覆盖本人有权授权的内容，平台协议、视频素材与外部工具依赖按各自权利使用，详见包内 THIRD_PARTY_NOTICES.md |
 | 视频链接批量归档 | skills/video/media-urls-batch-archive/；来源为本机已安装 Skill | 保留来源版本的开发与工具依赖说明；仓库许可仅覆盖本人有权授权的流程代码与文档，yt-dlp、FFmpeg、字幕与语音识别工具、模型适用各自许可 |
 | 按参考换商品套图 | skills/ecommerce/ecommerce-reference-product-swap/；来源为本机已安装 Skill | 原包未附独立许可文件；本人有权授权的部分适用 LICENSE，宿主生图服务与 Pillow 等工具独立适用各自条款，用户参考、商品、人物与品牌素材不随包授权 |
-| 多源故障切换生图 | 用户指定的 failover-imagegen-tool-sanitized.zip；解包至 skills/image/failover-imagegen-tool/ | 10个来源文件原样保留；源包未附独立许可，仓库许可仅覆盖本人有权授权的内容；Python、Tcl/Tk、中转服务、模型与素材适用各自权利说明，详见包内 THIRD_PARTY_NOTICES.md |
+| 多源故障切换生图 | 初始来自用户指定脱敏ZIP，2026-11-15同步维护中的img-switch/engine；详见SOURCES.md与catalog.json | 当前12个维护源文件原样保留；源包未附独立许可，仓库许可仅覆盖本人有权授权的内容；Python、Tcl/Tk、中转服务、模型与素材适用各自权利说明，详见包内 THIRD_PARTY_NOTICES.md |
 | 商品人物自然试穿 | 用户指定的 ecommerce/person-tryon/skills/product-person-tryon；来源见 SOURCES.md 与 catalog.json | 两份指导及元数据源文件原样保留，仓库许可仅覆盖本人有权授权的内容；宿主图像工具及用户人物、商品与场景素材按各自权利使用，不收录真实样图，详见包内 THIRD_PARTY_NOTICES.md |
 | B站视频解析工具箱 | 用户提供的 bilibili-toolkit.zip；解包至 skills/video/bilibili-toolkit/ | 六个来源文件原样保留，源包未附独立许可或作者信息；仓库许可仅覆盖本人有权授权的内容。媒体、字幕、模型及平台权利独立适用，详见包内 THIRD_PARTY_NOTICES.md |
 | 租赁公司签约前尽调 | 用户指定的 intelligence/rental-company-due-diligence/skills/rental-company-due-diligence；来源见 SOURCES.md 与 catalog.json | 原样保留9个源文件及外部方法来源记录，另补入同项目单元测试；许可仅覆盖本人有权授权的内容，公开来源、工具与用户材料独立适用权利说明，详见包内 THIRD_PARTY_NOTICES.md |

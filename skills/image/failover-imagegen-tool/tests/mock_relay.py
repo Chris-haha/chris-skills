@@ -11,9 +11,9 @@
   ok_url      返回图片 URL（GET /files/out.png 提供 777x555 图，故意与请求尺寸不同）
   url_dead    返回指向不存在资源的 URL，下载失败应换源
   edits_ok    仅 /v1/images/edits 返回 200；/v1/images/generations 返回 404
-  model_down  请求模型为 model-image-a 时 500（模型过载），其他模型正常出图（测站内模型级联）
-  model_404   请求模型为 model-image-a 时 404（模型不存在），其他模型正常（测站内模型级联）
-  models_ok   GET /v1/models 返回混合模型列表（测模型发现）
+  model_down  请求模型为 gpt-image-2 时 500（模型过载），其他模型正常出图（测站内模型级联）
+  model_404   请求模型为 gpt-image-2 时 404（模型不存在），其他模型正常（测站内模型级联）
+  models_ok   GET /v1/models 返回混合模型列表（测模型发现过滤）
   ok_b64      提示词包含 FORCE_FAIL 时返回 500（测批量失败续跑），否则返回 b64_json 图片
 """
 import base64
@@ -166,14 +166,14 @@ class Handler(BaseHTTPRequestHandler):
             else:
                 self._send_json(200, {"created": 0, "model": "mock-image-model",
                                       "data": [{"b64_json": b64}]})
-        elif mode == "model_down":  # 站内模型级联：model-image-a 过载，其他模型正常
-            if model == "model-image-a":
+        elif mode == "model_down":  # 站内模型级联：gpt-image-2 过载，其他模型正常
+            if model == "gpt-image-2":
                 self._send_json(500, {"error": {"message": "model overloaded (mock)"}})
             else:
                 self._send_json(200, {"created": 0, "model": "mock-image-model",
                                       "data": [{"b64_json": b64}]})
-        elif mode == "model_404":  # 站内模型级联：model-image-a 不存在，其他模型正常
-            if model == "model-image-a":
+        elif mode == "model_404":  # 站内模型级联：gpt-image-2 不存在，其他模型正常
+            if model == "gpt-image-2":
                 self._send_json(404, {"error": {"message": "unknown model (mock)"}})
             else:
                 self._send_json(200, {"created": 0, "model": "mock-image-model",
@@ -200,9 +200,9 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.rstrip("/").endswith("/models") and self.server.mode == "models_ok":
             self._send_json(200, {"object": "list", "data": [
-                {"id": "model-image-a"}, {"id": "model-art-b"},
-                {"id": "model-text-a"},
-            ] + [{"id": "model-unknown-%d" % i} for i in range(20)] + [
+                {"id": "gpt-image-2"}, {"id": "gpt-image-2.5-flare"},
+                {"id": "dall-e-3"}, {"id": "flux-1.1-pro"},
+                {"id": "gpt-4o"}, {"id": "text-embedding-3"},
             ]})
             return
         if self.path == "/files/out.png":

@@ -275,13 +275,13 @@
       "title": "飞书电商生图工作流",
       "category": "ecommerce",
       "path": "skills/ecommerce/feishu-ecommerce-workflow",
-      "source": "/Volumes/Samsung_T5/code/my-workflow/E-commerce/codex_ecommerce_workflow_analysis_20260720/mvp-workflow/skills/feishu-ecommerce-workflow",
+      "source": "/Volumes/Samsung_T5/code/my-workflow/ecommerce/feishu-automation/mvp-workflow/skills/feishu-ecommerce-workflow",
       "blog": "/lab/feishu-ecommerce-workflow",
       "summary": "读取飞书多维表任务，执行生图、归档、状态回写与通知；默认 mock 模式，ERP 报表为模拟数据。真实执行需配置服务。",
       "status": "copied",
       "supplemental": [
         {
-          "source": "/Volumes/Samsung_T5/code/my-workflow/E-commerce/codex_ecommerce_workflow_analysis_20260720/mvp-workflow",
+          "source": "/Volumes/Samsung_T5/code/my-workflow/ecommerce/feishu-automation/mvp-workflow",
           "destination": "workflow",
           "reason": "来源 Skill 未携带说明中要求的 workflow；补齐所属项目源码、测试、依赖锁及配置模板。"
         }
@@ -466,7 +466,14 @@
           "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
           "origin": "local-license-configuration"
         }
-      ]
+      ],
+      "sourceHistory": [
+        {
+          "source": "/Volumes/Samsung_T5/code/my-workflow/E-commerce/codex_ecommerce_workflow_analysis_20260720/mvp-workflow/skills/feishu-ecommerce-workflow",
+          "note": "2026-11-15确认原项目目录迁移，旧记录保留。"
+        }
+      ],
+      "updatedAt": "2026-11-15"
     },
     {
       "slug": "garment-spec-cn-annotation",
@@ -627,7 +634,7 @@
       "path": "skills/video/text-or-voice-to-video",
       "source": "/Users/chris/.codex/skills/text-or-voice-to-video",
       "blog": "/lab/voice-driven-video",
-      "summary": "从主题、文字稿或录音制作可编辑讲解视频，支持人物动作、代码动画路线与发布文案交付。",
+      "summary": "从主题、文字稿或录音制作可编辑讲解视频，制作前检查口播稿易懂性，按内容或明确要求实现并复核3D／2.5D场景。",
       "status": "synced",
       "supplemental": [],
       "files": [
@@ -641,7 +648,9 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "c4479f8fbb383af35c2324cfe9c4a3b2910f636f47373bb5809ddd51a6dbb302"
+          "sha256": "7f2049aa0e7eefbbbeaff833ddf66f8d5002730a2706b7e9acd30025333bdd3f",
+          "previousSha256": "c4479f8fbb383af35c2324cfe9c4a3b2910f636f47373bb5809ddd51a6dbb302",
+          "sourceSha256": "7f2049aa0e7eefbbbeaff833ddf66f8d5002730a2706b7e9acd30025333bdd3f"
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
@@ -785,7 +794,9 @@
         },
         {
           "path": "references/code-animation.md",
-          "sha256": "7fcb827171938ec44628a70f1d1646c3d0496dbfcad13c10856ecace360d3b95"
+          "sha256": "f4ef86fb1a9efa4682576f86313859ee2a48f1a5d707ca28855108ac38cfe91c",
+          "previousSha256": "7fcb827171938ec44628a70f1d1646c3d0496dbfcad13c10856ecace360d3b95",
+          "sourceSha256": "f4ef86fb1a9efa4682576f86313859ee2a48f1a5d707ca28855108ac38cfe91c"
         },
         {
           "path": "references/motion-recipes.md",
@@ -802,6 +813,16 @@
         {
           "path": "references/reference-analysis.md",
           "sha256": "025e824ca9da1f939b0d40090b2cfcad97227b2fb9d52ff6389a3ea5a554f601"
+        },
+        {
+          "path": "references/script-quality.md",
+          "sha256": "ed4d6af9e3dfa54b551d30928405ec09aa13e0d389ec5d1dd461351a3fb6d131",
+          "sourceSha256": "ed4d6af9e3dfa54b551d30928405ec09aa13e0d389ec5d1dd461351a3fb6d131"
+        },
+        {
+          "path": "references/three-dimensional-scenes.md",
+          "sha256": "4e4215eff1c8379bf59d9761c1b213b31132b6bdbd70b3ef08e426c32a7716c3",
+          "sourceSha256": "4e4215eff1c8379bf59d9761c1b213b31132b6bdbd70b3ef08e426c32a7716c3"
         },
         {
           "path": "references/timing.md",
@@ -900,8 +921,8 @@
           "sha256": "6be75b0d8b629290590e31e38cfdf8098f778e05dc28760dfa2114a9c08471a4"
         }
       ],
-      "updatedAt": "2026-10-20",
-      "note": "原名 voice-driven-video；同步本机最新版并改名，博客历史页面 slug 保留。"
+      "updatedAt": "2026-11-15",
+      "note": "原名 voice-driven-video；同步本机最新版并改名，博客历史页面 slug 保留。 2026-11-15同步本机来源；源文件与当前副本哈希一致，保留仓库许可。"
     },
     {
       "slug": "project-llm-wiki",
@@ -1010,8 +1031,8 @@
       "path": "skills/video/video-text-redactor",
       "source": "/Users/chris/.codex/skills/video-text-redactor",
       "summary": "根据指定词语或语义类别逐帧定位视频文字，跟踪打码并复扫成片。",
-      "status": "collected",
-      "updatedAt": "2026-10-22",
+      "status": "synced",
+      "updatedAt": "2026-11-15",
       "files": [
         {
           "path": "COMMERCIAL-LICENSE.md",
@@ -1023,7 +1044,9 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "a925ba96560fdc761d8d07c3d501a04df90d41c8b8ea734357f21f56be809201"
+          "sha256": "e25ea41792db345c2f0dcc7235ea01e1fe5ff105568d76210ea201d75a5f0cb6",
+          "previousSha256": "a925ba96560fdc761d8d07c3d501a04df90d41c8b8ea734357f21f56be809201",
+          "sourceSha256": "e25ea41792db345c2f0dcc7235ea01e1fe5ff105568d76210ea201d75a5f0cb6"
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
@@ -1065,7 +1088,8 @@
           "path": "tests/test_redaction_core.py",
           "sha256": "c8834a8be5d5fbc794a5122815bd9193d973ed1c5b9e6d0d1499ce06bcd27819"
         }
-      ]
+      ],
+      "note": " 2026-11-15同步本机来源；源文件与当前副本哈希一致，保留仓库许可。"
     },
     {
       "slug": "story-vocabulary-studio",
@@ -1665,13 +1689,11 @@
       "title": "多源故障切换生图",
       "category": "image",
       "path": "skills/image/failover-imagegen-tool",
-      "source": "/Volumes/Samsung_T5/code/img-switch/sanitized-delivery/failover-imagegen-tool-sanitized.zip",
-      "sourceArchiveSha256": "105d317c6cc7e3a3ecf2b4fa8dc12e79b2cc39baee24050a3b8ff732abe9801e",
-      "archiveRoot": "failover-imagegen-tool",
+      "source": "/Volumes/Samsung_T5/code/img-switch/engine",
       "summary": "通过用户配置的兼容图像接口生成、编辑和批量出图，按中转站与模型两级故障切换，输出图片与脱敏尝试记录。",
-      "status": "collected",
+      "status": "synced",
       "collectedAt": "2026-10-29",
-      "updatedAt": "2026-10-29",
+      "updatedAt": "2026-11-15",
       "supplemental": [
         {
           "source": "仓库根目录LICENSE和COMMERCIAL-LICENSE.md",
@@ -1684,13 +1706,14 @@
           "reason": "记录脱敏ZIP来源、标准库及GUI工具、外部服务与素材的权利边界。"
         }
       ],
-      "note": "完整收录10个归档来源文件并补入三份许可及权利说明；仅保存源码，不安装或注册到本机／项目，不归集实际密钥、配置、环境或输出，不修改源ZIP。",
+      "note": "2026-11-15从维护中的img-switch/engine同步12个原始文件，包含URL隐私、User-Agent和证书回归测试；保留三份仓库许可与权利说明，未复制配置、运行数据或生成ZIP，原归档来源存于sourceHistory。",
       "files": [
         {
           "path": ".gitignore",
           "sha256": "e0528216f5ecfe467de2bd54fcfdbbd37bc8f963fc530aa8d595fd1301b44171",
-          "sourceMember": "failover-imagegen-tool/.gitignore",
-          "sourceSha256": "e0528216f5ecfe467de2bd54fcfdbbd37bc8f963fc530aa8d595fd1301b44171"
+          "sourceSha256": "e0528216f5ecfe467de2bd54fcfdbbd37bc8f963fc530aa8d595fd1301b44171",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/.gitignore",
+          "previousSha256": "e0528216f5ecfe467de2bd54fcfdbbd37bc8f963fc530aa8d595fd1301b44171"
         },
         {
           "path": "COMMERCIAL-LICENSE.md",
@@ -1704,62 +1727,91 @@
         },
         {
           "path": "README.md",
-          "sha256": "310b2bc13975d414a20fc44155d9922d1c71c6b90ec7f6b09f6d3e20f62e55d6",
-          "sourceMember": "failover-imagegen-tool/README.md",
-          "sourceSha256": "310b2bc13975d414a20fc44155d9922d1c71c6b90ec7f6b09f6d3e20f62e55d6"
+          "sha256": "dd1157a1e1f28288953849f24b2d901666397643a77498f1c42f705f412c9e90",
+          "sourceSha256": "dd1157a1e1f28288953849f24b2d901666397643a77498f1c42f705f412c9e90",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/README.md",
+          "previousSha256": "310b2bc13975d414a20fc44155d9922d1c71c6b90ec7f6b09f6d3e20f62e55d6"
         },
         {
           "path": "SKILL.md",
-          "sha256": "ed4c0af927bab03ff33dde154f51c247548baef88af1ecdf142a949073578d5c",
-          "sourceMember": "failover-imagegen-tool/SKILL.md",
-          "sourceSha256": "ed4c0af927bab03ff33dde154f51c247548baef88af1ecdf142a949073578d5c"
+          "sha256": "4e6620cc8ad17420ccd7acbf8c758cf4f53ab2ee2e84dd48b1a6911d69299783",
+          "sourceSha256": "4e6620cc8ad17420ccd7acbf8c758cf4f53ab2ee2e84dd48b1a6911d69299783",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/SKILL.md",
+          "previousSha256": "ed4c0af927bab03ff33dde154f51c247548baef88af1ecdf142a949073578d5c"
         },
         {
           "path": "THIRD_PARTY_NOTICES.md",
-          "sha256": "fb06696d8306a08ffb05fc69c464ad6fa9d54c1b4cce03cd39ffa80a8f7c34d9",
+          "sha256": "cfa57fa63803f78fc1c5b01ea53fcc88b1a4f60c66b76ccca8c3849a2817de19",
           "note": "仓库补充；原ZIP未含此文件。"
         },
         {
           "path": "config.example.json",
-          "sha256": "09792664b27700e316f453f57d6c01f2dd8522c65767db1e9b3d2cbea14f33e2",
-          "sourceMember": "failover-imagegen-tool/config.example.json",
-          "sourceSha256": "09792664b27700e316f453f57d6c01f2dd8522c65767db1e9b3d2cbea14f33e2"
+          "sha256": "092c7d5d4f4f7c13f682617c8984ae213ab9146f7f7503838d8c020771e39389",
+          "sourceSha256": "092c7d5d4f4f7c13f682617c8984ae213ab9146f7f7503838d8c020771e39389",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/config.example.json",
+          "previousSha256": "09792664b27700e316f453f57d6c01f2dd8522c65767db1e9b3d2cbea14f33e2"
         },
         {
           "path": "prompts/example.txt",
           "sha256": "c861f192aa3a85205539c68031ddf58831b1a559cced05ba74583ea8e643cf32",
-          "sourceMember": "failover-imagegen-tool/prompts/example.txt",
-          "sourceSha256": "c861f192aa3a85205539c68031ddf58831b1a559cced05ba74583ea8e643cf32"
+          "sourceSha256": "c861f192aa3a85205539c68031ddf58831b1a559cced05ba74583ea8e643cf32",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/prompts/example.txt",
+          "previousSha256": "c861f192aa3a85205539c68031ddf58831b1a559cced05ba74583ea8e643cf32"
         },
         {
           "path": "scripts/failover_imagegen_tool.py",
-          "sha256": "110bdfa5eb26192636179819c9dc7fbaae4f9804fdf00f4f495a1495b4051556",
-          "sourceMember": "failover-imagegen-tool/scripts/failover_imagegen_tool.py",
-          "sourceSha256": "110bdfa5eb26192636179819c9dc7fbaae4f9804fdf00f4f495a1495b4051556"
+          "sha256": "e63bcd77fd456cd8323d1d662bdefe4058b25e48d2895d2f733cf1043566c42b",
+          "sourceSha256": "e63bcd77fd456cd8323d1d662bdefe4058b25e48d2895d2f733cf1043566c42b",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/scripts/failover_imagegen_tool.py",
+          "previousSha256": "110bdfa5eb26192636179819c9dc7fbaae4f9804fdf00f4f495a1495b4051556"
         },
         {
           "path": "scripts/failovercfg.py",
-          "sha256": "4f1997c5b9d7fcdd6fdf06dcbc07290ea6ff9f558f080fda0587d1e1f3f4913c",
-          "sourceMember": "failover-imagegen-tool/scripts/failovercfg.py",
-          "sourceSha256": "4f1997c5b9d7fcdd6fdf06dcbc07290ea6ff9f558f080fda0587d1e1f3f4913c"
+          "sha256": "513eb42bf060e2ac3b11b3428033f01b5797d62f4f852bdb1922642ed6f4d83d",
+          "sourceSha256": "513eb42bf060e2ac3b11b3428033f01b5797d62f4f852bdb1922642ed6f4d83d",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/scripts/failovercfg.py",
+          "previousSha256": "4f1997c5b9d7fcdd6fdf06dcbc07290ea6ff9f558f080fda0587d1e1f3f4913c"
         },
         {
           "path": "scripts/setup.py",
-          "sha256": "b105b30627192c4770435818136b4fbb316f6c6942039ba542fb532c7f30ae45",
-          "sourceMember": "failover-imagegen-tool/scripts/setup.py",
-          "sourceSha256": "b105b30627192c4770435818136b4fbb316f6c6942039ba542fb532c7f30ae45"
+          "sha256": "7cdfa2fa95e45a29a58fe43d92eab814c2431b6c5576efcb52f9f7bf1ea2c2f4",
+          "sourceSha256": "7cdfa2fa95e45a29a58fe43d92eab814c2431b6c5576efcb52f9f7bf1ea2c2f4",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/scripts/setup.py",
+          "previousSha256": "b105b30627192c4770435818136b4fbb316f6c6942039ba542fb532c7f30ae45"
         },
         {
           "path": "tests/mock_relay.py",
-          "sha256": "5869ec76d47b798821508b445bae86e186817bce5c29f9ab13096b454301e729",
-          "sourceMember": "failover-imagegen-tool/tests/mock_relay.py",
-          "sourceSha256": "5869ec76d47b798821508b445bae86e186817bce5c29f9ab13096b454301e729"
+          "sha256": "cc2d3e46f4e17801a96073cf72701be750da61b506f64129a87c7599ebfe5b16",
+          "sourceSha256": "cc2d3e46f4e17801a96073cf72701be750da61b506f64129a87c7599ebfe5b16",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/tests/mock_relay.py",
+          "previousSha256": "5869ec76d47b798821508b445bae86e186817bce5c29f9ab13096b454301e729"
         },
         {
           "path": "tests/run_tests.py",
-          "sha256": "e9a61555f4fa257744f5c2ad73ff959abed7750b61511e3859c1c378e2d97c5e",
-          "sourceMember": "failover-imagegen-tool/tests/run_tests.py",
-          "sourceSha256": "e9a61555f4fa257744f5c2ad73ff959abed7750b61511e3859c1c378e2d97c5e"
+          "sha256": "edbcf4421e26ea999cb5fca35a1404d00bf6ee5b556dbdbf5c49b086482357d6",
+          "sourceSha256": "edbcf4421e26ea999cb5fca35a1404d00bf6ee5b556dbdbf5c49b086482357d6",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/tests/run_tests.py",
+          "previousSha256": "e9a61555f4fa257744f5c2ad73ff959abed7750b61511e3859c1c378e2d97c5e"
+        },
+        {
+          "path": "tests/test_url_privacy.py",
+          "sha256": "c2917049b078a0cf2d95f90fcfd200d38ad75715d6c2dfb99961500bcfed16a1",
+          "sourceSha256": "c2917049b078a0cf2d95f90fcfd200d38ad75715d6c2dfb99961500bcfed16a1",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/tests/test_url_privacy.py"
+        },
+        {
+          "path": "tests/test_user_agent.py",
+          "sha256": "fd41068d36c7ed5a66904169f570c2981e6918ade3e04b94faf776ca75eaa12f",
+          "sourceSha256": "fd41068d36c7ed5a66904169f570c2981e6918ade3e04b94faf776ca75eaa12f",
+          "sourcePath": "/Volumes/Samsung_T5/code/img-switch/engine/tests/test_user_agent.py"
+        }
+      ],
+      "sourceHistory": [
+        {
+          "source": "/Volumes/Samsung_T5/code/img-switch/sanitized-delivery/failover-imagegen-tool-sanitized.zip",
+          "sourceArchiveSha256": "105d317c6cc7e3a3ecf2b4fa8dc12e79b2cc39baee24050a3b8ff732abe9801e",
+          "archiveRoot": "failover-imagegen-tool",
+          "note": "2026-10-29初始脱敏归档来源；本次改用开发源，原ZIP保留不变。"
         }
       ]
     },
@@ -2089,7 +2141,7 @@
     "effectiveDate": "2026-10-11",
     "scope": "仅限本人有权授权的内容；第三方内容除外"
   },
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-15",
   "workflows": [
     {
       "slug": "ecommerce-template-image-workflow",

@@ -5,10 +5,10 @@ config.json 结构：
   "version": 1,
   "sources": [
     {
-      "name": "source-a",                 # 唯一名称
-      "base_url": "https://host/v1",   # 兼容接口根地址，通常以 /v1 结尾
+      "name": "example-source",                 # 唯一名称
+      "base_url": "https://relay.example.com/v1",   # OpenAI 兼容根地址，通常以 /v1 结尾
       "api_key": "sk-xxx",             # 只保存在本机，禁止提交/分享
-      "model": "image-model-a",  # 单模型；也可用 "models": ["a","b"] 配置站内级联
+      "model": "gpt-image-2.5-flare",  # 单模型；也可用 "models": ["a","b"] 配置站内级联
       "enabled": true,
       "timeout": 300                   # 可选，秒
     }
@@ -20,10 +20,14 @@ sources 数组顺序即故障切换优先级：排在前的先用；
 import json
 import os
 import re
+import ssl
+import sys
+import urllib.parse
 
 CONFIG_ENV = "FAILOVER_IMAGEGEN_TOOL_CONFIG"
 CONFIG_FILENAME = "config.json"
 DEFAULT_TIMEOUT = 300  # 生图（尤其 4K）耗时较长，默认放宽到 5 分钟
+USER_AGENT = "IMG-Switch/1.0"
 
 SECRET_PATTERNS = [
     re.compile(r"sk-[A-Za-z0-9_\-]{6,}"),
@@ -31,17 +35,52 @@ SECRET_PATTERNS = [
 ]
 
 
+def api_headers(api_key):
+    """Identify the client consistently for every authenticated relay request."""
+    return {"Authorization": "Bearer " + api_key, "User-Agent": USER_AGENT}
+
+
+def configure_default_certificates():
+    """Let macOS source installations use system roots when Python has none."""
+    if sys.platform != "darwin" or "SSL_CERT_FILE" in os.environ or "SSL_CERT_DIR" in os.environ:
+        return
+    paths = ssl.get_default_verify_paths()
+    if not paths.cafile and not paths.capath and os.path.isfile("/etc/ssl/cert.pem"):
+        os.environ["SSL_CERT_FILE"] = "/etc/ssl/cert.pem"
+
+
+configure_default_certificates()
+
+
 def skill_root():
     """skill 根目录（本文件位于 scripts/ 下）。"""
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+def appdata_config_path():
+    """App 统一配置路径（Windows AppData / 其他平台 ~/.config）。"""
+    if os.name == "nt":
+        base = os.environ.get("APPDATA") or os.path.join(
+            os.path.expanduser("~"), "AppData", "Roaming")
+    else:
+        base = os.environ.get("XDG_CONFIG_HOME") or os.path.join(
+            os.path.expanduser("~"), ".config")
+    return os.path.join(base, "failover-imagegen-tool", "config.json")
+
+
 def config_path():
-    """配置文件路径：环境变量优先，其次 skill 根目录下的 config.json。"""
+    """配置文件路径优先级：
+    1. 环境变量 FAILOVER_IMAGEGEN_TOOL_CONFIG
+    2. skill 根目录下已存在的 config.json（手动安装/手动管理时向后兼容）
+    3. AppData 统一配置（本机开关 App 管理，多 Agent 共享，不存在时作为写入目标）
+    """
     env = os.environ.get(CONFIG_ENV)
     if env:
         return os.path.abspath(env)
-    return os.path.join(skill_root(), CONFIG_FILENAME)
+    local = os.path.join(skill_root(), CONFIG_FILENAME)
+    if os.path.exists(local):
+        return local
+    return appdata_config_path()
 
 
 def default_config():
@@ -139,6 +178,40 @@ def enabled_sources(cfg):
     return [s for s in cfg["sources"] if s.get("enabled", True)]
 
 
+def failover_enabled(cfg):
+    """故障转移开关：config.json 顶层 "failover": false 时关闭（默认开启）。
+    关闭后生图只尝试首位已启用源的首个模型，失败不切换其他源/模型。"""
+    if not isinstance(cfg, dict):
+        return True
+    return bool(cfg.get("failover", True))
+
+
+def ordered_sources(cfg):
+    """已启用源按生图尝试顺序返回：★首选（顶层 "prefer"=源名，须存在且启用）置顶，
+    其余保持数组顺序（后备顺序）。无有效 prefer 时即数组顺序。"""
+    srcs = enabled_sources(cfg)
+    p = cfg.get("prefer")
+    if p:
+        first = [s for s in srcs if s.get("name") == p]
+        if first:
+            return first + [s for s in srcs if s.get("name") != p]
+    return srcs
+
+
+def prefer_index(cfg):
+    """★首选源在 cfg["sources"] 里的下标：显式 prefer 且启用优先，否则第一个启用源；
+    无启用源返回 None。"""
+    srcs = cfg.get("sources") or []
+    p = cfg.get("prefer")
+    for i, s in enumerate(srcs):
+        if p and s.get("name") == p and s.get("enabled", True):
+            return i
+    for i, s in enumerate(srcs):
+        if s.get("enabled", True):
+            return i
+    return None
+
+
 def mask_key(key):
     """脱敏展示密钥：sk-abc1234567 -> sk-ab****67。"""
     key = str(key)
@@ -156,6 +229,16 @@ def mask_secrets(text):
 
 
 def endpoint_host(base_url):
-    """从 base_url 提取 host:port，用于记录到 meta（不含任何密钥）。"""
-    m = re.match(r"^[a-zA-Z]+://([^/]+)", base_url or "")
-    return m.group(1) if m else base_url
+    """只展示 URL 主机及端口，不包含用户信息、路径或查询参数。"""
+    try:
+        parsed = urllib.parse.urlsplit(base_url or "")
+        if parsed.scheme.lower() not in ("http", "https") or not parsed.hostname:
+            return "<无效地址>"
+        host, port = parsed.hostname, parsed.port
+        if ":" in host:
+            host = "[%s]" % host
+        elif not re.fullmatch(r"[A-Za-z0-9._-]+", host.encode("idna").decode("ascii")):
+            return "<无效地址>"
+        return "%s:%d" % (host, port) if port is not None else host
+    except (ValueError, UnicodeError, TypeError):
+        return "<无效地址>"

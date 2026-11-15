@@ -1,5 +1,10 @@
 ---
 name: video-text-redactor
+version: 1.0.0
+display_name: 视频文字跟踪打码
+display_name_en: Video Text Redactor
+description_zh: 对视频中的指定文字、博主名称、账号、邮箱、手机号或区域进行本地识别和跟踪打码，支持缩放、平移、滚动和切镜头，并输出复核报告。
+description_en: Locally redact selected on-screen text and regions in videos, including creator names, account IDs, emails, and phone numbers, with tracking across zooms, pans, scrolling, and cuts and a review report.
 description: Use when a user supplies a video and wants selected on-screen text or regions hidden, including 博主名称打码、账号脱敏、文字马赛克、遮邮箱手机号 and screen recordings with zoom, pan, scrolling or cuts. Supports arbitrary specified words and semantic target categories. Not for removing subtitles to recover the original picture.
 ---
 

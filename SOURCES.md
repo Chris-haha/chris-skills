@@ -5,7 +5,7 @@
 | Skill | 原始目录／归档 | 归集目录 |
 | --- | --- | --- |
 | preserving-product-fidelity | `/Volumes/Samsung_T5/code/test-image/.codex/skills/preserving-product-fidelity` | `skills/ecommerce/preserving-product-fidelity` |
-| feishu-ecommerce-workflow | `/Volumes/Samsung_T5/code/my-workflow/E-commerce/codex_ecommerce_workflow_analysis_20260720/mvp-workflow/skills/feishu-ecommerce-workflow` | `skills/ecommerce/feishu-ecommerce-workflow` |
+| feishu-ecommerce-workflow | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/feishu-automation/mvp-workflow/skills/feishu-ecommerce-workflow` | `skills/ecommerce/feishu-ecommerce-workflow` |
 | garment-spec-cn-annotation | `/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/skills/garment-spec-cn-annotation` | `skills/ecommerce/garment-spec-cn-annotation` |
 | beijing-zhongkao-admissions-advisor | `/Volumes/Samsung_T5/code/my-volunteer/skills/beijing-zhongkao-admissions-advisor` | `skills/education/beijing-zhongkao-admissions-advisor` |
 | text-or-voice-to-video | `/Users/chris/.codex/skills/text-or-voice-to-video` | `skills/video/text-or-voice-to-video` |
@@ -14,7 +14,7 @@
 | ecommerce-video-breakdown | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/video-breakdown/skills/ecommerce-video-breakdown` | `skills/ecommerce/ecommerce-video-breakdown` |
 | media-urls-batch-archive | `/Users/chris/.codex/skills/media-urls-batch-archive` | `skills/video/media-urls-batch-archive` |
 | ecommerce-reference-product-swap | `/Users/chris/.codex/skills/ecommerce-reference-product-swap` | `skills/ecommerce/ecommerce-reference-product-swap` |
-| failover-imagegen-tool | `/Volumes/Samsung_T5/code/img-switch/sanitized-delivery/failover-imagegen-tool-sanitized.zip` 内 `failover-imagegen-tool/` | `skills/image/failover-imagegen-tool` |
+| failover-imagegen-tool | `/Volumes/Samsung_T5/code/img-switch/engine`（2026-11-15同步；初始归档见历史记录） | `skills/image/failover-imagegen-tool` |
 | product-person-tryon | `/Volumes/Samsung_T5/code/my-workflow/ecommerce/person-tryon/skills/product-person-tryon` | `skills/ecommerce/product-person-tryon` |
 | bilibili-toolkit | `/Users/chris/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_8ji05hs5w3gc22_3eea/temp/RWTemp/2026-11/b2c0f4fb9b7a2ce09b59bc31f7946a8c/bilibili-toolkit.zip`（用户提供 ZIP） | `skills/video/bilibili-toolkit` |
 | rental-company-due-diligence | `/Volumes/Samsung_T5/code/my-workflow/intelligence/rental-company-due-diligence/skills/rental-company-due-diligence` | `skills/intelligence/rental-company-due-diligence` |
@@ -211,3 +211,23 @@
 ### 2026-11-15 提交说明
 
 用户明确授权将本次收录提交至GitHub。提交前重新核对12个交付文件哈希、六份Python脚本语法、初始化和已有文件保护行为、114个本地文档链接及两张配图哈希；检查通过。此前“未提交或推送”描述的是初次收录状态；本次仅提交该Skill及其配套说明与配图，不创建ZIP或定时任务。
+
+## 2026-11-15 本机来源同步
+
+- text-or-voice-to-video：同步SKILL.md、references/code-animation.md，补入references/script-quality.md与references/three-dimensional-scenes.md；当前来源为本机已安装Skill，四个文件逐字节保留。补齐口播稿易懂性自检与3D/2.5D场景的设计、代表镜头试制和复核要求。
+- video-text-redactor：仅同步SKILL.md中的版本号、中英文显示名称和说明，处理脚本不变。
+- failover-imagegen-tool：从维护中的img-switch/engine同步12个源文件（8个既有文件变化、2个新增测试，其余2个一致），保留仓库三份许可与权利说明，共15个文件。已核对公开配置样例为占位符；不复制真实config.json、生成目录、密钥或环境，不创建ZIP。原脱敏归档及来源哈希移入catalog的sourceHistory，新文件记录sourcePath和sourceSha256；不将Downloads中的另一份分发ZIP当作当前维护源。
+- 飞书Skill：登记来源修正为ecommerce/feishu-automation/mvp-workflow，同步补充源码来源路径；旧来源写入sourceHistory。原内容与仓库补充保持不变。
+- README同步3D与口播稿自检说明，以及生图工具meta.json可能含敏感信息的准确边界。分类与能力数量仍为18个Skill、1个工作流，沿用现有概念图；图不作为本轮测试证据。
+- 保留中考顾问、项目主线导读及电商视频拆解的仓库专属改造；来源缺失的两个Skill不猜测更新。仅更新本仓库，不改本机来源，不安装、不运行外部服务、不提交或推送。
+
+### 本轮同步验证
+
+- 逐字节复核文字／录音转视频的4个更新文件、视频打码的1个更新文件及生图工具的12个来源文件；同步后三项目均无源文件内容差异或新增文件遗漏。全库445个清单文件哈希、目录完整性及120个本地文档链接检查通过，许可及无关Skill保持不变。
+- 生图工具本地模拟端到端测试24/26通过：T16图形界面冒烟和T18模型下拉框测试仍各在60秒后超时，与先前已记录的本机GUI限制一致；不将超时记为通过，也不为本次源码同步改动来源实现。
+- 新增的URL隐私和请求标识／macOS证书回归测试7/7通过。测试仅使用mock与127.0.0.1临时服务，没有访问真实中转站、生成商业图片或创建ZIP。
+- 视频相关改动为指导文档与元数据同步，执行相对链接和入口静态核验；本轮不宣称试制了3D视频、完成打码成片或验证新增引擎依赖。
+
+### 2026-11-15 同步改动提交
+
+用户明确授权将本轮本机来源同步提交到GitHub。提交前再次检查445个文件哈希、120个本地文档链接及来源副本／Python语法，并复跑7项隐私与请求／证书回归测试，全部通过。完整模拟测试的24/26结果沿用本轮同步时的实际执行记录；两项GUI超时仍为已知未解决限制，未宣称修复。前述“未提交或推送”描述的是提交授权前的本地同步阶段。

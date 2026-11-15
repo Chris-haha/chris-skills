@@ -2,11 +2,11 @@
 """failover-imagegen-tool 配置管理：添加/删除/启停/排序中转源，支持命令行与图形界面。
 
 命令行：
-  python setup.py add --name source-a --base-url https://host/v1 --api-key sk-xxx --model image-model-a
+  python setup.py add --name example-source --base-url https://relay.example.com/v1 --api-key sk-xxx --model gpt-image-2.5-flare
   python setup.py list                       # 查看源与优先级顺序（密钥脱敏）
-  python setup.py remove --name source-a
-  python setup.py enable --name source-a        # disable 同理
-  python setup.py up --name source-a            # 上移提升优先级，down 下移
+  python setup.py remove --name example-source
+  python setup.py enable --name example-source        # disable 同理
+  python setup.py up --name example-source            # 上移提升优先级，down 下移
   python setup.py path                       # 打印配置文件路径
 
 图形界面：
@@ -46,7 +46,7 @@ def cmd_add(args):
         enabled=not args.disabled, timeout=args.timeout,
     )
     if not src["base_url"].endswith("/v1"):
-        print("提示：base_url 通常以 /v1 结尾（以服务商文档为准），当前值：%s" % src["base_url"])
+        print("提示：base_url 通常以 /v1 结尾（以服务商文档为准），当前主机：%s" % failovercfg.endpoint_host(src["base_url"]))
     cfg["sources"].append(src)
     _save_and_report(cfg)
     print("已添加源 %r，优先级第 %d。运行 failover_imagegen_tool.py --list-sources 检查。" % (src["name"], len(cfg["sources"])))
@@ -116,20 +116,27 @@ def cmd_gui(_args):
         "ok": "#1f9d63", "off": "#9aa1b3", "danger": "#e5484d",
         "head": "#232a3d", "foot": "#e4e8f0",
     }
-    FONT = ("sans-serif", 10)
-    FONT_SM = ("sans-serif", 9)
-    FONT_TITLE = ("sans-serif", 15, "bold")
-    FONT_BOLD = ("sans-serif", 10, "bold")
+    FONT = ("Microsoft YaHei UI", 10)
+    FONT_SM = ("Microsoft YaHei UI", 9)
+    FONT_TITLE = ("Microsoft YaHei UI", 15, "bold")
+    FONT_BOLD = ("Microsoft YaHei UI", 10, "bold")
 
-    # 以下仅为示例占位符；实际模型 ID 请参照服务商文档填写。
-    MODEL_PRESETS = ["image-model-a", "image-model-b"]
+    # 常见 gpt 系生图模型（下拉仅是快捷选择，仍可手动输入任意模型 ID，以服务商文档为准）
+    MODEL_PRESETS = [
+        "gpt-image-2.5-flare", "gpt-image-2.5-sunburst", "gpt-image-2",
+        "gpt-image-1", "gpt-image-1-mini", "dall-e-3", "dall-e-2",
+    ]
 
     class SetupApp(tk.Tk):
         def __init__(self):
             super().__init__()
             self.title("中转站生图 · 源配置 — failover-imagegen-tool")
-            self.geometry("940x600")
+            self.geometry("980x640")
             self.minsize(660, 560)
+            # 打开时居中显示，避免出现在角落让用户以为什么都没有
+            self.update_idletasks()
+            _sw, _sh = self.winfo_screenwidth(), self.winfo_screenheight()
+            self.geometry("+%d+%d" % (max(0, (_sw - 980) // 2), max(0, (_sh - 640) // 2 - 20)))
             self.configure(bg=C["bg"])
             self.editing_index = None
             self._layout = None
@@ -189,7 +196,7 @@ def cmd_gui(_args):
             head.pack(fill="x")
             head.pack_propagate(False)
             tk.Label(head, text="⛰", bg=C["head"], fg="#8fa3ff",
-                     font=("sans-serif", 18)).pack(side="left", padx=(18, 8))
+                     font=("Microsoft YaHei UI", 18)).pack(side="left", padx=(18, 8))
             box = tk.Frame(head, bg=C["head"])
             box.pack(side="left", fill="y", pady=11)
             tk.Label(box, text="中转站生图 · 源配置", bg=C["head"], fg="#ffffff",
@@ -208,15 +215,16 @@ def cmd_gui(_args):
                      fg=C["muted"], font=FONT_SM).pack(anchor="w", padx=14, pady=(12, 4))
             wrap = tk.Frame(card, bg=C["card"])
             wrap.pack(fill="both", expand=True, padx=10)
-            cols = ("idx", "state", "name", "model", "url")
+            cols = ("idx", "state", "name", "model")
             self.tree = ttk.Treeview(wrap, columns=cols, show="headings", selectmode="browse")
+            # 不放 Base URL 列：控制表格最小宽度，保证并排时右侧表单不被挤压
+            # （完整地址在选中行后由右侧表单展示）
             for cid, text, w, anchor in (("idx", "#", 36, "center"),
-                                         ("state", "状态", 70, "center"),
-                                         ("name", "名称", 110, "w"),
-                                         ("model", "模型", 160, "w"),
-                                         ("url", "Base URL", 230, "w")):
+                                         ("state", "状态", 64, "center"),
+                                         ("name", "名称", 100, "w"),
+                                         ("model", "模型（级联顺序）", 220, "w")):
                 self.tree.heading(cid, text=text)
-                self.tree.column(cid, width=w, anchor=anchor, stretch=(cid == "url"))
+                self.tree.column(cid, width=w, anchor=anchor, stretch=(cid == "model"))
             self.tree.tag_configure("on", foreground=C["ok"])
             self.tree.tag_configure("off", foreground=C["off"])
             vsb = ttk.Scrollbar(wrap, orient="vertical", command=self.tree.yview)
@@ -228,17 +236,15 @@ def cmd_gui(_args):
             self.tree.bind("<<TreeviewSelect>>", self._on_select)
             bar = tk.Frame(card, bg=C["card"])
             bar.pack(fill="x", padx=12, pady=10)
-            self.toolbar_add = ttk.Button(bar, text="＋ 新增源", style="Primary.TButton",
+            self.toolbar_add = ttk.Button(bar, text="＋ 新增源", style="Primary.TButton", width=0,
                                           command=self._to_add_mode)  # 常驻入口：任何时候都能回到新增
             self.toolbar_add.pack(side="left")
-            ttk.Button(bar, text="↑ 提升优先", width=11,
+            ttk.Button(bar, text="↑ 提升优先", width=0,
                        command=lambda: self._move(-1)).pack(side="left", padx=(8, 0))
-            ttk.Button(bar, text="↓ 降低优先", width=11,
+            ttk.Button(bar, text="↓ 降低优先", width=0,
                        command=lambda: self._move(1)).pack(side="left", padx=(8, 0))
-            ttk.Button(bar, text="删除", style="Danger.TButton", width=8,
+            ttk.Button(bar, text="删除", style="Danger.TButton", width=0,
                        command=self._remove).pack(side="left", padx=(8, 0))
-            tk.Label(bar, text="点击行进入编辑", bg=C["card"],
-                     fg=C["muted"], font=FONT_SM).pack(side="right")
 
         # ---- 右：表单卡片 ----
         def _build_form(self, parent):
@@ -257,21 +263,24 @@ def cmd_gui(_args):
                 "api_key": tk.StringVar(), "model": tk.StringVar(),
                 "timeout": tk.StringVar(),
             }
-            fields = (("名称（自定义，如 source-a）", "name"),
+            fields = (("名称（自定义，如 example-source）", "name"),
                       ("Base URL（通常以 /v1 结尾）", "base_url"),
                       ("API Key（只保存在本机）", "api_key"),
-                      ("生图模型 ID（下拉仅为示例，请填写实际 ID；可逗号分隔多个）", "model"),
+                      ("生图模型（可逗号分隔多个，前面失败自动试后面的）", "model"),
                       ("超时秒数（可空，默认 300）", "timeout"))
             form = tk.Frame(card, bg=C["card"])
             form.pack(fill="x", padx=16)
-            form.columnconfigure(1, weight=1)
+            form.columnconfigure(0, weight=1)
+            # 标签在输入框上方（现代表单布局）：右卡最小宽度大幅缩小，
+            # 与左侧表格并排时输入框不会再被压缩或挤出可视区
             for i, (label, key) in enumerate(fields):
+                r = i * 2
                 tk.Label(form, text=label, bg=C["card"], fg=C["muted"],
-                         font=FONT_SM).grid(row=i, column=0, sticky="w", pady=(9, 2))
+                         font=FONT_SM).grid(row=r, column=0, sticky="w", pady=(10, 2))
                 row = tk.Frame(form, bg=C["card"])
-                row.grid(row=i, column=1, sticky="we", pady=(9, 2), padx=(10, 0))
+                row.grid(row=r + 1, column=0, sticky="we", pady=(0, 2))
                 row.columnconfigure(0, weight=1)
-                if key == "model":  # 模型：可手输，也可下拉查看示例占位符
+                if key == "model":  # 模型：可手输，也可下拉选常见 gpt 系生图模型
                     ent = ttk.Combobox(row, textvariable=self.vars[key], font=FONT,
                                        values=MODEL_PRESETS)
                     self.model_box = ent
@@ -348,8 +357,11 @@ def cmd_gui(_args):
                 self._apply_layout(event.width)
 
         def _apply_layout(self, width):
-            """宽窗口左右分栏；窄窗口（<860px）自动改上下堆叠，保证表单完整可输入。"""
-            mode = "wide" if width >= 860 else "tall"
+            """只有两张卡片均能容纳其请求宽度时才并排显示。"""
+            # body 左右各有 16px 外边距，表单左侧另有 14px 间距。
+            wide_min = max(860, self.table_card.winfo_reqwidth()
+                           + self.form_card.winfo_reqwidth() + 46)
+            mode = "wide" if width >= wide_min else "tall"
             if mode == self._layout:
                 return
             self._layout = mode
@@ -389,7 +401,7 @@ def cmd_gui(_args):
                 on = s.get("enabled", True)
                 self.tree.insert("", "end", iid=str(i), tags=("on" if on else "off",),
                                  values=(i + 1, "● 启用" if on else "○ 禁用", s["name"],
-                                         failovercfg.models_display(s), s["base_url"]))
+                                         failovercfg.models_display(s)))
             self.path_lbl.config(text=failovercfg.config_path())
             if keep is not None and self.tree.exists(str(keep)):
                 self.tree.selection_set(str(keep))
@@ -524,7 +536,7 @@ def cmd_gui(_args):
         # 自测模式：真实构建界面后，程序化断言关键 UI 行为（供 tests/run_tests.py 验证）
         from tkinter import ttk as _ttk
         app.update()
-        # 1) 模型下拉：可编辑 Combobox + 预置示例占位符 + 手输
+        # 1) 模型下拉：可编辑 Combobox + 预置 gpt 系模型 + 手输
         assert isinstance(app.model_box, _ttk.Combobox), "模型字段应为 Combobox"
         assert tuple(app.model_box["values"]) == tuple(MODEL_PRESETS), \
             "预置模型列表不符: %s" % (app.model_box["values"],)
@@ -568,9 +580,25 @@ def cmd_gui(_args):
         app.geometry("940x600")
         app.update()
         app.update_idletasks()
+        required = app.table_card.winfo_reqwidth() + app.form_card.winfo_reqwidth() + 46
+        if 940 < required:
+            assert app.form_card.pack_info()["side"] == "top", \
+                "两卡片需要 %dpx，940px 窗口应切换为上下布局" % required
+        else:
+            assert app.form_card.pack_info()["side"] == "left", "空间足够时应为左右布局"
+        assert app.key_entry.winfo_ismapped(), "940px 窗口下密钥输入框不可见"
+        app.geometry("1200x600")
+        app.update()
+        app.update_idletasks()
         assert app.form_card.pack_info()["side"] == "left", "宽窗口应为左右布局"
+        # 5) 宽模式并排时，右侧表单不得被压缩到不可用（历史bug：右卡被挤没）
+        fw = app.form_card.winfo_width()
+        ew = app.key_entry.winfo_width()
+        assert fw >= 280, "宽模式下表单卡被压缩（宽度 %dpx）" % fw
+        assert ew >= 150, "宽模式下输入框被压缩（宽度 %dpx）" % ew
         app.destroy()
-        print("gui selftest ok（模型下拉+手输、新增/编辑分离、启用开关、布局自适应）")
+        print("gui selftest ok（模型下拉+手输、新增/编辑分离、启用开关、布局自适应；"
+              "1200px 宽窗口下表单卡 %dpx、输入框 %dpx）" % (fw, ew))
         return 0
     app.mainloop()
     return 0
@@ -589,8 +617,8 @@ def main(argv=None):
     p.set_defaults(func=cmd_gui)
 
     p = sub.add_parser("add", help="添加中转源")
-    p.add_argument("--name", required=True, help="自定义名称，如 source-a")
-    p.add_argument("--base-url", required=True, help="兼容接口根地址，通常以 /v1 结尾")
+    p.add_argument("--name", required=True, help="自定义名称，如 example-source")
+    p.add_argument("--base-url", required=True, help="OpenAI 兼容根地址，通常以 /v1 结尾")
     p.add_argument("--api-key", required=True, help="访问密钥（只保存在本机 config.json）")
     p.add_argument("--model", required=True, action="append",
                    help="生图模型 ID，可多次提供组成站内级联（如 --model a --model b），按顺序尝试")

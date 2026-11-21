@@ -72,6 +72,30 @@
       "source": "由同目录 text-or-voice-demo.mp4 第 4 秒提取，缩放为宽 960 像素",
       "sha256": "b937a01057d2ba79f729392c9854cbd70b45b9927af6c55f50a79c8d802d94cf",
       "updated_at": "2026-10-14"
+    },
+    {
+      "path": "assets/examples/chris-illustrated-notes/01-tool-call.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/chris-illustrated-notes/01-tool-call.png",
+      "sha256": "72cdebeed479eb0379675898a9d93b87475a2f9f512b073ae9518617bc45ef06",
+      "verification": "用户认可的原创教学图解样稿；并非运行截图"
+    },
+    {
+      "path": "assets/examples/chris-illustrated-notes/02-session-view.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/chris-illustrated-notes/02-session-view.png",
+      "sha256": "50a2f2d561a7bce38d8bd105879153d9d83475580c88d752e22f23f9bffb6166",
+      "verification": "用户认可的原创教学图解样稿；并非运行截图"
+    },
+    {
+      "path": "assets/examples/chris-illustrated-notes/03-recovery.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/chris-illustrated-notes/03-recovery.png",
+      "sha256": "5c1100bdfbdaabbbb71e3a8f2f51080182e179218e32542a34cda64cad2c9ad5",
+      "verification": "用户认可的原创教学图解样稿；并非运行截图"
+    },
+    {
+      "path": "assets/examples/chris-illustrated-notes/04-extensions.png",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/docs/public/lab/chris-illustrated-notes/04-extensions.png",
+      "sha256": "32c9ae1242a5f31869ed82ede49bdd536bfd31b56edfc3d65c76334e6b9098fd",
+      "verification": "用户认可的原创教学图解样稿；并非运行截图"
     }
   ]
 }

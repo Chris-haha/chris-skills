@@ -4,9 +4,9 @@
 >
 > 本项目为**源码公开、限制使用**项目。具体规则见 [LICENSE](LICENSE)；申请方式见[商业及其他授权说明](COMMERCIAL-LICENSE.md)；第三方内容适用[各自权利与许可](THIRD_PARTY_NOTICES.md)。
 
-不吃辣的Chris的个人 AI 工具箱，涵盖电商、图像生成、视频创作、教育学习与咨询、沟通策略、情报调研及项目开发，收录可复用的 Skill、独立工作流和实际案例。后续将持续更新更多 Skill 与工作流，完善现有能力与使用示例。各项内容的归属与许可见对应说明。
+不吃辣的Chris的个人 AI 工具箱，涵盖电商、图像生成、视频创作、中文技术写作、教育学习与咨询、沟通策略、情报调研及项目开发，收录可复用的 Skill、独立工作流和实际案例。后续将持续更新更多 Skill 与工作流，完善现有能力与使用示例。各项内容的归属与许可见对应说明。
 
-![Chris 的 AI 工具箱：18 个 Skill 与 1 个独立工作流的插画总览](assets/readme/skills-overview-20261114-bili-daily.png)
+![Chris 的 AI 工具箱：19 个 Skill 与 1 个独立工作流的能力示意](assets/readme/skills-overview-20261121-illustrated.png)
 
 *AI 生成的插画总览，用于说明用途与分类，不是实际运行截图；详细依赖与使用边界见下方说明。*
 
@@ -15,6 +15,7 @@
 ```text
 skills/                      # 可安装到 Agent 的 Skill，按业务分类
   communication/             # 沟通与边界
+  content/                   # 原创技术写作与图解
   ecommerce/                 # 电商与商品资料
   education/                 # 教育学习与咨询
   image/                     # 图像生成与编辑
@@ -49,10 +50,11 @@ assets/                      # README 配图与案例素材
 | 视频创作 | [B站博主视频与口播分析](skills/video/bili-daily-analyst/SKILL.md) | 按指定博主和时间窗口分析口播、整理日报，核验覆盖并保存缺失与重试进度；按需另设定时任务。 |
 | 图像生成 | [多源故障切换生图](skills/image/failover-imagegen-tool/SKILL.md) | 通过用户配置的兼容图像接口生成、编辑和批量出图，按中转站与模型两级切换，并保存需复核后分享的尝试记录。 |
 | 情报调研 | [租赁公司签约前尽调](skills/intelligence/rental-company-due-diligence/SKILL.md) | 核对品牌、合同及收款主体，检索背景、投诉和司法监管信息，整理签约付款建议、证据与缺口。 |
+| 内容写作 | [中文技术图解笔记](skills/content/chris-illustrated-notes/SKILL.md) | 核对源码和资料，写面向初学者的原创技术笔记，并生成和逐图核对教学插图。 |
 | 项目开发 | [项目开发 LLM Wiki](skills/development/project-llm-wiki/SKILL.md) | 搭建项目 Markdown 知识库，摄入资料、查询证据，让开发与排障结果按影响回流。 |
 | 项目开发 | [项目主线导读](skills/development/project-flow-guide/SKILL.md) | 从陌生项目或冗长文档中提炼主流程、关键角色与名称职责，按问题逐步深入。 |
 
-目前收录 18 个 Skill、1 个独立工作流，覆盖沟通、电商、图像生成、教育学习与咨询、视频创作、情报调研及项目开发。
+目前收录 19 个 Skill、1 个独立工作流，覆盖沟通、电商、图像生成、内容写作、教育学习与咨询、视频创作、情报调研及项目开发。
 
 ## Workflows 目录
 
@@ -82,6 +84,7 @@ assets/                      # README 配图与案例素材
 | 想持续阅读指定B站博主的口播要点，并追踪漏期和转写失败 | B站博主视频与口播分析 | 有来源和时间戳的分析／日报、逐字稿、账号覆盖与缺口、可恢复状态及重试任务 |
 | 生图中转站或模型偶尔失败，希望批量任务继续并记录切换原因 | 多源故障切换生图 | 生成或编辑后的图片、meta.json 尝试记录、逐次尝试记录和批量成功／失败汇总 |
 | 签租约或交押金前，想核对租赁中介、合同和收款方是否存在风险 | 租赁公司签约前尽调 | 签约付款建议、主体关系、投诉时间线、证据台账、资金暴露估算与付款前核验清单 |
+| 希望把源码或技术原理写成面向初学者的原创图文笔记 | 中文技术图解笔记 | 中文文章、逐图生成的教学插画、事实与图文核对 |
 | 接手陌生项目，或被冗长文档淹没，不知道从哪里读起 | 项目主线导读 | 一页概览、主流程、关键角色、名称职责对照与下一步阅读入口 |
 | 希望 Agent 持续复用项目资料，并在开发、排障后同步知识 | 项目开发 LLM Wiki | Markdown 知识库、来源与索引、任务验证记录、受影响知识页更新 |
 
@@ -430,6 +433,34 @@ assets/                      # README 配图与案例素材
 ![B站博主视频与口播分析：研究员核对投稿时间窗、逐字稿和日报中的缺口](assets/readme/bili-daily-analyst-research-desk.png)
 
 *AI生成的能力概念图，非实际运行截图或真实博主分析结果；不代表自动化已建立或投稿已完整覆盖。*
+
+### 19. 中文技术图解笔记
+
+[阅读 Skill](skills/content/chris-illustrated-notes/SKILL.md) · `chris-illustrated-notes`
+
+**解决的问题：** 技术笔记容易堆砌术语；只画概念卡片或装饰图，又无法说明动作、条件和结果。
+
+- **功能：** 核对源码或资料，确定读者问题，用具体例子组织原创中文讲解；按难点设计图解，调用 GPT Image 生成并逐张检查，再放回文章预览。
+- **特点：** 平级信息保持同等视觉权重；物件和语义颜色由每张图的问题决定，检查箭头、中文、数字、签名以及图文和依据是否一致。
+- **使用边界：** 需要宿主具备可用的图像生成能力；生成结果、源码结论和原创表达均需实际复核，示意图不是程序运行截图。
+
+> 示例：使用 chris-illustrated-notes，为指定项目源码写面向初学者的中文图解笔记。先核对版本和关键实现，用具体例子解释执行过程，在难点处生成并检查图片。
+
+![技术图解笔记：查依据、写原创讲解与逐图核对](assets/readme/chris-illustrated-notes-cover.png)
+
+*原创能力示意，封面中的代码与文案为虚构示例。*
+
+#### DeepSeek Harness 图解样稿
+
+以下是围绕工具执行、会话记录、中断恢复和扩展能力制作的四张教学示意；实际文件和运行行为以项目源码、配置及具体任务为准。
+
+![工具请求与执行](assets/examples/chris-illustrated-notes/01-tool-call.png)
+
+![会话记录与下次请求](assets/examples/chris-illustrated-notes/02-session-view.png)
+
+![工具中断后的恢复](assets/examples/chris-illustrated-notes/03-recovery.png)
+
+![Skill、MCP 和子 Agent](assets/examples/chris-illustrated-notes/04-extensions.png)
 
 ## 独立工作流详细介绍
 

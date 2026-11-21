@@ -220,3 +220,14 @@ Small footer exactly "能力示意 · 非实际运行截图". Cohesive professio
   - 原始输出：`/Users/chris/.codex/generated_images/01a13553-7610-7d92-8e5a-58c1a3a1a0d7/exec-b934c564-49d8-4a00-8278-7a5c40e6f851.png`。
 - `ecommerce-template-image-workflow.png` SHA-256：`b0a153bb5cb8dcfe82cb70359fffeb0eb6fcfeeb91681a1f5e223bab96e11678`。
   - 原始输出：`/Users/chris/.codex/generated_images/01a13553-7610-7d92-8e5a-58c1a3a1a0d7/exec-81bff2cb-99e6-4158-bace-31651b4b520c.png`。
+
+## 2026-11-21 中文技术图解笔记收录
+
+- 完整生成及局部修订提示词：[chris-illustrated-notes-20261121-prompts.md](chris-illustrated-notes-20261121-prompts.md)。
+
+- `chris-illustrated-notes-cover.png`：原创能力示意。内置 imagegen 生成并编辑，工具未披露具体模型版本。输入提示方向：技术作者依据源码写中文笔记，绘制机制图并逐图核对；白色纸面、按对象配色，禁橘黄和红色主体。修订右侧小图以移除含混的结果箭头。
+- `skills-overview-20261121-illustrated.png`：19 个 Skill、1 个工作流的原创能力总览。内置 imagegen 生成并局部去除暖色边缘；具体模型版本未披露。提示方向：手绘工作台展示商品资料、视频、学习、项目笔记、技术图解及对话稿，白色纸面，禁橘黄和红色主体。
+- 封面原始生成：`/Users/chris/.codex/generated_images/01a1f92c-a931-7891-8e09-1bcdf0d352e9/exec-7219e1b6-6afa-46ae-a8fc-48381ee8a57e.png`；编辑后：`/Users/chris/.codex/generated_images/01a1f92c-a931-7891-8e09-1bcdf0d352e9/exec-ade1eb34-a337-48fb-852c-1fcdcd7aef9c.png`。
+- 总览生成：`/Users/chris/.codex/generated_images/01a1f92c-a931-7891-8e09-1bcdf0d352e9/exec-cf686986-4057-448e-84fd-2164d6846f86.png`；编辑后：`/Users/chris/.codex/generated_images/01a1f92c-a931-7891-8e09-1bcdf0d352e9/exec-20ffa1ee-6e6f-446b-a23f-e85dd6ab5e0a.png`。
+- `chris-illustrated-notes-cover.png` SHA-256：`14dc3fb8bfd357c6869c778c06a19d2f8c3fa572280de1433fa0943ab1d1f2a3`。
+- `skills-overview-20261121-illustrated.png` SHA-256：`a2471be65285adc5a97cbce2b5b9d181e6e3ecc3268cd228bc174542366e8f79`。

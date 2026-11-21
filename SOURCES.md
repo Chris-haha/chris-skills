@@ -19,6 +19,7 @@
 | bilibili-toolkit | `/Users/chris/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_8ji05hs5w3gc22_3eea/temp/RWTemp/2026-11/b2c0f4fb9b7a2ce09b59bc31f7946a8c/bilibili-toolkit.zip`（用户提供 ZIP） | `skills/video/bilibili-toolkit` |
 | rental-company-due-diligence | `/Volumes/Samsung_T5/code/my-workflow/intelligence/rental-company-due-diligence/skills/rental-company-due-diligence` | `skills/intelligence/rental-company-due-diligence` |
 | bili-daily-analyst | `/Users/chris/.codex/skills/bili-daily-analyst`（用户指定本机Skill） | `skills/video/bili-daily-analyst` |
+| chris-illustrated-notes | `/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/skills/chris-illustrated-notes` | `skills/content/chris-illustrated-notes` |
 
 
 | 工作流 | 原始目录 | 归集目录 |
@@ -231,3 +232,14 @@
 ### 2026-11-15 同步改动提交
 
 用户明确授权将本轮本机来源同步提交到GitHub。提交前再次检查445个文件哈希、120个本地文档链接及来源副本／Python语法，并复跑7项隐私与请求／证书回归测试，全部通过。完整模拟测试的24/26结果沿用本轮同步时的实际执行记录；两项GUI超时仍为已知未解决限制，未宣称修复。前述“未提交或推送”描述的是提交授权前的本地同步阶段。
+
+## 2026-11-21 中文技术图解笔记 Skill
+
+- 从博客项目归集完整 Skill、研究材料和评估记录；本机安装路径仍链接原始目录，仓库副本不会自动同步。
+- 单独补入仓库许可与第三方权利说明；三处指向原博客相对路径的样稿链接改为文字定位，其他来源文件逐字节保留，差异与哈希见 catalog.json。第三方原图不复制，研究链接和计数边界保留。
+- README 新增能力介绍和用户认可的四张 DeepSeek Harness 图解样稿；样例是虚构教学情境，不是运行截图。封面和总览通过 Codex 内置 imagegen 生成，具体模型未披露。
+
+### 2026-11-21 技能内容调整
+
+- 按用户要求，技能包不再包含参考对象名称或其研究台账；原始研究与逐图证据单独保存在博客项目的 `project-sources/research/illustrated-notes-20261121/`，不随 Skill 分发。技能保留独立整理的通用方法和权利说明。
+- 收录副本同步当前安装源，目录清单及逐文件哈希已更新；原始研究资料没有删除。

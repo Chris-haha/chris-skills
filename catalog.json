@@ -2122,6 +2122,55 @@
           "sourceSha256": "7cd1f8c1f583e8642b656a789240d639d1967c8d55a21b2cdc8b32a0578c4723"
         }
       ]
+    },
+    {
+      "slug": "chris-illustrated-notes",
+      "title": "中文技术图解笔记",
+      "category": "content",
+      "path": "skills/content/chris-illustrated-notes",
+      "source": "/Volumes/Samsung_T5/macmini/code/coding-blog/project-sources/skills/chris-illustrated-notes",
+      "summary": "核对源码和资料，写面向初学者的原创中文技术笔记，并生成及逐图检查教学插画。",
+      "status": "collected",
+      "collectedAt": "2026-11-21",
+      "updatedAt": "2026-11-21",
+      "supplemental": [
+        {
+          "source": "仓库根目录许可",
+          "destination": ".",
+          "reason": "补入独立复制时的许可及第三方说明。"
+        }
+      ],
+      "modifications": [
+        "按用户要求移出含参考对象名称的历史研究材料，保留独立整理的教学方法和第三方权利说明。"
+      ],
+      "note": "Skill 与安装源保持同步；原始研究档案位于博客项目中，不随 Skill 分发。",
+      "files": [
+        {
+          "path": "COMMERCIAL-LICENSE.md",
+          "sha256": "45af0c2c3f47849766a721628cbe1554fe809a3b97b80e74ad99bf3113249e39",
+          "note": "仓库补充的许可或第三方权利说明。"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9c1db74c83c70a282455ea75d9ad6f2d1b30597e0b6773eb50231722dbf363d6",
+          "note": "仓库补充的许可或第三方权利说明。"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c85957276e50804c0fc688172d0effce7f3178e3ab392c37e01bd9ccfadc88d7",
+          "sourceSha256": "c85957276e50804c0fc688172d0effce7f3178e3ab392c37e01bd9ccfadc88d7"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "569a93afddf91f0629c266b0cd5df3b9df1ca32bebfab1336270b3127e85b13d",
+          "note": "仓库补充的许可或第三方权利说明。"
+        },
+        {
+          "path": "references/visual-methods.md",
+          "sha256": "479e24738c0dc9917766876b56761a675664892a1a8c940732b6834d38c768f5",
+          "sourceSha256": "479e24738c0dc9917766876b56761a675664892a1a8c940732b6834d38c768f5"
+        }
+      ]
     }
   ],
   "pending": [
@@ -2141,7 +2190,7 @@
     "effectiveDate": "2026-10-11",
     "scope": "仅限本人有权授权的内容；第三方内容除外"
   },
-  "updatedAt": "2026-11-15",
+  "updatedAt": "2026-11-21",
   "workflows": [
     {
       "slug": "ecommerce-template-image-workflow",

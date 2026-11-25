@@ -46,8 +46,17 @@ def union_boxes(boxes):
 
 def span_box(obs, start, end):
     chars = obs.get('chars', [])
-    if len(chars) == len(obs['text']) and all(b for b in chars[start:end]):
-        return union_boxes(chars[start:end])
+    if len(chars) == len(obs['text']):
+        visible = []
+        for character, box in zip(obs['text'][start:end], chars[start:end]):
+            if character.isspace():
+                continue
+            if not box or len(box) != 4 or box[2] <= 0 or box[3] <= 0:
+                break
+            visible.append(box)
+        else:
+            if visible:
+                return union_boxes(visible)
     # Never approximate substring widths: proportional estimates can expose glyphs.
     return list(obs['box'])
 

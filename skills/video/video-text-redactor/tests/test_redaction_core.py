@@ -84,3 +84,20 @@ def test_tracker_rejects_runaway_growth_relative_to_last_ocr_anchor():
  assert hasattr(core,'valid_track_size'), '需限制连续跟踪漂移，不能每帧合理但累计变成巨框'
  assert core.valid_track_size([10,10,120,30],[20,20,150,38])
  assert not core.valid_track_size([10,10,120,30],[20,20,700,600])
+
+
+def test_lost_explicit_region_stops_instead_of_blurring_entire_screen():
+ import video_text_redactor as tool
+ with pytest.raises(RuntimeError, match='region_tracking_lost.*frame 42'):
+  tool.require_region_tracking(None, frame=42, region=3)
+ assert tool.require_region_tracking([10, 20, 30, 10], frame=42, region=3)==[10, 20, 30, 10]
+
+
+def test_space_with_zero_bounds_does_not_expand_title_mask_to_origin():
+ obs={'text':'AI 视频','box':[1000,800,100,20], 'chars':[[1000,800,20,20],[1020,800,20,20],[0,0,0,0],[1050,800,20,20],[1070,800,30,20]]}
+ assert core.span_box(obs,0,5)==[1000,800,100,20]
+
+
+def test_missing_visible_character_falls_back_to_ocr_line():
+ obs={'text':'AI 视频','box':[1000,800,120,20], 'chars':[[1000,800,20,20],[1020,800,20,20],[0,0,0,0],[0,0,0,0],[1070,800,30,20]]}
+ assert core.span_box(obs,0,5)==[1000,800,120,20]

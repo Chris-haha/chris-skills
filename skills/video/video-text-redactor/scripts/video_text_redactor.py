@@ -127,12 +127,18 @@ def matching_rows(rows,rules,scale):
     return matches
 
 
+def require_region_tracking(box, frame, region):
+    if box is None:
+        raise RuntimeError(f'region_tracking_lost: region {region}, frame {frame}; split the region and re-anchor it')
+    return box
+
+
 def analyze(source,rules,args,work):
     cap,width,height=capture(source);fps=cap.get(cv2.CAP_PROP_FPS)
     track_width=min(width,1280);track_height=round(height*track_width/width)
     scale=track_width/width
     frames=[];history=deque(maxlen=max(2,round(fps*max(args.bridge_seconds,1.0))))
-    tracks=[];regions={};lost_regions=set();previous=None;cuts=[];warnings=[];hits=Counter();started=time.monotonic()
+    tracks=[];regions={};previous=None;cuts=[];warnings=[];hits=Counter();started=time.monotonic()
     max_gap=max(1,round(fps*args.bridge_seconds));index=0
     # Reliable optical flow can outlive a short OCR outage. Failed flow has a shorter horizon.
     reliable_gap=max(max_gap,round(fps*args.track_seconds))
@@ -204,21 +210,16 @@ def analyze(source,rules,args,work):
                     frames[past_index].append({**item,'box':moved,'kind':'backward'})
                     box=moved;new_gray=past_gray
             # Explicit normalized regions can include avatars or never-readable text.
-            # A lost region stays fully masked until its end; never silently turn it off.
+            # A lost region requires a new anchor; do not obscure unrelated content.
             for k,region in enumerate(rules.get('regions',[])):
                 t=index/fps
                 if not region.get('start',0)<=t<region.get('end',float('inf')):
-                    regions.pop(k,None);lost_regions.discard(k);continue
+                    regions.pop(k,None);continue
                 if k not in regions:
                     x,y,w,h=region['box'];regions[k]=[x*track_width,y*track_height,w*track_width,h*track_height]
                 elif region.get('follow',False):
-                    box=None if cut or k in lost_regions else track_box(previous,gray,regions[k])
-                    if box is None:
-                        regions[k]=[0,0,track_width,track_height]
-                        if k not in lost_regions:
-                            warnings.append({'frame':index,'kind':'region_tracking_lost_full_mask','region':k})
-                        lost_regions.add(k)
-                    else:regions[k]=box
+                    box=None if cut else track_box(previous,gray,regions[k])
+                    regions[k]=require_region_tracking(box,index,k)
                 current.append({'box':regions[k].copy(),'kind':'region','label':region.get('label',f'region:{k}'),'seen':index})
             frames.append(current)
             tracks=[]
